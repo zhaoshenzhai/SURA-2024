@@ -48,11 +48,13 @@
 
     \subsection{Nested cuts and $\mc{T}$}
 
+    Throughout this subsection, let $(X,G)$ be a graph.
+
     \begin{definition}
-        A \textit{cut} in $X$ is a connected co-connected set $C\subseteq X$ with finite vertex boundary.
+        A \textit{cut} in $X$ is a subset $C\subseteq X$ contained in a single connected component $Y\subseteq X$ such that both $C$ and $Y\comp C$ are infinite but $\del_\mathsf{v}C$ is finite.
     \end{definition}
     \begin{definition}
-        A family $\mc{C}$ of cuts in $X$ is \textit{nested} if every pair $C,C'\in\mc{C}$ has an empty corner; i.e. if one of $C\cap C',\lnot C\cap C',C\cap\lnot C',\lnot C\cap\lnot C'$ is empty.
+        A family $\mc{C}$ of cuts in $X$ is \textit{nested} if every $C_1,C_2\in\mc{C}$ has an empty corner; i.e. $C_1^i\cap C_2^j=\em$ for some $i,j=\pm1$.
     \end{definition}
 
     \section{The graph $\mc{T}_\mc{C}$}
