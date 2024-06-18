@@ -9,23 +9,19 @@
 \usepackage{xcolor}                                                         % more colors
 \usepackage{enumitem}                                                       % enumerate and itemize indents
 \usepackage{nicematrix}                                                     % matrices and tables
-\usepackage{bm}                                                             % bold math
 
-% TikZ Libraries
 \usetikzlibrary{matrix, positioning, patterns, decorations.markings, arrows, arrows.meta, backgrounds, math, cd}
 
 \hypersetup{colorlinks=true, allcolors=magenta}
 \definecolor{darkGreen}{HTML}{00A000}
+\newgeometry{margin = 1in}
 
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{mainTheorem}{Theorem}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
 \theoremstyle{definition}\newtheorem{remark}[theorem]{Remark}
 \theoremstyle{definition}\newtheorem{notation}[theorem]{Notation}
-
-\newtheorem{mainTheorem}{Theorem}
 \renewcommand{\themainTheorem}{\Alph{mainTheorem}}
-
-\newgeometry{margin = 1in}
