@@ -3,7 +3,7 @@
 \input{macros.sty}
 
 \begin{document}
-    \title{Nested Collection of Cuts}
+    \title{Tree of Orientations on a Nested Collection of Cuts}
     \author{Zhaoshen Zhai}
     \maketitle
 
@@ -54,11 +54,11 @@
     \end{definition}
 
     \begin{definition}
-        A collection $\mc{C}$ is said to be \textit{nested} if every $C_1,C_2\in\mc{C}$ has an empty corner, i.e., $C_1^i\cap C_2^j=\em$ for some $i,j=\pm1$, where $C^i\coloneqq C$ if $i=1$ and $C^i\coloneqq C^c$ if $i=-1$.
+        A collection $\mc{C}$ is said to be \textit{nested} if every $C_1,C_2\in\mc{C}$ has an empty corner, i.e., $C_1^i\cap C_2^j=\em$ for some $i,j\in\l\{1,-1\r\}$, where $C^i\coloneqq C$ if $i=1$ and $C^i\coloneqq C^c$ if $i=-1$.
     \end{definition}
 
     \begin{remark}
-        If $\mc{C}$ is nested, then every $\subseteq$-minimal $B\in\mc{C}$ induces an orientation $\uparrow\!B\coloneqq\l\{A\in\mc{C}\st A\supseteq B\r\}$, called the \textit{principal} orientation. Indeed, $\uparrow\!B$ is clearly upward -closed, and if $A,A^c\in\mc{C}$, then, by $\subseteq$-minimality of $B$ and nestedness of $\mc{C}$, either $A\supseteq B$ or $A^c\supseteq B$ (but clearly not both).
+        If $\mc{C}$ is nested, then every $\subseteq$-minimal $B\in\mc{C}$ induces an orientation $\uparrow\!B\coloneqq\l\{A\in\mc{C}\st A\supseteq B\r\}$, called the \textit{principal} orientation. Indeed, $\uparrow\!B$ is clearly upward-closed, and if $A,A^c\in\mc{C}$, then, by $\subseteq$-minimality of $B$ and nestedness of $\mc{C}$, either $A\supseteq B$ or $A^c\supseteq B$ (but clearly not both).
 
         This construction generalizes to any collection $\mc{B}\subseteq\mc{C}$ with each $B\in\mc{B}$ being $\subseteq$-minimal, in that $\uparrow\!\mc{B}$ is an orientation on $\mc{C}$.
     \end{remark}
@@ -73,6 +73,10 @@
 
     \begin{definition}
         A \textit{cut} in $X$ is a subset $C\subseteq X$ contained in a single connected component $Y\subseteq X$ with $\del_\mathsf{v}C$ finite such that both $C$ and $Y\comp C$ are infinite.
+    \end{definition}
+
+    \begin{definition}
+        
     \end{definition}
 
     \section{The graph $\mc{T}_\mc{C}$}
