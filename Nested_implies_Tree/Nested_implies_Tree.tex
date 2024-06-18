@@ -3,28 +3,27 @@
 \input{macros.sty}
 
 \begin{document}
-    \title{Tree of Orientations on a Nested Collection of Cuts}
+    \title{Tree of Orientations on a Nested Collection of Sets}
     \author{Zhaoshen Zhai}
     \maketitle
 
-    \section{Introduction}
     Let $\mc{C}\subseteq2^X$ be a collection of non-empty subsets of a set $X$. With the definitions in Section \ref{prelim}, we prove the following
-    \begin{theorem}\label{main}
+    \begin{theorem*}
         If $\mc{C}$ is nested, then the graph $\mc{T}_\mc{C}$, whose:
         \begin{itemize}
             \item Vertices are finitely-based orientations on $\mc{C}$; and whose
             \item Neighbors of $\mc{U}\in V(\mc{T}_\mc{C})$ are $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$ with $A^c\in\mc{C}$;
         \end{itemize}
         is acyclic. Furthermore, if $\mc{C}$ is closed under complements, then $\mc{T}_\mc{C}$ is a tree.
-    \end{theorem}
+    \end{theorem*}
 
-    In particular, this applies to when $(X,G)$ is a graph and $\mc{C}$ is a nested collection of cuts on $X$.
-
-    \begin{remark}
-        
-    \end{remark}
+    In particular, this applies to when $(X,G)$ is a graph and $\mc{C}$ is a nested collection of cuts on $X$. No further assumptions (like local-finiteness) is needed.
 
     \section{Preliminaries}\label{prelim}
+
+    \begin{definition}
+        A collection $\mc{C}$ is said to be \textit{nested} if every $C_1,C_2\in\mc{C}$ has an empty corner, i.e., $C_1^i\cap C_2^j=\em$ for some $i,j\in\l\{1,-1\r\}$, where $C^i\coloneqq C$ if $i=1$ and $C^i\coloneqq C^c$ if $i=-1$.
+    \end{definition}
 
     \subsection{Orientations}
 
@@ -48,22 +47,20 @@
     \begin{proof}
         That $\mc{V}\coloneqq\mc{U}\symdiff\l\{A,A^c\r\}=\mc{U}\cup\l\{A^c\r\}\comp\l\{A\r\}$ is upward-closed follows from $\subseteq$-minimality of $A$. Now, if $B,B^c\in\mc{C}$ and $B^c\not\in\mc{V}$, we need to show that $B\in\mc{V}$.
 
-        To this end, note that $B^c\not\in\mc{V}$ implies $A\neq B$ and either $B=A^c$ or $B^c\not\in\mc{U}$. The former case follows from $A^c\in\mc{V}$, and for the latter, we have $B\in\mc{U}\comp\l\{A\r\}$ since $\mc{U}$ is ultra.
+        To this end, note that $B^c\not\in\mc{V}$ implies $A\neq B$ and either $B=A^c$ or $B^c\not\in\mc{U}$. The former case follows since $A^c\in\mc{V}$, and for the latter, we have $B\in\mc{U}\comp\l\{A\r\}$ since $\mc{U}$ is ultra.
     \end{proof}
 
     \begin{remark}\label{tree-no-loops}
         In the above notations, clearly $\mc{U}\neq\mc{U}\symdiff\l\{A,A^c\r\}$. Furthermore, for any other such orientation $\mc{U}'$ and $A'\in\mc{U}'$, that $\mc{U}=\mc{U}'$ and $\mc{U}\symdiff\l\{A,A^c\r\}=\mc{U}'\symdiff\l\{A',A'^c\r\}$ together imply $A=A'$.
     \end{remark}
 
+    \subsection{Finitely-based orientations}
+
     \begin{definition}
         A \textit{base} for an orientation $\mc{U}\subseteq\mc{C}$ is a $\subseteq$-minimal subset $\mc{B}\subseteq\mc{U}$ such that $\mc{U}=\,\,\uparrow\!\mc{B}$, where
         \begin{equation*}
             \uparrow\!\mc{B}\coloneqq\bigcup_{B\in\mc{B}}\uparrow\!B\coloneqq\bigcup_{B\in\mc{B}}\l\{A\in\mc{C}\st A\supseteq B\r\}.
         \end{equation*}
-    \end{definition}
-
-    \begin{definition}
-        A collection $\mc{C}$ is said to be \textit{nested} if every $C_1,C_2\in\mc{C}$ has an empty corner, i.e., $C_1^i\cap C_2^j=\em$ for some $i,j\in\l\{1,-1\r\}$, where $C^i\coloneqq C$ if $i=1$ and $C^i\coloneqq C^c$ if $i=-1$.
     \end{definition}
 
     \begin{remark}
@@ -77,7 +74,7 @@
     \end{definition}
 
     \begin{remark}\label{tree-finitely-based}
-        If $\mc{U}=\,\,\uparrow\!\l\{B_1,\dots,B_n\r\}$ is finitely-based, then for any $\subseteq$-minimal $A\in\mc{U}$ with $A^c\in\mc{C}$, so is the orientation $\mc{V}\coloneqq\mc{U}\symdiff\l\{A,A^c\r\}$. Indeed, $A=B_i$ for some $1\leq i\leq n$, and $\mc{V}=\,\,\uparrow\!(\l\{A\r\}\cup\l\{B_j\r\}_{j\neq i})$.
+        If $\mc{U}=\,\,\uparrow\!\l\{B_1,\dots,B_n\r\}$ is finitely-based, then for any $\subseteq$-minimal $A\in\mc{U}$ with $A^c\in\mc{C}$, so is the orientation $\mc{V}\coloneqq\mc{U}\symdiff\l\{A,A^c\r\}$. Indeed, we have $A=B_i$ for some $1\leq i\leq n$, and $\mc{V}=\,\,\uparrow\!(\l\{A\r\}\cup\l\{B_j\r\}_{j\neq i})$.
     \end{remark}
 
     \section{The graph $\mc{T}_\mc{C}$}
@@ -88,22 +85,18 @@
         \item \textit{Neighbors} of $\mc{U}\in V(\mc{T}_\mc{C})$ are $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$ with $A^c\in\mc{C}$.
     \end{itemize}
 
-    The goal of this section is to establish Theorem \ref{main}, stating that $\mc{T}_\mc{C}$ is acyclic (Proposition \ref{acyclic}), and furthermore, $\mc{T}_\mc{C}$ is a tree when $\mc{C}$ is closed under complements (Proposition \ref{tree}).
-
-    \subsection{Paths in $\mc{T}_\mc{C}$}
-
-    To show that $\mc{T}_\mc{C}$ is acyclic, we characterize backtracking paths in $\mc{T}_\mc{C}$ as follows.
+    The goal of this section is to establish the main theorem, stating that $\mc{T}_\mc{C}$ is acyclic (Proposition \ref{acyclic}), and furthermore, $\mc{T}_\mc{C}$ is a tree when $\mc{C}$ is closed under complements (Proposition \ref{tree}).
 
     \begin{definition}
-        Fix $\mc{U}_0\in V(\mc{T}_\mc{C})$ and $n\in\N$. A sequence $(A_i)_{i<n}\subseteq\mc{C}$ is said to \textit{represent a path from $\mc{U}_0$} if $(\mc{U}_i)_{i<n}$, defined by $\mc{U}_i\coloneqq\mc{U}_{i-1}\symdiff\l\{A_{i-1}\r\}$ for every $1\leq i<n$, is a path in $\mc{T}_\mc{C}$ with each $A_i\in\mc{U}_i$.
+        Fix $\mc{U}_0\in V(\mc{T}_\mc{C})$ and $n\in\N$. A sequence $(A_i)_{i<n}\subseteq\mc{C}$ is said to \textit{induce a path from $\mc{U}_0$} if $(\mc{U}_i)_{i<n}$, defined by $\mc{U}_i\coloneqq\mc{U}_{i-1}\symdiff\l\{A_{i-1},A_{i-1}^c\r\}$ for every $1\leq i<n$, is a path in $\mc{T}_\mc{C}$ with each $A_i\in\mc{U}_i$.
     \end{definition}
 
     \begin{remark}
-        Any path in $\mc{T}_\mc{C}$ is represented by its sequence of flipped basis elements.
+        Any path in $\mc{T}_\mc{C}$ is induced by its sequence of flipped basis elements.
     \end{remark}
 
     \begin{lemma}\label{no-backtrack}
-        Let $n\geq3$. A path in $\mc{T}_\mc{C}$ from $\mc{U}_0$ represented by $(A_i)_{i<n}$ has no backtracking iff $A_i\neq A_{i-1}^c$ for every $1\leq i<n$.
+        Let $n\geq3$. A path in $\mc{T}_\mc{C}$ from $\mc{U}_0$ induced by $(A_i)_{i<n}$ has no backtracking iff $A_i\neq A_{i-1}^c$ for every $1\leq i<n$.
     \end{lemma}
     \begin{proof}
         Take $2\leq i\leq n$. It suffices to show that $\mc{U}_{i-2}=\mc{U}_i$ iff $A_{i-1}=A_{i-2}^c$.
@@ -114,10 +107,10 @@
     \end{proof}
 
     \begin{lemma}\label{strictly-inc}
-        If $(A_i)_{i<n}$ represents a path in $\mc{T}_\mc{C}$ with no backtracking, then $(A_i)_{i<n}$ is strictly increasing.
+        If $(A_i)_{i<n}$ induces a path in $\mc{T}_\mc{C}$ with no backtracking, then $(A_i)_{i<n}$ is strictly increasing.
     \end{lemma}
     \begin{proof}
-        By Lemma \ref{no-backtrack}, we have $A_i\neq A_{i-1}^c$ for every $1\leq i<n$. Thus, since $A_i\in\mc{U}_i=\mc{U}_{i-1}\cup\l\{A_{i-1}^c\r\}\comp\l\{A_{i-1}\r\}$, we see that $A_i\in\mc{U}_{i-1}$. Clearly $A_i\neq A_{i-1}$. It suffices to remove the three cases when $A_i\subseteq A_{i-1}$, $A_{i-1}\subseteq A_i^c$, and $A_i^c\subseteq A_{i-1}$, since then nestedness of $\mc{C}$ gives us $A_{i-1}\subset A_i$, as desired.
+        By Lemma \ref{no-backtrack}, we have $A_i\neq A_{i-1}^c$ for every $1\leq i<n$. Thus, since $A_i\in\mc{U}_i=\mc{U}_{i-1}\cup\l\{A_{i-1}^c\r\}\comp\l\{A_{i-1}\r\}$, we see that $A_i\in\mc{U}_{i-1}$. Clearly $A_i\neq A_{i-1}$. It suffices to remove the three cases when $A_i\subseteq A_{i-1}$, $A_{i-1}\subseteq A_i^c$, and $A_i^c\subseteq A_{i-1}$, since then nestedness of $\mc{C}$ gives us $A_{i-1}\subsetneq A_i$, as desired.
         \begin{itemize}
             \item If $A_i\subseteq A_{i-1}$, then $A_{i-1}\in\mc{U}_i$, contradicting the definition of $\mc{U}_i$.
             \item If $A_{i-1}\subseteq A_i^c$, then $A_i^c\in\mc{U}_{i-1}$ by upward-closure of $\mc{U}_{i-1}$, a contradiction.
@@ -129,13 +122,13 @@
         $\mc{T}_\mc{C}$ is acyclic.
     \end{proposition}
     \begin{proof}
-        Let $(\mc{U}_i)_{i<n}$ be a cycle in $\mc{T}_\mc{C}$, say represented by $(A_i)_{i<n}$. Since cycles are non-backtracking, we have $A_0\subsetneq A_0$ by Lemma \ref{strictly-inc}, a contradiction.
+        Let $(\mc{U}_i)_{i<n}$ be a cycle in $\mc{T}_\mc{C}$ induced by $(A_i)_{i<n}$. Since cycles are non-backtracking, we have $A_0\subsetneq A_0$ by Lemma \ref{strictly-inc}, a contradiction.
     \end{proof}
 
     \begin{proposition}\label{tree}
         If $\mc{C}$ is closed under complements, then $\mc{T}_\mc{C}$ is connected (and hence a tree).
     \end{proposition}
     \begin{proof}
-        If $\mc{U},\mc{U}'\in V(\mc{T}_\mc{C})$ are two finitely-based orientations on $\mc{C}$, then swapping their basis elements one by one as in Remark \ref{tree-finitely-based} gives us a path between $\mc{U}$ and $\mc{U}'$; the closure of $\mc{C}$ is needed to ensure that those basis elements represent a path between those vertices.
+        If $\mc{U},\mc{U}'\in V(\mc{T}_\mc{C})$ are two finitely-based orientations on $\mc{C}$, then swapping their basis elements one by one as in Remark \ref{tree-finitely-based} gives us a path between $\mc{U}$ and $\mc{U}'$; the closure of $\mc{C}$ is needed to ensure that those basis elements induce a path between the vertices, in that their complement lies in $\mc{C}$.
     \end{proof}
 \end{document}
