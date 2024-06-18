@@ -8,14 +8,14 @@
     \maketitle
 
     Let $\mc{C}\subseteq2^X$ be a collection of non-empty subsets of a set $X$. With the definitions in Section \ref{prelim}, we prove the following
-    \begin{theorem*}
+    \begin{mainTheorem}[Proposition \ref{acyclic}, \ref{tree}]\label{main}
         If $\mc{C}$ is nested, then the graph $\mc{T}_\mc{C}$, whose:
         \begin{itemize}
             \item Vertices are finitely-based orientations on $\mc{C}$; and whose
             \item Neighbors of $\mc{U}\in V(\mc{T}_\mc{C})$ are $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$ with $A^c\in\mc{C}$;
         \end{itemize}
         is acyclic. Furthermore, if $\mc{C}$ is closed under complements, then $\mc{T}_\mc{C}$ is a tree.
-    \end{theorem*}
+    \end{mainTheorem}
 
     In particular, this applies to when $(X,G)$ is a graph and $\mc{C}$ is a nested collection of cuts on $X$. No further assumptions (like local-finiteness) is needed.
 
@@ -85,7 +85,7 @@
         \item \textit{Neighbors} of $\mc{U}\in V(\mc{T}_\mc{C})$ are $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$ with $A^c\in\mc{C}$.
     \end{itemize}
 
-    The goal of this section is to establish the main theorem, stating that $\mc{T}_\mc{C}$ is acyclic (Proposition \ref{acyclic}), and furthermore, $\mc{T}_\mc{C}$ is a tree when $\mc{C}$ is closed under complements (Proposition \ref{tree}).
+    The goal of this section is to establish Theorem \ref{main}, stating that $\mc{T}_\mc{C}$ is acyclic (Proposition \ref{acyclic}), and furthermore, $\mc{T}_\mc{C}$ is a tree when $\mc{C}$ is closed under complements (Proposition \ref{tree}).
 
     \begin{definition}
         Fix $\mc{U}_0\in V(\mc{T}_\mc{C})$ and $n\in\N$. A sequence $(A_i)_{i<n}\subseteq\mc{C}$ is said to \textit{induce a path from $\mc{U}_0$} if $(\mc{U}_i)_{i<n}$, defined by $\mc{U}_i\coloneqq\mc{U}_{i-1}\symdiff\l\{A_{i-1},A_{i-1}^c\r\}$ for every $1\leq i<n$, is a path in $\mc{T}_\mc{C}$ with each $A_i\in\mc{U}_i$.
