@@ -33,6 +33,19 @@
         \end{enumerate}
     \end{definition}
 
+    \begin{lemma}\label{tree-well-define}
+        If $\mc{U}\subseteq\mc{C}$ is an orientation, then for any $\subseteq$-minimal $A\in\mc{U}$ with $A^c\in\mc{C}$, so is $\mc{U}\symdiff\l\{A,A^c\r\}$.
+    \end{lemma}
+    \begin{proof}
+        That $\mc{V}\coloneqq\mc{U}\symdiff\l\{A,A^c\r\}=\mc{U}\cup\l\{A^c\r\}\comp\l\{A\r\}$ is upward-closed follows from $\subseteq$-minimality of $A$. Now, if $B,B^c\in\mc{C}$ and $B^c\not\in\mc{V}$, we need to show that $B\in\mc{V}$.
+
+        To this end, note that $B^c\not\in\mc{V}$ implies $A\neq B$ and either $B=A^c$ or $B^c\not\in\mc{U}$. The former case follows from $A^c\in\mc{V}$, and for the latter, we have $B\in\mc{U}\comp\l\{A\r\}$ since $\mc{U}$ is ultra.
+    \end{proof}
+
+    \begin{remark}\label{tree-no-loops}
+        In the above notations, clearly $\mc{U}\neq\mc{U}\symdiff\l\{A,A^c\r\}$. Furthermore, for any other such orientation $\mc{U}'$ and $A'\in\mc{U}'$, that $\mc{U}=\mc{U}'$ and $\mc{U}\symdiff\l\{A,A^c\r\}=\mc{U}'\symdiff\l\{A',A'^c\r\}$ together imply $A=A'$.
+    \end{remark}
+
     \begin{definition}
         A \textit{base} for an orientation $\mc{U}\subseteq\mc{C}$ is a $\subseteq$-minimal subset $\mc{B}\subseteq\mc{U}$ such that $\mc{U}=\,\,\uparrow\!\mc{B}$, where
         \begin{equation*}
@@ -54,21 +67,12 @@
         An orientation $\mc{U}\subseteq\mc{C}$ is said to be \textit{finitely-based} if it admits a finite base.
     \end{definition}
 
-    \begin{lemma}
-        If $\mc{U}\subseteq\mc{C}$ is an orientation, then for any $\subseteq$-minimal $A\in\mc{U}$ with $A^c\in\mc{C}$, so is $\mc{U}\symdiff\l\{A,A^c\r\}$.
-    \end{lemma}
-    \begin{proof}
-        That $\mc{V}\coloneqq\mc{U}\symdiff\l\{A,A^c\r\}=\mc{U}\cup\l\{A^c\r\}\comp\l\{A\r\}$ is upward-closed follows from $\subseteq$-minimality of $A$. Now, if $B,B^c\in\mc{C}$ and $B^c\not\in\mc{V}$, we need to show that $B\in\mc{V}$.
-
-        To this end, note that $B^c\not\in\mc{V}$ implies $A\neq B$ and either $B=A^c$ or $B^c\not\in\mc{U}$. The former case follows from $A^c\in\mc{V}$, and for the latter, we have $B\in\mc{U}\comp\l\{A\r\}$ since $\mc{U}$ is ultra.
-    \end{proof}
-
     \subsection{Cuts in graphs}
 
     Let $(X,G)$ be a graph.
 
     \begin{definition}
-        A \textit{cut} in $X$ is a subset $C\subseteq X$ contained in a single connected component $Y\subseteq X$ such that both $C$ and $Y\comp C$ are infinite but $\del_\mathsf{v}C$ is finite.
+        A \textit{cut} in $X$ is a subset $C\subseteq X$ contained in a single connected component $Y\subseteq X$ with $\del_\mathsf{v}C$ finite such that both $C$ and $Y\comp C$ are infinite.
     \end{definition}
 
     \section{The graph $\mc{T}_\mc{C}$}
