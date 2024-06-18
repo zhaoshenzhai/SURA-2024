@@ -15,10 +15,14 @@
             \item Vertices are finitely-based orientations on $\mc{C}$; and whose
             \item Neighbors of $\mc{U}\in V(\mc{T}_\mc{C})$ are $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$ with $A^c\in\mc{C}$;
         \end{itemize}
-        is acyclic. Furthermore, $\mc{T}_\mc{C}$ is a tree iff $\mc{C}$ is closed under complements.
+        is acyclic. Furthermore, if $\mc{C}$ is closed under complements, then $\mc{T}_\mc{C}$ is a tree.
     \end{theorem}
 
     In particular, this applies to when $(X,G)$ is a graph and $\mc{C}$ is a nested collection of cuts on $X$.
+
+    \begin{remark}
+        
+    \end{remark}
 
     \section{Preliminaries}\label{prelim}
 
@@ -84,14 +88,14 @@
         \item \textit{Neighbors} of $\mc{U}\in V(\mc{T}_\mc{C})$ are $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$ with $A^c\in\mc{C}$.
     \end{itemize}
 
-    The goal of this section is to establish Theorem \ref{main}, stating that $\mc{T}_\mc{C}$ is acyclic (Proposition \ref{acyclic}), and furthermore, $\mc{T}_\mc{C}$ is a tree precisely when $\mc{C}$ is closed under complements (Proposition \ref{tree}).
+    The goal of this section is to establish Theorem \ref{main}, stating that $\mc{T}_\mc{C}$ is acyclic (Proposition \ref{acyclic}), and furthermore, $\mc{T}_\mc{C}$ is a tree when $\mc{C}$ is closed under complements (Proposition \ref{tree}).
 
     \subsection{Paths in $\mc{T}_\mc{C}$}
 
     To show that $\mc{T}_\mc{C}$ is acyclic, we characterize backtracking paths in $\mc{T}_\mc{C}$ as follows.
 
     \begin{definition}
-        Fix $\mc{U}_0\in V(\mc{T}_\mc{C})$ and $\alpha\leq\omega$. A sequence $(A_n)_{n<\alpha}\subseteq\mc{C}$ is said to \textit{represent a path from $\mc{U}_0$} if $(\mc{U}_n)_{n\leq\alpha}$, defined by $\mc{U}_n\coloneqq\mc{U}_{n-1}\symdiff\l\{A_{n-1}\r\}$ for every $1\leq n\leq\alpha$, is a path in $\mc{T}_\mc{C}$ with each $A_n\in\mc{U}_n$.
+        Fix $\mc{U}_0\in V(\mc{T}_\mc{C})$ and $n\in\N$. A sequence $(A_i)_{i<n}\subseteq\mc{C}$ is said to \textit{represent a path from $\mc{U}_0$} if $(\mc{U}_i)_{i<n}$, defined by $\mc{U}_i\coloneqq\mc{U}_{i-1}\symdiff\l\{A_{i-1}\r\}$ for every $1\leq i<n$, is a path in $\mc{T}_\mc{C}$ with each $A_i\in\mc{U}_i$.
     \end{definition}
 
     \begin{remark}
@@ -99,25 +103,25 @@
     \end{remark}
 
     \begin{lemma}\label{no-backtrack}
-        Let $\alpha\geq3$. A path in $\mc{T}_\mc{C}$ from $\mc{U}_0$ represented by $(A_n)_{n\leq\alpha}$ has no backtracking iff $A_n\neq A_{n-1}^c$ for every $1\leq n<\alpha$.
+        Let $n\geq3$. A path in $\mc{T}_\mc{C}$ from $\mc{U}_0$ represented by $(A_i)_{i<n}$ has no backtracking iff $A_i\neq A_{i-1}^c$ for every $1\leq i<n$.
     \end{lemma}
     \begin{proof}
-        Take $2\leq n\leq\alpha$. It suffices to show that $\mc{U}_{n-2}=\mc{U}_n$ iff $A_{n-1}=A_{n-2}^c$.
+        Take $2\leq i\leq n$. It suffices to show that $\mc{U}_{i-2}=\mc{U}_i$ iff $A_{i-1}=A_{i-2}^c$.
         \begin{itemize}
-            \item[($\Rightarrow$).] We have by definition that $\mc{U}_n=\mc{U}_{n-2}\cup\l\{A_{n-1}^c,A_{n-2}^c\r\}\comp\l\{A_{n-1},A_{n-2}\r\}$, so since $A_{n-2}\in\mc{U}_{n-2}=\mc{U}_n$, we have $A_{n-2}=A_{n-1}^c$ as desired.
+            \item[($\Rightarrow$).] We have by definition that $\mc{U}_i=\mc{U}_{i-2}\cup\l\{A_{i-1}^c,A_{i-2}^c\r\}\comp\l\{A_{i-1},A_{i-2}\r\}$, so since $A_{i-2}\in\mc{U}_{i-2}=\mc{U}_i$, we have $A_{i-2}=A_{i-1}^c$ as desired.
             \item[($\Leftarrow$).] Again by definition, by noting that the basis-flipping cancels out.\qed
         \end{itemize}
     \end{proof}
 
     \begin{lemma}\label{strictly-inc}
-        If $(A_n)_{n<\alpha}$ represents a path in $\mc{T}_\mc{C}$ with no backtracking, then $(A_n)_{n<\alpha}$ is strictly increasing.
+        If $(A_i)_{i<n}$ represents a path in $\mc{T}_\mc{C}$ with no backtracking, then $(A_i)_{i<n}$ is strictly increasing.
     \end{lemma}
     \begin{proof}
-        By Lemma \ref{no-backtrack}, we have $A_n\neq A_{n-1}^c$ for every $1\leq n<\alpha$. Thus, since $A_n\in\mc{U}_n=\mc{U}_{n-1}\cup\l\{A_{n-1}^c\r\}\comp\l\{A_{n-1}\r\}$, we see that $A_n\in\mc{U}_{n-1}$. Clearly $A_n\neq A_{n-1}$. It suffices to remove the three cases when $A_n\subseteq A_{n-1}$, $A_{n-1}\subseteq A_n^c$, and $A_n^c\subseteq A_{n-1}$, since then nestedness of $\mc{C}$ gives us $A_{n-1}\subset A_n$, as desired.
+        By Lemma \ref{no-backtrack}, we have $A_i\neq A_{i-1}^c$ for every $1\leq i<n$. Thus, since $A_i\in\mc{U}_i=\mc{U}_{i-1}\cup\l\{A_{i-1}^c\r\}\comp\l\{A_{i-1}\r\}$, we see that $A_i\in\mc{U}_{i-1}$. Clearly $A_i\neq A_{i-1}$. It suffices to remove the three cases when $A_i\subseteq A_{i-1}$, $A_{i-1}\subseteq A_i^c$, and $A_i^c\subseteq A_{i-1}$, since then nestedness of $\mc{C}$ gives us $A_{i-1}\subset A_i$, as desired.
         \begin{itemize}
-            \item If $A_n\subseteq A_{n-1}$, then $A_{n-1}\in\mc{U}_n$, contradicting the definition of $\mc{U}_n$.
-            \item If $A_{n-1}\subseteq A_n^c$, then $A_n^c\in\mc{U}_{n-1}$ by upward-closure of $\mc{U}_{n-1}$, a contradiction.
-            \item If $A_n^c\subseteq A_{n-1}$, then $A_{n-1}\in\mc{U}_{n+1}$ by upward-closure of $\mc{U}_{n+1}\ni A_n^c$. But since $A_{n-1}\neq A_n^c$, we have by definition of $\mc{U}_{n+1}$ that $A_{n-1}\in\mc{U}_n$, a contradiction.\qed
+            \item If $A_i\subseteq A_{i-1}$, then $A_{i-1}\in\mc{U}_i$, contradicting the definition of $\mc{U}_i$.
+            \item If $A_{i-1}\subseteq A_i^c$, then $A_i^c\in\mc{U}_{i-1}$ by upward-closure of $\mc{U}_{i-1}$, a contradiction.
+            \item If $A_i^c\subseteq A_{i-1}$, then $A_{i-1}\in\mc{U}_{i+1}$ by upward-closure of $\mc{U}_{i+1}\ni A_i^c$. But since $A_{i-1}\neq A_i^c$, we have by definition of $\mc{U}_{i+1}$ that $A_{i-1}\in\mc{U}_i$, a contradiction.\qed
         \end{itemize}
     \end{proof}
 
@@ -125,7 +129,7 @@
         $\mc{T}_\mc{C}$ is acyclic.
     \end{proposition}
     \begin{proof}
-        Let $(\mc{U}_i)_{i\leq n}$ be a cycle in $\mc{T}_\mc{C}$, say represented by $(A_i)_{i\leq n}$. Then $A_0=A_n$, a contradiction since $(A_i)_{i\leq n}$ is strictly-increasing by Lemma \ref{strictly-inc}.
+        Let $(\mc{U}_i)_{i<n}$ be a cycle in $\mc{T}_\mc{C}$, say represented by $(A_i)_{i<n}$. Since cycles are non-backtracking, we have $A_0\subsetneq A_0$ by Lemma \ref{strictly-inc}, a contradiction.
     \end{proof}
 
     \begin{proposition}\label{tree}
