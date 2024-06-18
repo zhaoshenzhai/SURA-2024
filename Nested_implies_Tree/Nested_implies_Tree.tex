@@ -5,10 +5,11 @@
 \begin{document}
     \title{Tree of Orientations on a Nested Collection of Sets}
     \author{Zhaoshen Zhai}
+    \date{\today}
     \maketitle
 
     Let $\mc{C}\subseteq2^X$ be a collection of non-empty subsets of a set $X$. With the definitions in Section \ref{prelim}, we prove the following
-    \begin{mainTheorem}[Proposition \ref{acyclic}, \ref{tree}]\label{main}
+    \begin{mainTheorem}[Propositions \ref{acyclic}, \ref{tree}]\label{main}
         If $\mc{C}$ is nested, then the graph $\mc{T}_\mc{C}$, whose:
         \begin{itemize}
             \item Vertices are finitely-based orientations on $\mc{C}$; and whose
@@ -64,9 +65,9 @@
     \end{definition}
 
     \begin{remark}
-        If $\mc{C}$ is nested, then every $\subseteq$-minimal $B\in\mc{C}$ induces an orientation $\uparrow\!B\coloneqq\l\{A\in\mc{C}\st A\supseteq B\r\}$, called the \textit{principal} orientation. Indeed, $\uparrow\!B$ is clearly upward-closed, and if $A,A^c\in\mc{C}$, then, by $\subseteq$-minimality of $B$ and nestedness of $\mc{C}$, either $A\supseteq B$ or $A^c\supseteq B$ (but clearly not both).
+        If $\mc{C}$ is nested, then every $\subseteq$-minimal $B\in\mc{C}$ induces an orientation $\uparrow\!B\coloneqq\l\{A\in\mc{C}\st A\supseteq B\r\}$, called a \textit{principal} orientation. Indeed, $\uparrow\!B$ is clearly upward-closed, and if $A,A^c\in\mc{C}$, then, by $\subseteq$-minimality of $B$ and nestedness of $\mc{C}$, either $A\supseteq B$ or $A^c\supseteq B$ (but clearly not both).
 
-        This construction generalizes to any collection $\mc{B}\subseteq\mc{C}$ with each $B\in\mc{B}$ being $\subseteq$-minimal, in that $\uparrow\!\mc{B}$ is an orientation on $\mc{C}$.
+        This construction generalizes to any collection $\mc{B}\subseteq\mc{C}$ with each $B\in\mc{B}$ being $\subseteq$-minimal in $\mc{C}$, so that $\uparrow\!\mc{B}$ is an orientation on $\mc{C}$.
     \end{remark}
 
     \begin{definition}
@@ -74,7 +75,7 @@
     \end{definition}
 
     \begin{remark}\label{tree-finitely-based}
-        If $\mc{U}=\,\,\uparrow\!\l\{B_1,\dots,B_n\r\}$ is finitely-based, then for any $\subseteq$-minimal $A\in\mc{U}$ with $A^c\in\mc{C}$, so is the orientation $\mc{V}\coloneqq\mc{U}\symdiff\l\{A,A^c\r\}$. Indeed, we have $A=B_i$ for some $1\leq i\leq n$, and $\mc{V}=\,\,\uparrow\!(\l\{A\r\}\cup\l\{B_j\r\}_{j\neq i})$.
+        If $\mc{U}=\,\,\uparrow\!\l\{B_1,\dots,B_n\r\}$ is finitely-based, then for any $\subseteq$-minimal $A\in\mc{U}$ with $A^c\in\mc{C}$, so is the orientation $\mc{V}\coloneqq\mc{U}\symdiff\l\{A,A^c\r\}$. {\color{red}{Indeed, we have $A=B_i$ for some $1\leq i\leq n$, and $\mc{V}=\,\,\uparrow\!(\l\{A^c\r\}\cup\l\{B_j\r\}_{j\neq i})$.}}
     \end{remark}
 
     \section{The graph $\mc{T}_\mc{C}$}
@@ -126,9 +127,18 @@
     \end{proof}
 
     \begin{proposition}\label{tree}
-        If $\mc{C}$ is closed under complements, then $\mc{T}_\mc{C}$ is connected (and hence a tree).
+        If $\mc{C}$ is chain-vanishing, then $\mc{T}_\mc{C}$ is connected (and hence a tree).
     \end{proposition}
     \begin{proof}
-        If $\mc{U},\mc{U}'\in V(\mc{T}_\mc{C})$ are two finitely-based orientations on $\mc{C}$, then swapping their basis elements one by one as in Remark \ref{tree-finitely-based} gives us a path between $\mc{U}$ and $\mc{U}'$; the closure of $\mc{C}$ is needed to ensure that those basis elements induce a path between the vertices, in that their complement lies in $\mc{C}$.
+        
     \end{proof}
+
+    {\color{red}{
+        \begin{proposition}%\label{tree}
+            If $\mc{C}$ is closed under complements, then $\mc{T}_\mc{C}$ is connected (and hence a tree).
+        \end{proposition}
+        \begin{proof}
+            If $\mc{U},\mc{U}'\in V(\mc{T}_\mc{C})$ are two finitely-based orientations on $\mc{C}$, then swapping their basis elements one by one as in Remark \ref{tree-finitely-based} gives us a path between $\mc{U}$ and $\mc{U}'$; the closure of $\mc{C}$ is needed to ensure that those basis elements induce a path between the vertices, in that their complement lies in $\mc{C}$.
+        \end{proof}
+    }}
 \end{document}
