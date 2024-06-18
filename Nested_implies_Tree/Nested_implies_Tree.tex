@@ -47,12 +47,21 @@
     \begin{remark}
         If $\mc{C}$ is nested, then every $\subseteq$-minimal $B\in\mc{C}$ induces an orientation $\uparrow\!B\coloneqq\l\{A\in\mc{C}\st A\supseteq B\r\}$, called the \textit{principal} orientation. Indeed, $\uparrow\!B$ is clearly upward -closed, and if $A,A^c\in\mc{C}$, then, by $\subseteq$-minimality of $B$ and nestedness of $\mc{C}$, either $A\supseteq B$ or $A^c\supseteq B$ (but clearly not both).
 
-        This construction generalizes to any collection $\mc{B}\subseteq\mc{C}$, in that $\uparrow\!\mc{B}$ is always an orientation on $\mc{C}$.
+        This construction generalizes to any collection $\mc{B}\subseteq\mc{C}$ with each $B\in\mc{B}$ being $\subseteq$-minimal, in that $\uparrow\!\mc{B}$ is an orientation on $\mc{C}$.
     \end{remark}
 
     \begin{definition}
         An orientation $\mc{U}\subseteq\mc{C}$ is said to be \textit{finitely-based} if it admits a finite base.
     \end{definition}
+
+    \begin{lemma}
+        If $\mc{U}\subseteq\mc{C}$ is an orientation, then for any $\subseteq$-minimal $A\in\mc{U}$ with $A^c\in\mc{C}$, so is $\mc{U}\symdiff\l\{A,A^c\r\}$.
+    \end{lemma}
+    \begin{proof}
+        That $\mc{V}\coloneqq\mc{U}\symdiff\l\{A,A^c\r\}=\mc{U}\cup\l\{A^c\r\}\comp\l\{A\r\}$ is upward-closed follows from $\subseteq$-minimality of $A$. Now, if $B,B^c\in\mc{C}$ and $B^c\not\in\mc{V}$, we need to show that $B\in\mc{V}$.
+
+        To this end, note that $B^c\not\in\mc{V}$ implies $A\neq B$ and either $B=A^c$ or $B^c\not\in\mc{U}$. The former case follows from $A^c\in\mc{V}$, and for the latter, we have $B\in\mc{U}\comp\l\{A\r\}$ since $\mc{U}$ is ultra.
+    \end{proof}
 
     \subsection{Cuts in graphs}
 
