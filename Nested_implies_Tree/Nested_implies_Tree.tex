@@ -8,22 +8,23 @@
     \maketitle
 
     \section{Introduction}
-
-    With the definitions in Section \ref{prelim}, we prove the following
-    \begin{theorem}
-        If $(X,G)$ is a graph with a nested collection $\mc{C}\subseteq2^X$ of cuts, then the graph $\mc{T}_\mc{C}$ whose:
+    Let $\mc{C}\subseteq2^X$ be a collection of non-empty subsets of a set $X$. With the definitions in Section \ref{prelim}, we prove the following
+    \begin{theorem}\label{main}
+        If $\mc{C}$ is nested, then the graph $\mc{T}_\mc{C}$, whose:
         \begin{itemize}
             \item Vertices are finitely-based orientations on $\mc{C}$; and whose
-            \item Neighbors of $\mc{U}\in\mc{T}_\mc{C}$ are $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$;
+            \item Neighbors of $\mc{U}\in V(\mc{T}_\mc{C})$ are $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$ with $A^c\in\mc{C}$;
         \end{itemize}
-        is acyclic. Furthermore, if $\mc{C}$ is closed under complements, then $\mc{T}_\mc{C}$ is a tree.
+        is acyclic. Furthermore, $\mc{T}_\mc{C}$ is a tree iff $\mc{C}$ is closed under complements.
     \end{theorem}
+
+    In particular, this applies to when $(X,G)$ is a graph and $\mc{C}$ is a nested collection of cuts on $X$.
 
     \section{Preliminaries}\label{prelim}
 
     \subsection{Orientations}
 
-    Let $\mc{C}\subseteq2^X$ be a collection of non-empty subsets of a set $X$. Since we do not assume that $\mc{C}$ is closed under complements, we slightly modify the definition of orientations, as follows.
+    Since we do not assume that $\mc{C}$ is closed under complements, we slightly modify the definition of orientations, as follows.
 
     \begin{definition}
         An \textit{orientation} on $\mc{C}$ is a subset $\mc{U}\subseteq\mc{C}$ such that
@@ -33,7 +34,11 @@
         \end{enumerate}
     \end{definition}
 
-    \begin{lemma}\label{tree-well-define}
+    \begin{remark}
+        This coincides with the standard definition when $\mc{C}$ is a subpocset of $2^X$.
+    \end{remark}
+
+    \begin{lemma}\label{tree-well-defined}
         If $\mc{U}\subseteq\mc{C}$ is an orientation, then for any $\subseteq$-minimal $A\in\mc{U}$ with $A^c\in\mc{C}$, so is $\mc{U}\symdiff\l\{A,A^c\r\}$.
     \end{lemma}
     \begin{proof}
@@ -67,17 +72,53 @@
         An orientation $\mc{U}\subseteq\mc{C}$ is said to be \textit{finitely-based} if it admits a finite base.
     \end{definition}
 
-    \subsection{Cuts in graphs}
-
-    Let $(X,G)$ be a graph.
-
-    \begin{definition}
-        A \textit{cut} in $X$ is a subset $C\subseteq X$ contained in a single connected component $Y\subseteq X$ with $\del_\mathsf{v}C$ finite such that both $C$ and $Y\comp C$ are infinite.
-    \end{definition}
-
-    \begin{definition}
-        
-    \end{definition}
+    \begin{remark}\label{tree-finitely-based}
+        If $\mc{U}=\,\,\uparrow\!\l\{B_1,\dots,B_n\r\}$ is finitely-based, then for any $\subseteq$-minimal $A\in\mc{U}$ with $A^c\in\mc{C}$, so is the orientation $\mc{V}\coloneqq\mc{U}\symdiff\l\{A,A^c\r\}$. Indeed, $A=B_i$ for some $1\leq i\leq n$, and $\mc{V}=\,\,\uparrow\!(\l\{A\r\}\cup\l\{B_j\r\}_{j\neq i})$.
+    \end{remark}
 
     \section{The graph $\mc{T}_\mc{C}$}
+
+    Fix a nested collection of non-empty subsets of a set $X$. Using Lemma \ref{tree-well-defined} and Remarks \ref{tree-no-loops} and \ref{tree-finitely-based}, we construct a graph $\mc{T}_\mc{C}$ whose:
+    \begin{itemize}
+        \item \textit{Vertices} of $\mc{T}_\mc{C}$ are finitely-based orientations on $\mc{C}$.
+        \item \textit{Neighbors} of $\mc{U}\in V(\mc{T}_\mc{C})$ are the finitely-based orientations $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$.
+    \end{itemize}
+
+    The goal of this section is to establish Theorem \ref{main}, stating that $\mc{T}_\mc{C}$ is acyclic (Proposition \ref{acyclic}), and furthermore, $\mc{T}_\mc{C}$ is a tree precisely when $\mc{C}$ is closed under complements (Proposition \ref{tree}).
+
+    \subsection{Paths in $\mc{T}_\mc{C}$}
+
+    To show that $\mc{T}_\mc{C}$ is acyclic, we characterize backtracking paths in $\mc{T}_\mc{C}$ as follows.
+
+    \begin{definition}
+        Fix $\mc{U}_0\in V(\mc{T}_\mc{C})$ and $\alpha\leq\omega$. A sequence $(A_n)_{n<\alpha}$ is said to \textit{represent a path from $\mc{U}_0$} if $(\mc{U}_n)_{n\leq\alpha}$, defined by $\mc{U}_n\coloneqq\mc{U}_{n-1}\symdiff\l\{A_{n-1}\r\}$ for every $1\leq n\leq\alpha$, is a path in $\mc{T}_\mc{C}$.
+    \end{definition}
+
+    \begin{remark}
+        Any path in $\mc{T}_\mc{C}$ is represented by its sequence of flipped basis elements.
+    \end{remark}
+
+    \begin{lemma}
+        Let $\alpha\geq3$. A path in $\mc{T}_\mc{C}$ from $\mc{U}_0$ represented by $(A_n)_{n\leq\alpha}$ has no backtracking iff $A_n\neq A_{n-1}^c$ for every $1\leq n\leq\alpha$.
+    \end{lemma}
+    \begin{proof}
+        Take $2\leq n\leq\alpha$. It suffices to show that $\mc{U}_{n-2}=\mc{U}_n$ iff $A_{n-1}=A_{n-2}^c$.
+        \begin{itemize}
+            \item ($\Rightarrow$). We have by definition that $\mc{U}_n=\mc{U}_{n-2}\cup\l\{A_{n-1}^c,A_{n-2}^c\r\}\comp\l\{A_{n-1},A_{n-2}\r\}$
+        \end{itemize}
+    \end{proof}
+
+    \begin{proposition}\label{acyclic}
+        
+    \end{proposition}
+    \begin{proof}
+        
+    \end{proof}
+    
+    \begin{proposition}\label{tree}
+        
+    \end{proposition}
+    \begin{proof}
+        
+    \end{proof}
 \end{document}
