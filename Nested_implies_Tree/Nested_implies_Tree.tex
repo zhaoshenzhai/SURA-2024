@@ -91,30 +91,43 @@
     To show that $\mc{T}_\mc{C}$ is acyclic, we characterize backtracking paths in $\mc{T}_\mc{C}$ as follows.
 
     \begin{definition}
-        Fix $\mc{U}_0\in V(\mc{T}_\mc{C})$ and $\alpha\leq\omega$. A sequence $(A_n)_{n<\alpha}$ is said to \textit{represent a path from $\mc{U}_0$} if $(\mc{U}_n)_{n\leq\alpha}$, defined by $\mc{U}_n\coloneqq\mc{U}_{n-1}\symdiff\l\{A_{n-1}\r\}$ for every $1\leq n\leq\alpha$, is a path in $\mc{T}_\mc{C}$.
+        Fix $\mc{U}_0\in V(\mc{T}_\mc{C})$ and $\alpha\leq\omega$. A sequence $(A_n)_{n<\alpha}\subseteq\mc{C}$ is said to \textit{represent a path from $\mc{U}_0$} if $(\mc{U}_n)_{n\leq\alpha}$, defined by $\mc{U}_n\coloneqq\mc{U}_{n-1}\symdiff\l\{A_{n-1}\r\}$ for every $1\leq n\leq\alpha$, is a path in $\mc{T}_\mc{C}$ with each $A_n\in\mc{U}_n$.
     \end{definition}
 
     \begin{remark}
         Any path in $\mc{T}_\mc{C}$ is represented by its sequence of flipped basis elements.
     \end{remark}
 
-    \begin{lemma}
-        Let $\alpha\geq3$. A path in $\mc{T}_\mc{C}$ from $\mc{U}_0$ represented by $(A_n)_{n\leq\alpha}$ has no backtracking iff $A_n\neq A_{n-1}^c$ for every $1\leq n\leq\alpha$.
+    \begin{lemma}\label{no-backtrack}
+        Let $\alpha\geq3$. A path in $\mc{T}_\mc{C}$ from $\mc{U}_0$ represented by $(A_n)_{n\leq\alpha}$ has no backtracking iff $A_n\neq A_{n-1}^c$ for every $1\leq n<\alpha$.
     \end{lemma}
     \begin{proof}
         Take $2\leq n\leq\alpha$. It suffices to show that $\mc{U}_{n-2}=\mc{U}_n$ iff $A_{n-1}=A_{n-2}^c$.
         \begin{itemize}
-            \item ($\Rightarrow$). We have by definition that $\mc{U}_n=\mc{U}_{n-2}\cup\l\{A_{n-1}^c,A_{n-2}^c\r\}\comp\l\{A_{n-1},A_{n-2}\r\}$
+            \item[($\Rightarrow$).] We have by definition that $\mc{U}_n=\mc{U}_{n-2}\cup\l\{A_{n-1}^c,A_{n-2}^c\r\}\comp\l\{A_{n-1},A_{n-2}\r\}$, so since $A_{n-2}\in\mc{U}_{n-2}=\mc{U}_n$, we have $A_{n-2}=A_{n-1}^c$ as desired.
+            \item[($\Leftarrow$).] Again by definition, by noting that the basis-flipping cancels out.\qed
+        \end{itemize}
+    \end{proof}
+
+    \begin{lemma}\label{strictly-inc}
+        If $(A_n)_{n<\alpha}$ represents a path in $\mc{T}_\mc{C}$ with no backtracking, then $(A_n)_{n<\alpha}$ is strictly increasing.
+    \end{lemma}
+    \begin{proof}
+        By Lemma \ref{no-backtrack}, we have $A_n\neq A_{n-1}^c$ for every $1\leq n<\alpha$. Thus, since $A_n\in\mc{U}_n=\mc{U}_{n-1}\cup\l\{A_{n-1}^c\r\}\comp\l\{A_{n-1}\r\}$, we see that $A_n\in\mc{U}_{n-1}$. Clearly $A_n\neq A_{n-1}$. It suffices to remove the three cases when $A_{n-1}\subseteq A_n^c$, $A_n\subseteq A_{n-1}$, and $A_n^c\subseteq A_{n-1}$, since then nestedness of $\mc{C}$ gives us $A_{n-1}\subset A_n$, as desired.
+        \begin{itemize}
+            \item If $A_{n-1}\subseteq A_n^c$, then $A_n^c\in\mc{U}_{n-1}$ by upward-closure of $\mc{U}_{n-1}$, a contradiction.
+            \item If $A_n\subseteq A_{n-1}$, then $A_{n-1}\in\mc{U}_n$, contradicting the definition of $\mc{U}_n$.
+            \item If $A_n^c\subseteq A_{n-1}$, then $A_{n-1}\in\mc{U}_{n+1}$ by upward-closure of $\mc{U}_{n+1}\ni A_n^c$. But since $A_{n-1}\neq A_n^c$, we have by definition of $\mc{U}_{n+1}$ that $A_{n-1}\in\mc{U}_n$, a contradiction.\qed
         \end{itemize}
     \end{proof}
 
     \begin{proposition}\label{acyclic}
-        
+        $\mc{T}_\mc{C}$ is acyclic.
     \end{proposition}
     \begin{proof}
-        
+        Let $(\mc{U}_i)_{i\leq n}$ be a cycle in $\mc{T}_\mc{C}$, say represented by $(A_i)_{i\leq n}$. Then $A_0=A_n$, a contradiction since $(A_i)_{i\leq n}$ is strictly-increasing by Lemma \ref{strictly-inc}.
     \end{proof}
-    
+
     \begin{proposition}\label{tree}
         
     \end{proposition}
