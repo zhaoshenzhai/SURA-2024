@@ -81,7 +81,7 @@
     Fix a nested collection of non-empty subsets of a set $X$. Using Lemma \ref{tree-well-defined} and Remarks \ref{tree-no-loops} and \ref{tree-finitely-based}, we construct a graph $\mc{T}_\mc{C}$ whose:
     \begin{itemize}
         \item \textit{Vertices} of $\mc{T}_\mc{C}$ are finitely-based orientations on $\mc{C}$.
-        \item \textit{Neighbors} of $\mc{U}\in V(\mc{T}_\mc{C})$ are the finitely-based orientations $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$.
+        \item \textit{Neighbors} of $\mc{U}\in V(\mc{T}_\mc{C})$ are $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$ with $A^c\in\mc{C}$.
     \end{itemize}
 
     The goal of this section is to establish Theorem \ref{main}, stating that $\mc{T}_\mc{C}$ is acyclic (Proposition \ref{acyclic}), and furthermore, $\mc{T}_\mc{C}$ is a tree precisely when $\mc{C}$ is closed under complements (Proposition \ref{tree}).
@@ -113,10 +113,10 @@
         If $(A_n)_{n<\alpha}$ represents a path in $\mc{T}_\mc{C}$ with no backtracking, then $(A_n)_{n<\alpha}$ is strictly increasing.
     \end{lemma}
     \begin{proof}
-        By Lemma \ref{no-backtrack}, we have $A_n\neq A_{n-1}^c$ for every $1\leq n<\alpha$. Thus, since $A_n\in\mc{U}_n=\mc{U}_{n-1}\cup\l\{A_{n-1}^c\r\}\comp\l\{A_{n-1}\r\}$, we see that $A_n\in\mc{U}_{n-1}$. Clearly $A_n\neq A_{n-1}$. It suffices to remove the three cases when $A_{n-1}\subseteq A_n^c$, $A_n\subseteq A_{n-1}$, and $A_n^c\subseteq A_{n-1}$, since then nestedness of $\mc{C}$ gives us $A_{n-1}\subset A_n$, as desired.
+        By Lemma \ref{no-backtrack}, we have $A_n\neq A_{n-1}^c$ for every $1\leq n<\alpha$. Thus, since $A_n\in\mc{U}_n=\mc{U}_{n-1}\cup\l\{A_{n-1}^c\r\}\comp\l\{A_{n-1}\r\}$, we see that $A_n\in\mc{U}_{n-1}$. Clearly $A_n\neq A_{n-1}$. It suffices to remove the three cases when $A_n\subseteq A_{n-1}$, $A_{n-1}\subseteq A_n^c$, and $A_n^c\subseteq A_{n-1}$, since then nestedness of $\mc{C}$ gives us $A_{n-1}\subset A_n$, as desired.
         \begin{itemize}
-            \item If $A_{n-1}\subseteq A_n^c$, then $A_n^c\in\mc{U}_{n-1}$ by upward-closure of $\mc{U}_{n-1}$, a contradiction.
             \item If $A_n\subseteq A_{n-1}$, then $A_{n-1}\in\mc{U}_n$, contradicting the definition of $\mc{U}_n$.
+            \item If $A_{n-1}\subseteq A_n^c$, then $A_n^c\in\mc{U}_{n-1}$ by upward-closure of $\mc{U}_{n-1}$, a contradiction.
             \item If $A_n^c\subseteq A_{n-1}$, then $A_{n-1}\in\mc{U}_{n+1}$ by upward-closure of $\mc{U}_{n+1}\ni A_n^c$. But since $A_{n-1}\neq A_n^c$, we have by definition of $\mc{U}_{n+1}$ that $A_{n-1}\in\mc{U}_n$, a contradiction.\qed
         \end{itemize}
     \end{proof}
@@ -129,9 +129,9 @@
     \end{proof}
 
     \begin{proposition}\label{tree}
-        
+        If $\mc{C}$ is closed under complements, then $\mc{T}_\mc{C}$ is connected (and hence a tree).
     \end{proposition}
     \begin{proof}
-        
+        If $\mc{U},\mc{U}'\in V(\mc{T}_\mc{C})$ are two finitely-based orientations on $\mc{C}$, then swapping their basis elements one by one as in Remark \ref{tree-finitely-based} gives us a path between $\mc{U}$ and $\mc{U}'$; the closure of $\mc{C}$ is needed to ensure that those basis elements represent a path between those vertices.
     \end{proof}
 \end{document}
