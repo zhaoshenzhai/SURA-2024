@@ -1,0 +1,139 @@
+\documentclass{amsart}
+\input{preamble.sty}
+\input{macros.sty}
+
+\begin{document}
+    \title{Tree of Orientations on a Nested Collection of Sets}
+    \author{Zhaoshen Zhai}
+    \date{\today}
+    \maketitle
+
+    Let $H\subseteq2^X$ be a sub-pocset for some fixed set $X$ (so that, in particular, $H$ is closed under complements). With the definitions in Section \ref{prelim}, we prove the following
+    \begin{mainTheorem}[Propositions \ref{acyclic}, \ref{tree}]\label{main}
+        If $H$ is nested, then the graph $\mc{T}_H$, whose:
+        \begin{itemize}
+            \item Vertices are finitely-based orientations on $H$;
+            \item Edges are pairs $\l\{p,q\r\}$ such that $q=p\symdiff\l\{h,\lnot h\r\}$ for some minimal $h\in H$;
+        \end{itemize}
+        is acyclic. Furthermore, if $H$ is finitely-separating (or more generally, chain-vanishing), then $\mc{T}_H$ is a tree.
+    \end{mainTheorem}
+
+    In particular, this applies to when $(X,G)$ is a graph and $H$ is a nested collection of cuts on $X$. No further assumptions on $X$ (like local-finiteness) is needed.
+
+    \section{Preliminaries}\label{prelim}
+
+    Let $H\subseteq2^X$ be a sub-pocset for some fixed set $X$, whose elements $h\in H$ are called \textit{half-spaces}.
+
+    \begin{definition}
+        Two elements $h,k\in H$ are \textit{nested} if $h^i\cap k^j=\em$ for some $i,j\in\l\{1,-1\r\}$, where $h^i\coloneqq h$ for $i=1$ and $h^i\coloneqq h^c$ otherwise. We say that $H$ is \textit{nested} if every pair $h,k\in H$ are nested.
+    \end{definition}
+
+    \subsection{Orientations}
+
+    We give the standard definition of an orientation on $h$ and characterize them as `consistent assignments of half-spaces to hyperplanes'.
+
+    \begin{definition}
+        An \textit{orientation} on $H$ is a subset $U\subseteq H$ such that
+        \begin{enumerate}
+            \item[1.] \textit{(Upward-closure)}. If $h\in U$ and $k\in H$ contains $h$, then $k\in U$.
+            \item[2.] \textit{(Ultra)}. For each $h\in H$, exactly one of $h,h^c$ is contained in $U$.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{lemma}\label{tree-well-defined}
+        If $\mc{U}\subseteq P$ is an orientation, then for any $\subseteq$-minimal $A\in\mc{U}$ with $A^c\in P$, so is $\mc{U}\symdiff\l\{A,A^c\r\}$.
+    \end{lemma}
+    \begin{proof}
+        That $\mc{V}\coloneqq\mc{U}\symdiff\l\{A,A^c\r\}=\mc{U}\cup\l\{A^c\r\}\comp\l\{A\r\}$ is upward-closed follows from $\subseteq$-minimality of $A$. Now, if $B,B^c\in P$ and $B^c\not\in\mc{V}$, we need to show that $B\in\mc{V}$.
+
+        To this end, note that $B^c\not\in\mc{V}$ implies $A\neq B$ and either $B=A^c$ or $B^c\not\in\mc{U}$. The former case follows since $A^c\in\mc{V}$, and for the latter, we have $B\in\mc{U}\comp\l\{A\r\}$ since $\mc{U}$ is ultra.
+    \end{proof}
+
+    \begin{remark}\label{tree-no-loops}
+        In the above notations, clearly $\mc{U}\neq\mc{U}\symdiff\l\{A,A^c\r\}$. Furthermore, for any other such orientation $\mc{U}'$ and $A'\in\mc{U}'$, that $\mc{U}=\mc{U}'$ and $\mc{U}\symdiff\l\{A,A^c\r\}=\mc{U}'\symdiff\l\{A',A'^c\r\}$ together imply $A=A'$.
+    \end{remark}
+
+    \subsection{Finitely-based orientations}
+
+    \begin{definition}
+        A \textit{base} for an orientation $\mc{U}\subseteq P$ is a $\subseteq$-minimal subset $\mc{B}\subseteq\mc{U}$ such that $\mc{U}=\,\,\uparrow\!\mc{B}$, where
+        \begin{equation*}
+            \uparrow\!\mc{B}\coloneqq\bigcup_{B\in\mc{B}}\uparrow\!B\coloneqq\bigcup_{B\in\mc{B}}\l\{A\in P\st A\supseteq B\r\}.
+        \end{equation*}
+    \end{definition}
+
+    \begin{remark}
+        If $P$ is nested, then every $\subseteq$-minimal $B\in P$ induces an orientation $\uparrow\!B\coloneqq\l\{A\in P\st A\supseteq B\r\}$, called a \textit{principal} orientation. Indeed, $\uparrow\!B$ is clearly upward-closed, and if $A,A^c\in P$, then, by $\subseteq$-minimality of $B$ and nestedness of $P$, either $A\supseteq B$ or $A^c\supseteq B$ (but clearly not both).
+
+        This construction generalizes to any collection $\mc{B}\subseteq P$ with each $B\in\mc{B}$ being $\subseteq$-minimal in $P$, so that $\uparrow\!\mc{B}$ is an orientation on $P$.
+    \end{remark}
+
+    \begin{definition}
+        An orientation $\mc{U}\subseteq P$ is said to be \textit{finitely-based} if it admits a finite base.
+    \end{definition}
+
+    \begin{remark}\label{tree-finitely-based}
+        If $\mc{U}=\,\,\uparrow\!\l\{B_1,\dots,B_n\r\}$ is finitely-based, then for any $\subseteq$-minimal $A\in\mc{U}$ with $A^c\in P$, so is the orientation $\mc{V}\coloneqq\mc{U}\symdiff\l\{A,A^c\r\}$. {\color{red}{Indeed, we have $A=B_i$ for some $1\leq i\leq n$, and $\mc{V}=\,\,\uparrow\!(\l\{A^c\r\}\cup\l\{B_j\r\}_{j\neq i})$.}}
+    \end{remark}
+
+    \section{The graph $\mc{T}_P$}
+
+    Fix a nested collection of non-empty subsets of a set $X$. Using Lemma \ref{tree-well-defined} and Remarks \ref{tree-no-loops} and \ref{tree-finitely-based}, we construct a graph $\mc{T}_P$ whose:
+    \begin{itemize}
+        \item \textit{Vertices} of $\mc{T}_P$ are finitely-based orientations on $P$.
+        \item \textit{Neighbors} of $\mc{U}\in V(\mc{T}_P)$ are $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$ with $A^c\in P$.
+    \end{itemize}
+
+    The goal of this section is to establish Theorem \ref{main}, stating that $\mc{T}_P$ is acyclic (Proposition \ref{acyclic}), and furthermore, $\mc{T}_P$ is a tree when $P$ is closed under complements (Proposition \ref{tree}).
+
+    \begin{definition}
+        Fix $\mc{U}_0\in V(\mc{T}_P)$ and $n\in\N$. A sequence $(A_i)_{i<n}\subseteq P$ is said to \textit{induce a path from $\mc{U}_0$} if $(\mc{U}_i)_{i<n}$, defined by $\mc{U}_i\coloneqq\mc{U}_{i-1}\symdiff\l\{A_{i-1},A_{i-1}^c\r\}$ for every $1\leq i<n$, is a path in $\mc{T}_P$ with each $A_i\in\mc{U}_i$.
+    \end{definition}
+
+    \begin{remark}
+        Any path in $\mc{T}_P$ is induced by its sequence of flipped basis elements.
+    \end{remark}
+
+    \begin{lemma}\label{no-backtrack}
+        Let $n\geq3$. A path in $\mc{T}_P$ from $\mc{U}_0$ induced by $(A_i)_{i<n}$ has no backtracking iff $A_i\neq A_{i-1}^c$ for every $1\leq i<n$.
+    \end{lemma}
+    \begin{proof}
+        Take $2\leq i\leq n$. It suffices to show that $\mc{U}_{i-2}=\mc{U}_i$ iff $A_{i-1}=A_{i-2}^c$.
+        \begin{itemize}
+            \item[($\Rightarrow$).] We have by definition that $\mc{U}_i=\mc{U}_{i-2}\cup\l\{A_{i-1}^c,A_{i-2}^c\r\}\comp\l\{A_{i-1},A_{i-2}\r\}$, so since $A_{i-2}\in\mc{U}_{i-2}=\mc{U}_i$, we have $A_{i-2}=A_{i-1}^c$ as desired.
+            \item[($\Leftarrow$).] Again by definition, by noting that the basis-flipping cancels out.\qed
+        \end{itemize}
+    \end{proof}
+
+    \begin{lemma}\label{strictly-inc}
+        If $(A_i)_{i<n}$ induces a path in $\mc{T}_P$ with no backtracking, then $(A_i)_{i<n}$ is strictly increasing.
+    \end{lemma}
+    \begin{proof}
+        By Lemma \ref{no-backtrack}, we have $A_i\neq A_{i-1}^c$ for every $1\leq i<n$. Thus, since $A_i\in\mc{U}_i=\mc{U}_{i-1}\cup\l\{A_{i-1}^c\r\}\comp\l\{A_{i-1}\r\}$, we see that $A_i\in\mc{U}_{i-1}$. Clearly $A_i\neq A_{i-1}$. It suffices to remove the three cases when $A_i\subseteq A_{i-1}$, $A_{i-1}\subseteq A_i^c$, and $A_i^c\subseteq A_{i-1}$, since then nestedness of $P$ gives us $A_{i-1}\subsetneq A_i$, as desired.
+        \begin{itemize}
+            \item If $A_i\subseteq A_{i-1}$, then $A_{i-1}\in\mc{U}_i$, contradicting the definition of $\mc{U}_i$.
+            \item If $A_{i-1}\subseteq A_i^c$, then $A_i^c\in\mc{U}_{i-1}$ by upward-closure of $\mc{U}_{i-1}$, a contradiction.
+            \item If $A_i^c\subseteq A_{i-1}$, then $A_{i-1}\in\mc{U}_{i+1}$ by upward-closure of $\mc{U}_{i+1}\ni A_i^c$. But since $A_{i-1}\neq A_i^c$, we have by definition of $\mc{U}_{i+1}$ that $A_{i-1}\in\mc{U}_i$, a contradiction.\qed
+        \end{itemize}
+    \end{proof}
+
+    \begin{proposition}\label{acyclic}
+        $\mc{T}_P$ is acyclic.
+    \end{proposition}
+    \begin{proof}
+        Let $(\mc{U}_i)_{i<n}$ be a cycle in $\mc{T}_P$ induced by $(A_i)_{i<n}$. Since cycles are non-backtracking, we have $A_0\subsetneq A_0$ by Lemma \ref{strictly-inc}, a contradiction.
+    \end{proof}
+
+    \begin{proposition}\label{tree}
+        If $P$ is chain-vanishing, then $\mc{T}_P$ is connected (and hence a tree).
+    \end{proposition}
+
+    {\color{red}{
+        \begin{proposition}%\label{tree}
+            If $P$ is closed under complements, then $\mc{T}_P$ is connected (and hence a tree).
+        \end{proposition}
+        \begin{proof}
+            If $\mc{U},\mc{U}'\in V(\mc{T}_P)$ are two finitely-based orientations on $P$, then swapping their basis elements one by one as in Remark \ref{tree-finitely-based} gives us a path between $\mc{U}$ and $\mc{U}'$; the closure of $P$ is needed to ensure that those basis elements induce a path between the vertices, in that their complement lies in $P$.
+        \end{proof}
+    }}
+\end{document}
