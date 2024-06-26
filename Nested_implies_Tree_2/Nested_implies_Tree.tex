@@ -9,7 +9,7 @@
     \maketitle
 
     Let $H\subseteq2^X$ be a sub-pocset for some fixed set $X$ (so that, in particular, $H$ is closed under complements). With the definitions in Section \ref{prelim}, we prove the following
-    \begin{mainTheorem}[Propositions \ref{acyclic}, \ref{tree-fs}]\label{main}
+    \begin{mainTheorem}[Corollary \ref{acyclic}, Proposition \ref{tree-fs}]\label{main}
         If $H$ is nested, then the graph $\mc{T}_H$, whose:
         \begin{itemize}
             \item Vertices are finitely-based orientations $p\subseteq H$;
@@ -65,7 +65,7 @@
 
     \subsection{Flipping basis elements}
 
-    We now investigate the behaviour of orientation when its choice on a single half-space is modified. Although the proofs work without the characterization in Proposition \ref{correspondence}, it makes orientations a lot more intuitive to me, and so will be phrased this way.
+    We now investigate the behaviour of an orientation when its choice on a single half-space is modified. Although the proofs work without the characterization in Proposition \ref{correspondence}, it makes orientations more intuitive to me, and so will be phrased this way.
 
     \begin{lemma}\label{tree-well-defined}
         Let $p\subseteq H$ be an orientation. Then $q\coloneqq p\symdiff\l\{h,h^c\r\}$ is an orientation iff $h\in p$ is $\subseteq$-minimal.
@@ -73,9 +73,9 @@
         Furthermore, if $p$ is finitely-based, then so is $q$.
     \end{lemma}
     \begin{proof}
-        First, note that $\phi_q(\del h)=\phi_p(h)^c=h^c$ and $\phi_q=\phi_p$ away from $\del h$.
+        First, note that $\phi_q(\del h)=\phi_p(\del h)^c=h^c$ and $\phi_q=\phi_p$ away from $\del h$.
         \begin{itemize}
-            \item[($\Rightarrow$).] If $q$ is an orientation and $p\ni k\subset h$, then we have a contradiction since
+            \item[($\Rightarrow$).] If $q$ is an orientation and $p\ni k\subsetneq h$, then we have a contradiction since $\del k\neq\del h$ and hence
                 \begin{equation*}
                     \phi_q(\del k)=\phi_p(\del k)=k\subseteq h=\phi_q(\del h)^c.
                 \end{equation*}
@@ -101,14 +101,16 @@
         \item \textit{Vertices} are finitely-based orientations $p\subseteq H$;
         \item \textit{Edges} are pairs $\l\{p,q\r\}$ such that $q=p\symdiff\l\{h,h^c\r\}$ for some $\subseteq$-minimal $h\in H$.
     \end{itemize}
-    The goal of this section is to establish Theorem \ref{main}, stating that if $H$ is nested, then $\mc{T}_H$ is acyclic (Proposition \ref{acyclic}), and furthermore, $\mc{T}_H$ is a tree when $H$ is finitely-separating (Proposition \ref{tree-fs}). For the rest of this section, we let $H\subseteq2^X$ be a \textit{nested} sub-pocset.
+    The goal of this section is to establish Theorem \ref{main}, stating that if $H$ is nested, then $\mc{T}_H$ is acyclic (Corollary \ref{acyclic}), and furthermore, $\mc{T}_H$ is a tree when $H$ is finitely-separating (Proposition \ref{tree-fs}).
+
+    For the rest of this section, we let $H\subseteq2^X$ be a \textit{nested} sub-pocset.
 
     \subsection{Acyclicity of $\mc{T}_H$}
 
     Essentially, $\mc{T}_H$ is acyclic because any path in $\mc{T}_H$ (without backtracking) is induced by a sequence of the flipped half-spaces, and those form a \textit{strictly}-increasing chain.
 
     \begin{example}
-        This fails if $H$ is non-nested. Indeed, let $X\coloneqq2\times2\coloneqq\l\{(x,y)\st x,y\in2\r\}$ and consider the set $H$ of all fibers $h_y\coloneqq\l\{(x,y)\st x\in2\r\}$ for each $y\in2$ and $h^x\coloneqq\l\{(x,y)\st y\in2\r\}$ for each $x\in2$. All orientations on $H$ are principal, of the form $\l\{h^x,h_y\r\}$ for $x,y\in2$, and the resulting graph $\mc{T}_H$ is a square.
+        This fails if $H$ is non-nested. Indeed, let $X\coloneqq2\times2\coloneqq\l\{(x,y)\st x,y\in2\r\}$ and consider the set $H$ of all fibers $h_y\coloneqq\l\{(x,y)\st x\in2\r\}$ for each $y\in2$ and $h^x\coloneqq\l\{(x,y)\st y\in2\r\}$ for each $x\in2$. All orientations on $H$ are principal $-$ of the form $\l\{h^x,h_y\r\}$ for $x,y\in2$ $-$ and the resulting graph $\mc{T}_H$ is a square.
     \end{example}
 
     \begin{definition}
@@ -126,9 +128,9 @@
         \end{itemize}
     \end{proof}
 
-    \begin{lemma}\label{strictly-inc}
+    \begin{proposition}\label{strictly-inc}
         If $(h_i)_{i<n}$ induces a path in $\mc{T}_H$ with no backtracking, then $(h_i)_{i<n}$ is strictly increasing.
-    \end{lemma}
+    \end{proposition}
     \begin{proof}
         By Lemma \ref{no-backtrack}, we have $h_i\neq h_{i-1}^c$ for every $1\leq i<n$. Thus, since $h_i\in p_i=p_{i-1}\cup\{h_{i-1}^c\}\comp\l\{h_{i-1}\r\}$, we see that $h_i\in p_{i-1}$. Clearly $h_i\neq h_{i-1}$. It suffices to remove the three cases when $h_i\subseteq h_{i-1}$, $h_{i-1}\subseteq h_i^c$, and $h_i^c\subseteq h_{i-1}$, since then nestedness of $H$ gives us $h_{i-1}\subsetneq h_i$, as desired.
         \begin{itemize}
@@ -138,12 +140,9 @@
         \end{itemize}
     \end{proof}
 
-    \begin{proposition}\label{acyclic}
+    \begin{corollary}\label{acyclic}
         $\mc{T}_H$ is acyclic.
-    \end{proposition}
-    \begin{proof}
-        Let $(p_i)_{i<n}$ be a cycle in $\mc{T}_H$ induced by $(h_i)_{i<n}$. Since cycles are non-backtracking, we have $h_0\subsetneq h_0$ by Lemma \ref{strictly-inc}, a contradiction.
-    \end{proof}
+    \end{corollary}
 
     \subsection{Connectedness of $\mc{T}_H$}
 
@@ -179,7 +178,7 @@
     \begin{proof}
         If $p\symdiff q=\l\{h_1,\dots,h_n\r\}\cup\l\{k_1,\dots,k_m\r\}$ with $p\comp q=\l\{h_i\r\}$ and $q\comp q=\l\{k_j\r\}$, then $h_i^c\in q\comp p$ and $k_j^c\in p\comp q$ for all $i<n$ and $j<m$, so $n=m$ and $q=p\cup\l\{h_i^c\r\}\comp\l\{h_i\r\}$. We claim that there is a permutation $\sigma\in S_n$ such that $(h_{\sigma(i)})$ induces a path from $p\eqqcolon p_0$, which is the desired path from $p$ to $q$. Choose a minimal $h\in\l\{h_i\r\}$, which is also minimal in $p$: if $k\subseteq h$ for some $k\in p$, then $h^c\subseteq k^c$, and hence $k^c\in q$, so $k=h_i\subseteq h$ for some $i$, forcing $k=h$. Set $p_1\coloneqq p\symdiff\l\{h,h^c\r\}$, which is an orientation by Lemma \ref{tree-well-defined}. Continuing in this manner by choosing a minimal element in $\l\{h_i\r\}\comp\l\{h\r\}$ gives us the desired path.
 
-        Conversely, suppose that $\mc{T}_H$ is connected and let $(p_i)_{i<n}$ be a path from $p=p_0$ to $q=p_{n-1}$. Then, letting $h_i\coloneqq p_i\symdiff p_{i-1}$ for all $1\leq i<n$ gives us a sequence $(h_i)_{i<n}$ inducing such a path, whence $p\symdiff q$ consists of $\l\{h_i\r\}$ and their complements; hence, $p\symdiff q$ is finite.
+        Conversely, suppose that $\mc{T}_H$ is connected and let $(p_i)_{i<n}$ be a path from $p=p_0$ to $q=p_{n-1}$. Then letting $h_i\coloneqq p_i\symdiff p_{i-1}$ for all $1\leq i<n$ gives us a sequence $(h_i)_{i<n}$ inducing such a path, whence $p\symdiff q$ consists of $\l\{h_i\r\}$ and their complements; hence, $p\symdiff q$ is finite with $p\symdiff q=2d(p,q)$.
     \end{proof}
 
     \begin{proposition}\label{tree-fs}
