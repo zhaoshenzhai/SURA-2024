@@ -186,7 +186,7 @@
     \end{proof}
 
     \begin{proposition}\label{tree-fs}
-        If $H$ is finitely-separating (i.e., for every $h_1,h_2\in H$, there are finitely-many $k\in H$ with $h_1\subseteq k\subseteq h_2$), then $\mc{T}_H$ is connected (and hence a tree).
+        If $H$ is finitely-separating (i.e., for every $h,h'\in H$, there are finitely-many $k\in H$ with $h\subseteq k\subseteq h'$), then $\mc{T}_H$ is connected (and hence a tree).
     \end{proposition}
     \begin{proof}
         Fix $p,q\in V(\mc{T}_H)$. Since they are finitely-based, we can use Remark \ref{minimal-iff_basis} to choose minimal elements $h_1\in p\comp q$ and $h_2\in q\comp p$, and by assumption there are finitely-many $k\in H$ with $h_1\subseteq k\subseteq h_2^c$, say $k_1,\dots,k_n$. We claim that $p\symdiff q\subseteq\l\{k_i\r\}\cup\l\{k_i^c\r\}$, so the result follows from Lemma \ref{tree-lem}.
