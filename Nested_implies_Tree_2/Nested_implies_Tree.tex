@@ -88,8 +88,8 @@
         Finally, suppose that $p$ is finitely-based. {\color{red}{???}}.
     \end{proof}
 
-    \begin{remark}\label{minimal_iff_basis}
-        If $h\in p$ is $\subseteq$-minimal and $p_0\subseteq p$ is any basis, then $h\in p_0$. Indeed, if $h\not\in p_0$, then there is some $h_0\in p_0\subseteq p$ with $h\supset h_0$, contradicting minimality. Conversely, if $h\in p$ is in some basis $p_0\subseteq p$, then $h$ is $\subseteq$-minimal since any $k\subset h$ in $p$ contains some $k_0\subseteq k$ in $p_0$, whence $p=\,\,\uparrow\!(p_0\comp\l\{h\r\})$, contradicting the minimality of $p_0$.
+    \begin{remark}
+        If $h\in p$ is $\subseteq$-minimal and $p_0\subseteq p$ is any basis, then $h\in p_0$. Indeed, if $h\not\in p_0$, then there is some $h_0\in p_0\subseteq p$ with $h\supset h_0$, contradicting minimality.
     \end{remark}
 
     \section{The graph $\mc{T}_H$}
@@ -160,7 +160,7 @@
                 \begin{proof}
                     For each $h\in H$, the hyperplane $\del h$ is either $\l\{[0,n],(n,\omega]\r\}$ for some $n<\omega$, or $\l\{\omega,\l\{\omega\r\}\r\}$. Consider the set $N_p\coloneqq\l\{n<\omega\st[0,n]\in p\r\}$, for which we have two cases.
                     \begin{itemize}
-                        \item If $N_p=\em$, then $(n,\omega]\in p$ for all $p$. We claim that $p=\widehat{\omega}$. If $\omega\in p$, then $p$ is not finitely-based since any finite subset thereof contains no $\subseteq$-minimal element in $p$, contradicting Remark \ref{minimal_iff_basis}. Thus, we have $\l\{\omega\r\}\in p$. Both types of half-spaces contain $\omega$, and those are the only half-spaces in $p$.
+                        \item If $N_p=\em$, then $(n,\omega]\in p$ for all $p$. We claim that $p=\widehat{\omega}$. If $\omega\in p$, then $p$ is not (finitely-)based since $(n,\omega]$ for $n$ large enough does not contain any basis element. Thus $\l\{\omega\r\}\in p$. Both types of half-spaces contain $\omega$, and those are the only half-spaces in $p$.
                         \item If $N_p\neq\em$, then there is a minimal $n<\omega$ with $[0,n]\in p$; we claim that $p=\widehat{n}$. Indeed, we have $(m,\omega]\in p$ if $m<n$, $[0,m]\in p$ if $m\geq n$, and $\omega\in p$ by upward-closure. All three types of half-spaces contain $n$, and those are the only half-spaces in $p$.\qed
                     \end{itemize}
                 \end{proof}
