@@ -94,25 +94,25 @@
 
     \section{The graph $\mc{T}_H$}
 
-    Let $H\subseteq2^X$ be a nested sub-pocset as before. Using Lemma \ref{tree-well-defined}, we construct a graph $\mc{T}_H$ whose:
+    Let $H\subseteq2^X$ be a sub-pocset as before. Using Lemma \ref{tree-well-defined}, we construct a graph $\mc{T}_H$ whose:
     \begin{itemize}
         \item \textit{Vertices} are finitely-based orientations $p\subseteq H$;
         \item \textit{Edges} are pairs $\l\{p,q\r\}$ such that $q=p\symdiff\l\{h,h^c\r\}$ for some $\subseteq$-minimal $h\in H$.
     \end{itemize}
 
-    The goal of this section is to establish Theorem \ref{main}, stating that $\mc{T}_H$ is acyclic (Proposition \ref{acyclic}), and furthermore, that $\mc{T}_H$ is a tree when $P$ is finitely-separating (Proposition \ref{tree-fs}), or more generally, when $P$ is chain-vanishing (Proposition \ref{tree-cv}).
+    The goal of this section is to establish Theorem \ref{main}, stating that if $H$ is nested, then $\mc{T}_H$ is acyclic (Proposition \ref{acyclic}). Furthermore, $\mc{T}_H$ is a tree when $P$ is finitely-separating (Proposition \ref{tree-fs}), or more generally, when $P$ is chain-vanishing (Proposition \ref{tree-cv}).
 
     \subsection{Acyclicity of $\mc{T}_H$}
 
-    Essentially, this is because any path in $\mc{T}_H$ (without backtracking) is induced by a sequence of the flipped half-spaces, and those form a \textit{strictly}-increasing chain.
+    Now, let $H$ be nested. Essentially, $\mc{T}_H$ is acyclic because any path in $\mc{T}_H$ (without backtracking) is induced by a sequence of the flipped half-spaces, and those form a \textit{strictly}-increasing chain.
+
+    \begin{example}
+        This fails if $H$ is non-nested. Indeed, let $X\coloneqq2\times2\coloneqq\l\{(x,y)\st x,y\in2\r\}$ and consider the set $H$ of all fibers $h_y\coloneqq\l\{(x,y)\st x\in2\r\}$ for each $y\in2$ and $h^x\coloneqq\l\{(x,y)\st y\in2\r\}$ for each $x\in2$. All orientations on $H$ are principal, of the form $\l\{h^x,h_y\r\}$ for $x,y\in2$, and the resulting graph $\mc{T}_H$ is a square.
+    \end{example}
 
     \begin{definition}
-        Fix $p_0\in V(\mc{T}_H)$ and $n\in\N$. A sequence $(h_i)_{i<n}\subseteq H$ is said to \textit{induce a path from $p_0$} if $(p_i)_{i<n}$, defined by $p_i\coloneqq p_{i-1}\symdiff\{h_{i-1},h_{i-1}^c\}$ for every $1\leq i<n$, is a path in $\mc{T}_H$ with each $h_i\in p_i$.
+        Fix $p_0\in V(\mc{T}_H)$ and $n\in\N$. A sequence $(h_i)_{i<n}\subseteq H$ is said to \textit{induce a path in $\mc{T}_H$ from $p_0$} if $(p_i)_{i<n}$, defined by $p_i\coloneqq p_{i-1}\symdiff\{h_{i-1},h_{i-1}^c\}$ for every $1\leq i<n$, is a path in $\mc{T}_H$ with each $h_i\in p_i$.
     \end{definition}
-
-    \begin{remark}
-        Any path in $\mc{T}_H$ is induced by its sequence of flipped basis elements.
-    \end{remark}
 
     \begin{lemma}\label{no-backtrack}
         A path from $p_0$ induced by $(h_i)_{i<n}$, $n\geq3$, has no backtracking iff $h_i\neq h_{i-1}^c$ for every $1\leq i<n$.
