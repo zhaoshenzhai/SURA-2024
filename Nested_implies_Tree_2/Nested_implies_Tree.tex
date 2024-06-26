@@ -9,11 +9,11 @@
     \maketitle
 
     Let $H\subseteq2^X$ be a sub-pocset for some fixed set $X$ (so that, in particular, $H$ is closed under complements). With the definitions in Section \ref{prelim}, we prove the following
-    \begin{mainTheorem}[Propositions \ref{acyclic}, \ref{tree}]\label{main}
+    \begin{mainTheorem}[Propositions \ref{acyclic}, \ref{tree-fs}, \ref{tree-cv}]\label{main}
         If $H$ is nested, then the graph $\mc{T}_H$, whose:
         \begin{itemize}
-            \item Vertices are finitely-based orientations on $H$;
-            \item Edges are pairs $\l\{p,q\r\}$ such that $q=p\symdiff\l\{h,\lnot h\r\}$ for some minimal $h\in H$;
+            \item Vertices are finitely-based orientations $p\subseteq H$;
+            \item Edges are pairs $\l\{p,q\r\}$ such that $q=p\symdiff\l\{h,\lnot h\r\}$ for some $\subseteq$-minimal $h\in H$;
         \end{itemize}
         is acyclic. Furthermore, if $H$ is finitely-separating (or more generally, chain-vanishing), then $\mc{T}_H$ is a tree.
     \end{mainTheorem}
@@ -22,7 +22,7 @@
 
     \section{Preliminaries}\label{prelim}
 
-    Let $H\subseteq2^X$ be a sub-pocset for some fixed set $X$, whose elements $h\in H$ are called \textit{half-spaces}.
+    Let $H\subseteq2^X$ be a sub-pocset for some fixed set $X$, whose elements $h\in H$ we call \textit{half-spaces}.
 
     \begin{definition}
         Two elements $h,k\in H$ are \textit{nested} if $h^i\cap k^j=\em$ for some $i,j\in\l\{1,-1\r\}$, where $h^i\coloneqq h$ for $i=1$ and $h^i\coloneqq h^c$ otherwise. We say that $H$ is \textit{nested} if every pair $h,k\in H$ are nested.
@@ -54,7 +54,7 @@
     \end{proof}
 
     \begin{definition}
-        A \textit{base} for an orientation $p\subseteq H$ is a $\subseteq$-minimal subset $p_0\subseteq p$ such that $p=\,\,\uparrow\! p_0$, where
+        A \textit{base} for an orientation $p\subseteq H$ is a $\subseteq$-minimal subset $p_0\subseteq p$ such that $p=\,\,\uparrow\!p_0$, where
         \begin{equation*}
             \uparrow\! p_0\coloneqq\bigcup_{h\in p_0}\uparrow\! h\coloneqq\bigcup_{h\in p_0}\l\{k\in H\st k\supseteq h\r\}.
         \end{equation*}
@@ -68,32 +68,45 @@
     We now investigate the behaviour of orientation when its choice on a single half-space is modified. Although the proofs work without the characterization in Proposition \ref{correspondence}, it makes orientations a lot more intuitive to me, and so will be phrased this way.
 
     \begin{lemma}\label{tree-well-defined}
-        If $p\subseteq H$ is an orientation, then $q\coloneqq p\symdiff\l\{h,h^c\r\}$ is an orientation iff $h\in p$ is $\subseteq$-minimal.
+        Let $p\subseteq H$ be an orientation and fix $h\in p$. The following are equivalent.
+        \begin{enumerate}
+            \item $q\coloneqq p\symdiff\l\{h,h^c\r\}=p\cup\l\{h^c\r\}\comp\l\{h\r\}$ is an orientation on $H$.
+            \item $h$ is $\subseteq$-minimal in $p$.
+            \item $h$ is in every basis $p_0\subseteq p$.
+        \end{enumerate}
 
-        Furthermore, if $p$ is finitely-based, then so is $q$.
+        If any of the above holds and furthermore $p$ is finitely-based, then so is $q$.
     \end{lemma}
     \begin{proof}
         First, note that $\phi_q(\del h)=\phi_p(h)^c=h^c$ and $\phi_q=\phi_p$ away from $\del h$.
         \begin{itemize}
-            \item[($\Rightarrow$).] If $q$ is an orientation and $p\ni k\subset h$, then $\phi_q(\del k)=\phi_p(\del k)=k\subseteq h=\phi_q(\del h)^c$, a contradiction.
-            \item[($\Leftarrow$).] Let $h\in p$ be $\subseteq$-minimal and suppose that $q$ is not an orientation. Since only $\phi_q(\del h)=h^c$ differs from $\phi_p$, this can only occur if $\phi_q(\del h)\subseteq\phi_q(\del k)^c$ for some $k\in H$. But then
+            \item ($1\Leftrightarrow2$). If $q$ is an orientation and $p\ni k\subset h$, then we have a contradiction since
+                \begin{equation*}
+                    \phi_q(\del k)=\phi_p(\del k)=k\subseteq h=\phi_q(\del h)^c.
+                \end{equation*}
+            Conversely, let $h\in p$ be $\subseteq$-minimal and suppose that $q$ is not an orientation. Since only $\phi_q(\del h)=h^c$ differs from $\phi_p$, this can only occur if $\phi_q(\del h)\subseteq\phi_q(\del k)^c$ for some $k\in H$. But then
                 \begin{equation*}
                     h^c=\phi_q(\del h)\subseteq\phi_q(\del k)^c=k^i\not\in p
                 \end{equation*}
                 for some unique $i\in\l\{1,-1\r\}$, so that $p\ni k^{-i}\subseteq h$ and contradicts that $h\in p$ is $\subseteq$-minimal.
+            \item ($2\Leftrightarrow3$). We prove the contrapositives. If there is a basis $p_0\subseteq p$ with $h\not\in p_0$, then $p=\,\,\uparrow\!p_0$ gives us some $h_0\in p_0\subseteq p$ with $h\supset h_0$. Conversely, if $h\supset k\in p$ but $p_0\subseteq p$ is a basis containing $h$, then $k\supseteq k_0$ for some $k_0\in p_0$, and thus $p=\,\,\uparrow\!(p_0\comp\l\{h\r\})$, contradicting the minimality of $p_0$.
         \end{itemize}
-        Finally, suppose that $p$ is finitely-based witnessed by some finite $B\subseteq H/\!\sim$ and $\phi_0:B\to H$. Then $\del h\in B$ and $\phi_0(\del h)=h$, for otherwise $\phi_0$ extends to both $\phi_p$ and $\phi_q$. Letting $\phi_0':B\to H$ agree with $\phi_0$ on $B\comp\l\{\del h\r\}$ but setting $\phi_0'(\del h)\coloneqq h^c$ then gives a basis for $\phi_q$.
+        Finally, suppose that $p$ is finitely-based witnessed by some finite $B\subseteq H/\!\sim$ and $\phi_0:B\to H$. Then $\del h\in B$ and $\phi_0(\del h)=h$, for otherwise $\phi_0$ extends to both $\phi_p$ and $\phi_q$. Letting $\phi_0':B\to H$ agree with $\phi_0$ on $B\comp\l\{\del h\r\}$ but setting $\phi_0'(\del h)\coloneqq h^c$ then gives a basis for $\phi_q$. {\color{red}{More justification.}}
     \end{proof}
 
     \section{The graph $\mc{T}_P$}
 
-    Fix a nested collection of non-empty subsets of a set $X$. Using Lemma \ref{tree-well-defined}, we construct a graph $\mc{T}_P$ whose:
+    Let $H\subseteq2^X$ be a nested sub-pocset as before. Using Lemma \ref{tree-well-defined}, we construct a graph $\mc{T}_H$ whose:
     \begin{itemize}
-        \item \textit{Vertices} of $\mc{T}_P$ are finitely-based orientations on $P$.
-        \item \textit{Neighbors} of $\mc{U}\in V(\mc{T}_P)$ are $\mc{U}\symdiff\l\{A,A^c\r\}$ for every minimal $A\in\mc{U}$ with $A^c\in P$.
+        \item \textit{Vertices} are finitely-based orientations $p\subseteq H$;
+        \item \textit{Edges} are pairs $\l\{p,q\r\}$ such that $q=p\symdiff\l\{h,h^c\r\}$ for some $\subseteq$-minimal $h\in H$.
     \end{itemize}
 
-    The goal of this section is to establish Theorem \ref{main}, stating that $\mc{T}_P$ is acyclic (Proposition \ref{acyclic}), and furthermore, $\mc{T}_P$ is a tree when $P$ is closed under complements (Proposition \ref{tree}).
+    The goal of this section is to establish Theorem \ref{main}, stating that $\mc{T}_P$ is acyclic (Proposition \ref{acyclic}), and furthermore, that $\mc{T}_P$ is a tree when $P$ is finitely-separating (Proposition \ref{tree-fs}), or more generally, when $P$ is chain-vanishing (Proposition \ref{tree-cv}).
+
+    \subsection{Acyclicity of $\mc{T}_P$}
+
+    Essentially, any cycle in $\mc{T}_P$ (without backtracking) flips each $\subseteq$-minimal element
 
     \begin{definition}
         Fix $\mc{U}_0\in V(\mc{T}_P)$ and $n\in\N$. A sequence $(A_i)_{i<n}\subseteq P$ is said to \textit{induce a path from $\mc{U}_0$} if $(\mc{U}_i)_{i<n}$, defined by $\mc{U}_i\coloneqq\mc{U}_{i-1}\symdiff\l\{A_{i-1},A_{i-1}^c\r\}$ for every $1\leq i<n$, is a path in $\mc{T}_P$ with each $A_i\in\mc{U}_i$.
@@ -133,8 +146,12 @@
         Let $(\mc{U}_i)_{i<n}$ be a cycle in $\mc{T}_P$ induced by $(A_i)_{i<n}$. Since cycles are non-backtracking, we have $A_0\subsetneq A_0$ by Lemma \ref{strictly-inc}, a contradiction.
     \end{proof}
 
-    \begin{proposition}\label{tree}
+    \begin{proposition}\label{tree-fs}
         If $P$ is chain-vanishing, then $\mc{T}_P$ is connected (and hence a tree).
+    \end{proposition}
+
+    \begin{proposition}\label{tree-cv}
+        
     \end{proposition}
 
     {\color{red}{
