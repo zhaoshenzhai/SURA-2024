@@ -12,10 +12,10 @@
     \begin{mainTheorem}[Corollary \ref{acyclic}, Proposition \ref{tree-fs}]\label{main}
         If $H$ is nested, then the graph $\mc{T}_H$, whose:
         \begin{itemize}
-            \item Vertices are finitely-based orientations $p\subseteq H$;
+            \item Vertices are based orientations $p\subseteq H$;
             \item Edges are pairs $\l\{p,q\r\}$ such that $q=p\symdiff\l\{h,h^c\r\}$ for some $\subseteq$-minimal $h\in H$;
         \end{itemize}
-        is acyclic. Furthermore, if $H$ is finitely-separating, then $\mc{T}_H$ is a tree.
+        is acyclic. Furthermore, if $H$ is interval-finite, then $\mc{T}_H$ is a tree.
     \end{mainTheorem}
 
     In particular, this applies to when $(X,G)$ is a graph and $H$ is a nested collection of cuts on $X$. No further assumptions on $X$ (like local-finiteness) is needed.
@@ -58,10 +58,10 @@
         \begin{equation*}
             \uparrow\! p_0\coloneqq\bigcup_{h\in p_0}\uparrow\! h\coloneqq\bigcup_{h\in p_0}\l\{k\in H\st k\supseteq h\r\}.
         \end{equation*}
-        We say that $p$ is \textit{finitely-based} if it admits a finite basis.
+        We say that $p$ is \textit{based} if it admits a basis.
     \end{definition}
 
-    In the above correspondence, a base for $\phi:H/\!\sim\,\to H$ is a function $\phi_0\subseteq\phi$ where $\dom\phi_0$ is a $\subseteq$-minimal subset of hyperplanes such that $\phi_0$ extends uniquely to $\phi$. Thus, the finitely-based orientations are the ones determined by a choice of half-spaces from finitely-many hyperplanes.
+    In the above correspondence, a base for $\phi:H/\!\sim\,\to H$ is a function $\phi_0\subseteq\phi$ where $\dom\phi_0$ is a minimal subset of hyperplanes such that $\phi_0$ extends uniquely to $\phi$.
 
     \subsection{Flipping basis elements}
 
@@ -70,7 +70,7 @@
     \begin{lemma}\label{tree-well-defined}
         Let $p\subseteq H$ be an orientation. Then $q\coloneqq p\symdiff\l\{h,h^c\r\}$ is an orientation iff $h\in p$ is $\subseteq$-minimal.
 
-        Furthermore, if $p$ is finitely-based, then so is $q$.
+        Furthermore, if $p$ is based, then so is $q$.
     \end{lemma}
     \begin{proof}
         First, note that $\phi_q(\del h)=\phi_p(\del h)^c=h^c$ and $\phi_q=\phi_p$ away from $\del h$.
@@ -85,7 +85,7 @@
                 \end{equation*}
                 for some unique $i\in\l\{1,-1\r\}$, so that $p\ni k^{-i}\subseteq h$ and contradicts that $h\in p$ is $\subseteq$-minimal.
         \end{itemize}
-        Finally, suppose that $p$ is finitely-based. {\color{red}{???}}.
+        Finally, suppose that $p$ is based. {\color{red}{???}}.
     \end{proof}
 
     \begin{remark}\label{minimal-iff_basis}
@@ -98,10 +98,10 @@
 
     Let $H\subseteq2^X$ be a sub-pocset as before. Using Lemma \ref{tree-well-defined}, we construct a graph $\mc{T}_H$ whose:
     \begin{itemize}
-        \item \textit{Vertices} are finitely-based orientations $p\subseteq H$;
+        \item \textit{Vertices} are based orientations $p\subseteq H$;
         \item \textit{Edges} are pairs $\l\{p,q\r\}$ such that $q=p\symdiff\l\{h,h^c\r\}$ for some $\subseteq$-minimal $h\in H$.
     \end{itemize}
-    The goal of this section is to establish Theorem \ref{main}, stating that if $H$ is nested, then $\mc{T}_H$ is acyclic (Corollary \ref{acyclic}), and furthermore, $\mc{T}_H$ is a tree when $H$ is finitely-separating (Proposition \ref{tree-fs}).
+    The goal of this section is to establish Theorem \ref{main}, stating that if $H$ is nested, then $\mc{T}_H$ is acyclic (Corollary \ref{acyclic}), and furthermore, $\mc{T}_H$ is a tree when $H$ is interval-finite (Proposition \ref{tree-fs}).
 
     For the rest of this section, we let $H\subseteq2^X$ be a \textit{nested} sub-pocset.
 
@@ -153,14 +153,14 @@
         \begin{equation*}
             H\coloneqq\l\{[0,n]\st n<\omega\r\}\cup\l\{(n,\omega]\st n<\omega\r\}\cup\l\{\omega,\l\{\omega\r\}\r\}.
         \end{equation*}
-        We claim that every finitely-based orientation $p\subseteq H$ is principal (i.e., of the form $\widehat{x}\coloneqq\l\{h\in H\st h\ni x\r\}$ for some $x\in X$).
+        We claim that every based orientation $p\subseteq H$ is principal (i.e., $p=\widehat{x}\coloneqq\l\{h\in H\st h\ni x\r\}$ for some $x\in X$).
         \begin{center}
             \vspace{0.05in}
             \begin{minipage}{0.95\textwidth}
                 \begin{proof}
                     For each $h\in H$, the hyperplane $\del h$ is either $\l\{[0,n],(n,\omega]\r\}$ for some $n<\omega$, or $\l\{\omega,\l\{\omega\r\}\r\}$. Consider the set $N_p\coloneqq\l\{n<\omega\st[0,n]\in p\r\}$, for which we have two cases.
                     \begin{itemize}
-                        \item If $N_p=\em$, then $(n,\omega]\in p$ for all $p$. We claim that $p=\widehat{\omega}$. If $\omega\in p$, then $p$ is not (finitely-)based since $(n,\omega]$, for $n$ large enough, does not contain any basis element. Thus $\l\{\omega\r\}\in p$. Both types of half-spaces contain $\omega$, and those are the only half-spaces in $p$.
+                        \item If $N_p=\em$, then $(n,\omega]\in p$ for all $p$. We claim that $p=\widehat{\omega}$. If $\omega\in p$, then $p$ is not based since $(n,\omega]$, for $n$ large enough, does not contain any basis element. Thus $\l\{\omega\r\}\in p$. Both types of half-spaces contain $\omega$, and those are the only half-spaces in $p$.
                         \item If $N_p\neq\em$, then there is a minimal $n<\omega$ with $[0,n]\in p$; we claim that $p=\widehat{n}$. Indeed, we have $(m,\omega]\in p$ if $m<n$, $[0,m]\in p$ if $m\geq n$, and $\omega\in p$ by upward-closure. All three types of half-spaces contain $n$, and those are the only half-spaces in $p$.\qed
                     \end{itemize}
                 \end{proof}
@@ -182,10 +182,10 @@
     \end{proof}
 
     \begin{proposition}\label{tree-fs}
-        If $H$ is finitely-separating (i.e., for every $h,h'\in H$, there are finitely-many $k\in H$ with $h\subseteq k\subseteq h'$), then $\mc{T}_H$ is connected.
+        If $H$ is interval-finite (i.e., for every $h,h'\in H$, the interval $[h,h']\coloneqq\l\{k\in H:h\subseteq k\subseteq h'\r\}$ is finite), then $\mc{T}_H$ is connected.
     \end{proposition}
     \begin{proof}
-        Fix $p,q\in V(\mc{T}_H)$. Since they are finitely-based, we can use Remark \ref{minimal-iff_basis} to choose minimal elements $h_1\in p\comp q$ and $h_2\in q\comp p$, and by assumption there are finitely-many $k\in H$ with $h_1\subseteq k\subseteq h_2^c$, say $k_1,\dots,k_n$. We claim that $p\symdiff q\subseteq\l\{k_i\r\}\cup\l\{k_i^c\r\}$, so the result follows from Lemma \ref{tree-lem}.
+        Fix $p,q\in V(\mc{T}_H)$. Since they are based, we can use Remark \ref{minimal-iff_basis} to choose minimal elements $h_1\in p\comp q$ and $h_2\in q\comp p$, and by assumption there are finitely-many $k\in H$ with $h_1\subseteq k\subseteq h_2^c$, say $k_1,\dots,k_n$. We claim that $p\symdiff q\subseteq\l\{k_i\r\}\cup\l\{k_i^c\r\}$, so the result follows from Lemma \ref{tree-lem}.
 
         Indeed, it suffices to show that $k\in\l\{k_i\r\}$ for every $k\in p\comp q$, for then any $k'\in q\comp p$ is in $k'\in\l\{k_i^c\r\}$. Let $k\in p\comp q$, which by minimality of $h_1$, implies $k\not\subseteq h_1$. Thus, either $k^c\subseteq h_1$, $k\subseteq h_1^c$, or $h_1\subseteq k$ by nestedness of $H$, and the first two cases are impossible since either case forces $h_1\in q$. A similar argument using the observation that $k^c\in q\comp p$, and hence $k^c\not\subseteq h_2$, shows that $k\subseteq h_2^c$. Thus $h_1\subseteq k\subseteq h_2^c$, as desired.
     \end{proof}
