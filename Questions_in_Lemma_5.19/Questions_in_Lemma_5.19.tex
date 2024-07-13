@@ -17,7 +17,7 @@
     \setcounter{section}{2}
     \setcounter{theorem}{66}
     \begin{lemma}\label{lem:2.67}
-        Let $(X,G)$, $(Y,H)$ be connected locally-finite graphs. For a coarse embedding $f:X\to Y$ and $A\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\sf{v}f^{-1}(A))$ is uniformly bounded in terms of $\diam(\del_\sf{v}A)$.
+        Let $(X,G)$, $(Y,H)$ be connected locally-finite graphs. For a coarse embedding $f:X\to Y$ and $A\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\sf{v}f^{-1}(A))$ is uniformly bounded in terms of $\diam(\del_\sf{v}A)$, and also $f^{-1}(A)\in\mc{H}_{\del<\infty}(X)$.
     \end{lemma}
 
     \setcounter{section}{5}
@@ -43,15 +43,15 @@
         \end{equation*}
         with $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$. For convenience, let $D<\infty$ be the uniform distance $d(1_X,g\circ f)$.
 
-        To this end, note that $\widehat{f}(U)\in\widehat{B}$ iff $U\in\widehat{f^{-1}(B)}$. Since $U\in\widehat{A}$, the latter can occur if $|A\symdiff f^{-1}(B)|<\infty$, and so we need to find such a $B\in\mc{H}_{\del<\infty}(Y)$ with $f^{-1}(B)\subseteq A$.
+        To this end, note that $\widehat{f}(U)\in\widehat{B}$ iff $U\in\widehat{f^{-1}(B)}$. Since $U\in\widehat{A}$, the latter can occur if $|A\symdiff f^{-1}(B)|<\infty$, and so we need to find such a $B\in\mc{H}_{\del<\infty}(Y)$ with the additional property that $f^{-1}(B)\subseteq A$.
         \begin{itemize}
-            \item \textit{Attempt 1:} Set $B\coloneqq g^{-1}(A)$. Then $f^{-1}(g^{-1}(A))\subseteq\Ball_D(A)$ since if $(g\circ f)(x)\in A$, then
+            \item \textit{Attempt 1:} Set $B\coloneqq g^{-1}(A)\in\mc{H}_{\del<\infty}(Y)$. Then $f^{-1}(B)\subseteq\Ball_D(A)$ since if $(g\circ f)(x)\in A$, then
                 \begin{equation*}
                     d(x,A)\leq d(x,(g\circ f)(x))\leq d(1_X,g\circ f)=D.
                 \end{equation*}
             By local-finiteness of $G$, we see that $A\symdiff f^{-1}(B)=A\comp f^{-1}(B)$ is finite, as desired.
         \end{itemize}
-        However, it is \textit{not} the case that $f^{-1}(B)\subseteq A$. To remedy this, we `shrink' $A$ a bit to $A'$ so that $\Ball_D(A')\subseteq A$, and take $B\coloneqq g^{-1}(A')$ instead. Indeed, $A'\coloneqq\lnot\Ball_D(\lnot A)\subseteq A$ works, since $f^{-1}(B)\subseteq\Ball_D(A')$ as before, so $A'\symdiff f^{-1}(B)=A'\comp f^{-1}(B)$ is finite. Also, $A\symdiff A'$ is finite since $x\in A\symdiff A'$ iff $x\in A$ and $d(x,\lnot A)\leq D$, so $A\symdiff f^{-1}(B)$ is finite too. It remains to show that $\Ball_D(A')\subseteq A$, for then $f^{-1}(B)\subseteq A$ as desired.
+        However, it is \textit{not} the case that $f^{-1}(B)\subseteq A$. To remedy this, we `shrink' $A$ by $D$ to $A'$ so that $\Ball_D(A')\subseteq A$, and take $B\coloneqq g^{-1}(A')$ instead. Indeed, $A'\coloneqq\lnot\Ball_D(\lnot A)\subseteq A$ works, since $f^{-1}(B)\subseteq\Ball_D(A')$ as before, so $A'\symdiff f^{-1}(B)=A'\comp f^{-1}(B)$ is finite. Also, $A\symdiff A'$ is finite since $x\in A\symdiff A'$ iff $x\in A$ and $d(x,\lnot A)\leq D$, so $A\symdiff f^{-1}(B)$ is finite too. It remains to show that $\Ball_D(A')\subseteq A$, for then $f^{-1}(B)\subseteq A$ as desired.
 
         Indeed, if $y\in\Ball_D(A')$, then by the (reverse) triangle-inequality we have $d(y,\lnot A)\geq d(x,\lnot A)-d(x,y)$ for all $x\in A'$. But $d(x,\lnot A)>D$, strictly, so $d(y,\lnot A)>D-D=0$, and hence $y\in A$.
     \end{proof}
