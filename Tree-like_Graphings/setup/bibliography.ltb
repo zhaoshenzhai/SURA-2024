@@ -8,3 +8,34 @@
     date={2023},
     label={CPTT23}
 }
+
+\bib{DK18}{book}{
+    title={Geometric Group Theory},
+    author={Cornelia Druţu},
+    author={Michael Kapovich},
+    date={2018},
+    publisher={American Mathematical Society Colloquium Publications},
+    volume={63},
+    contribution={
+        type={appendix},
+        author={Bogdan Nica}
+    },
+    label={DK18}
+}
+
+\bib{Gro93}{article}{
+    title={Asymptotic invariants of infinite groups},
+    author={Mikhail Gromov},
+    conference={
+        title={Geometric Group Theory, Vol. 2},
+        address={Sussex},
+        date={1991},
+    },
+    book={
+        series={London Mathematical Society Lecture Note Series},
+        volume={182},
+        publisher={Cambridge University Press},
+        date={1993}
+    },
+    label={Gro93}
+}

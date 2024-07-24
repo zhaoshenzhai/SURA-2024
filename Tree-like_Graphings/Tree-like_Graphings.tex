@@ -8,20 +8,42 @@
     \date{\today}
 
     \begin{abstract}
-        We present a streamlined exposition of a construction presented in \cite{CPTT23}, where it is proven that every locally-finite Borel quasi-tree induces a canonical treeable equivalence relation.
+        We present a streamlined exposition of a construction presented in \cite{CPTT23}, where it is proven that every locally-finite Borel graph with each component a quasi-tree induces a canonical treeable equivalence relation.
     \end{abstract}
 
     \maketitle
 
     \section{Introduction}
 
-    \section{Dense Cuts in Quasi-trees}
+    The purpose of this note is to provide a streamlined proof of a particular case of a construction presented in \cite{CPTT23}, in order to better understand the general formalism developed therein. We attempt to make this note self-contained, but nevertheless urge the reader to refer to the original paper for more detailed discussion and generalizations of the results we have selected to include here. None of the results are original, and any new errors are introduced by the present author.
+
+    %Although this note can be read independently, we encourage the reader to refer to the original paper for more detailed discussion and generalizations of the results we have selected to include here; none of the results are original, and any new errors are introduced by the present author.
+
+    \subsection{Treeings of Equivalence Relations}
+
+    A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$, such that each class is countable. We are interested in special types of \textit{graphings} on a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit a treeing are said to be \textit{treeable}. The main results of \cite{CPTT23} is to provide new sufficient criteria for treeability of CBERs. In particular, they prove the following
+
+    \begin{mainTheorem}[\cite{CPTT23}*{Theorem 1.1}, Theorem \ref{thm:quasi-treeing_implies_treeing}]
+        If a CBER admits a locally-finite graphing whose components are quasi-trees, then it is treeable.
+    \end{mainTheorem}
+
+    Recall that two metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.
+    
+    \subsection{Organization}
+
+    \section{Main Constructions}
 
     \subsection{Proper Wallspaces}
 
-    \section{Median Graph of Orientations}
+    \subsection{Median Graph of Orientations}
 
-    \section{Canonical Construction of a Sub-treeing}
+    \subsection{Canonical Construction of a Sub-treeing}
+
+    \section{Putting it All Together}
+
+    \begin{theorem}\label{thm:quasi-treeing_implies_treeing}
+
+    \end{theorem}
 
     \begin{bibdiv}
         \begin{biblist}*{labels={alphabetic}}
