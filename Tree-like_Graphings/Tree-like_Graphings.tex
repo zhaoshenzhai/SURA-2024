@@ -12,6 +12,7 @@
     \end{abstract}
 
     \maketitle
+    \vspace{-0.3in}
 
     \section{Introduction}
 
@@ -21,11 +22,11 @@
 
     A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$, such that each class is countable. We are interested in special types of \textit{graphings} on a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit a treeing are said to be \textit{treeable}. The main results of \cite{CPTT23} is to provide new sufficient criteria for treeability of CBERs, and in particular, they prove the following
 
-    \begin{mainTheorem}[\cite{CPTT23}*{Theorem 1.1}, Corollary \ref{cor:quasi-treeing_implies_treeing}]
+    \begin{mainTheorem}[\cite{CPTT23}*{Theorem 1.1}]
         If a CBER admits a locally-finite graphing whose components are quasi-trees, then it is treeable.
     \end{mainTheorem}
 
-    Recall that two metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{DK18}.
+    Recall that metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.
 
     \subsection{Outline of the Proof}
 
@@ -36,19 +37,22 @@
     \end{enumerate}
     These cuts provide exactly the data to construct a `median graph' whose vertices are `ultrafilters' thereof, and condition (2) ensures that this graph has finite `hyperplanes'. This finiteness condition allows us to apply a Borel `cycle-cutting' algorithm to obtain a subtree thereof. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
 
-    
+    \vspace{-0.1in}
 
-    \section{Main Constructions}
+    \begin{equation*}
+        \textrm{Quasi-tree}\ \ \xrightarrow{\ref{sec:wallings_of_cuts}}\ \ 
+        \textrm{Dense walling of cuts}\ \ \xrightarrow{\ref{sec:median_graph_of_orientations}}\ \ 
+        \textrm{Median graph w/ finite hyperplanes}\ \ \xrightarrow{\ref{sec:borel_cycle_cutting}}\ \ 
+        \textrm{Tree}
+    \end{equation*}
 
-    \begin{corollary}\label{cor:quasi-treeing_implies_treeing}
-        If a CBER admits a locally-finite graphing whose components are quasi-trees, then it is treeable.
-    \end{corollary}
+    \section{Detailed Constructions}
 
-    \subsection{Wallings of Cuts}
+    \subsection{Wallings of Cuts}\label{sec:wallings_of_cuts}
 
-    \subsection{Median Graph of Orientations}
+    \subsection{Median Graph of Orientations}\label{sec:median_graph_of_orientations}
 
-    \subsection{Canonical Construction of a Sub-treeing}
+    \subsection{Canonical Construction of a Sub-treeing}\label{sec:borel_cycle_cutting}
 
     \begin{bibdiv}
         \begin{biblist}*{labels={alphabetic}}
