@@ -18,9 +18,9 @@
 
     The purpose of this note is to provide a streamlined proof of a particular case of a construction presented in \cite{CPTT23}, in order to better understand the general formalism developed therein. We attempt to make this note self-contained, but nevertheless urge the reader to refer to the original paper for more detailed discussion and generalizations of the results we have selected to include here.
 
-    \subsection{Treeings of Equivalence Relations}
+    \subsection{Treeings of equivalence relations}
 
-    A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$, such that each class is countable. We are interested in special types of \textit{graphings} on a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit a treeing are said to be \textit{treeable}. The main results of \cite{CPTT23} is to provide new sufficient criteria for treeability of CBERs, and in particular, they prove the following
+    A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$ with each class countable. We are interested in special types of \textit{graphings} on a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit a treeing are said to be \textit{treeable}. The main results of \cite{CPTT23} is to provide new sufficient criteria for treeability of CBERs, and in particular, they prove the following
 
     \begin{mainTheorem}[\cite{CPTT23}*{Theorem 1.1}]
         If a CBER admits a locally-finite graphing whose components are quasi-trees, then it is treeable.
@@ -28,28 +28,49 @@
 
     Recall that metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.
 
-    \subsection{Outline of the Proof}
+    \subsection{Outline of the proof}
 
     Roughly speaking, the existence of a quasi-isometry $G|C\to T_C$ to a simplicial tree $T_C$ for each component $C\subseteq G$ induces a collection $\mc{H}(C)$ of `cuts' (subsets $H\subseteq C$ with finite boundary such that both $H$ and $C\comp H$ are connected), which are `tree-like' in the sense that
     \begin{enumerate}
-        \item[1.] $\mc{H}(C)$ is a \textit{walling}: each vertex $x\in C$ is on the boundary of finitely-many $H\in\mc{H}(C)$, and
+        \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each vertex $x\in C$ is on the boundary of finitely-many $H\in\mc{H}(C)$, and
         \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
     \end{enumerate}
-    These cuts provide exactly the data to construct a `median graph' whose vertices are `ultrafilters' thereof, and condition (2) ensures that this graph has finite `hyperplanes'. This finiteness condition allows us to apply a Borel `cycle-cutting' algorithm to obtain a subtree thereof. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
+    These cuts have the structure of a pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters' thereof. Condition (2) then ensures that this graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree thereof. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
     \begin{equation*}
-        \textrm{Quasi-tree}\ \ \xrightarrow{\ref{sec:wallings_of_cuts}}\ \ 
-        \textrm{Dense walling of cuts}\ \ \xrightarrow{\ref{sec:median_graph_of_orientations}}\ \ 
-        \textrm{Median graph w/ finite hyperplanes}\ \ \xrightarrow{\ref{sec:borel_cycle_cutting}}\ \ 
-        \textrm{Tree}
+        \textrm{Quasi-tree}
+            \ \ \xrightarrow{\ref{sec:graphs_with_dense_family_of_cuts}}\ \ 
+        \begin{gathered}
+            \textrm{Dense family} \\[-4pt]
+            \textrm{of cuts}
+        \end{gathered}
+            \ \ \xrightarrow{\ref{sec:pocsets_of_cuts}}\ \ 
+        \begin{gathered}
+            \textrm{Pocset w/} \\[-4pt]
+            \textrm{non-triv. pts.} \\[-4pt]
+            \textrm{isolated}
+        \end{gathered}
+            \ \ \xrightarrow{\ref{sec:the_dual_median_graph_of_a_pocset}}\ \ 
+        \begin{gathered}
+            \textrm{Median graph} \\[-4pt]
+            \textrm{w/ finite} \\[-4pt]
+            \textrm{hyperplanes}
+        \end{gathered}
+            \ \ \xrightarrow{\ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}}\ \ 
+        \begin{gathered}
+            \textrm{Canonical} \\[-4pt]
+            \textrm{spanning tree}
+        \end{gathered}
     \end{equation*}
 
     \section{Detailed Constructions}
 
-    \subsection{Dense walling of Cuts}\label{sec:wallings_of_cuts}
+    \subsection{Graphs with dense families of cuts}\label{sec:graphs_with_dense_family_of_cuts}
 
-    \subsection{Median Graph of Orientations}\label{sec:median_graph_of_orientations}
+    \subsection{Pocsets of cuts}\label{sec:pocsets_of_cuts}
 
-    \subsection{Canonical Construction of a Sub-treeing}\label{sec:borel_cycle_cutting}
+    \subsection{The dual median graph of a pocset}\label{sec:the_dual_median_graph_of_a_pocset}
+
+    \subsection{Spanning trees of median graphs with finite hyperplanes}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
 
     \begin{bibdiv}
         \begin{biblist}*{labels={alphabetic}}
