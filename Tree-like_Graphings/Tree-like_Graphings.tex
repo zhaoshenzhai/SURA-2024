@@ -30,9 +30,9 @@
 
     \subsection{Outline of the proof}
 
-    Roughly speaking, the existence of a quasi-isometry $G|C\to T_C$ to a simplicial tree $T_C$ for each component $C\subseteq G$ induces a collection $\mc{H}(C)$ of `cuts' (subsets $H\subseteq C$ with finite boundary such that both $H$ and $C\comp H$ are connected), which are `tree-like' in the sense that
+    Roughly speaking, the existence of a quasi-isometry $G|C\to T_C$ to a simplicial tree $T_C$ for each component $C\subseteq X$ induces a collection $\mc{H}(C)$ of `cuts' (subsets $H\subseteq C$ with finite boundary such that both $H$ and $C\comp H$ are connected), which are `tree-like' in the sense that
     \begin{enumerate}
-        \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each vertex $x\in C$ is on the boundary of finitely-many $H\in\mc{H}(C)$, and
+        \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ are separated by finitely-many $H\in\mc{H}(C)$, and
         \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
     \end{enumerate}
     These cuts have the structure of a pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters' thereof. Condition (2) then ensures that this graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree thereof. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
@@ -62,11 +62,52 @@
         \end{gathered}
     \end{equation*}
 
+    \begin{remark*}
+        We follow \cite{CPTT23}*{Convention 2.7}, where for a family $\mc{H}\subseteq2^X$ of subsets of a fixed set $X$, we write $\mc{H}^\ast\coloneqq\mc{H}\comp\l\{\em,X\r\}$ for the \textit{non-trivial} elements of $\mc{H}$.
+    \end{remark*}
+
     \section{Detailed Constructions}
 
     \subsection{Graphs with dense families of cuts}\label{sec:graphs_with_dense_family_of_cuts}
 
+    Let $(X,G)$ be a locally-finite graph.
+
+    \subsubsection{End compactification of graphs}
+
     \subsection{Pocsets of cuts}\label{sec:pocsets_of_cuts}
+
+    The family $\mc{H}_{\diam\del\leq R}(X)$ of cuts have the following structure.
+
+    \begin{definition}
+        A \textit{pocset} $(P,\leq,\lnot,0)$ is a poset $(P,\leq)$ equipped with an order-reversing involution $\lnot:P\to P$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $p,\lnot p$ for every $p\in P$.
+
+        A \textit{profinite pocset} is a pocset $P$ equipped with a compact topology making $\lnot$ continuous and is \textit{totally order-disconnected}, in the sense that if $p\not\leq q$, then there is a clopen upward-closed $U\subseteq P$ with $p\in U\not\ni q$.
+    \end{definition}
+
+    \begin{remark}
+        Such a topology is automatically Hausdorff (if $p\neq q$, then either $p\not\leq q$ or $q\not\leq p$)
+    \end{remark}
+
+    We are primarily interested in subpocsets of $2^X$, which has a canonical pocset structure $(2^X,\subseteq,\lnot,\em)$.
+
+    \begin{lemma}
+        The pocset $2^X$ equipped with the product topology of the discrete space $2\coloneqq\l\{0,1\r\}$ is profinite, and admits a basis of `cylinders': for each finite $A\subseteq X$ and $W\in2^A$, the {\rm{cylinder}} at $W$ is
+        \begin{equation*}
+            [W]\coloneqq\l\{H\in2^X\st H\cap A=W\r\}.
+        \end{equation*}
+    \end{lemma}
+    \begin{proof}
+        
+    \end{proof}
+
+    \begin{proposition}
+        Let $X$ be a set and $\mc{H}\subseteq2^X$ be a subpocset. If $\mc{H}$ is finitely-separating, then $\mc{H}\subseteq2^X$ is closed and every non-trivial element is isolated.
+    \end{proposition}
+    \begin{proof}
+        
+    \end{proof}
+
+
 
     \subsection{The dual median graph of a pocset}\label{sec:the_dual_median_graph_of_a_pocset}
 
