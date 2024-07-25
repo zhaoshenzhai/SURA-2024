@@ -35,7 +35,7 @@
         \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ are separated by finitely-many $H\in\mc{H}(C)$, and
         \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
     \end{enumerate}
-    These cuts have the structure of a pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters' thereof. Condition (2) then ensures that this graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree thereof. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
+    These cuts have the structure of a pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead; see Definition \ref{def:orientation}.} thereof. Condition (2) then ensures that this graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree thereof. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
     \begin{equation*}
         \textrm{Quasi-tree}
             \ \ \xrightarrow{\ref{ssec:graphs_with_dense_family_of_cuts}}\ \ 
@@ -112,14 +112,20 @@
 
     Let $\mc{H}\subseteq2^X$ be a finitely-separating pocset, whose elements we call \textit{half-spaces}.
 
-    \begin{definition}
+    \begin{definition}\label{def:orientation}
         An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$, and let $\mc{U}^\circ(\mc{H})\subseteq\mc{U}(\mc{H})$ denote the clopen orientations on $\mc{H}$.
     \end{definition}
 
     \begin{remark}
         Intuitively, an orientation is a `maximally consistent' choice of a half-space from each hyperplane. To formalize this, let $\sim$ be the equivalence relation on $\mc{H}$ given by $H\sim\lnot H$, and let $\del:\mc{H}\to\mc{H}/\!\!\sim$ be the quotient map. Orientations $U\subseteq\mc{H}$ then correspond precisely to sections $\phi:\mc{H}/\!\!\sim\,\to\mc{H}$ of $\del$ such that $\phi(\del H)\not\subseteq\lnot\phi(\del K)$ for every $H,K\in\mc{H}$; the latter condition rules out `orientations' of the form $\leftarrow\hspace{-4.7pt}|\,\,|\hspace{-4.7pt}\rightarrow$.
+    \end{remark}
 
-        The \textit{clopen} orientations $U\in\mc{U}^\circ(\mc{H})$ are then those
+    \begin{remark}
+        The \textit{clopen} orientations are exactly those which are \textit{finitely-based}, in the sense that there is a $\subseteq$-minimal finite subset $U_0\subseteq U$ such that $U=\,\,\uparrow\!U_0$, where
+        \begin{equation*}
+            \uparrow\!U_0\coloneqq\bigcup_{H\in U_0}\!\uparrow\!H\coloneqq\bigcup_{H\in U_0}\!\l\{K\in\mc{H}:K\supseteq H\r\}.
+        \end{equation*}
+        Indeed, if $U$ is clopen, 
     \end{remark}
 
     \begin{theorem}\label{thm:construction_of_dual_median_graph}
