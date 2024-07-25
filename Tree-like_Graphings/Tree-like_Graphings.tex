@@ -110,23 +110,29 @@
 
     \subsection{The dual median graph of a pocset}\label{ssec:the_dual_median_graph_of_a_pocset}
 
-    Let $\mc{H}\subseteq2^X$ be a finitely-separating pocset, whose elements we call \textit{half-spaces}.
+    Let $\mc{H}\subseteq2^X$ be a finitely-separating pocset, whose elements we call \textit{half-spaces}. By Proposition \ref{prp:finitely-separating_non-trivial_isolated}, $\mc{H}$ is profinite and every non-trivial element thereof is isolated.
 
     \begin{definition}\label{def:orientation}
-        An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$, and let $\mc{U}^\circ(\mc{H})\subseteq\mc{U}(\mc{H})$ denote the clopen orientations on $\mc{H}$.
+        An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$ and let $\mc{U}^\circ(\mc{H})$ denote the clopen ones.
     \end{definition}
 
     \begin{remark}
         Intuitively, an orientation is a `maximally consistent' choice of a half-space from each hyperplane. To formalize this, let $\sim$ be the equivalence relation on $\mc{H}$ given by $H\sim\lnot H$, and let $\del:\mc{H}\to\mc{H}/\!\!\sim$ be the quotient map. Orientations $U\subseteq\mc{H}$ then correspond precisely to sections $\phi:\mc{H}/\!\!\sim\,\to\mc{H}$ of $\del$ such that $\phi(\del H)\not\subseteq\lnot\phi(\del K)$ for every $H,K\in\mc{H}$; the latter condition rules out `orientations' of the form $\leftarrow\hspace{-4.7pt}|\,\,|\hspace{-4.7pt}\rightarrow$.
     \end{remark}
 
-    \begin{remark}
-        The \textit{clopen} orientations are exactly those which are \textit{finitely-based}, in the sense that there is a $\subseteq$-minimal finite subset $U_0\subseteq U$ such that $U=\,\,\uparrow\!U_0$, where
-        \begin{equation*}
-            \uparrow\!U_0\coloneqq\bigcup_{H\in U_0}\!\uparrow\!H\coloneqq\bigcup_{H\in U_0}\!\l\{K\in\mc{H}:K\supseteq H\r\}.
-        \end{equation*}
-        Indeed, if $U$ is clopen, 
-    \end{remark}
+    \begin{example}
+        Every $x\in X$ induces its \textit{principal orientation} $\widehat{x}\coloneqq\l\{H\in\mc{H}\st x\in H\r\}=\mc{H}\cap\pi^{-1}_x(1)$, which is clearly clopen in $\mc{H}$, and gives us a canonical map $\mf{p}:X\to\mc{U}^\circ(\mc{H})$. Note, however, that $\mf{p}$ is \textit{not necessarily} injective; we call a fiber $[x]_\mc{H}\coloneqq\mf{p}^{-1}(\widehat{x})=\l\{y\in X\st\widehat{x}=\widehat{y}\r\}$ an \textit{$\mc{H}$-block}.
+    \end{example}
+
+    % \begin{remark}
+    %     The \textit{clopen} orientations are exactly those which are \textit{finitely-based}, in the sense that there is a $\subseteq$-minimal finite subset $U_0\subseteq U$ such that $U=\,\,\uparrow\!U_0$, where
+    %     \begin{equation*}
+    %         \uparrow\!U_0\coloneqq\bigcup_{H\in U_0}\!\uparrow\!H\coloneqq\bigcup_{H\in U_0}\!\l\{K\in\mc{H}:K\supseteq H\r\}.
+    %     \end{equation*}
+    %     Indeed, if $U$ is clopen, 
+    % \end{remark}
+
+    The goal of this section is to canonically construct a graph whose vertices are clopen orientations on $\mc{H}$.
 
     \begin{theorem}\label{thm:construction_of_dual_median_graph}
         
