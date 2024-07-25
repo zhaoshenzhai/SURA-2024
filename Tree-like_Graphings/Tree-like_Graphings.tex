@@ -66,6 +66,8 @@
         We follow \cite{CPTT23}*{Convention 2.7}, where for a family $\mc{H}\subseteq2^X$ of subsets of a fixed set $X$, we write $\mc{H}^\ast\coloneqq\mc{H}\comp\l\{\em,X\r\}$ for the \textit{non-trivial} elements of $\mc{H}$.
     \end{remark*}
 
+    \pagebreak
+
     \section{Detailed Constructions}
 
     \subsection{Graphs with dense families of cuts}\label{sec:graphs_with_dense_family_of_cuts}
@@ -76,7 +78,10 @@
 
     \subsection{Pocsets of cuts}\label{sec:pocsets_of_cuts}
 
-    The family $\mc{H}_{\diam\del\leq R}(X)$ of cuts have the following structure.
+    The family $\mc{H}_{\diam\del\leq R}(X)$ of cuts have the structure of a `profinite pocset', which we first study abstractly. We then deduce some properties of the pocset induced by a \textit{dense} family of cuts.
+
+    \subsubsection{Abstract profinite pocsets}
+
 
     \begin{definition}
         A \textit{pocset} $(P,\leq,\lnot,0)$ is a poset $(P,\leq)$ equipped with an order-reversing involution $\lnot:P\to P$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $p,\lnot p$ for every $p\in P$.
@@ -101,7 +106,7 @@
         This is the desired neighborhood isolating $A\in U$. Indeed, it is (cl)open since it is the \textit{finite} intersection of cylinders prescribed by the $x_H$'s and $y_H$'s, and it is disjoint from $\mc{H}\comp\l\{A\r\}$ by construction.
     \end{proof}
 
-
+    \subsubsection{The pocset induced by a dense family cuts}
 
     \subsection{The dual median graph of a pocset}\label{sec:the_dual_median_graph_of_a_pocset}
 
