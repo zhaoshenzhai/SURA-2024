@@ -10,12 +10,14 @@
 \usepackage{enumitem}                                                       % enumerate and itemize indents
 \usepackage{nicematrix}                                                     % matrices and tables
 \usepackage{appendix}                                                       % appendix
+\usepackage{mdframed}                                                       % frames
 
 \usetikzlibrary{matrix, positioning, patterns, decorations.markings, arrows, arrows.meta, backgrounds, math, cd}
 
 \hypersetup{colorlinks=true, allcolors=magenta}
 \definecolor{darkGreen}{HTML}{00A000}
 \newgeometry{margin = 1in}
+\newmdenv[topline=false, bottomline=false, rightline=false, skipabove=4pt, skipbelow=4pt]{leftbar}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{mainTheorem}{Theorem}

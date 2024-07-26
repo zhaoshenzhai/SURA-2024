@@ -66,8 +66,6 @@
         We follow \cite{CPTT23}*{Convention 2.7}, where for a family $\mc{H}\subseteq2^X$ of subsets of a fixed set $X$, we write $\mc{H}^\ast\coloneqq\mc{H}\comp\l\{\em,X\r\}$ for the \textit{non-trivial} elements of $\mc{H}$.
     \end{remark*}
 
-    \pagebreak
-
     \section{Detailed Constructions}
 
     \subsection{Graphs with dense families of cuts}\label{ssec:graphs_with_dense_family_of_cuts}
@@ -75,6 +73,33 @@
     Let $(X,G)$ be a locally-finite graph.
 
     \subsubsection{End compactification of graphs}
+
+    \subsubsection{Density of bounded boundary diameter cuts}
+
+    \begin{proposition}
+        The class of connected locally-finite graphs in which $\mc{H}_{\diam(\del)\leq R}$ is dense towards ends for some $R<\infty$ is invariant under coarse equivalence.
+    \end{proposition}
+    \begin{proof}
+        Let $(X,G)$, $(Y,T)$ be connected locally-finite graphs, $f:X\to Y$ be a coarse equivalence with quasi-inverse $g:Y\to X$, and suppose $\mc{H}_{\diam(\del)\leq S}(Y)$ is dense towards ends for some $S<\infty$. By Lemma {\color{red}{TODO}}, pick some $R<\infty$ so that for any $H\in\mc{H}_{\diam(\del)\leq S}(Y)$, we have $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$.
+
+        Fix an end $U\in\widehat{X}\comp X$ with $U\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. We need to find some $B\in\mc{H}_{\del<\infty}(Y)$ such that $\widehat{f}(U)\in\widehat{B}$ and $f^{-1}(B)\subseteq A$, for then $\widehat{f}(U)\in\widehat{H}$ for some $B\supseteq H\in\mc{H}_{\diam(\del)\leq S}(Y)$, and hence we have
+        \begin{equation*}
+            U\in\widehat{f^{-1}(H)}\subseteq\widehat{f^{-1}(B)}\subseteq\widehat{A}
+        \end{equation*}
+        with $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$. For convenience, let $D<\infty$ be the uniform distance $d(1_X,g\circ f)$.
+
+        To this end, note that $\widehat{f}(U)\in\widehat{B}$ iff $U\in\widehat{f^{-1}(B)}$. Since $U\in\widehat{A}$, the latter can occur if $|A\symdiff f^{-1}(B)|<\infty$, and so we need to find such a $B\in\mc{H}_{\del<\infty}(Y)$ with the additional property that $f^{-1}(B)\subseteq A$.
+        \begin{leftbar}
+            \textit{Attempt 1:} Set $B\coloneqq g^{-1}(A)\in\mc{H}_{\del<\infty}(Y)$. Then $f^{-1}(B)\subseteq\Ball_D(A)$ since if $(g\circ f)(x)\in A$, then
+                \begin{equation*}
+                    d(x,A)\leq d(x,(g\circ f)(x))\leq d(1_X,g\circ f)=D.
+                \end{equation*}
+            By local-finiteness of $G$, we see that $A\symdiff f^{-1}(B)=A\comp f^{-1}(B)$ is finite, as desired.
+        \end{leftbar}
+        However, it is \textit{not} the case that $f^{-1}(B)\subseteq A$. To remedy this, we `shrink' $A$ by $D$ to $A'$ so that $\Ball_D(A')\subseteq A$, and take $B\coloneqq g^{-1}(A')$ instead. Indeed, $A'\coloneqq\lnot\Ball_D(\lnot A)\subseteq A$ works, since $f^{-1}(B)\subseteq\Ball_D(A')$ as before, so $A'\symdiff f^{-1}(B)=A'\comp f^{-1}(B)$ is finite. Also, $A\symdiff A'$ is finite since $x\in A\symdiff A'$ iff $x\in A$ and $d(x,\lnot A)\leq D$, so $A\symdiff f^{-1}(B)$ is finite too. It remains to show that $\Ball_D(A')\subseteq A$, for then $f^{-1}(B)\subseteq A$ as desired.
+
+        Indeed, if $y\in\Ball_D(A')$, then by the (reverse) triangle-inequality we have $d(y,\lnot A)\geq d(x,\lnot A)-d(x,y)$ for all $x\in A'$. But $d(x,\lnot A)>D$, strictly, so $d(y,\lnot A)>D-D=0$, and hence $y\in A$.
+    \end{proof}
 
     \subsection{Pocsets of cuts}\label{ssec:pocsets_of_cuts}
 
@@ -110,33 +135,35 @@
 
     \subsection{The dual median graph of a pocset}\label{ssec:the_dual_median_graph_of_a_pocset}
 
-    Let $\mc{H}\subseteq2^X$ be a finitely-separating pocset, whose elements we call \textit{half-spaces}. By Proposition \ref{prp:finitely-separating_non-trivial_isolated}, $\mc{H}$ is profinite and every non-trivial element thereof is isolated.
+    Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset, whose elements we call \textit{half-spaces}. By Proposition \ref{prp:finitely-separating_non-trivial_isolated}, $\mc{H}$ is profinite and every non-trivial element thereof is isolated.
+    
+    \subsubsection{Median graph of orientations}
 
     \begin{definition}\label{def:orientation}
         An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$ and let $\mc{U}^\circ(\mc{H})$ denote the clopen ones.
     \end{definition}
 
-    \begin{remark}
-        Intuitively, an orientation is a `maximally consistent' choice of a half-space from each hyperplane. To formalize this, let $\sim$ be the equivalence relation on $\mc{H}$ given by $H\sim\lnot H$, and let $\del:\mc{H}\to\mc{H}/\!\!\sim$ be the quotient map. Orientations $U\subseteq\mc{H}$ then correspond precisely to sections $\phi:\mc{H}/\!\!\sim\,\to\mc{H}$ of $\del$ such that $\phi(\del H)\not\subseteq\lnot\phi(\del K)$ for every $H,K\in\mc{H}$; the latter condition rules out `orientations' of the form $\leftarrow\hspace{-4.7pt}|\,\,|\hspace{-4.7pt}\rightarrow$.
-    \end{remark}
+    {\color{red}{The \textit{clopen} orientations are exactly those which are \textit{finitely-based}, in the sense that there is a $\subseteq$-minimal finite subset $U_0\subseteq U$ such that $U=\,\,\uparrow\!U_0$, where
+    \begin{equation*}
+        \uparrow\!U_0\coloneqq\bigcup_{H\in U_0}\!\uparrow\!H\coloneqq\bigcup_{H\in U_0}\!\l\{K\in\mc{H}:K\supseteq H\r\}.
+    \end{equation*}
+    Indeed, if $U$ is clopen, then there is a finite subset $A\subseteq X$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is some $K\in U$ with $H\cap A=K\cap A$.}}
 
     \begin{example}
         Every $x\in X$ induces its \textit{principal orientation} $\widehat{x}\coloneqq\l\{H\in\mc{H}\st x\in H\r\}=\mc{H}\cap\pi^{-1}_x(1)$, which is clearly clopen in $\mc{H}$, and gives us a canonical map $\mf{p}:X\to\mc{U}^\circ(\mc{H})$. Note, however, that $\mf{p}$ is \textit{not necessarily} injective; we call a fiber $[x]_\mc{H}\coloneqq\mf{p}^{-1}(\widehat{x})=\l\{y\in X\st\widehat{x}=\widehat{y}\r\}$ an \textit{$\mc{H}$-block}.
     \end{example}
 
-    % \begin{remark}
-    %     The \textit{clopen} orientations are exactly those which are \textit{finitely-based}, in the sense that there is a $\subseteq$-minimal finite subset $U_0\subseteq U$ such that $U=\,\,\uparrow\!U_0$, where
-    %     \begin{equation*}
-    %         \uparrow\!U_0\coloneqq\bigcup_{H\in U_0}\!\uparrow\!H\coloneqq\bigcup_{H\in U_0}\!\l\{K\in\mc{H}:K\supseteq H\r\}.
-    %     \end{equation*}
-    %     Indeed, if $U$ is clopen, 
-    % \end{remark}
+    \begin{remark}
+        Intuitively, an orientation is a `maximally consistent' choice of half-spaces. To formalize this, let $\sim$ be the equivalence relation on $\mc{H}$ given by $H\sim\lnot H$, and let $\del:\mc{H}\to\mc{H}/\!\!\sim$ be the quotient map. Orientations $U\subseteq\mc{H}$ then correspond precisely to sections $\phi:\mc{H}/\!\!\sim\,\to\mc{H}$ of $\del$ such that $\phi(\del H)\not\subseteq\lnot\phi(\del K)$ for every $H,K\in\mc{H}$; the latter condition rules out `orientations' of the form $\leftarrow\hspace{-4.7pt}|\,\,|\hspace{-4.7pt}\rightarrow$.
+    \end{remark}
 
     The goal of this section is to canonically construct a graph whose vertices are clopen orientations on $\mc{H}$.
 
     \begin{theorem}\label{thm:construction_of_dual_median_graph}
-        
+        Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset. Then ...
     \end{theorem}
+
+    \subsubsection{Finiteness conditions on $\mc{U}^\circ(\mc{H})$}
 
     \subsection{Spanning trees of median graphs with finite hyperplanes}\label{ssec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
 
