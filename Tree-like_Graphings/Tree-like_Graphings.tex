@@ -72,15 +72,27 @@
 
     Let $(X,G)$ be a locally-finite graph.
 
-    \subsubsection{End compactification of graphs}
+    \begin{definition}
+        The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of the Boolean algebra $\mc{H}_{\del<\infty}(X)\subseteq2^X$ of all sets with finite boundary. The \textit{ends} of $(X,G)$ are the non-principal ultrafilters in $\widehat{X}$.
+    \end{definition}
 
-    \subsubsection{Density of bounded boundary diameter cuts}
+    Thus, a clopen set in $\widehat{X}$ is the set $\widehat{A}$ of all ultrafilters $p\in\widehat{X}$ containing $A\in\mc{H}_{\del<\infty}(X)$. We identify each $x\in X$ with its corresponding principal ultrafilter $p_x\in\widehat{X}$.
 
-    \begin{proposition}
+    \begin{definition}
+        A subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end.
+    \end{definition}
+
+    In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$.
+
+    \begin{lemma}\label{lem:coarse_embedding_controls_boundary_diameter}
+        
+    \end{lemma}
+
+    \begin{proposition}\label{prp:invariant_of_density_coarse_equivalence}
         The class of connected locally-finite graphs in which $\mc{H}_{\diam(\del)\leq R}$ is dense towards ends for some $R<\infty$ is invariant under coarse equivalence.
     \end{proposition}
     \begin{proof}
-        Let $(X,G)$, $(Y,T)$ be connected locally-finite graphs, $f:X\to Y$ be a coarse equivalence with quasi-inverse $g:Y\to X$, and suppose $\mc{H}_{\diam(\del)\leq S}(Y)$ is dense towards ends for some $S<\infty$. By Lemma {\color{red}{TODO}}, pick some $R<\infty$ so that for any $H\in\mc{H}_{\diam(\del)\leq S}(Y)$, we have $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$.
+        Let $(X,G)$, $(Y,T)$ be connected locally-finite graphs, $f:X\to Y$ be a coarse equivalence with quasi-inverse $g:Y\to X$, and suppose $\mc{H}_{\diam(\del)\leq S}(Y)$ is dense towards ends for some $S<\infty$. By Lemma \ref{lem:coarse_embedding_controls_boundary_diameter}, pick some $R<\infty$ so that for any $H\in\mc{H}_{\diam(\del)\leq S}(Y)$, we have $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$.
 
         Fix an end $U\in\widehat{X}\comp X$ with $U\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. We need to find some $B\in\mc{H}_{\del<\infty}(Y)$ such that $\widehat{f}(U)\in\widehat{B}$ and $f^{-1}(B)\subseteq A$, for then $\widehat{f}(U)\in\widehat{H}$ for some $B\supseteq H\in\mc{H}_{\diam(\del)\leq S}(Y)$, and hence we have
         \begin{equation*}
@@ -90,7 +102,7 @@
 
         To this end, note that $\widehat{f}(U)\in\widehat{B}$ iff $U\in\widehat{f^{-1}(B)}$. Since $U\in\widehat{A}$, the latter can occur if $|A\symdiff f^{-1}(B)|<\infty$, and so we need to find such a $B\in\mc{H}_{\del<\infty}(Y)$ with the additional property that $f^{-1}(B)\subseteq A$.
         \begin{leftbar}
-            \textit{Attempt 1:} Set $B\coloneqq g^{-1}(A)\in\mc{H}_{\del<\infty}(Y)$. Then $f^{-1}(B)\subseteq\Ball_D(A)$ since if $(g\circ f)(x)\in A$, then
+            \textit{Attempt 1.} Set $B\coloneqq g^{-1}(A)\in\mc{H}_{\del<\infty}(Y)$. Then $f^{-1}(B)\subseteq\Ball_D(A)$ since if $(g\circ f)(x)\in A$, then
                 \begin{equation*}
                     d(x,A)\leq d(x,(g\circ f)(x))\leq d(1_X,g\circ f)=D.
                 \end{equation*}
@@ -101,6 +113,13 @@
         Indeed, if $y\in\Ball_D(A')$, then by the (reverse) triangle-inequality we have $d(y,\lnot A)\geq d(x,\lnot A)-d(x,y)$ for all $x\in A'$. But $d(x,\lnot A)>D$, strictly, so $d(y,\lnot A)>D-D=0$, and hence $y\in A$.
     \end{proof}
 
+    \begin{corollary}
+        If $(X,G)$ is a locally-finite quasi-tree, then $\mc{H}_{\diam(\del)\leq R}$ is dense towards ends of $G$ for some $R<\infty$.
+    \end{corollary}
+    \begin{proof}
+        Observe that $\mc{H}_{\diam(\del)\leq2}(T)$ is dense towards ends for any tree $T$, and invoke Proposition \ref{prp:invariant_of_density_coarse_equivalence}.
+    \end{proof}
+
     \subsection{Pocsets of cuts}\label{ssec:pocsets_of_cuts}
 
     The family $\mc{H}_{\diam\del\leq R}(X)$ of cuts have the structure of a `profinite pocset', which we first study abstractly. We then deduce some properties of the pocset induced by a \textit{dense} family of cuts.
@@ -109,9 +128,9 @@
 
 
     \begin{definition}
-        A \textit{pocset} $(P,\leq,\lnot,0)$ is a poset $(P,\leq)$ equipped with an order-reversing involution $\lnot:P\to P$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $p,\lnot p$ for every $p\in P$.
+        A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$.
 
-        A \textit{profinite pocset} is a pocset $P$ equipped with a compact topology making $\lnot$ continuous and is \textit{totally order-disconnected}, in the sense that if $p\not\leq q$, then there is a clopen upward-closed $U\subseteq P$ with $p\in U\not\ni q$.
+        A \textit{profinite pocset} is a pocset $\mc{H}$ equipped with a compact topology making $\lnot$ continuous and is \textit{totally order-disconnected}, in the sense that if $H\not\leq K$, then there is a clopen upward-closed $U\subseteq\mc{H}$ with $H\in U\not\ni K$.
     \end{definition}
 
     \begin{remark}
@@ -131,7 +150,7 @@
         This is the desired neighborhood isolating $A\in U$. Indeed, it is (cl)open since it is the \textit{finite} intersection of cylinders prescribed by the $x_H$'s and $y_H$'s, and it is disjoint from $\mc{H}\comp\l\{A\r\}$ by construction.
     \end{proof}
 
-    \subsubsection{The pocset induced by a dense family cuts}
+    \subsubsection{Finiteness conditions on the pocset of a dense family of cuts}
 
     \subsection{The dual median graph of a pocset}\label{ssec:the_dual_median_graph_of_a_pocset}
 
