@@ -16,11 +16,11 @@
 
     \section{Introduction}
 
-    The purpose of this note is to provide a streamlined proof of a particular case of a construction presented in \cite{CPTT23}, in order to better understand the general formalism developed therein. We attempt to make this note self-contained, but nevertheless urge the reader to refer to the original paper for more detailed discussion and generalizations of the results we have selected to include here.
+    The purpose of this note is to provide a streamlined proof of a particular case of a construction presented in \cite{CPTT23}, in order to better understand the general formalism developed therein. We attempt to make this note self-contained, but nevertheless urge the reader to refer to the original paper for more detailed discussion and some generalizations of the results we have selected to include here.
 
     \subsection{Treeings of equivalence relations}
 
-    A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$ with each class countable. We are interested in special types of \textit{graphings} on a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit a treeing are said to be \textit{treeable}. The main results of \cite{CPTT23} is to provide new sufficient criteria for treeability of CBERs, and in particular, they prove the following
+    A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$ with each class countable. We are interested in special types of \textit{graphings} on a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit treeings are said to be \textit{treeable}. The main results of \cite{CPTT23} provide new sufficient criteria for treeability of certain classes of CBERs, and in particular, they prove the following
 
     \begin{mainTheorem}[\cite{CPTT23}*{Theorem 1.1}]
         If a CBER admits a locally-finite graphing whose components are quasi-trees, then it is treeable.
@@ -32,30 +32,30 @@
 
     Roughly speaking, the existence of a quasi-isometry $G|C\to T_C$ to a simplicial tree $T_C$ for each component $C\subseteq X$ induces a collection $\mc{H}(C)$ of `cuts' (subsets $H\subseteq C$ with finite boundary such that both $H$ and $C\comp H$ are connected), which are `tree-like' in the sense that
     \begin{enumerate}
-        \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ are separated by finitely-many $H\in\mc{H}(C)$, and
+        \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ is separated by finitely-many $H\in\mc{H}(C)$, and
         \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
     \end{enumerate}
     These cuts have the structure of a pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead; see Definition \ref{def:orientation}.} thereof. Condition (2) then ensures that this graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree thereof. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
     \begin{equation*}
         \textrm{Quasi-tree}
-            \ \ \xrightarrow{\ref{ssec:graphs_with_dense_family_of_cuts}}\ \ 
+            \ \ \xrightarrow{\ref{sec:graphs_with_dense_family_of_cuts}}\ \ 
         \begin{gathered}
             \textrm{Dense family} \\[-4pt]
             \textrm{of cuts}
         \end{gathered}
-            \ \ \xrightarrow{\ref{ssec:pocsets_of_cuts}}\ \ 
+            \ \ \xrightarrow{\ref{sec:pocsets_of_cuts}}\ \ 
         \begin{gathered}
             \textrm{Pocset w/} \\[-4pt]
             \textrm{non-triv. pts.} \\[-4pt]
             \textrm{isolated}
         \end{gathered}
-            \ \ \xrightarrow{\ref{ssec:the_dual_median_graph_of_a_pocset}}\ \ 
+            \ \ \xrightarrow{\ref{sec:the_dual_median_graph_of_a_pocset}}\ \ 
         \begin{gathered}
             \textrm{Median graph} \\[-4pt]
             \textrm{w/ finite} \\[-4pt]
             \textrm{hyperplanes}
         \end{gathered}
-            \ \ \xrightarrow{\ref{ssec:spanning_trees_of_median_graphs_with_finite_hyperplanes}}\ \ 
+            \ \ \xrightarrow{\ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}}\ \ 
         \begin{gathered}
             \textrm{Canonical} \\[-4pt]
             \textrm{spanning tree}
@@ -66,9 +66,9 @@
         We follow \cite{CPTT23}*{Convention 2.7}, where for a family $\mc{H}\subseteq2^X$ of subsets of a fixed set $X$, we write $\mc{H}^\ast\coloneqq\mc{H}\comp\l\{\em,X\r\}$ for the \textit{non-trivial} elements of $\mc{H}$.
     \end{remark*}
 
-    \section{Detailed Constructions}
+    \section{Graphs with Dense Families of Cuts}\label{sec:graphs_with_dense_family_of_cuts}
 
-    \subsection{Graphs with dense families of cuts}\label{ssec:graphs_with_dense_family_of_cuts}
+    \subsection{End Compactification of Graphs}
 
     Let $(X,G)$ be a locally-finite graph.
 
@@ -79,7 +79,7 @@
     Thus, a clopen set in $\widehat{X}$ is the set $\widehat{A}$ of all ultrafilters $p\in\widehat{X}$ containing $A\in\mc{H}_{\del<\infty}(X)$. We identify each $x\in X$ with its corresponding principal ultrafilter $p_x\in\widehat{X}$.
 
     \begin{definition}
-        A subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end.
+        A subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end in $\widehat{X}\comp X$.
     \end{definition}
 
     In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$.
@@ -120,12 +120,13 @@
         Observe that $\mc{H}_{\diam(\del)\leq2}(T)$ is dense towards ends for any tree $T$, and invoke Proposition \ref{prp:invariant_of_density_coarse_equivalence}.
     \end{proof}
 
-    \subsection{Pocsets of cuts}\label{ssec:pocsets_of_cuts}
+    \section{Pocsets and Orientations}
+
+    \subsection{Pocsets of cuts}\label{sec:pocsets_of_cuts}
 
     The family $\mc{H}_{\diam\del\leq R}(X)$ of cuts have the structure of a `profinite pocset', which we first study abstractly. We then deduce some properties of the pocset induced by a \textit{dense} family of cuts.
 
-    \subsubsection{Abstract profinite pocsets}\label{sssec:profinite_pocsets}
-
+    \subsubsection{Abstract profinite pocsets}\label{ssec:profinite_pocsets}
 
     \begin{definition}
         A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$.
@@ -139,7 +140,7 @@
 
     We are primarily interested in subpocsets of $(2^X,\subseteq,\lnot,\em)$, which is profinite if equipped with the product topology of the discrete space $2$. Indeed, $2^X$ admits a base of \textit{cylinder sets} $-$ which are finite intersections of sets of the form $\pi^{-1}_x(i)$ where $x\in X$, $i\in\l\{0,1\r\}$, and $\pi_x:2^X\to2$ is the projection $-$ making $\lnot$ continuous since cylinders are clopen. {\color{red}{Show that it is totally order-disconnected.}}
 
-    The following proposition gives a sufficient criteria for subpocsets of $2^X$ to be profinite. We also show in this case that every non-trivial element $H\in\mc{H}^\ast$ is isolated, which will important in Section \ref{ssec:the_dual_median_graph_of_a_pocset}.
+    The following proposition gives a sufficient criteria for subpocsets of $2^X$ to be profinite. We also show in this case that every non-trivial element $H\in\mc{H}^\ast$ is isolated, which will important in Section \ref{sec:the_dual_median_graph_of_a_pocset}.
 
     \begin{proposition}\label{prp:finitely-separating_non-trivial_isolated}
         Let $X$ be a set and $\mc{H}\subseteq2^X$ be a subpocset. If $\mc{H}$ is finitely-separating, then $\mc{H}\subseteq2^X$ is closed and every non-trivial element is isolated.
@@ -152,7 +153,7 @@
 
     \subsubsection{Finiteness conditions on the pocset of a dense family of cuts}
 
-    \subsection{The dual median graph of a pocset}\label{ssec:the_dual_median_graph_of_a_pocset}
+    \subsection{The dual median graph of a pocset}\label{sec:the_dual_median_graph_of_a_pocset}
 
     Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset, whose elements we call \textit{half-spaces}. By Proposition \ref{prp:finitely-separating_non-trivial_isolated}, $\mc{H}$ is profinite and every non-trivial element thereof is isolated.
     
@@ -184,14 +185,14 @@
 
     \subsubsection{Finiteness conditions on $\mc{U}^\circ(\mc{H})$}
 
-    \subsection{Spanning trees of median graphs with finite hyperplanes}\label{ssec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
+    \section{Median Graphs and their Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
 
     \begin{appendices}
         \section{Tree of orientations on a nested pocset of sets}
 
-        Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset (see Definition \ref{sssec:profinite_pocsets}), so every non-trivial element is isolated by Proposition \ref{prp:finitely-separating_non-trivial_isolated}. As shown in Theorem \ref{thm:construction_of_dual_median_graph}, the clopen orientations $\mc{U}^\circ(\mc{H})$ form the vertices of a median graph, whose edges are given by `minimal base-flipping'.
+        Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset (see Definition \ref{ssec:profinite_pocsets}), so every non-trivial element is isolated by Proposition \ref{prp:finitely-separating_non-trivial_isolated}. As shown in Theorem \ref{thm:construction_of_dual_median_graph}, the clopen orientations $\mc{U}^\circ(\mc{H})$ form the vertices of a median graph, whose edges are given by `minimal base-flipping'.
 
-        We devote this appendix to show that if $\mc{H}$ is \textit{nested}, then $\mc{U}^\circ(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{ssec:spanning_trees_of_median_graphs_with_finite_hyperplanes} and obtain a treeing directly.
+        We devote this appendix to show that if $\mc{H}$ is \textit{nested}, then $\mc{U}^\circ(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes} and obtain a treeing directly.
     \end{appendices}
 
     \begin{bibdiv}
