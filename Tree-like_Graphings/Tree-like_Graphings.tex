@@ -35,7 +35,7 @@
         \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ is separated by finitely-many $H\in\mc{H}(C)$, and
         \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
     \end{enumerate}
-    These cuts have the structure of a pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead; see Definition \ref{def:orientation}.} thereof. Condition (2) then ensures that this graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree thereof. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
+    By Condition (1), these cuts have the structure of a profinite pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} thereof. Condition (2) then ensures that this graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree thereof. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
     \begin{equation*}
         \textrm{Quasi-tree}
             \ \ \xrightarrow{\ref{sec:graphs_with_dense_family_of_cuts}}\ \ 
@@ -62,6 +62,8 @@
         \end{gathered}
     \end{equation*}
 
+    {\color{red}{Write some more stuff to tie things together...}}
+
     \begin{remark*}
         We follow \cite{CPTT23}*{Convention 2.7}, where for a family $\mc{H}\subseteq2^X$ of subsets of a fixed set $X$, we write $\mc{H}^\ast\coloneqq\mc{H}\comp\l\{\em,X\r\}$ for the \textit{non-trivial} elements of $\mc{H}$.
     \end{remark*}
@@ -70,13 +72,15 @@
 
     \subsection{End Compactification of Graphs}
 
-    Let $(X,G)$ be a locally-finite graph.
+    Let $(X,G)$ be a locally-finite graph. As in \cite{CPTT23}, for $A\subseteq X$, we let $\del_\sf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\sf{ov}A\coloneqq\del_\sf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\sf{ie}A\coloneqq G\cap(\del_\sf{ov}A\times\del_\sf{iv}A)$ and $\del_\sf{oe}A\coloneqq\del_\sf{ie}(\lnot A)$ respectively be its \textit{inner} and \textit{outer edge boundaries}.
+
+    We let $\mc{H}_{\del<\infty}(X)\subseteq2^X$ be the Boolean subalgebra consisting of all $A\subseteq X$ with finite \textit{vertex boundary} $\del_\sf{v}A\coloneqq\del_\sf{iv}A\cup\del_\sf{ov}A$. Note that if $X\in\mc{H}_{\del<\infty}(X)$, then $X$ has finitely-many connected components.
 
     \begin{definition}
-        The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of the Boolean algebra $\mc{H}_{\del<\infty}(X)\subseteq2^X$ of all sets with finite boundary. The \textit{ends} of $(X,G)$ are the non-principal ultrafilters in $\widehat{X}$.
+        The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of the Boolean algebra $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are called the \textit{ends} of $(X,G)$.
     \end{definition}
 
-    Thus, a clopen set in $\widehat{X}$ is the set $\widehat{A}$ of all ultrafilters $p\in\widehat{X}$ containing $A\in\mc{H}_{\del<\infty}(X)$. We identify each $x\in X$ with its corresponding principal ultrafilter $p_x\in\widehat{X}$.
+    We identify $X\into\widehat{X}$ via principal ultrafilter map $x\mapsto p_x$. By definition, $\widehat{X}$ admits a basis of clopen sets of the form $\widehat{A}$ for $A\in\mc{H}_{\del<\infty}(X)$, consisting of those ultrafilters containing $A$. Note that $A\subseteq B$ iff $\widehat{A}\subseteq\widehat{B}$.
 
     \begin{definition}
         A subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end in $\widehat{X}\comp X$.
