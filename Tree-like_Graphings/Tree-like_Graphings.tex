@@ -12,6 +12,7 @@
     \end{abstract}
 
     \maketitle
+    \tableofcontents
 
     \section{Introduction}
 
@@ -91,12 +92,12 @@
         In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$.
     \end{definition}
 
-    \subsection{Dense cuts induced by quasi-isometries}
+    \subsection{Dense cuts induced by quasi-trees}
 
     If $X$ is a quasi-tree $-$ and thus does not have arbitrary long cycles $-$ we expect that there is some finite bound $R<\infty$ such that the ends in $\widehat{X}\comp X$ are `limits' of cuts $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}_{\diam(\del)\leq R}(X)$ is dense towards ends of $(X,G)$.
 
     \begin{lemma}\label{lem:coarse_equivalence_controls_boundary_diameter}
-        Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected locally-finite graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\sf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\sf{v}H)$.
+        Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected {\color{purple}{locally-finite}} graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\sf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\sf{v}H)$.
     \end{lemma}
     \begin{proof}
         Since $f$ is bornologous, let $S<\infty$ be such that $xGx'$ implies $d(f(x),f(x'))\leq S$, so that for any $(x,x')\in\del_\sf{ie}f^{-1}(H)$, there is a path of length $\leq S$ between $f(x)\not\in H$ and $f(x')\in H$. Thus both $d(f(x),\del_\sf{v}H)$ and $d(f(x'),\del_\sf{v}H)$ are bounded by $S$, so $f(\del_\sf{v}f^{-1}(H))\subseteq\Ball_S(\del_\sf{v}H)$ and hence
@@ -134,7 +135,7 @@
     \end{proof}
 
     \begin{corollary}
-        If $(X,G)$ is a locally-finite quasi-tree, then $\mc{H}_{\diam(\del)\leq R}$ is dense towards ends of $G$ for some $R<\infty$.
+        If $(X,G)$ is a locally-finite quasi-tree, then $\mc{H}_{\diam(\del)\leq R}(X)$ is dense towards ends for some $R<\infty$.
     \end{corollary}
     \begin{proof}
         Observe that $\mc{H}_{\diam(\del)\leq2}(T)$ is dense towards ends for any tree $T$, and invoke Proposition \ref{prp:invariant_of_density_coarse_equivalence}.
