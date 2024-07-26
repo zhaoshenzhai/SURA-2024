@@ -12,7 +12,6 @@
     \end{abstract}
 
     \maketitle
-    \vspace{-0.3in}
 
     \section{Introduction}
 
@@ -77,16 +76,16 @@
     We let $\mc{H}_{\del<\infty}(X)\subseteq2^X$ be the Boolean subalgebra consisting of all $A\subseteq X$ with finite \textit{vertex boundary} $\del_\sf{v}A\coloneqq\del_\sf{iv}A\cup\del_\sf{ov}A$. Note that if $X\in\mc{H}_{\del<\infty}(X)$, then $X$ has finitely-many connected components.
 
     \begin{definition}
-        The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of the Boolean algebra $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are called the \textit{ends} of $(X,G)$.
+        The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of the Boolean algebra $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are the \textit{ends} of $(X,G)$.
     \end{definition}
 
-    We identify $X\into\widehat{X}$ via principal ultrafilter map $x\mapsto p_x$. By definition, $\widehat{X}$ admits a basis of clopen sets of the form $\widehat{A}$ for $A\in\mc{H}_{\del<\infty}(X)$, consisting of those ultrafilters containing $A$.
+    We identify $X\into\widehat{X}$ via principal ultrafilter map $x\mapsto p_x$, so $\widehat{X}\comp X$ is the set of ends of $G$. By definition, $\widehat{X}$ admits a basis of clopen sets of the form $\widehat{A}\coloneqq\{p\in\widehat{X}\st A\in p\}$ for each $A\in\mc{H}_{\del<\infty}(X)$.
 
     \begin{definition}
         A subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end in $\widehat{X}\comp X$.
     \end{definition}
 
-    In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$.
+    In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$.
 
     \begin{lemma}\label{lem:coarse_embedding_controls_boundary_diameter}
         
