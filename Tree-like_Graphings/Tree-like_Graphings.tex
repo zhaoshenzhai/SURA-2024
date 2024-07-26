@@ -69,33 +69,50 @@
 
     \section{Graphs with Dense Families of Cuts}\label{sec:graphs_with_dense_family_of_cuts}
 
-    \subsection{End Compactification of Graphs}
+    \subsection{Ends of graphs}
 
-    Let $(X,G)$ be a locally-finite graph. As in \cite{CPTT23}, for $A\subseteq X$, we let $\del_\sf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\sf{ov}A\coloneqq\del_\sf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\sf{ie}A\coloneqq G\cap(\del_\sf{ov}A\times\del_\sf{iv}A)$ and $\del_\sf{oe}A\coloneqq\del_\sf{ie}(\lnot A)$ respectively be its \textit{inner} and \textit{outer edge boundaries}.
-
-    We let $\mc{H}_{\del<\infty}(X)\subseteq2^X$ be the Boolean subalgebra consisting of all $A\subseteq X$ with finite \textit{vertex boundary} $\del_\sf{v}A\coloneqq\del_\sf{iv}A\cup\del_\sf{ov}A$. Note that if $X\in\mc{H}_{\del<\infty}(X)$, then $X$ has finitely-many connected components.
+    Let $(X,G)$ be a locally-finite graph.
 
     \begin{definition}
-        The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of the Boolean algebra $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are the \textit{ends} of $(X,G)$.
+        For a subset $A\subseteq X$, we let $\del_\sf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\sf{ov}A\coloneqq\del_\sf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\sf{ie}A\coloneqq G\cap(\del_\sf{ov}A\times\del_\sf{iv}A)$ and $\del_\sf{oe}A\coloneqq\del_\sf{ie}(\lnot A)$ respectively be its \textit{inner} and \textit{outer edge boundaries}. Let $\del_\sf{v}A\coloneqq\del_\sf{iv}A\cup\del_\sf{ov}A$ be the \textit{(total) vertex boundary} of $A$.
+    \end{definition}
+
+    Let $\mc{H}_{\del<\infty}(X)\subseteq2^X$ be the Boolean algebra of all $A\subseteq X$ with finite vertex boundary, called \textit{cuts} in $X$.
+
+    \begin{definition}
+        The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are the \textit{ends} of $(X,G)$.
     \end{definition}
 
     We identify $X\into\widehat{X}$ via principal ultrafilter map $x\mapsto p_x$, so $\widehat{X}\comp X$ is the set of ends of $G$. By definition, $\widehat{X}$ admits a basis of clopen sets of the form $\widehat{A}\coloneqq\{p\in\widehat{X}\st A\in p\}$ for each $A\in\mc{H}_{\del<\infty}(X)$.
 
     \begin{definition}
-        A subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end in $\widehat{X}\comp X$.
+        A family $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ of cuts is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end in $\widehat{X}\comp X$.
+
+        In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$.
     \end{definition}
 
-    In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$.
+    \subsection{Dense cuts induced by quasi-isometries}
 
-    \begin{lemma}\label{lem:coarse_embedding_controls_boundary_diameter}
-        
+    If $X$ is a quasi-tree $-$ and thus does not have arbitrary long cycles $-$ we expect that there is some finite bound $R<\infty$ such that the ends in $\widehat{X}\comp X$ are `limits' of cuts $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}_{\diam(\del)\leq R}(X)$ is dense towards ends of $(X,G)$.
+
+    \begin{lemma}\label{lem:coarse_equivalence_controls_boundary_diameter}
+        Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected locally-finite graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\sf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\sf{v}H)$.
     \end{lemma}
+    \begin{proof}
+        Since $f$ is bornologous, let $S<\infty$ be such that $xGx'$ implies $d(f(x),f(x'))\leq S$, so that for any $(x,x')\in\del_\sf{ie}f^{-1}(H)$, there is a path of length $\leq S$ between $f(x)\not\in H$ and $f(x')\in H$. Thus both $d(f(x),\del_\sf{v}H)$ and $d(f(x'),\del_\sf{v}H)$ are bounded by $S$, so $f(\del_\sf{v}f^{-1}(H))\subseteq\Ball_S(\del_\sf{v}H)$ and hence
+        \begin{equation*}
+            \diam(f(\del_\sf{v}f^{-1}(H)))\leq\diam(\del_\sf{v}H)+2S.
+        \end{equation*}
+        That $f$ is a coarse-\textit{equivalence} gives us a uniform bound of $\diam(\del_\sf{v}f^{-1}(H))$ in terms of $\diam(\del_\sf{v}H)$.
+    \end{proof}
+
+    In particular, if $\diam(\del_\sf{v}H)$ is itself also uniformly bounded, then so is $\diam(\del_\sf{v}f^{-1}(H))$.
 
     \begin{proposition}\label{prp:invariant_of_density_coarse_equivalence}
         The class of connected locally-finite graphs in which $\mc{H}_{\diam(\del)\leq R}$ is dense towards ends for some $R<\infty$ is invariant under coarse equivalence.
     \end{proposition}
     \begin{proof}
-        Let $(X,G)$, $(Y,T)$ be connected locally-finite graphs, $f:X\to Y$ be a coarse equivalence with quasi-inverse $g:Y\to X$, and suppose $\mc{H}_{\diam(\del)\leq S}(Y)$ is dense towards ends for some $S<\infty$. By Lemma \ref{lem:coarse_embedding_controls_boundary_diameter}, pick some $R<\infty$ so that for any $H\in\mc{H}_{\diam(\del)\leq S}(Y)$, we have $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$.
+        Let $(X,G)$, $(Y,T)$ be connected locally-finite graphs, $f:X\to Y$ be a coarse equivalence with quasi-inverse $g:Y\to X$, and suppose $\mc{H}_{\diam(\del)\leq S}(Y)$ is dense towards ends for some $S<\infty$. By Lemma \ref{lem:coarse_equivalence_controls_boundary_diameter}, pick some $R<\infty$ so that for any $H\in\mc{H}_{\diam(\del)\leq S}(Y)$, we have $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$.
 
         Fix an end $U\in\widehat{X}\comp X$ with $U\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. We need to find some $B\in\mc{H}_{\del<\infty}(Y)$ such that $\widehat{f}(U)\in\widehat{B}$ and $f^{-1}(B)\subseteq A$, for then $\widehat{f}(U)\in\widehat{H}$ for some $B\supseteq H\in\mc{H}_{\diam(\del)\leq S}(Y)$, and hence we have
         \begin{equation*}
