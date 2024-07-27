@@ -169,13 +169,9 @@
         This is the desired neighborhood isolating $A\in U$. Indeed, it is (cl)open since it is the \textit{finite} intersection of cylinders prescribed by the $x_H$'s and $y_H$'s, and it is disjoint from $\mc{H}\comp\l\{A\r\}$ by construction.
     \end{proof}
 
-    \begin{example}
-        For a locally-finite connected graph $(X,G)$, a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ of cuts therein is finitely-separating iff each $x\in X$ is on the boundary of finitely-many $H\in\mc{H}$.
+    For a locally-finite connected graph $(X,G)$, a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ of cuts is finitely-separating iff each $x\in X$ is on the boundary of finitely-many $H\in\mc{H}$. Indeed, if $\mc{H}$ is finitely-separating, then each $x\in X$ is separated from each of its finitely-many neighbors by finitely-many $H\in\mc{H}$. Conversely, any $H\in\mc{H}$ separating $x,y\in X$ separates some edge on any fixed path between $x$ and $y$, and there are only finitely-many such $H$ for each edge.
 
-        Indeed, if $\mc{H}$ is finitely-separating, then each $x\in X$ is separated from each of its finitely-many neighbors by finitely-many $H\in\mc{H}$. Conversely, any $H\in\mc{H}$ separating $x,y\in X$ separates some edge on any fixed path between $x$ and $y$, and there are only finitely-many such $H$ for each edge.
-
-        In particular, the subpocset $\mc{H}_{\diam(\del)\leq R}(X)$ for any fixed $R<\infty$ (see Section \ref{sec:dense_cuts_induced_by_quasi-trees}) is finitely-separating.
-    \end{example}
+    In particular, the subpocset $\mc{H}_{\diam(\del)\leq R}(X)$ for any fixed $R<\infty$ (see Section \ref{sec:dense_cuts_induced_by_quasi-trees}) is finitely-separating.
 
     \subsection{The dual median graph of a pocset}\label{sec:the_dual_median_graph_of_a_pocset}
 
@@ -207,7 +203,7 @@
         is a singleton. Its unique element $\l\langle x,y,z\r\rangle$ is called the \textit{median} of $x,y,z$.
     \end{definition}
 
-    An exposition of median graphs can be found in \cite{CPTT23}*{Section 2.B, 2.C}, from which we refer to as needed in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}. For more comprehensive references, see \cite{Rol98} and \cite{Bow22}.
+    An exposition on some generalities of median graphs can be found in \cite{CPTT23}*{Section 2.B/2.C}, from which we refer to as needed in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}. For more comprehensive references, see \cite{Rol98} and \cite{Bow22}.
 
     \begin{theorem}\label{thm:construction_of_dual_median_graph}
         Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset. Then the graph $\mc{M}(\mc{H})$, whose:
@@ -222,12 +218,12 @@
     \end{theorem}
 
     \begin{proof}
-        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is a clopen orientation: it is clopen since $H$ is isolated, and an orientation since $H$ is $\subseteq$-minimal.
+        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since both $H,\lnot H\in\mc{H}^\ast$ are isolated (whence ), and an orientation since $H$ is $\subseteq$-minimal.
         \begin{center}
             \vspace{0.05in}
             \begin{minipage}{0.95\textwidth}
                 \begin{claim*}
-                    There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case $d(U,V)=(U\symdiff V)/2$.
+                    There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case $d(U,V)=(U\symdiff V)/2$. hi
                 \end{claim*}
                 \begin{proof}
                     Hi
