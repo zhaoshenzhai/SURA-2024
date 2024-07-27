@@ -12,7 +12,7 @@
     \end{abstract}
 
     \maketitle
-    \tableofcontents
+    %\tableofcontents
 
     \section{Introduction}
 
@@ -92,12 +92,12 @@
         In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$.
     \end{definition}
 
-    \subsection{Dense cuts induced by quasi-trees}
+    \subsection{Dense cuts induced by quasi-trees}\label{sec:dense_cuts_induced_by_quasi-trees}
 
     If $X$ is a quasi-tree $-$ and thus does not have arbitrary long cycles $-$ we expect that there is some finite bound $R<\infty$ such that the ends in $\widehat{X}\comp X$ are `limits' of cuts $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}_{\diam(\del)\leq R}(X)$ is dense towards ends of $(X,G)$.
 
     \begin{lemma}\label{lem:coarse_equivalence_controls_boundary_diameter}
-        Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected {\color{purple}{locally-finite}} graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\sf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\sf{v}H)$.
+        Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\sf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\sf{v}H)$.
     \end{lemma}
     \begin{proof}
         Since $f$ is bornologous, let $S<\infty$ be such that $xGx'$ implies $d(f(x),f(x'))\leq S$, so that for any $(x,x')\in\del_\sf{ie}f^{-1}(H)$, there is a path of length $\leq S$ between $f(x)\not\in H$ and $f(x')\in H$. Thus both $d(f(x),\del_\sf{v}H)$ and $d(f(x'),\del_\sf{v}H)$ are bounded by $S$, so $f(\del_\sf{v}f^{-1}(H))\subseteq\Ball_S(\del_\sf{v}H)$ and hence
@@ -147,9 +147,7 @@
 
     The family $\mc{H}_{\diam\del\leq R}(X)$ of cuts have the structure of a `profinite pocset', which we first study abstractly. We then deduce some properties of the pocset induced by a \textit{dense} family of cuts.
 
-    \subsubsection{Abstract profinite pocsets}\label{ssec:profinite_pocsets}
-
-    \begin{definition}
+    \begin{definition}\label{def:profinite_pocset}
         A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$.
 
         A \textit{profinite pocset} is a pocset $\mc{H}$ equipped with a compact topology making $\lnot$ continuous and is \textit{totally order-disconnected}, in the sense that if $H\not\leq K$, then there is a clopen upward-closed $U\subseteq\mc{H}$ with $H\in U\not\ni K$.
@@ -172,14 +170,14 @@
         This is the desired neighborhood isolating $A\in U$. Indeed, it is (cl)open since it is the \textit{finite} intersection of cylinders prescribed by the $x_H$'s and $y_H$'s, and it is disjoint from $\mc{H}\comp\l\{A\r\}$ by construction.
     \end{proof}
 
-    \subsubsection{Finiteness conditions on the pocset of a dense family of cuts}
+    \begin{example}
+        For a locally finite graph $(X,G)$, the cuts $\mc{H}_{\diam(\del)\leq R}(X)$ studied in Section \ref{sec:dense_cuts_induced_by_quasi-trees} is finitely-separating for any $R<\infty$. Indeed, 
+    \end{example}
 
     \subsection{The dual median graph of a pocset}\label{sec:the_dual_median_graph_of_a_pocset}
 
     Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset, whose elements we call \textit{half-spaces}. By Proposition \ref{prp:finitely-separating_non-trivial_isolated}, $\mc{H}$ is profinite and every non-trivial element thereof is isolated.
     
-    \subsubsection{Median graph of orientations}
-
     \begin{definition}\label{def:orientation}
         An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$ and let $\mc{U}^\circ(\mc{H})$ denote the clopen ones.
     \end{definition}
@@ -204,14 +202,12 @@
         Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset. Then ...
     \end{theorem}
 
-    \subsubsection{Finiteness conditions on $\mc{U}^\circ(\mc{H})$}
-
     \section{Median Graphs and their Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
 
     \begin{appendices}
         \section{Tree of orientations on a nested pocset of sets}
 
-        Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset (see Definition \ref{ssec:profinite_pocsets}), so every non-trivial element is isolated by Proposition \ref{prp:finitely-separating_non-trivial_isolated}. As shown in Theorem \ref{thm:construction_of_dual_median_graph}, the clopen orientations $\mc{U}^\circ(\mc{H})$ form the vertices of a median graph, whose edges are given by `minimal base-flipping'.
+        Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset (see Definition \ref{def:profinite_pocset}), so every non-trivial element is isolated by Proposition \ref{prp:finitely-separating_non-trivial_isolated}. As shown in Theorem \ref{thm:construction_of_dual_median_graph}, the clopen orientations $\mc{U}^\circ(\mc{H})$ form the vertices of a median graph, whose edges are given by `minimal base-flipping'.
 
         We devote this appendix to show that if $\mc{H}$ is \textit{nested}, then $\mc{U}^\circ(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes} and obtain a treeing directly.
     \end{appendices}
