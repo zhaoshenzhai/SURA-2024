@@ -39,3 +39,20 @@
     },
     label={DK18}
 }
+
+\bib{Rol98}{article}{
+    title={Poc sets, median algebras and group actions},
+    author={Martin Roller},
+    date={1998},
+    journal={Universität Regensburg},
+    note={Ph.D. thesis},
+    label={Rol98}
+}
+
+\bib{Bow22}{article}{
+    title={Median Algebras},
+    author={Brian H. Bowditch},
+    eprint={https://homepages.warwick.ac.uk/~masgak/papers/median-algebras.pdf},
+    date={2022},
+    label={Bow22}
+}
