@@ -22,7 +22,7 @@
 
     A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$ with each class countable. We are interested in special types of \textit{graphings} on a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit treeings are said to be \textit{treeable}. The main results of \cite{CPTT23} provide new sufficient criteria for treeability of certain classes of CBERs, and in particular, they prove the following
 
-    \begin{mainTheorem}[\cite{CPTT23}*{Theorem 1.1}]
+    \begin{mainTheorem}[\cite{CPTT23}*{Theorem 1.1}]\label{thm:treeing_quasi-trees}
         If a CBER admits a locally-finite graphing whose components are quasi-trees, then it is treeable.
     \end{mainTheorem}
 
@@ -72,7 +72,7 @@
 
     \subsection{Ends of graphs}
 
-    Let $(X,G)$ be a locally-finite graph.
+    Let $(X,G)$ be a connected locally-finite graph, which, in the context of Theorem \ref{thm:treeing_quasi-trees}, will stand for a single component of the locally-finite graphing of a CBER.
 
     \begin{definition}
         For a subset $A\subseteq X$, we let $\del_\sf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\sf{ov}A\coloneqq\del_\sf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\sf{ie}A\coloneqq G\cap(\del_\sf{ov}A\times\del_\sf{iv}A)$ and $\del_\sf{oe}A\coloneqq\del_\sf{ie}(\lnot A)$ respectively be its \textit{inner} and \textit{outer edge boundaries}. Let $\del_\sf{v}A\coloneqq\del_\sf{iv}A\cup\del_\sf{ov}A$ be the \textit{(total) vertex boundary} of $A$.
@@ -171,7 +171,7 @@
     \end{proof}
 
     \begin{example}
-        For a locally finite graph $(X,G)$, the cuts $\mc{H}_{\diam(\del)\leq R}(X)$ studied in Section \ref{sec:dense_cuts_induced_by_quasi-trees} is finitely-separating for any $R<\infty$. Indeed, 
+        For the subpocset $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ of cuts in a connected locally-finite graph $(X,G)$ studied in Section \ref{sec:dense_cuts_induced_by_quasi-trees}
     \end{example}
 
     \subsection{The dual median graph of a pocset}\label{sec:the_dual_median_graph_of_a_pocset}
