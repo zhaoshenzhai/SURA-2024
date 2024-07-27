@@ -12,7 +12,6 @@
     \end{abstract}
 
     \maketitle
-    %\tableofcontents
 
     \section{Introduction}
 
@@ -49,7 +48,7 @@
             \textrm{non-triv. pts.} \\[-4pt]
             \textrm{isolated}
         \end{gathered}
-            \ \ \xrightarrow{\ref{sec:the_dual_median_graph_of_a_pocset}}\ \ 
+            \ \ \xrightarrow{\ref{sec:the_dual_median_graph_of_a_pocset}+\ref{sec:finiteness_conditions_on_median_graph_dense_cuts}}\ \ 
         \begin{gathered}
             \textrm{Median graph} \\[-4pt]
             \textrm{w/ finite} \\[-4pt]
@@ -186,27 +185,64 @@
         An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$ and let $\mc{U}^\circ(\mc{H})$ denote the clopen ones.
     \end{definition}
 
+    Intuitively, an orientation is a `maximally consistent' choice of half-spaces\footnote{This can be formalized by letting $\sim$ be the equivalence relation on $\mc{H}$ given by $H\sim\lnot H$. Letting $\del:\mc{H}\to\mc{H}/\!\!\sim$ denote the quotient map, orientations $U\subseteq\mc{H}$ then correspond precisely to sections $\phi:\mc{H}/\!\!\sim\,\to\mc{H}$ of $\del$ such that $\phi(\del H)\not\subseteq\lnot\phi(\del K)$ for every $H,K\in\mc{H}$; the latter condition rules out `orientations' of the form $\leftarrow\hspace{-4.15pt}|\,\,|\hspace{-4.15pt}\rightarrow$.}.
+
+    \begin{example}
+        Each $x\in X$ induces its \textit{principal orientation} $\widehat{x}\coloneqq\l\{H\in\mc{H}\st x\in H\r\}=\mc{H}\cap\pi^{-1}_x(1)$ $-$ which is clearly clopen in $\mc{H}$ $-$ and gives us a canonical map $X\to\mc{U}^\circ(\mc{H})$. However, this map is \textit{not necessarily} injective, and we call a fiber $[x]_\mc{H}\coloneqq\l\{y\in X\st\widehat{x}=\widehat{y}\r\}$ thereof an \textit{$\mc{H}$-block}.
+    \end{example}
+
     {\color{red}{The \textit{clopen} orientations are exactly those which are \textit{finitely-based}, in the sense that there is a $\subseteq$-minimal finite subset $U_0\subseteq U$ such that $U=\,\,\uparrow\!U_0$, where
     \begin{equation*}
         \uparrow\!U_0\coloneqq\bigcup_{H\in U_0}\!\uparrow\!H\coloneqq\bigcup_{H\in U_0}\!\l\{K\in\mc{H}:K\supseteq H\r\}.
     \end{equation*}
     Indeed, if $U$ is clopen, then there is a finite subset $A\subseteq X$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is some $K\in U$ with $H\cap A=K\cap A$.}}
 
-    \begin{example}
-        Every $x\in X$ induces its \textit{principal orientation} $\widehat{x}\coloneqq\l\{H\in\mc{H}\st x\in H\r\}=\mc{H}\cap\pi^{-1}_x(1)$, which is clearly clopen in $\mc{H}$, and gives us a canonical map $\mf{p}:X\to\mc{U}^\circ(\mc{H})$. Note, however, that $\mf{p}$ is \textit{not necessarily} injective; we call a fiber $[x]_\mc{H}\coloneqq\mf{p}^{-1}(\widehat{x})=\l\{y\in X\st\widehat{x}=\widehat{y}\r\}$ an \textit{$\mc{H}$-block}.
-    \end{example}
-
-    \begin{remark}
-        Intuitively, an orientation is a `maximally consistent' choice of half-spaces. To formalize this, let $\sim$ be the equivalence relation on $\mc{H}$ given by $H\sim\lnot H$, and let $\del:\mc{H}\to\mc{H}/\!\!\sim$ be the quotient map. Orientations $U\subseteq\mc{H}$ then correspond precisely to sections $\phi:\mc{H}/\!\!\sim\,\to\mc{H}$ of $\del$ such that $\phi(\del H)\not\subseteq\lnot\phi(\del K)$ for every $H,K\in\mc{H}$; the latter condition rules out `orientations' of the form $\leftarrow\hspace{-4.7pt}|\,\,|\hspace{-4.7pt}\rightarrow$.
-    \end{remark}
-
     The goal of this section is to canonically construct a graph whose vertices are clopen orientations on $\mc{H}$.
 
+    \begin{definition}
+        A \textit{median graph} is a connected graph $(X,G)$ such that for any $x,y,z\in X$, the intersection
+        \begin{equation*}
+            [x,y]\cap[y,z]\cap[x,z]
+        \end{equation*}
+        is a singleton. Its unique element $\l\langle x,y,z\r\rangle$ is called the \textit{median} of $x,y,z$.
+    \end{definition}
+
     \begin{theorem}\label{thm:construction_of_dual_median_graph}
-        Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset. Then ...
+        Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset. Then the graph $\mc{M}(\mc{H})$, whose:
+        \begin{itemize}
+            \item Vertices are clopen orientations $\mc{U}^\circ(\mc{H})$;
+            \item Edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in\mc{H}^\ast$;
+        \end{itemize}
+        is a median graph with path metric $d(U,V)=(U\symdiff V)/2$ and medians
+        \begin{equation*}
+            \l\langle U,V,W\r\rangle\coloneqq\l\{H\in\mc{H}\st H\textrm{ belongs to at least two of }U,V,W\r\}.
+        \end{equation*}
     \end{theorem}
 
+    \begin{proof}
+        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is a clopen orientation: it is clopen since $H$ is isolated, and an orientation since $H$ is $\subseteq$-minimal.
+        \begin{center}
+            \vspace{0.05in}
+            \begin{minipage}{0.95\textwidth}
+                \begin{claim*}
+                    There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case $d(U,V)=(U\symdiff V)/2$.
+                \end{claim*}
+                \begin{proof}
+                    Hi
+                    \phantom\qedhere\hfill$\square\textit{ (claim)}$
+                \end{proof}
+            \end{minipage}
+            \vspace{0.05in}
+        \end{center}
+    \end{proof}
+
+    \subsection{Finiteness conditions on $\mc{U}^\circ(\mc{H})$ induced by dense cuts}\label{sec:finiteness_conditions_on_median_graph_dense_cuts}
+
+    Hi
+
     \section{Median Graphs and their Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
+
+    {\color{red}{TODO}}
 
     \begin{appendices}
         \section{Tree of orientations on a nested pocset of sets}
