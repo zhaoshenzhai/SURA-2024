@@ -147,7 +147,7 @@
     The family $\mc{H}_{\diam\del\leq R}(X)$ of cuts have the structure of a `profinite pocset', which we first study abstractly. We then deduce some properties of the pocset induced by a \textit{dense} family of cuts.
 
     \begin{definition}\label{def:profinite_pocset}
-        A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$.
+        A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$. We call the elements in $\mc{H}$ \textit{half-spaces}.
 
         A \textit{profinite pocset} is a pocset $\mc{H}$ equipped with a compact topology making $\lnot$ continuous and is \textit{totally order-disconnected}, in the sense that if $H\not\leq K$, then there is a clopen upward-closed $U\subseteq\mc{H}$ with $H\in U\not\ni K$.
     \end{definition}
@@ -175,7 +175,7 @@
 
     \subsection{The dual median graph of a pocset}\label{sec:the_dual_median_graph_of_a_pocset}
 
-    Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset, whose elements we call \textit{half-spaces}. By Proposition \ref{prp:finitely-separating_non-trivial_isolated}, $\mc{H}$ is profinite and every non-trivial element thereof is isolated.
+    Let $\mc{H}$ be a profinite subpocset with every non-trivial element isolated; for instance, if $\mc{H}$ is finitely-separating, and in particular the cuts $\mc{H}_{\diam(\del)\leq R}(X)$ for some locally-finite connected graph $(X,G)$.
     
     \begin{definition}\label{def:orientation}
         An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$ and let $\mc{U}^\circ(\mc{H})$ denote the clopen ones.
@@ -206,28 +206,24 @@
     An exposition on some generalities of median graphs can be found in \cite{CPTT23}*{Section 2.B/2.C}, from which we refer to as needed in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}. For more comprehensive references, see \cite{Rol98} and \cite{Bow22}.
 
     \begin{theorem}\label{thm:construction_of_dual_median_graph}
-        Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset. Then the graph $\mc{M}(\mc{H})$, whose:
-        \begin{itemize}
-            \item Vertices are clopen orientations $\mc{U}^\circ(\mc{H})$;
-            \item Edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in\mc{H}^\ast$;
-        \end{itemize}
-        is a median graph with path metric $d(U,V)=(U\symdiff V)/2$ and medians
+        Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in\mc{H}^\ast$, is a median graph with path metric $d(U,V)=(U\symdiff V)/2$ and medians
         \begin{equation*}
             \l\langle U,V,W\r\rangle\coloneqq\l\{H\in\mc{H}\st H\textrm{ belongs to at least two of }U,V,W\r\}.
         \end{equation*}
     \end{theorem}
 
     \begin{proof}
-        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since both $H,\lnot H\in\mc{H}^\ast$ are isolated (whence ), and an orientation since $H$ is $\subseteq$-minimal.
+        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ is isolated (whence $\l\{H\r\}$ and $\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$.
         \begin{center}
             \vspace{0.05in}
             \begin{minipage}{0.95\textwidth}
                 \begin{claim*}
-                    There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case $d(U,V)=(U\symdiff V)/2$. hi
+                    There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case $d(U,V)=(U\symdiff V)/2$.
                 \end{claim*}
                 \begin{proof}
-                    Hi
-                    \phantom\qedhere\hfill$\square\textit{ (claim)}$
+                    If $(U_i)_{i<n}$ is a path from $U=U_0$ to $V=U_{n-1}$, then letting $\l\{H_i,\lnot H_i\r\}\coloneqq U_i\symdiff U_{i-1}$ for all $1\leq i<n$ gives us a sequence $(H_i)_{i<n}$ inducing this path, whence $U\symdiff V$ consists of $\l\{H_i\r\}_{i<n}$ and their complements. Thus $U\symdiff V=2n=2d(U,V)$, as desired.
+
+                    \hspace{0.2in}Conversely, if $U\symdiff V=\l\{H_1,\dots,H_n\r\}\sqcup\l\{K_1,\dots,K_m\r\}$ with $U\comp V=\l\{H_i\r\}$ and $V\comp U=\l\{K_j\r\}$, then $\lnot H_i\in V\comp U$ and $\lnot K_j\in U\comp V$ for all $i<n$ and $j<m$, so $n=m$ and $V=U\cup\l\{\lnot H_i\r\}\comp\l\{H_i\r\}$. We claim that there is a permutation $\sigma\in S_n$ such that $(H_{\sigma(i)})$ induces a path from $U\eqqcolon U_0$, which is the desired path from $U$ to $V$. Choose a minimal $H\in\l\{H_i\r\}$, which is also minimal in $U$: if $K\subseteq H$ for some $K\in U$, then $\lnot H\subseteq\lnot K$, and hence $\lnot K\in V$, so $K=H_i\subseteq H$ for some $i$, forcing $K=H$. Set $U_1\coloneqq U\symdiff\l\{H,\lnot H\r\}$, which is a clopen orientation. Continuing in this manner by choosing a minimal element in $\l\{H_i\r\}\comp\l\{H\r\}$ $-$ and so on $-$ gives us the desired path with $d(U,V)=n$.\phantom\qedhere\hfill$\square\textit{ (claim)}$
                 \end{proof}
             \end{minipage}
             \vspace{0.05in}
