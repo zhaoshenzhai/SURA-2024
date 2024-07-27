@@ -3,7 +3,7 @@
 \input{setup/macros.sty}
 
 \begin{document}
-    \title{Tree-like Graphings}
+    \title{Tree-like Graphings of Countable Borel Equivalence Relations}
     \author{Zhaoshen Zhai}
     \date{\today}
 
@@ -15,7 +15,7 @@
 
     \section{Introduction}
 
-    The purpose of this note is to provide a streamlined proof of a particular case of a construction presented in \cite{CPTT23}, in order to better understand the general formalism developed therein. We attempt to make this note self-contained, but nevertheless urge the reader to refer to the original paper for more detailed discussion and some generalizations of the results we have selected to include here.
+    The purpose of this note is to provide a streamlined proof of a particular case of a construction presented in \cite{CPTT23}, in order to better understand the general formalism developed therein. We attempt to make this note self-contained, but nevertheless urge the reader to refer to the original paper for more detailed discussions and some generalizations of the results we have selected to include here.
 
     \subsection{Treeings of equivalence relations}
 
@@ -175,7 +175,7 @@
 
     \subsection{Finiteness conditions on $\mc{H}$ induced by dense cuts}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
 
-    Let $(X,G)$ be a connected locally-finite graph and consider a family $\mc{H}\subseteq\mc{H}_{\del<\infty}$ of cuts that are dense towards ends of $G$.
+    Let $(X,G)$ be a connected locally-finite graph and consider a family $\mc{H}\subseteq\mc{H}_{\del<\infty}$ of cuts that are dense towards ends of $G$. {\color{red}{TODO}}
 
     \section{The Dual Median Graph with Finite Hyperplanes}
 
@@ -213,7 +213,7 @@
     \end{theorem}
 
     \begin{proof}
-        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ is isolated (whence $\l\{H\r\}$ and $\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V$ is clopen, so it is a compact set of isolated points, whence finite.
+        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ are isolated (whence $\l\{H\r\},\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V$ is clopen, so it is a compact set of isolated points, whence finite.
         \begin{center}
             \begin{minipage}{0.95\textwidth}
                 \begin{claim*}
@@ -233,7 +233,7 @@
         so $M=\l\langle U,V,W\r\rangle$ $-$ which is clopen if $U,V,W$ are $-$ is as claimed.
     \end{proof}
 
-    Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between median graphs with median homomorphisms and profinite pocsets whose non-trivial points are isolated with continuous maps, where from a median graph there is a canonical pocset of `convex' half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. This graph 
+    Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between median graphs with median homomorphisms and profinite pocsets whose non-trivial points are isolated with continuous maps, where from a median graph one can construct a canonical pocset of `convex' half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. This graph 
 
     \subsection{Finiteness conditions on $\mc{M}(\mc{H})$ induced by {\color{red}{???}}}\label{sec:finiteness_conditions_on_median_graph_dense_cuts}
 
@@ -244,9 +244,36 @@
     \begin{appendices}
         \section{Tree of orientations on a nested pocset of sets}
 
-        Let $\mc{H}\subseteq2^X$ be a finitely-separating subpocset (see Definition \ref{def:profinite_pocset}), so every non-trivial element is isolated by Proposition \ref{prp:finitely-separating_non-trivial_isolated}. As shown in Theorem \ref{thm:construction_of_dual_median_graph}, the clopen orientations $\mc{U}^\circ(\mc{H})$ form the vertices of a median graph, whose edges are given by `minimal base-flipping'.
+        Let $X$ be a set and let $\mc{H}\subseteq2^X$ be a profinite pocset with non-trivial elements isolated (see Definition \ref{def:profinite_pocset}); say, if $\mc{H}$ is finitely-separating. As shown in Theorem \ref{thm:construction_of_dual_median_graph}, the clopen orientations $\mc{U}^\circ(\mc{H})$ form the vertices of a median graph $\mc{M}(\mc{H})$, whose edges are given by `minimal half-space flippings'.
 
-        We devote this appendix to show that if $\mc{H}$ is \textit{nested}, then $\mc{U}^\circ(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes} and obtain a treeing directly.
+        We show in this appendix that if $\mc{H}$ is in addition \textit{nested}, then $\mc{M}(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes} (hence Section \ref{sec:finiteness_conditions_on_median_graph_dense_cuts} too) and obtain a treeing directly. This result is motivated by a similar construction in \cite{Tse20}, and is proved with similar methods.
+
+        \begin{lemma}\label{lem:no-backtrack}
+            A path in $\mc{M}(\mc{H})$ from $U_0$ induced by $(H_i)_{i<n}$, $n\geq3$, has no backtracking iff $H_i\neq\lnot H_{i-1}$ for every $1\leq i<n$.
+        \end{lemma}
+        \begin{proof}
+            Take $2\leq i\leq n$. It suffices to show that $U_{i-2}=U_i$ iff $H_{i-1}=\lnot H_{i-2}$.
+            \begin{itemize}
+                \item[($\Rightarrow$).] We have by definition that $U_i=U_{i-2}\cup\{\lnot H_{i-1},\lnot H_{i-2}\}\comp\l\{H_{i-1},H_{i-2}\r\}$, so since $H_{i-2}\in U_{i-2}=U_i$, we have $H_{i-2}=\lnot H_{i-1}$ as desired.
+                \item[($\Leftarrow$).] Again by definition, by noting that the half-space flippings cancel out.\qed
+            \end{itemize}
+        \end{proof}
+
+        \begin{proposition}\label{prp:strictly-inc}
+            If $(H_i)_{i<n}$ induces a path in $\mc{M}(\mc{H})$ with no backtracking, then $(H_i)$ is strictly increasing.
+        \end{proposition}
+        \begin{proof}
+            By Lemma \ref{lem:no-backtrack}, we have $H_i\neq\lnot H_{i-1}$ for every $1\leq i<n$. Thus, since $H_i\in U_i=U_{i-1}\cup\{\lnot H_{i-1}\}\comp\l\{H_{i-1}\r\}$, we see that $H_i\in U_{i-1}$. Clearly $H_i\neq H_{i-1}$. It suffices to remove the three cases when $H_i\subseteq H_{i-1}$, $H_{i-1}\subseteq\lnot H_i$, and $\lnot H_i\subseteq H_{i-1}$, since then nestedness of $\mc{H}$ gives us $H_{i-1}\subsetneq H_i$, as desired.
+            \begin{itemize}
+                \item If $H_i\subseteq H_{i-1}$, then $H_{i-1}\in U_i$, contradicting the definition of $U_i$.
+                \item If $H_{i-1}\subseteq\lnot H_i$, then $\lnot H_i\in U_{i-1}$ by upward-closure of $U_{i-1}$, a contradiction.
+                \item If $\lnot H_i\subseteq H_{i-1}$, then $H_{i-1}\in U_{i+1}$ by upward-closure of $U_{i+1}\ni\lnot H_i$. But since $H_{i-1}\neq\lnot H_i$, we have by definition of $U_{i+1}$ that $H_{i-1}\in U_i$, a contradiction.\qed
+            \end{itemize}
+        \end{proof}
+
+        \begin{corollary}
+            If $\mc{H}$ is a nested profinite pocset with non-trivial elements isolated, then $\mc{M}(\mc{H})$ is a tree.
+        \end{corollary}
     \end{appendices}
 
     \begin{bibdiv}
