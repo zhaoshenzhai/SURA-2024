@@ -233,7 +233,13 @@
         so $M=\l\langle U,V,W\r\rangle$ $-$ which is clopen if $U,V,W$ are $-$ is as claimed.
     \end{proof}
 
-    Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between median graphs with median homomorphisms and profinite pocsets whose non-trivial points are isolated with continuous maps, where from a median graph one can construct a canonical pocset of `convex' half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. This graph 
+    Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between median graphs with median homomorphisms and profinite pocsets whose non-trivial points are isolated with continuous maps, where from a median graph one can construct a canonical pocset of `convex' half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. It is worth noting that if $\mc{H}$ is \textit{nested}, then $\mc{M}(\mc{H})$ is in fact a tree (see Appendix \ref{app:tree_of_orientations_on_nested}):
+
+    \begin{definition}\label{def:nested}
+        Let $\mc{H}\subseteq2^X$ be a pocset. Two half-spaces $H,K\in\mc{H}$ are \textit{nested} if $\lnot^iH\cap\lnot^jK=\em$ for some $i,j\in\l\{0,1\r\}$, where $\lnot^0H\coloneqq H$ and $\lnot^1H\coloneqq\lnot H$. We say that $\mc{H}$ is \textit{nested} if every pair $H,K\in\mc{H}$ is nested.
+    \end{definition}
+
+    Nonetheless, in the general non-nested case, there is a sufficient criteria for the existence of a \textit{canonical} spanning tree of $\mc{M}(\mc{H})$, which we now explore.
 
     \subsection{Finiteness conditions on $\mc{M}(\mc{H})$ induced by {\color{red}{???}}}\label{sec:finiteness_conditions_on_median_graph_dense_cuts}
 
@@ -242,11 +248,11 @@
     {\color{red}{TODO}}
 
     \begin{appendices}
-        \section{Tree of orientations on a nested pocset of sets}
+        \section{Tree of orientations on a nested pocset of sets}\label{app:tree_of_orientations_on_nested}
 
         Let $X$ be a set and let $\mc{H}\subseteq2^X$ be a profinite pocset with non-trivial elements isolated (see Definition \ref{def:profinite_pocset}); say, if $\mc{H}$ is finitely-separating. As shown in Theorem \ref{thm:construction_of_dual_median_graph}, the clopen orientations $\mc{U}^\circ(\mc{H})$ form the vertices of a median graph $\mc{M}(\mc{H})$, whose edges are given by `minimal half-space flippings'.
 
-        We show in this appendix that if $\mc{H}$ is in addition \textit{nested}, then $\mc{M}(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes} (hence Section \ref{sec:finiteness_conditions_on_median_graph_dense_cuts} too) and obtain a treeing directly. This result is motivated by a similar construction in \cite{Tse20}, and is proved with similar methods.
+        We show in this appendix that if $\mc{H}$ is in addition \textit{nested} (see Definition \ref{def:nested}), then $\mc{M}(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes} (hence Section \ref{sec:finiteness_conditions_on_median_graph_dense_cuts} too) and obtain a treeing directly. This result is motivated by a similar construction in \cite{Tse20}, and is proved with similar methods.
 
         \begin{lemma}\label{lem:no-backtrack}
             A path in $\mc{M}(\mc{H})$ from $U_0$ induced by $(H_i)_{i<n}$, $n\geq3$, has no backtracking iff $H_i\neq\lnot H_{i-1}$ for every $1\leq i<n$.
