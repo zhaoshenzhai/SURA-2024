@@ -220,7 +220,15 @@
                 \end{proof}
             \end{minipage}
         \end{center}
-        Finally, 
+        Finally, we show that $\mc{M}(\mc{H})$ is a median graph. Fix $U,V,W\in\mc{U}^\circ(\mc{H})$, and note that for any $M\in\mc{U}^\circ(\mc{H})$, we have by the triangle inequality that $M\in[U,V]$ iff $(U\comp M)\cup(M\comp V)\subseteq U\comp V$, which clearly occurs iff $U\cap V\subseteq M\subseteq U\cup V$. Thus, a vertex $M$ lies in the triple intersection $[U,V]\cap[V,W]\cap[U,W]$ iff
+        % \begin{equation*}
+        %     M\in[U,V]\ \ \ \ \Leftrightarrow\ \ \ \ (U\comp M)\cup(M\comp V)\subseteq U\comp V\ \ \ \ \Leftrightarrow\ \ \ \ U\cap V\subseteq M\subseteq U\cup V.
+        % \end{equation*}
+        % Thus, a vertex $M$ lies in $[U,V]\cap[V,W]\cap[U,W]$ iff
+        \begin{equation*}
+            (U\cap V)\cup(U\cap W)\cup(U\cap W)\subseteq M\subseteq(U\cup V)\cap(V\cup W)\cap(U\cup W),
+        \end{equation*}
+        so $M=\l\langle U,V,W\r\rangle$, which is clopen if $U,V,W$ are, is as claimed.
     \end{proof}
 
     \subsection{Finiteness conditions on $\mc{M}(\mc{H})$ induced by dense cuts}\label{sec:finiteness_conditions_on_median_graph_dense_cuts}
