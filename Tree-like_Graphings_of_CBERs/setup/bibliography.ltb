@@ -46,6 +46,7 @@
     date={1998},
     journal={Universität Regensburg},
     note={Ph.D. thesis},
+    eprint={https://arxiv.org/abs/1607.07747},
     label={Rol98}
 }
 
@@ -91,10 +92,12 @@
 
 \bib{NR03}{article}{
     title={Coxeter Groups act on CAT(0) cube complexes},
-    author={Graham A. Niblo},
+    author={G.A. Niblo},
     author={L.D. Reeves},
     date={2003},
     journal={Journal of Group Theory},
-    volume={3},
+    volume={6},
+    number={3},
+    pages={399-413},
     label={NR03}
 }
