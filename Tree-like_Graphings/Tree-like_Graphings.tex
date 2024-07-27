@@ -187,12 +187,6 @@
         Each $x\in X$ induces its \textit{principal orientation} $\widehat{x}\coloneqq\l\{H\in\mc{H}\st x\in H\r\}=\mc{H}\cap\pi^{-1}_x(1)$ $-$ which is clearly clopen in $\mc{H}$ $-$ and gives us a canonical map $X\to\mc{U}^\circ(\mc{H})$. However, this map is \textit{not necessarily} injective, and we call a fiber $[x]_\mc{H}\coloneqq\l\{y\in X\st\widehat{x}=\widehat{y}\r\}$ thereof an \textit{$\mc{H}$-block}.
     \end{example}
 
-    {\color{red}{The \textit{clopen} orientations are exactly those which are \textit{finitely-based}, in the sense that there is a $\subseteq$-minimal finite subset $U_0\subseteq U$ such that $U=\,\,\uparrow\!U_0$, where
-    \begin{equation*}
-        \uparrow\!U_0\coloneqq\bigcup_{H\in U_0}\!\uparrow\!H\coloneqq\bigcup_{H\in U_0}\!\l\{K\in\mc{H}:K\supseteq H\r\}.
-    \end{equation*}
-    Indeed, if $U$ is clopen, then there is a finite subset $A\subseteq X$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is some $K\in U$ with $H\cap A=K\cap A$.}}
-
     The goal of this section is to canonically construct a graph whose vertices are clopen orientations on $\mc{H}$.
 
     \begin{definition}
@@ -213,7 +207,7 @@
     \end{theorem}
 
     \begin{proof}
-        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ is isolated (whence $\l\{H\r\}$ and $\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$.
+        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ is isolated (whence $\l\{H\r\}$ and $\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim, by noting that $U\symdiff V$ is a compact set of isolated points, whence finite.
         \begin{center}
             \vspace{0.05in}
             \begin{minipage}{0.95\textwidth}
@@ -228,9 +222,10 @@
             \end{minipage}
             \vspace{0.05in}
         \end{center}
+        Finally, 
     \end{proof}
 
-    \subsection{Finiteness conditions on $\mc{U}^\circ(\mc{H})$ induced by dense cuts}\label{sec:finiteness_conditions_on_median_graph_dense_cuts}
+    \subsection{Finiteness conditions on $\mc{M}(\mc{H})$ induced by dense cuts}\label{sec:finiteness_conditions_on_median_graph_dense_cuts}
 
     Hi
 
