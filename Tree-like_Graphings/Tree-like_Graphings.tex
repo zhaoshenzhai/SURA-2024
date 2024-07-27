@@ -171,7 +171,11 @@
     \end{proof}
 
     \begin{example}
-        For the subpocset $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ of cuts in a connected locally-finite graph $(X,G)$ studied in Section \ref{sec:dense_cuts_induced_by_quasi-trees}
+        For a locally-finite connected graph $(X,G)$, a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ of cuts therein is finitely-separating iff each $x\in X$ is on the boundary of finitely-many $H\in\mc{H}$.
+
+        Indeed, if $\mc{H}$ is finitely-separating, then each $x\in X$ is separated from each of its finitely-many neighbors by finitely-many $H\in\mc{H}$. Conversely, any $H\in\mc{H}$ separating $x,y\in X$ separates some edge on any fixed path between $x$ and $y$, and there are only finitely-many such $H$ for each edge.
+
+        In particular, the subpocset $\mc{H}_{\diam(\del)\leq R}(X)$ for any fixed $R<\infty$ (see Section \ref{sec:dense_cuts_induced_by_quasi-trees}) is finitely-separating.
     \end{example}
 
     \subsection{The dual median graph of a pocset}\label{sec:the_dual_median_graph_of_a_pocset}
