@@ -206,12 +206,12 @@
 
     An exposition on some generalities of median graphs can be found in \cite{CPTT23}*{Section 2.B/2.C}, from which we refer to as needed in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}. For more comprehensive references, see \cite{Rol98} and \cite{Bow22}.
 
-    \begin{theorem}\label{thm:construction_of_dual_median_graph}
+    \begin{proposition}\label{prp:construction_of_dual_median_graph}
         Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in\mc{H}^\ast$, is a median graph with path metric $d(U,V)=(U\symdiff V)/2$ and medians
         \begin{equation*}
             \l\langle U,V,W\r\rangle\coloneqq\l\{H\in\mc{H}\st H\textrm{ belongs to at least two of }U,V,W\r\}.
         \end{equation*}
-    \end{theorem}
+    \end{proposition}
 
     \begin{proof}
         First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ are isolated (whence $\l\{H\r\},\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V$ is clopen, so it is a compact set of isolated points, whence finite.
@@ -246,14 +246,23 @@
 
     \section{Median Graphs and their Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
 
-    {\color{red}{TODO}}
+    \begin{proposition}\label{prp:canonical_spanning_trees}
+        Every countable median graph with finite hyperplanes admits a canonical spanning tree.
+    \end{proposition}
+    \begin{proof}
+        Let $(X,G)$ be a countable median graph.
+    \end{proof}
+
+    \begin{corollary}
+        If a CBER admits a graphing whose components are median graphs, then it has a subtreeing.
+    \end{corollary}
 
     \begin{appendices}
         \section{Tree of orientations on a nested pocset of sets}\label{app:tree_of_orientations_on_nested}
 
-        Let $X$ be a set and let $\mc{H}\subseteq2^X$ be a profinite pocset with non-trivial elements isolated (see Definition \ref{def:profinite_pocset}); say, if $\mc{H}$ is finitely-separating. As shown in Theorem \ref{thm:construction_of_dual_median_graph}, the clopen orientations $\mc{U}^\circ(\mc{H})$ form the vertices of a median graph $\mc{M}(\mc{H})$, whose edges are given by `minimal half-space flippings'.
+        Let $X$ be a set and let $\mc{H}\subseteq2^X$ be a profinite pocset with non-trivial elements isolated (see Definition \ref{def:profinite_pocset}); say, if $\mc{H}$ is finitely-separating. By Proposition \ref{prp:construction_of_dual_median_graph}, the clopen orientations $\mc{U}^\circ(\mc{H})$ form the vertices of a median graph $\mc{M}(\mc{H})$, whose edges are given by `minimal half-space flippings'.
 
-        We show in this appendix that if $\mc{H}$ is in addition \textit{nested} (see Definition \ref{def:nested}), then $\mc{M}(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes} (hence Section \ref{sec:finiteness_conditions_on_median_graph_dense_cuts} too) and obtain a treeing directly. This result is motivated by a similar construction in \cite{Tse20}, and is proved with similar methods.
+        We show in this appendix that if $\mc{H}$ is also \textit{nested} (see Definition \ref{def:nested}), then $\mc{M}(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes} (hence Section \ref{sec:finiteness_conditions_on_median_graph_dense_cuts} too) and obtain a treeing directly. This result is motivated by a similar construction in \cite{Tse20}, and is proved with similar methods.
 
         \begin{lemma}\label{lem:no-backtrack}
             A path in $\mc{M}(\mc{H})$ from $U_0$ induced by $(H_i)_{i<n}$, $n\geq3$, has no backtracking iff $H_i\neq\lnot H_{i-1}$ for every $1\leq i<n$.
