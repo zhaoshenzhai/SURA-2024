@@ -251,21 +251,24 @@
 
     \subsection{Convex half-spaces of median graphs}
 
+    Let $(X,G)$ be a median graph.
+
     \begin{lemma}\label{lem:non-nested_iff_boundary_intersect}
-        
+        Two half-spaces $H,K\in\mc{H}^\ast_\mathrm{cvx}(X)$ are non-nested iff $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$.
     \end{lemma}
 
     \begin{lemma}\label{lem:half-spaces_are_cones}
-        
+        Each edge $(x,y)\in G$ is on a unique hyperplane, namely the inward boundary of $\cone_x(y)$, and conversely, each half-space $H\in\mc{H}^\ast_\mathrm{cvx}(X)$ is $\cone_x(y)$ for every $(x,y)\in\del_\sf{ie}H$.
     \end{lemma}
 
     \begin{proposition}
-        Let $(X,G)$ be a median graph and let $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ be a subpocset of convex half-spaces.
+        Let $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ be a subpocset of convex half-spaces. Then:
         \begin{enumerate}
             \item $\mc{H}$ is finitely-separating, and hence $\mc{M}(\mc{H})$ is a median graph by Propositions \ref{prp:finitely-separating_non-trivial_isolated} and \ref{prp:construction_of_dual_median_graph}.
             \item The principal orientations map $X\to\mc{U}^\circ(\mc{H}):x\mapsto\widehat{x}$ is surjective, and hence induces a median graph structure on the set of $\mc{H}$-blocks $X/\mc{H}$.
         \end{enumerate}
     \end{proposition}
+    Explicitly, 
     \begin{proof}
         That $\mc{H}$ is finitely-separating follows from Example \ref{exa:finitely_separating_iff_on_boundary_of_finite} and Lemma \ref{lem:half-spaces_are_cones}.
     \end{proof}
