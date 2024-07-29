@@ -261,7 +261,7 @@
         Each edge $(x,y)\in G$ is on a unique hyperplane, namely the inward boundary of $\cone_x(y)$, and conversely, each half-space $H\in\mc{H}^\ast_\mathrm{cvx}(X)$ is $\cone_x(y)$ for every $(x,y)\in\del_\sf{ie}H$.
     \end{lemma}
 
-    \begin{proposition}
+    \begin{proposition}\label{prp:H_blocks_form_a_median_graph}
         Let $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ be a subpocset of convex half-spaces. Then:
         \begin{enumerate}
             \item $\mc{H}$ is finitely-separating, and hence $\mc{M}(\mc{H})$ is a median graph by Propositions \ref{prp:finitely-separating_non-trivial_isolated} and \ref{prp:construction_of_dual_median_graph}.
@@ -279,11 +279,11 @@
         Every countable median graph with finite hyperplanes admits a canonical spanning tree.
     \end{proposition}
     \begin{proof}
-        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Lemma \ref{lem:non-nested_iff_boundary_intersect}, two half-spaces $H,K\in\mc{H}^\ast_\textrm{cvx}(X)$ are non-nested iff $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\textrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n^\ast\coloneqq\bigcup_{m\geq n}\mc{H}_n^\ast$ and $\mc{K}_n\coloneqq\mc{K}_n^\ast\cup\l\{\em,X\r\}$.
+        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Lemma \ref{lem:non-nested_iff_boundary_intersect}, two half-spaces $H,K\in\mc{H}^\ast_\textrm{cvx}(X)$ are non-nested iff $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\textrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
 
         We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Lemma \ref{lem:half-spaces_are_cones}).
 
-        By Lemma \ref{lem:half-spaces_are_cones}, the $\mc{K}_0=\mc{H}_\textrm{cvx}(X)$-blocks are singletons, and since every pair of distinct points is separated by a half-space, put $T_0\coloneqq\em$. Suppose that $T_n$ is constructed as required.
+        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\textrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that $T_n$ is constructed as required; we wish to connect certain $\mc{K}_n$-blocks to form the $\mc{K}_{n+1}$-blocks, without creating cycles. Let $Y\in X/\mc{K}_{n+1}$, which is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Lemma \ref{lem:half-spaces_are_cones}) by $\mc{H}_n$ into the intersections of the $\mc{K}_n$-blocks with $Y$. Since $\mc{H}_n$ is nested, Corollary \ref{cor:nested_implies_tree} gives that the $G$-adjacency graph $Y/\mc{H}_n$ induced by Proposition \ref{prp:H_blocks_form_a_median_graph} is a tree. Thus, two $G$-adjacent $A,B\in Y/\mc{H}_n$ are exactly the $\mc{K}_n$-blocks contained in the same $\mc{K}_{n+1}$-block $Y$
     \end{proof}
 
     \begin{corollary}
@@ -320,7 +320,7 @@
             \end{itemize}
         \end{proof}
 
-        \begin{corollary}
+        \begin{corollary}\label{cor:nested_implies_tree}
             If $\mc{H}$ is a nested profinite pocset with non-trivial elements isolated, then $\mc{M}(\mc{H})$ is a tree.
         \end{corollary}
     \end{appendices}
