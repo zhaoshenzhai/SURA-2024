@@ -204,10 +204,10 @@
         \begin{equation*}
             [x,y]\cap[y,z]\cap[x,z]
         \end{equation*}
-        is a singleton. Its unique element $\l\langle x,y,z\r\rangle$ is called the \textit{median} of $x,y,z$.
+        is a singleton, whose element $\l\langle x,y,z\r\rangle$ is called the \textit{median} of $x,y,z$. Thus we have a ternary median operation $\l\langle\cdot,\cdot,\cdot\r\rangle:X^3\to X$, and a \textit{median homomorphism} $f:(X,G)\to(Y,H)$ is a map preserving said operation.
     \end{definition}
 
-    An exposition on some generalities of median graphs can be found in \cite{CPTT23}*{Section 2.B/2.C}, from which we refer to as needed in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}. For more comprehensive references, see \cite{Rol98} and \cite{Bow22}.
+    Some basic properties of median graphs are given in Section \ref{sec:convex_half-spaces_of_media_graphs}. For more comprehensive references and their general theory, see \cite{Rol98} and \cite{Bow22}.
 
     \begin{proposition}\label{prp:construction_of_dual_median_graph}
         Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in\mc{H}^\ast$, is a median graph with path metric $d(U,V)=(U\symdiff V)/2$ and medians
@@ -249,13 +249,32 @@
 
     \section{Median Graphs and their Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
 
-    \subsection{Convex half-spaces of median graphs}
+    \subsection{Convex half-spaces of median graphs}\label{sec:convex_half-spaces_of_media_graphs}
+    \renewcommand{\-}{\textrm{---}}
 
-    Let $(X,G)$ be a median graph.
+    Let $(X,G)$ be a median graph. The presence of the median operation gives rise to a canonical finitely-separating pocset of \textit{convex} (and co-convex) half-spaces $\mc{H}_\textrm{cvx}(X)\subseteq2^X$ with a very rigid structure, which we now explore.
 
-    \begin{lemma}\label{lem:non-nested_iff_boundary_intersect}
-        Two half-spaces $H,K\in\mc{H}^\ast_\mathrm{cvx}(X)$ are non-nested iff $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$.
+    To do so, we need to first understand the geometry of \textit{projections} in median graphs, which we summarize in the following
+
+    \begin{proposition}\label{prp:projections}
+        For any $A\in2^X\comp\l\{\em,X\r\}$ and $x\in X$, there is a unique point in $\cvx(A)$ between $x$ and every point in $A$, called the $\mathrm{projection}$ of $x$ towards $A$, denoted $\proj_A(x)$. Furthermore:
+        \begin{enumerate}
+            \item We have $\proj_A=\proj_{\cvx(A)}$; i.e. $\proj_A(x)$ is also between $x$ an every point in $\cvx(A)$.
+            \item We have $\bigcap_{a\in A}[x,a]=[x,\proj_A(x)]$, and for any $y$ in this set, we have $\proj_A(y)=\proj_A(x)$.
+            \item The map $\proj_A:X\onto\cvx(A)$ is the unique median homomorphism fixing $\cvx(A)$.
+        \end{enumerate}
+    \end{proposition}
+
+    Since we only regard this as a technical tool, we shall prove it in Appendix \ref{app:projections}.
+
+    \begin{lemma}\label{lem:non-nested_iff_embedding_of_hamming}
+        Two half-spaces $H,K\in\mc{H}_\mathrm{cvx}^\ast(X)$ are non-nested iff there is an embedding $\l\{0,1\r\}^2\into X$ of the Hamming cube into the four corners $\lnot^iH\cap\lnot^jK$.
+
+        In particular, if $H,K\in\mc{H}_\mathrm{cvx}^\ast(X)$ are non-nested, then $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$.
     \end{lemma}
+    \begin{proof}
+        If $H,K$ are non-nested, fixing $x_0\in H\cap K$ and projecting it
+    \end{proof}
 
     \begin{lemma}\label{lem:half-spaces_are_cones}
         Each edge $(x,y)\in G$ is on a unique hyperplane, namely the inward boundary of $\cone_x(y)$, and conversely, each half-space $H\in\mc{H}^\ast_\mathrm{cvx}(X)$ is $\cone_x(y)$ for every $(x,y)\in\del_\sf{ie}H$.
@@ -279,7 +298,7 @@
         Every countable median graph with finite hyperplanes admits a canonical spanning tree.
     \end{proposition}
     \begin{proof}
-        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Lemma \ref{lem:non-nested_iff_boundary_intersect}, if two half-spaces $H,K\in\mc{H}^\ast_\textrm{cvx}(X)$ are non-nested, then $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\textrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
+        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Lemma \ref{lem:non-nested_iff_embedding_of_hamming}, if two half-spaces $H,K\in\mc{H}^\ast_\textrm{cvx}(X)$ are non-nested, then $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\textrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
 
         We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree, since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Lemma \ref{lem:half-spaces_are_cones}).
 
@@ -323,6 +342,35 @@
         \begin{corollary}\label{cor:nested_implies_tree}
             If $\mc{H}$ is a nested profinite pocset with non-trivial elements isolated, then $\mc{M}(\mc{H})$ is a tree.
         \end{corollary}
+
+        \section{Geometry of Projections in Median Graphs}\label{app:projections}
+
+        For $x,y,z\in X$, we write $x\-y\-z$ for $y\in[x,z]$. By the triangle inequality, we have for all $w,x,y,z\in X$ that
+        \begin{equation*}
+            (w\-x\-y\textrm{ and }w\-y\-z)\ \ \ \ \Leftrightarrow\ \ \ \ (w\-x\-z\textrm{ and }x\-y\-z),
+        \end{equation*}
+        and both sides occur iff there is a geodesic from $w$ to $x$ to $y$ to $z$, which we write as $w\-x\-y\-z$.
+
+        \begin{lemma}\label{lem:cones_are_convex}
+            For any $x,y\in X$, we have $\cone_x(y)\coloneqq\l\{z\in X\st x\-y\-z\r\}\in\mc{H}_\mathrm{cvx}(X)$.
+        \end{lemma}
+        \begin{proof}
+            Fix $a,b\in\cone_x(y)$ and $a\-c\-b$. It suffices to show that $x\-y\-\l\langle a,c,x\r\rangle$, for then $x\-y\-c$ since we have $x\-\l\langle a,c,x\r\rangle\-c$. Indeed, we have
+            \begin{equation*}
+                x\-y\-\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle\-a
+            \end{equation*}
+        \end{proof}
+
+        \begin{proof}[Proof of Proposition \ref{prp:projections}]
+            To show existence, pick any $a_0\in A$. Given $a_n\in\cvx(A)$, if there exists $a\in A$ with $a_n\not\in[x,a]$, set $a_{n+1}\coloneqq\l\langle x,a,a_n\r\rangle\in\cvx(A)$. Then $a_{n+1}\in[x,a_n]$ for all $n$, so this sequence terminates in at most $d(a_0,x)$ steps at a point in $\cvx(A)$ between $x$ and every point in $A$.
+
+            For uniqueness, if there are two such points $a,b\in\cvx(A)$, then $a\in[x,b]$ and $b\in[x,a]$, forcing $a=b$.
+            \begin{enumerate}
+                \item 
+                \item If $y\in[x,\proj_A(x)]$ and $a\in A$, then $\proj_A(x)\in[x,a]$ and hence $y\in[x,a]$. Conversely, let $y\in[x,a]$ for all $a\in A$. Since $[y,a]\subseteq[x,a]$ for all $a$, we see that $\proj_A(y)\in\cvx(A)\cap\bigcap_{a\in A}[x,a]$, and hence $\proj_A(y)=\proj_A(x)$ by uniqueness. But since $\proj_A(y)\in[y,a]$, we have $y\in[x,\proj_A(y)]=[x,\proj_A(x)]$ as desired.
+                \item 
+            \end{enumerate}
+        \end{proof}
     \end{appendices}
 
     \begin{bibdiv}
