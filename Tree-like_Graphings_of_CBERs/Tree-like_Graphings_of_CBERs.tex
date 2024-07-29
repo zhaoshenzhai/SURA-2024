@@ -170,9 +170,12 @@
         This is the desired neighborhood isolating $A\in U$. Indeed, it is (cl)open since it is the \textit{finite} intersection of cylinders prescribed by the $x_H$'s and $y_H$'s, and it is disjoint from $\mc{H}\comp\l\{A\r\}$ by construction.
     \end{proof}
 
-    For a locally-finite connected graph $(X,G)$, a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ of cuts is finitely-separating iff each $x\in X$ is on the boundary of finitely-many half-spaces. Indeed, if $\mc{H}$ is finitely-separating, then each $x\in X$ is separated from each of its finitely-many neighbors by finitely-many $H\in\mc{H}$. Conversely, any $H\in\mc{H}$ separating $x,y\in X$ separates some edge on any fixed path between $x$ and $y$, and there are only finitely-many such $H$ for each edge.
+    \begin{example}\label{exa:finitely_separating_iff_on_boundary_of_finite}
+        For a connected graph\footnote{If $(X,G)$ is locally-finite, then this condition is necessary, since then each $x\in X$ is separated from each of its finitely-many neighbors by finitely-many $H\in\mc{H}$.} $(X,G)$, a subpocset $\mc{H}\subseteq2^X$ is finitely-separating if each $x\in X$ is on the boundary of finitely-many half-spaces. Indeed, any $H\in\mc{H}$ separating $x,y\in X$ separates some edge on any fixed path between $x$ and $y$, and there are only finitely-many such $H$ for each edge.
 
-    In particular, the subpocset $\mc{H}_{\diam(\del)\leq R}(X)$ for any fixed $R<\infty$ (see Section \ref{sec:dense_cuts_induced_by_quasi-trees}) is finitely-separating.
+        In particular, the subpocset $\mc{H}_{\diam(\del)\leq R}(X)$ for any fixed $R<\infty$ (see Section \ref{sec:dense_cuts_induced_by_quasi-trees}) is finitely-separating.
+    \end{example}
+
 
     \subsection{Finiteness conditions on $\mc{H}$ induced by dense cuts}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
 
@@ -246,11 +249,36 @@
 
     \section{Median Graphs and their Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
 
+    \subsection{Convex half-spaces of median graphs}
+
+    \begin{lemma}\label{lem:non-nested_iff_boundary_intersect}
+        
+    \end{lemma}
+
+    \begin{lemma}\label{lem:half-spaces_are_cones}
+        
+    \end{lemma}
+
+    \begin{proposition}
+        Let $(X,G)$ be a median graph and let $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ be a subpocset of convex half-spaces.
+        \begin{enumerate}
+            \item $\mc{H}$ is finitely-separating, and hence $\mc{M}(\mc{H})$ is a median graph by Propositions \ref{prp:finitely-separating_non-trivial_isolated} and \ref{prp:construction_of_dual_median_graph}.
+            \item The principal orientations map $X\to\mc{U}^\circ(\mc{H}):x\mapsto\widehat{x}$ is surjective, and hence induces a median graph structure on the set of $\mc{H}$-blocks $X/\mc{H}$.
+        \end{enumerate}
+    \end{proposition}
+    \begin{proof}
+        That $\mc{H}$ is finitely-separating follows from Example \ref{exa:finitely_separating_iff_on_boundary_of_finite} and Lemma \ref{lem:half-spaces_are_cones}.
+    \end{proof}
+
+    \subsection{Canonical spanning trees}
+
     \begin{proposition}\label{prp:canonical_spanning_trees}
         Every countable median graph with finite hyperplanes admits a canonical spanning tree.
     \end{proposition}
     \begin{proof}
-        Let $(X,G)$ be a countable median graph.
+        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Lemma \ref{lem:non-nested_iff_boundary_intersect}, two half-spaces $H,K\in\mc{H}^\ast_\textrm{cvx}(X)$ are non-nested iff $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\textrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset.
+
+        For each $n\in\N$, let $\mc{K}_n^\ast\coloneqq\bigcup_{m\geq n}\mc{H}_n^\ast$ and $\mc{K}_n\coloneqq\mc{K}_n^\ast\cup\l\{\em,X\r\}$.
     \end{proof}
 
     \begin{corollary}
