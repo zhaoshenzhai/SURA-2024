@@ -268,7 +268,7 @@
             \item The principal orientations map $X\to\mc{U}^\circ(\mc{H}):x\mapsto\widehat{x}$ is surjective, and hence induces a median graph structure on the set of $\mc{H}$-blocks $X/\mc{H}$.
         \end{enumerate}
     \end{proposition}
-    Explicitly, 
+    Explicitly, {\color{red}{TODO}}
     \begin{proof}
         That $\mc{H}$ is finitely-separating follows from Example \ref{exa:finitely_separating_iff_on_boundary_of_finite} and Lemma \ref{lem:half-spaces_are_cones}.
     \end{proof}
@@ -279,9 +279,11 @@
         Every countable median graph with finite hyperplanes admits a canonical spanning tree.
     \end{proposition}
     \begin{proof}
-        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Lemma \ref{lem:non-nested_iff_boundary_intersect}, two half-spaces $H,K\in\mc{H}^\ast_\textrm{cvx}(X)$ are non-nested iff $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\textrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset.
+        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Lemma \ref{lem:non-nested_iff_boundary_intersect}, two half-spaces $H,K\in\mc{H}^\ast_\textrm{cvx}(X)$ are non-nested iff $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\textrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n^\ast\coloneqq\bigcup_{m\geq n}\mc{H}_n^\ast$ and $\mc{K}_n\coloneqq\mc{K}_n^\ast\cup\l\{\em,X\r\}$.
 
-        For each $n\in\N$, let $\mc{K}_n^\ast\coloneqq\bigcup_{m\geq n}\mc{H}_n^\ast$ and $\mc{K}_n\coloneqq\mc{K}_n^\ast\cup\l\{\em,X\r\}$.
+        We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Lemma \ref{lem:half-spaces_are_cones}).
+
+        By Lemma \ref{lem:half-spaces_are_cones}, the $\mc{K}_0=\mc{H}_\textrm{cvx}(X)$-blocks are singletons, and since every pair of distinct points is separated by a half-space, put $T_0\coloneqq\em$. Suppose that $T_n$ is constructed as required.
     \end{proof}
 
     \begin{corollary}
