@@ -223,8 +223,11 @@
         First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ are isolated (whence $\l\{H\r\},\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V\not\ni\em,X$ is clopen, so it is a compact set of isolated points, whence finite.
         \begin{center}
             \begin{minipage}{0.95\textwidth}
-                \begin{claim*}
-                    There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case $d(U,V)=|U\symdiff V|/2$.
+                \begin{claim*}[\cite{Sag95}*{Theorem 3.3}]
+                    There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case
+                    \begin{equation*}
+                        d(U,V)=|U\symdiff V|/2=|U\comp V|=|V\comp U|.
+                    \end{equation*}
                 \end{claim*}
                 \begin{proof}
                     If $(U_i)_{i<n}$ is a path from $U\eqqcolon U_0$ to $V\eqqcolon U_{n-1}$, then, letting $\l\{H_i,\lnot H_i\r\}\coloneqq U_i\symdiff U_{i-1}$ for all $1\leq i<n$ gives us a sequence $(H_i)_{i<n}$ inducing\footnote{In the sense that $U_i=U_{i-1}\symdiff\l\{H_i,\lnot H_i\r\}$ and $H_i\in U_i$ for each $1\leq i<n$; see \cite{Tse20}*{Definition 2.20}.} this path, whence $U\symdiff V$ consists of $\l\{H_i\r\}_{i<n}$ and their complements. Thus $U\symdiff V=2n=2d(U,V)$, as desired.
@@ -293,28 +296,22 @@
         Conversely, the half-spaces cutting the square are clearly non-nested.
     \end{proof}
 
-    \begin{lemma}\label{lem:helly}
-        
-    \end{lemma}
-
-    \begin{lemma}\label{lem:convex_of_finite_is_finite}
+    \begin{lemma}[Helly's Theorem]\label{lem:helly}
         
     \end{lemma}
 
     \subsection{Canonical spanning trees}
 
     \begin{lemma}\label{lem:H_blocks_form_a_median_graph}
-        Let $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ be a subpocset of convex half-spaces. Then:
-        \begin{enumerate}
-            \item $\mc{H}$ is finitely-separating, and hence $\mc{M}(\mc{H})$ is a median graph by Propositions \ref{prp:finitely-separating_non-trivial_isolated} and \ref{prp:construction_of_dual_median_graph}.
-            \item The principal orientations map $X\to\mc{U}^\circ(\mc{H}):x\mapsto\widehat{x}$ is surjective, and hence induces a median graph structure on the set of $\mc{H}$-blocks $X/\mc{H}$.
-        \end{enumerate}
+        For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$, the principal orientations map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
     \end{lemma}
     \begin{proof}
-        That $\mc{H}$ is finitely-separating follows from Example \ref{exa:finitely_separating_iff_on_boundary_of_finite} and Proposition \ref{prp:half-spaces_are_cones}. It remains to show that the map $X\to\mc{U}^\circ(\mc{H})$ is surjective, since its fibers are $\mc{H}$-blocks by definition. Let $U\in\mc{U}^\circ(\mc{H})$.
-
-        Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$, which we may assume to be convex by Lemma \ref{lem:convex_of_finite_is_finite}, such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $K\in U$ with $H\cap A=K\cap A$. Note that $K\cap A\neq\em$ for every $K\in U$, since otherwise $\em\in U$. Furthermore, $H\cap K\neq\em$ for every $H,K\in U$, since otherwise we have $H\subseteq\lnot K$, and so $\lnot K\in U$. By Lemma \ref{lem:helly}, we have $(H\cap A)\cap(K\cap A)=H\cap K\cap A\neq\em$, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$; note that the latter intersection is finite. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
+        Let $U\in\mc{U}^\circ(\mc{H})$. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ $-$ which we may assume to be convex by Corollary \ref{cor:convex_of_finite_is_finite} $-$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $K\in U$ with $H\cap A=K\cap A$. Note that $K\cap A\neq\em$ for every $K\in U$, since otherwise $\em\in U$. Furthermore, $H\cap K\neq\em$ for every $H,K\in U$, since otherwise we have $H\subseteq\lnot K$, and so $\lnot K\in U$. By Lemma \ref{lem:helly}, we have $(H\cap A)\cap(K\cap A)=H\cap K\cap A\neq\em$, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$; note that the latter intersection is finite. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
     \end{proof}
+
+    This lemma is crucial, in that it induces an isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$, where $\mc{H}$ is finitely-separating by Example \ref{exa:finitely_separating_iff_on_boundary_of_finite} and Proposition \ref{prp:half-spaces_are_cones}, so $\mc{U}^\circ(\mc{H})$ is the vertices of the median graph $\mc{M}(\mc{H})$ by Propositions \ref{prp:finitely-separating_non-trivial_isolated} and \ref{prp:construction_of_dual_median_graph}. Finally, the fibers of $X\to\mc{U}^\circ(\mc{H})$ are the $\mc{H}$-blocks by definition.<F4>
+
+    This allows us to transfer properties of $\mc{M}(\mc{H})$ to that of $X/\mc{H}$
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
         Every countable median graph with finite hyperplanes admits a canonical spanning tree.
@@ -373,6 +370,10 @@
         \begin{proof}[Proof of Proposition \ref{prp:projections}]
             
         \end{proof}
+
+        \begin{corollary}\label{cor:convex_of_finite_is_finite}
+            
+        \end{corollary}
     \end{appendices}
 
     \begin{bibdiv}
