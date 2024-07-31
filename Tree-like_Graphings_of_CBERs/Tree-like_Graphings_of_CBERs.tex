@@ -385,7 +385,7 @@
             and both sides occur iff there is a geodesic from $w$ to $x$ to $y$ to $z$, which we write as $w\-x\-y\-z$.
         \end{notation*}
 
-        \begin{lemma}\label{lem:projection}
+        \begin{lemma}\label{lem:projections}
             For any $\em\neq A\subseteq X$ and $x\in X$, there is a unique point in $\cvx(A)$ between $x$ and every point in $A$, called the $\mathrm{projection}$ of $x$ towards $A$, denoted $\proj_A(x)$.
 
             Moreover, we have $\bigcap_{a\in A}[x,a]=[x,\proj_A(x)]$, and for any $y$ in this set, we have $\proj_A(y)=\proj_A(x)$.
@@ -400,9 +400,15 @@
             and hence $\proj_A(y)=\proj_A(x)$ by uniqueness. But since $y\-\proj_A(y)\-a$, we have $x\-y\-\proj_A(y)$, and hence $x\-y\-\proj_A(x)$ as desired.
         \end{proof}
 
-        \begin{example}
-            For $A\coloneqq\l\{a,b\r\}$, we have $\proj_A(x)=\l\langle a,b,x\r\rangle$ since $\l\langle a,b,x\r\rangle\in[x,a]\cap[x,b]$ is the unique such point in $\cvx(A)=[a,b]$.
-        \end{example}
+        \begin{remark}
+            It follows from the proof above that for any median homomorphism $f:(X,G)\to(Y,H)$, we have $f(\proj_A(x))=\proj_{f(A)}(f(x))$ for any $\em\neq A\subseteq X$ and $x\in X$. Indeed, we have
+            \begin{equation*}
+                \proj_A(x)=\l\langle x,a_m,\dots,\l\langle x,a_2,\l\langle x,a_1,a_0\r\rangle\r\rangle\dots\r\rangle
+            \end{equation*}
+            for some $m\leq d(a_0,x)$, and this is preserved by $f$.
+        
+            For $A\coloneqq\l\{a,b\r\}$, we have $\proj_A(x)=\l\langle a,b,x\r\rangle$, and hence $\cvx(A)=\proj_A(X)=\l\langle a,b,X\r\rangle=[a,b]$.
+        \end{remark}
 
         \begin{lemma}\label{lem:cones_are_convex}
             For each $x,y\in X$, $\cone_x(y)$ is convex, and if $xGy$, then $\cone_x(y)\sqcup\cone_y(x)=X$.
@@ -410,10 +416,15 @@
         \begin{proof}
             Fix $a,b\in\cone_x(y)$ and $a\-c\-b$. It suffices to show that $x\-y\-\l\langle a,c,x\r\rangle$, for then $x\-y\-c$ since we have $x\-\l\langle a,c,x\r\rangle\-c$. Indeed, it follows from the following observations.
             \begin{itemize}
-                \item $x\-y\-\l\langle a,b,x\r\rangle$, since $\l\langle a,b,x\r\rangle=\proj_{\l\{a,b\r\}}(x)$ and so $[x,\l\langle a,b,x\r\rangle]=[x,a]\cap[x,b]\ni y$ by Lemma \ref{lem:projection}.
-                \item $x\-\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle$, which follows from $\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle\-a$, since $x\-\l\langle a,b,x\r\rangle\-a$ by definition. Indeed, we have $\l\langle a,c,x\r\rangle$ is in both $[a,x]$ and $[a,c]\subseteq[a,b]$, and since $\proj_{\l\{b,x\r\}}(a)=\l\langle a,b,x\r\rangle$, we have again by Lemma \ref{lem:projection} that $[\l\langle a,b,x\r\rangle,a]=[a,x]\cap[a,b]\ni\l\langle a,c,x\r\rangle$.\qed
+                \item $x\-y\-\l\langle a,b,x\r\rangle$, since $\l\langle a,b,x\r\rangle=\proj_{\l\{a,b\r\}}(x)$ and so $[x,\l\langle a,b,x\r\rangle]=[x,a]\cap[x,b]\ni y$ by Lemma \ref{lem:projections}.
+                \item $x\-\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle$, which follows from $\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle\-a$, since $x\-\l\langle a,b,x\r\rangle\-a$ by definition. Indeed, we have $\l\langle a,c,x\r\rangle$ is in both $[a,x]$ and $[a,c]\subseteq[a,b]$, and since $\proj_{\l\{b,x\r\}}(a)=\l\langle a,b,x\r\rangle$, we have again by Lemma \ref{lem:projections} that $[\l\langle a,b,x\r\rangle,a]=[a,x]\cap[a,b]\ni\l\langle a,c,x\r\rangle$.
             \end{itemize}
+            Finally, take $z\in X$ and consider $w\coloneqq\l\langle x,y,z\r\rangle\subseteq[x,y]$. Either $w=x$ or $w=y$ (but not both), giving us the desired partition.
         \end{proof}
+
+        In particular, this shows that if $xGy$, then $\cone_x(y)\in\mc{H}^\ast_\textrm{cvx}(X)$. The convexity of cones also shows, in the situation of \ref{lem:projections}, that $\proj_A=\proj_{\cvx(A)}$, i.e., $\proj_A(x)$ is also between $x$ and every point in $\cvx(A)$. Indeed, note that $\cone_x(\proj_A(x))$ is convex and contains $A$, so it contains $\cvx(A)$ too.
+
+        Finally, we complete the proof of Proposition \ref{prp:projections}.
 
         \begin{corollary}\label{cor:convex_of_finite_is_finite}
             
