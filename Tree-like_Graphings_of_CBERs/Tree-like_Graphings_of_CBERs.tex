@@ -243,17 +243,30 @@
         Note that the two sides coincide, so $M=\l\langle U,V,W\r\rangle$ $-$ which is clopen if $U,V,W$ are $-$ is as claimed.
     \end{proof}
 
-    Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between median graphs with median homomorphisms and profinite pocsets whose non-trivial points are isolated with continuous maps, where from a median graph one can construct a canonical pocset of `convex' half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. It is worth noting that if $\mc{H}$ is \textit{nested}, then $\mc{M}(\mc{H})$ is in fact a tree (see Appendix \ref{app:tree_of_orientations_on_nested}):
+    Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between median graphs with median homomorphisms and profinite pocsets whose non-trivial points are isolated with continuous maps, where from a median graph one can construct a canonical pocset of `convex' half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. An important special case of this construction is when $\mc{H}$ is \textit{nested}, in which case $\mc{M}(\mc{H})$ is a tree:
 
     \begin{definition}\label{def:nested}
         Let $\mc{H}\subseteq2^X$ be a pocset. Two half-spaces $H,K\in\mc{H}$ are \textit{nested} if $\lnot^iH\cap\lnot^jK=\em$ for some $i,j\in\l\{0,1\r\}$, where $\lnot^0H\coloneqq H$ and $\lnot^1H\coloneqq\lnot H$. We say that $\mc{H}$ is \textit{nested} if every pair $H,K\in\mc{H}$ is nested.
     \end{definition}
 
+    \begin{proposition}\label{prp:strictly-inc}
+        If $(H_i)_{i<n}$ induces a path in $\mc{M}(\mc{H})$ with no backtracking, then $(H_i)$ is strictly increasing.
+    \end{proposition}
+    \begin{proof}
+        Let $(U_i)_{i<n}$ be the induced path. By definition, we have $U_{i+1}=U_{i-1}\cup\{\lnot H_i,\lnot H_{i-1}\}\comp\l\{H_i,H_{i-1}\r\}$, so $H_i\neq\lnot H_{i-1}$, lest $U_{i+1}=U_{i-1}$. Thus, since $H_i\in U_i=U_{i-1}\cup\{\lnot H_{i-1}\}\comp\l\{H_{i-1}\r\}$, we see that $H_i\in U_{i-1}$. Clearly $H_i\neq H_{i-1}$. It suffices to remove the three cases when $\lnot H_i\subseteq H_{i-1}$, $H_{i-1}\subseteq\lnot H_i$, and $H_i\subseteq H_{i-1}$, since then nestedness of $\mc{H}$ gives us $H_{i-1}\subsetneq H_i$, as desired.
+
+        Indeed, if $\lnot H_i\subseteq H_{i-1}$, then $H_{i-1}\in U_{i+1}$ by upward-closure of $U_{i+1}\ni\lnot H_i$. But since $H_{i-1}\neq\lnot H_i$, we have by definition of $U_{i+1}$ that $H_{i-1}\in U_i$, a contradiction. The other cases are similar.
+    \end{proof}
+
+    \begin{corollary}\label{cor:nested_implies_tree}
+        If $\mc{H}$ is a nested profinite pocset with non-trivial elements isolated, then $\mc{M}(\mc{H})$ is a tree.
+    \end{corollary}
+
     Nonetheless, in the general non-nested case, there is a sufficient criteria for the existence of a \textit{canonical} spanning tree of $\mc{M}(\mc{H})$, which we now explore.
 
     \subsection{Finiteness conditions on $\mc{M}(\mc{H})$ induced by {\color{red}{???}}}\label{sec:finiteness_conditions_on_median_graph_dense_cuts}
 
-    \section{Median Graphs and their Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
+    \section{Median Graphs, Convex Half-spaces, and Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
 
     Throughout this section, let $(X,G)$ be a median graph, which, in the context of Theorem \ref{thm:treeing_quasi-trees}, is the dual median graph of the pocset $\mc{H}_{\diam(\del)\leq R}$ given by the quasi-isometry.
 
@@ -417,43 +430,6 @@
     \begin{corollary}
         If a CBER admits a graphing whose components are median graphs, then it has a subtreeing.
     \end{corollary}
-
-    \begin{appendices}
-        \section{Tree of orientations on a nested pocset of sets}\label{app:tree_of_orientations_on_nested}
-
-        Let $X$ be a set and let $\mc{H}\subseteq2^X$ be a profinite pocset with non-trivial elements isolated (see Definition \ref{def:profinite_pocset}); say, if $\mc{H}$ is finitely-separating. By Proposition \ref{prp:construction_of_dual_median_graph}, the clopen orientations $\mc{U}^\circ(\mc{H})$ form the vertices of a median graph $\mc{M}(\mc{H})$, whose edges are given by `minimal half-space flippings'.
-
-        We show in this appendix that if $\mc{H}$ is also \textit{nested} (see Definition \ref{def:nested}), then $\mc{M}(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes} (hence Section \ref{sec:finiteness_conditions_on_median_graph_dense_cuts} too) and obtain a treeing directly. More importantly for us, it is also used in the general non-nested case (see Proposition \ref{prp:canonical_spanning_trees}), where one finds nested sub-collections thereof and builds the desired tree inductively.
-
-        This result is motivated by a similar construction in \cite{Tse20}, and is proved with similar methods.
-
-        \begin{lemma}\label{lem:no-backtrack}
-            A path in $\mc{M}(\mc{H})$ from $U_0$ induced by $(H_i)_{i<n}$, $n\geq3$, has no backtracking iff $H_i\neq\lnot H_{i-1}$ for every $1\leq i<n$.
-        \end{lemma}
-        \begin{proof}
-            Take $2\leq i\leq n$. It suffices to show that $U_{i-2}=U_i$ iff $H_{i-1}=\lnot H_{i-2}$.
-            \begin{itemize}
-                \item[($\Rightarrow$).] We have by definition that $U_i=U_{i-2}\cup\{\lnot H_{i-1},\lnot H_{i-2}\}\comp\l\{H_{i-1},H_{i-2}\r\}$, so since $H_{i-2}\in U_{i-2}=U_i$, we have $H_{i-2}=\lnot H_{i-1}$ as desired.
-                \item[($\Leftarrow$).] Again by definition, by noting that the half-space flippings cancel out.\qed
-            \end{itemize}
-        \end{proof}
-
-        \begin{proposition}\label{prp:strictly-inc}
-            If $(H_i)_{i<n}$ induces a path in $\mc{M}(\mc{H})$ with no backtracking, then $(H_i)$ is strictly increasing.
-        \end{proposition}
-        \begin{proof}
-            By Lemma \ref{lem:no-backtrack}, we have $H_i\neq\lnot H_{i-1}$ for every $1\leq i<n$. Thus, since $H_i\in U_i=U_{i-1}\cup\{\lnot H_{i-1}\}\comp\l\{H_{i-1}\r\}$, we see that $H_i\in U_{i-1}$. Clearly $H_i\neq H_{i-1}$. It suffices to remove the three cases when $H_i\subseteq H_{i-1}$, $H_{i-1}\subseteq\lnot H_i$, and $\lnot H_i\subseteq H_{i-1}$, since then nestedness of $\mc{H}$ gives us $H_{i-1}\subsetneq H_i$, as desired.
-            \begin{itemize}
-                \item If $H_i\subseteq H_{i-1}$, then $H_{i-1}\in U_i$, contradicting the definition of $U_i$.
-                \item If $H_{i-1}\subseteq\lnot H_i$, then $\lnot H_i\in U_{i-1}$ by upward-closure of $U_{i-1}$, a contradiction.
-                \item If $\lnot H_i\subseteq H_{i-1}$, then $H_{i-1}\in U_{i+1}$ by upward-closure of $U_{i+1}\ni\lnot H_i$. But since $H_{i-1}\neq\lnot H_i$, we have by definition of $U_{i+1}$ that $H_{i-1}\in U_i$, a contradiction.\qed
-            \end{itemize}
-        \end{proof}
-
-        \begin{corollary}\label{cor:nested_implies_tree}
-            If $\mc{H}$ is a nested profinite pocset with non-trivial elements isolated, then $\mc{M}(\mc{H})$ is a tree.
-        \end{corollary}
-    \end{appendices}
 
     \begin{bibdiv}
         \begin{biblist}*{labels={alphabetic}}
