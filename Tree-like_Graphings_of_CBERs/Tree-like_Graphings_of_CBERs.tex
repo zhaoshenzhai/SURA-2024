@@ -293,6 +293,14 @@
         Conversely, the half-spaces cutting the square are clearly non-nested.
     \end{proof}
 
+    \begin{lemma}\label{lem:helly}
+        
+    \end{lemma}
+
+    \begin{lemma}\label{lem:convex_of_finite_is_finite}
+        
+    \end{lemma}
+
     \subsection{Canonical spanning trees}
 
     \begin{lemma}\label{lem:H_blocks_form_a_median_graph}
@@ -302,9 +310,10 @@
             \item The principal orientations map $X\to\mc{U}^\circ(\mc{H}):x\mapsto\widehat{x}$ is surjective, and hence induces a median graph structure on the set of $\mc{H}$-blocks $X/\mc{H}$.
         \end{enumerate}
     \end{lemma}
-    Explicitly, $([x]_\mc{H},[y]_\mc{H})$ is an edge in $X/\mc{H}$ iff $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$, which occurs iff
     \begin{proof}
-        That $\mc{H}$ is finitely-separating follows from Example \ref{exa:finitely_separating_iff_on_boundary_of_finite} and Proposition \ref{prp:half-spaces_are_cones}.
+        That $\mc{H}$ is finitely-separating follows from Example \ref{exa:finitely_separating_iff_on_boundary_of_finite} and Proposition \ref{prp:half-spaces_are_cones}. It remains to show that the map $X\to\mc{U}^\circ(\mc{H})$ is surjective, since its fibers are $\mc{H}$-blocks by definition. Let $U\in\mc{U}^\circ(\mc{H})$.
+
+        Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$, which we may assume to be convex by Lemma \ref{lem:convex_of_finite_is_finite}, such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $K\in U$ with $H\cap A=K\cap A$. Note that $K\cap A\neq\em$ for every $K\in U$, since otherwise $\em\in U$. Furthermore, $H\cap K\neq\em$ for every $H,K\in U$, since otherwise we have $H\subseteq\lnot K$, and so $\lnot K\in U$. By Lemma \ref{lem:helly}, we have $(H\cap A)\cap(K\cap A)=H\cap K\cap A\neq\em$, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$; note that the latter intersection is finite. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
     \end{proof}
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
