@@ -400,7 +400,7 @@
             and hence $\proj_A(y)=\proj_A(x)$ by uniqueness. But since $y\-\proj_A(y)\-a$, we have $x\-y\-\proj_A(y)$, and hence $x\-y\-\proj_A(x)$ as desired.
         \end{proof}
 
-        \begin{remark}
+        \begin{remark}\label{rem:projections}
             It follows from the proof above that for any median homomorphism $f:(X,G)\to(Y,H)$, we have $f(\proj_A(x))=\proj_{f(A)}(f(x))$ for any $\em\neq A\subseteq X$ and $x\in X$. Indeed, we have
             \begin{equation*}
                 \proj_A(x)=\l\langle x,a_m,\dots,\l\langle x,a_2,\l\langle x,a_1,a_0\r\rangle\r\rangle\dots\r\rangle
@@ -424,7 +424,27 @@
 
         In particular, this shows that if $xGy$, then $\cone_x(y)\in\mc{H}^\ast_\textrm{cvx}(X)$. The convexity of cones also shows, in the situation of \ref{lem:projections}, that $\proj_A=\proj_{\cvx(A)}$, i.e., $\proj_A(x)$ is also between $x$ and every point in $\cvx(A)$. Indeed, note that $\cone_x(\proj_A(x))$ is convex and contains $A$, so it contains $\cvx(A)$ too.
 
-        Finally, we complete the proof of Proposition \ref{prp:projections}.
+        \begin{proof}[Proof of Proposition \ref{prp:projections}]
+            It remains to show that $\proj_A:X\onto\cvx(A)$ is a median homomorphism; that it `commutes' with taking the convex hull follows since, by Remark \ref{rem:projections}, we have
+            \begin{equation*}
+                f(\cvx(B))=f(\proj_B(X))=\proj_{f(B)}(f(X))=\cvx(f(B))
+            \end{equation*}
+            for all median homomorphisms $f:X\onto Y$ and $B\subseteq X$, so it in particular applies to $f\coloneqq\proj_A$.
+
+            To this end, let $x\-y\-z\in X$ and set $w\coloneqq\l\langle\proj_A(x),\proj_A(y),\proj_A(z)\r\rangle\in\cvx(A)$. It suffices to show that $y\-w\-a$ for all $a\in A$, for then $w=\proj_A(y)$ and hence $\proj_A(x)\-\proj_A(y)\-\proj_A(z)$. But we have $y\-\proj_A(y)\-a$ already, so it further suffices to show that $y\-w\-\proj_A(y)$. For this, we note that
+            \begin{equation*}
+                x\-\proj_A(x)\-\proj_A(y)\ \ \ \ \textrm{and}\ \ \ \ \proj_A(x)\-w\-\proj_A(y),
+            \end{equation*}
+            so $x\-w\-\proj_A(y)$, and similarly $z\-w\-\proj_A(y)$. Thus, it follows that
+            \begin{equation*}
+                \begin{aligned}
+                    w\in[\proj_A(y),x]\cap[\proj_A(y),z]&=[\proj_A(y),\proj_{\l\{x,z\r\}}(\proj_A(y))]\ \ \ \ && \textrm{Lemma \ref{lem:projections}} \\
+                                                        &=[\proj_A(y),\proj_{\l[x,z\r]}(\proj_A(y))] \\
+                                                        &\subseteq[\proj_A(y),y],\ \ \ \ && \textrm{Lemma \ref{lem:projections}}
+                \end{aligned}
+            \end{equation*}
+            where the second equality follows from $\cvx(\l\{x,z\r\})=[x,z]$, and hence $\proj_{\l\{x,z\r\}}=\proj_{\l[x,z\r]}$.
+        \end{proof}
 
         \begin{corollary}\label{cor:convex_of_finite_is_finite}
             
