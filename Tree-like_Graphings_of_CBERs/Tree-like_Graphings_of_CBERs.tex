@@ -375,12 +375,40 @@
         \section{Geometry of Projections in Median Graphs}\label{app:projections}
         \renewcommand{\-}{\textrm{---}}
 
-        \begin{lemma}\label{lem:cones_are_convex}
-            
-        \end{lemma}
+        Let $(X,G)$ be a median graph. We devote this appendix to study the convexity structure of $X$ by way of projections. For $x,y,z\in X$, we write $x\-y\-z$ for $y\in[x,z]$. By the triangle inequality, we have for all $w,x,y,z\in X$ that
+        \begin{equation*}
+            (w\-x\-y\textrm{ and }w\-y\-z)\ \ \ \ \Leftrightarrow\ \ \ \ (w\-x\-z\textrm{ and }x\-y\-z),
+        \end{equation*}
+        and both sides occur iff there is a geodesic from $w$ to $x$ to $y$ to $z$, which we write as $w\-x\-y\-z$.
 
-        \begin{proof}[Proof of Proposition \ref{prp:projections}]
-            
+        \begin{lemma}
+            There is a unique point in $\cvx(A)$ between $x$ and every point in $A$, called the $\mathrm{projection}$ of $x$ towards $A$, denoted $\proj_A(x)$.
+        \end{lemma}
+        \begin{proof}
+            To show existence, pick any $a_0\in A$. Given $a_n\in\cvx(A)$, if there exists $a\in A$ with $a_n\not\in[x,a]$, set $a_{n+1}\coloneqq\l\langle x,a,a_n\r\rangle\in\cvx(A)$. Then $a_{n+1}\in[x,a_n]$ for all $n$, so this sequence terminates in at most $d(a_0,x)$ steps at a point in $\cvx(A)$ between $x$ and every point in $A$.
+
+            For uniqueness, if there are two such points $a,b\in\cvx(A)$, then $a\in[x,b]$ and $b\in[x,a]$, forcing $a=b$.           
+        \end{proof}
+
+        \begin{lemma}
+            We have $\bigcap_{a\in A}[x,a]=[x,\proj_A(x)]$, and for any $y$ in this set, we have $\proj_A(y)=\proj_A(x)$.
+        \end{lemma}
+        \begin{proof}
+            If $y\in[x,\proj_A(x)]$ and $a\in A$, then $\proj_A(x)\in[x,a]$ and hence $y\in[x,a]$. Conversely, let $y\in[x,a]$ for all $a\in A$. Since $[y,a]\subseteq[x,a]$ for all $a$, we see that
+            \begin{equation*}
+                \proj_A(y)\in\cvx(A)\cap\bigcap_{a\in A}[y,a]\subseteq\cvx(A)\cap\bigcap_{a\in A}[x,a]
+            \end{equation*}
+            and hence $\proj_A(y)=\proj_A(x)$ by uniqueness. But since $\proj_A(y)\in[y,a]$, we have $y\in[x,\proj_A(y)]=[x,\proj_A(x)]$ as desired.
+        \end{proof}
+
+        \begin{lemma}\label{lem:cones_are_convex}
+            For each $x,y\in X$, $\cone_x(y)$ is convex, and if $xGy$, then $\cone_x(y)\sqcup\cone_y(x)=X$.
+        \end{lemma}
+        \begin{proof}
+            Fix $a,b\in\cone_x(y)$ and $a\-c\-b$. It suffices to show that $x\-y\-\l\langle a,c,x\r\rangle$, for then $x\-y\-c$ since we have $x\-\l\langle a,c,x\r\rangle\-c$. Indeed, we have
+            \begin{equation*}
+                x\-y\-\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle\-a
+            \end{equation*}
         \end{proof}
 
         \begin{corollary}\label{cor:convex_of_finite_is_finite}
