@@ -299,9 +299,9 @@
         Any finite intersection of pairwise-intersecting non-empty convex sets is non-empty.
     \end{lemma}
     \begin{proof}
-        For $n=3$ and non-empty convex sets $H_1,H_2,H_3$, pick any $x\in H_1\cap H_2$, $y\in H_1\cap H_3$ and $z\in H_2\cap H_3$; their median $\l\langle x,y,z\r\rangle$ then lies in $H_1\cap H_2\cap H_3$.
+        For pairwise-intersecting convex sets $H_1,H_2,H_3$, pick any $x\in H_1\cap H_2$, $y\in H_1\cap H_3$ and $z\in H_2\cap H_3$; their median $\l\langle x,y,z\r\rangle$ then lies in $H_1\cap H_2\cap H_3$.
 
-        Suppose that it holds for some $n\geq 3$ and let $H_1,\dots,H_{n+1}\subseteq X$ pairwise-intersect. Then $\l\{H_i\cap H_{n+1}\r\}_{i\leq n}$ is a family of $n$ pairwise-intersecting convex sets, so $\bigcap_{i\leq n_1}H_i=\bigcap_{i\leq n}(H_i\cap H_{i+1})$ is non-empty.
+        Suppose that it holds for some $n\geq 3$ and let $H_1,\dots,H_{n+1}\subseteq X$ pairwise-intersect. Then $\l\{H_i\cap H_{n+1}\r\}_{i\leq n}$ is a family of $n$ pairwise-intersecting convex sets, so $\bigcap_{i\leq n+1}H_i=\bigcap_{i\leq n}(H_i\cap H_{n+1})$ is non-empty.
     \end{proof}
 
     \subsection{Canonical spanning trees}
