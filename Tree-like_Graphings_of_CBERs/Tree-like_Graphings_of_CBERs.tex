@@ -255,10 +255,11 @@
 
     \section{Median Graphs and their Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
 
-    \subsection{Convex half-spaces of median graphs}\label{sec:convex_half-spaces_of_media_graphs}
-    \renewcommand{\-}{\textrm{---}}
+    Throughout this section, let $(X,G)$ be a median graph, which, in the context of Theorem \ref{thm:treeing_quasi-trees}, is the dual median graph of the pocset $\mc{H}_{\diam(\del)\leq R}$ given by the quasi-isometry.
 
-    Let $(X,G)$ be a median graph. The presence of the median operation gives rise to a canonical finitely-separating pocset of \textit{convex} (and co-convex) half-spaces $\mc{H}_\textrm{cvx}(X)\subseteq2^X$ with a very rigid structure, which we now explore.
+    \subsection{Convex half-spaces of median graphs}\label{sec:convex_half-spaces_of_media_graphs}
+
+    The presence of the median operation gives rise to a canonical finitely-separating pocset of \textit{convex} (and co-convex) half-spaces $\mc{H}_\textrm{cvx}(X)\subseteq2^X$ with a very rigid structure, which we now explore.
 
     To do so, we need to first understand the geometry of \textit{projections}, which we summarize in the following
 
@@ -267,8 +268,6 @@
     \end{proposition}
 
     Since we only regard this as a technical tool, we defer its proof to Appendix \ref{app:projections}. It is only used in the sequel, which characterizes the convex half-spaces in a median graph. For each $x,y\in X$, the \textit{cone} of $y$ away from $x$ is the set $\cone_x(y)\coloneqq\l\{z\in X\st y\in[x,z]\r\}$, consisting of all $z\in X$ closer to $y$ than to $x$.
-
-    % The inward edge boundaries $\del_\sf{ie}H$ for $H\in\mc{H}_\textrm{cvx}^\ast(X)$ are called \textit{hyperplanes}.
 
     \begin{lemma}[Lemma \ref{lem:cones_are_convex}]
         For each $x,y\in X$, $\cone_x(y)$ is convex, and if $xGy$, then $\cone_x(y)\sqcup\cone_y(x)=X$.
@@ -296,11 +295,18 @@
         Conversely, the half-spaces cutting the square are clearly non-nested.
     \end{proof}
 
-    \begin{lemma}[Helly's Theorem]\label{lem:helly}
-        
+    \begin{lemma}[Helly]\label{lem:helly}
+        Any finite intersection of pairwise-intersecting non-empty convex sets is non-empty.
     \end{lemma}
+    \begin{proof}
+        For $n=3$ and non-empty convex sets $H_1,H_2,H_3$, pick any $x\in H_1\cap H_2$, $y\in H_1\cap H_3$ and $z\in H_2\cap H_3$; their median $\l\langle x,y,z\r\rangle$ then lies in $H_1\cap H_2\cap H_3$.
+
+        Suppose that it holds for some $n\geq 3$ and let $H_1,\dots,H_{n+1}\subseteq X$ pairwise-intersect. Then $\l\{H_i\cap H_{n+1}\r\}_{i\leq n}$ is a family of $n$ pairwise-intersecting convex sets, so $\bigcap_{i\leq n_1}H_i=\bigcap_{i\leq n}(H_i\cap H_{i+1})$ is non-empty.
+    \end{proof}
 
     \subsection{Canonical spanning trees}
+
+    We now present the Borel cycle-cutting algorithm that can be preformed canonically on any countable median graph with finite hyperplanes. We do so by colouring the half-spaces $\mc{H}^\ast_\textrm{cvx}(X)$ into certain nested half-spaces $\mc{H}_n\subseteq\mc{H}_\textrm{cvx}(X)$, from which we inductively build a spanning forest by leveraging a tree structure on the $\mc{H}_n$-blocks $X/\mc{H}_n$. This tree is constructed as follows.
 
     \begin{lemma}\label{lem:H_blocks_form_a_median_graph}
         For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$, the principal orientations map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
@@ -309,9 +315,9 @@
         Let $U\in\mc{U}^\circ(\mc{H})$. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ $-$ which we may assume to be convex by Corollary \ref{cor:convex_of_finite_is_finite} $-$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $K\in U$ with $H\cap A=K\cap A$. Note that $K\cap A\neq\em$ for every $K\in U$, since otherwise $\em\in U$. Furthermore, $H\cap K\neq\em$ for every $H,K\in U$, since otherwise we have $H\subseteq\lnot K$, and so $\lnot K\in U$. By Lemma \ref{lem:helly}, we have $(H\cap A)\cap(K\cap A)=H\cap K\cap A\neq\em$, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$; note that the latter intersection is finite. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
     \end{proof}
 
-    This lemma is crucial, in that it induces an isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$, where $\mc{H}$ is finitely-separating by Example \ref{exa:finitely_separating_iff_on_boundary_of_finite} and Proposition \ref{prp:half-spaces_are_cones}, so $\mc{U}^\circ(\mc{H})$ is the vertices of the median graph $\mc{M}(\mc{H})$ by Propositions \ref{prp:finitely-separating_non-trivial_isolated} and \ref{prp:construction_of_dual_median_graph}. Finally, the fibers of $X\to\mc{U}^\circ(\mc{H})$ are the $\mc{H}$-blocks by definition.<F4>
+    This lemma is crucial, in that it induces an isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$. Here, $\mc{H}$ is finitely-separating by Example \ref{exa:finitely_separating_iff_on_boundary_of_finite} and Proposition \ref{prp:half-spaces_are_cones}, and so $\mc{U}^\circ(\mc{H})$ is the vertices of the median graph $\mc{M}(\mc{H})$ by Propositions \ref{prp:finitely-separating_non-trivial_isolated} and \ref{prp:construction_of_dual_median_graph}. The fibers of $X\to\mc{U}^\circ(\mc{H})$ are the $\mc{H}$-blocks by definition, so we have the desired bijection.
 
-    This allows us to transfer properties of $\mc{M}(\mc{H})$ to that of $X/\mc{H}$
+    Explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are said to be \textit{$G$-adjacent} if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$.
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
         Every countable median graph with finite hyperplanes admits a canonical spanning tree.
@@ -321,7 +327,7 @@
 
         We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree, since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Proposition \ref{prp:half-spaces_are_cones}).
 
-        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\textrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. For each $G$-adjacent pair $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space in $H\in\mc{H}_n$, we may pick an edge from the \textit{finite} hyperplane $\del_\sf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
+        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\textrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. For each $G$-adjacent pair $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space $H\in\mc{H}_n$, we may pick an edge from the \textit{finite} hyperplane $\del_\sf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
     \end{proof}
 
     \begin{corollary}
@@ -333,7 +339,9 @@
 
         Let $X$ be a set and let $\mc{H}\subseteq2^X$ be a profinite pocset with non-trivial elements isolated (see Definition \ref{def:profinite_pocset}); say, if $\mc{H}$ is finitely-separating. By Proposition \ref{prp:construction_of_dual_median_graph}, the clopen orientations $\mc{U}^\circ(\mc{H})$ form the vertices of a median graph $\mc{M}(\mc{H})$, whose edges are given by `minimal half-space flippings'.
 
-        We show in this appendix that if $\mc{H}$ is also \textit{nested} (see Definition \ref{def:nested}), then $\mc{M}(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes} (hence Section \ref{sec:finiteness_conditions_on_median_graph_dense_cuts} too) and obtain a treeing directly. This result is motivated by a similar construction in \cite{Tse20}, and is proved with similar methods.
+        We show in this appendix that if $\mc{H}$ is also \textit{nested} (see Definition \ref{def:nested}), then $\mc{M}(\mc{H})$ is in fact a tree, and so we may bypass the Borel cycle-cutting algorithm in Section \ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes} (hence Section \ref{sec:finiteness_conditions_on_median_graph_dense_cuts} too) and obtain a treeing directly. More importantly for us, it is also used in the general non-nested case (see Proposition \ref{prp:canonical_spanning_trees}), where one finds nested sub-collections thereof and builds the desired tree inductively.
+
+        This result is motivated by a similar construction in \cite{Tse20}, and is proved with similar methods.
 
         \begin{lemma}\label{lem:no-backtrack}
             A path in $\mc{M}(\mc{H})$ from $U_0$ induced by $(H_i)_{i<n}$, $n\geq3$, has no backtracking iff $H_i\neq\lnot H_{i-1}$ for every $1\leq i<n$.
@@ -363,6 +371,8 @@
         \end{corollary}
 
         \section{Geometry of Projections in Median Graphs}\label{app:projections}
+        \renewcommand{\-}{\textrm{---}}
+
         \begin{lemma}\label{lem:cones_are_convex}
             
         \end{lemma}
