@@ -267,7 +267,9 @@
         For any $A\in2^X\comp\l\{\em,X\r\}$ and $x\in X$, there is a unique point in $\cvx(A)$ between $x$ and every point in $A$, called the $\mathrm{projection}$ of $x$ towards $A$, denoted $\proj_A(x)$, that furthermore defines a median homomorphism $\proj_A:X\onto\cvx(A)$ with $\proj_A\cvx(B)=\cvx\proj_A(B)$ for all $B\subseteq X$.
     \end{proposition}
 
-    Since we only regard this as a technical tool, we defer its proof to Appendix \ref{app:projections}. It is only used in the sequel, which characterizes the convex half-spaces in a median graph. For each $x,y\in X$, the \textit{cone} of $y$ away from $x$ is the set $\cone_x(y)\coloneqq\l\{z\in X\st y\in[x,z]\r\}$, consisting of all $z\in X$ closer to $y$ than to $x$.
+    Since we only regard projections as a technical tool, we defer its proof to Appendix \ref{app:projections}. It is only used in the sequel, which characterizes the convex half-spaces in a median graph.
+
+    For each $x,y\in X$, the \textit{cone} of $y$ away from $x$ is the set $\cone_x(y)\coloneqq\l\{z\in X\st y\in[x,z]\r\}$, consisting of all $z\in X$ closer to $y$ than to $x$.
 
     \begin{lemma}[Lemma \ref{lem:cones_are_convex}]
         For each $x,y\in X$, $\cone_x(y)$ is convex, and if $xGy$, then $\cone_x(y)\sqcup\cone_y(x)=X$.
