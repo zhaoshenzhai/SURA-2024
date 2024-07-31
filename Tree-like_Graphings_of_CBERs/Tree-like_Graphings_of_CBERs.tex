@@ -207,7 +207,7 @@
         is a singleton, whose element $\l\langle x,y,z\r\rangle$ is called the \textit{median} of $x,y,z$. Thus we have a ternary median operation $\l\langle\cdot,\cdot,\cdot\r\rangle:X^3\to X$, and a \textit{median homomorphism} $f:(X,G)\to(Y,H)$ is a map preserving said operation.
     \end{definition}
 
-    Some basic properties of median graphs are given in Section \ref{sec:convex_half-spaces_of_media_graphs}. For more comprehensive references and their general theory, see \cite{Rol98} and \cite{Bow22}.
+    Some basic properties of median graphs are given in Section \ref{sec:convex_half-spaces_of_median_graphs}. For more comprehensive references and their general theory, see \cite{Rol98} and \cite{Bow22}.
 
     \begin{proposition}\label{prp:construction_of_dual_median_graph}
         Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in\mc{H}^\ast$, is a median graph with path metric $d(U,V)=|U\symdiff V|/2$ and medians
@@ -257,23 +257,85 @@
 
     Throughout this section, let $(X,G)$ be a median graph, which, in the context of Theorem \ref{thm:treeing_quasi-trees}, is the dual median graph of the pocset $\mc{H}_{\diam(\del)\leq R}$ given by the quasi-isometry.
 
-    \subsection{Convex half-spaces of median graphs}\label{sec:convex_half-spaces_of_media_graphs}
+    The presence of the median operation gives rise to a canonical finitely-separating pocset of \textit{convex} (and co-convex) half-spaces $\mc{H}_\textrm{cvx}(X)\subseteq2^X$ with a very rigid structure. To study them, we need to first understand the geometry of \textit{projections} therein.
 
-    The presence of the median operation gives rise to a canonical finitely-separating pocset of \textit{convex} (and co-convex) half-spaces $\mc{H}_\textrm{cvx}(X)\subseteq2^X$ with a very rigid structure, which we now explore.
+    \subsection{Projections in median graphs}\label{sec:projections_in_median_graphs}
 
-    To do so, we need to first understand the geometry of \textit{projections}, which we summarize in the following
+    \renewcommand{\-}{\textrm{---}}
 
-    \begin{proposition}\label{prp:projections}
-        For any $A\in2^X\comp\l\{\em,X\r\}$ and $x\in X$, there is a unique point in $\cvx(A)$ between $x$ and every point in $A$, called the $\mathrm{projection}$ of $x$ towards $A$, denoted $\proj_A(x)$, that furthermore defines a median homomorphism $\proj_A:X\onto\cvx(A)$ with $\proj_A\cvx(B)=\cvx\proj_A(B)$ for all $B\subseteq X$.
-    \end{proposition}
+    For vertices $x,y,z\in X$, we write $x\-y\-z$ for $y\in[x,z]$. By the triangle inequality, we have for all $w,x,y,z\in X$ that
+    \begin{equation*}
+        (w\-x\-y\textrm{ and }w\-y\-z)\ \ \ \ \Leftrightarrow\ \ \ \ (w\-x\-z\textrm{ and }x\-y\-z),
+    \end{equation*}
+    and both sides occur iff there is a geodesic from $w$ to $x$ to $y$ to $z$, which we write as $w\-x\-y\-z$.
 
-    Since we only regard projections as a technical tool, we defer its proof to Appendix \ref{app:projections}. It is only used in the sequel, which characterizes the convex half-spaces in a median graph.
+    \begin{lemma}\label{lem:projections}
+        For any $\em\neq A\subseteq X$ and $x\in X$, there is a unique point in $\cvx(A)$ between $x$ and every point in $A$, called the $\mathrm{projection}$ of $x$ towards $A$, denoted $\proj_A(x)$.
 
-    For each $x,y\in X$, the \textit{cone} of $y$ away from $x$ is the set $\cone_x(y)\coloneqq\l\{z\in X\st y\in[x,z]\r\}$, consisting of all $z\in X$ closer to $y$ than to $x$.
+        Moreover, we have $\bigcap_{a\in A}[x,a]=[x,\proj_A(x)]$, and for any $y$ in this set, we have $\proj_A(y)=\proj_A(x)$.
+    \end{lemma}
+    \begin{proof}
+        To show existence, pick any $a_0\in A$. Given $a_n\in\cvx(A)$, if there exists $a\in A$ with $a_n\not\in[x,a]$, set $a_{n+1}\coloneqq\l\langle x,a,a_n\r\rangle\in\cvx(A)$. Then $a_0\-a_1\-\cdots\-a_n\-x$ for all $n$, so this sequence terminates in at most $d(a_0,x)$ steps at a point in $\cvx(A)$ between $x$ and every point in $A$. For uniqueness, if there exist two such points $a,b\in\cvx(A)$, then $x\-a\-b$ and $x\-b\-a$, forcing $a=b$.
 
-    \begin{lemma}[Lemma \ref{lem:cones_are_convex}]
+        Finally, if $x\-y\-\proj_A(x)$ and $a\in A$, then $x\-\proj_A(x)\-a$ and hence $x\-y\-a$. Conversely, let $x\-y\-a$ for all $a\in A$. Since $[y,a]\subseteq[x,a]$ for all $a$, we see that
+        \begin{equation*}
+            \proj_A(y)\in\cvx(A)\cap\bigcap_{a\in A}[y,a]\subseteq\cvx(A)\cap\bigcap_{a\in A}[x,a]
+        \end{equation*}
+        and hence $\proj_A(y)=\proj_A(x)$ by uniqueness. But since $y\-\proj_A(y)\-a$, we have $x\-y\-\proj_A(y)$, and hence $x\-y\-\proj_A(x)$ as desired.
+    \end{proof}
+
+    \begin{remark}\label{rem:projections}
+        It follows from the proof above that for any median homomorphism $f:(X,G)\to(Y,H)$, we have $f(\proj_A(x))=\proj_{f(A)}(f(x))$ for any $\em\neq A\subseteq X$ and $x\in X$. Indeed, we have
+        \begin{equation*}
+            \proj_A(x)=\l\langle x,a_m,\dots,\l\langle x,a_2,\l\langle x,a_1,a_0\r\rangle\r\rangle\dots\r\rangle
+        \end{equation*}
+        for some $m\leq d(a_0,x)$ and $a_0,\dots,a_m\in A$, and this is preserved by $f$.
+    
+        For $A\coloneqq\l\{a,b\r\}$, we have $\proj_A(x)=\l\langle a,b,x\r\rangle$, and hence $\cvx(A)=\proj_A(X)=\l\langle a,b,X\r\rangle=[a,b]$.
+    \end{remark}
+
+    \begin{lemma}\label{lem:cones_are_convex}
         For each $x,y\in X$, $\cone_x(y)$ is convex, and if $xGy$, then $\cone_x(y)\sqcup\cone_y(x)=X$.
     \end{lemma}
+    \begin{proof}
+        Fix $a,b\in\cone_x(y)$ and $a\-c\-b$. It suffices to show that $x\-y\-\l\langle a,c,x\r\rangle$, for then $x\-y\-c$ since we have $x\-\l\langle a,c,x\r\rangle\-c$. Indeed, it follows from the following observations.
+        \begin{itemize}
+            \item $x\-y\-\l\langle a,b,x\r\rangle$, since $\l\langle a,b,x\r\rangle=\proj_{\l\{a,b\r\}}(x)$ and so $[x,\l\langle a,b,x\r\rangle]=[x,a]\cap[x,b]\ni y$ by Lemma \ref{lem:projections}.
+            \item $x\-\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle$, which follows from $\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle\-a$, since $x\-\l\langle a,b,x\r\rangle\-a$ by definition. Indeed, we have $\l\langle a,c,x\r\rangle$ is in both $[a,x]$ and $[a,c]\subseteq[a,b]$, and since $\proj_{\l\{b,x\r\}}(a)=\l\langle a,b,x\r\rangle$, we have again by Lemma \ref{lem:projections} that $[\l\langle a,b,x\r\rangle,a]=[a,x]\cap[a,b]\ni\l\langle a,c,x\r\rangle$.
+        \end{itemize}
+        Finally, take $z\in X$ and consider $w\coloneqq\l\langle x,y,z\r\rangle\subseteq[x,y]$. Either $w=x$ or $w=y$ (but not both), giving us the desired partition.
+    \end{proof}
+
+    In particular, this shows that if $xGy$, then $\cone_x(y)\in\mc{H}^\ast_\textrm{cvx}(X)$. The convexity of cones also shows, in the situation of Lemma \ref{lem:projections}, that $\proj_A=\proj_{\cvx(A)}$, i.e., $\proj_A(x)$ is also between $x$ and every point in $\cvx(A)$. Indeed, note that $\cone_x(\proj_A(x))$ is convex and contains $A$, so it contains $\cvx(A)$ too.
+
+    \begin{lemma}\label{lem:projection_homomorphism}
+        $\proj_A:X\onto\cvx(A)$ is a median homomorphism with $\proj_A\circ\cvx=\cvx\circ\proj_A$.
+    \end{lemma}
+    \begin{proof}
+        The second claim follows from the first since, by Remark \ref{rem:projections}, we have
+        \begin{equation*}
+            f(\cvx(B))=f(\proj_B(X))=\proj_{f(B)}(f(X))=\cvx(f(B))
+        \end{equation*}
+        for all median homomorphisms $f:X\onto Y$ and $B\subseteq X$, so it in particular applies to $f\coloneqq\proj_A$.
+
+        To this end, let $x\-y\-z\in X$ and set $w\coloneqq\l\langle\proj_A(x),\proj_A(y),\proj_A(z)\r\rangle\in\cvx(A)$. It suffices to show that $y\-w\-a$ for all $a\in A$, for then $w=\proj_A(y)$ and hence $\proj_A(x)\-\proj_A(y)\-\proj_A(z)$. But we have $y\-\proj_A(y)\-a$ already, so it further suffices to show that $y\-w\-\proj_A(y)$. For this, we note that
+        \begin{equation*}
+            x\-\proj_A(x)\-\proj_A(y)\ \ \ \ \textrm{and}\ \ \ \ \proj_A(x)\-w\-\proj_A(y),
+        \end{equation*}
+        so $x\-w\-\proj_A(y)$, and similarly $z\-w\-\proj_A(y)$. Thus, it follows that
+        \begin{equation*}
+            \begin{aligned}
+                w\in[\proj_A(y),x]\cap[\proj_A(y),z]&=[\proj_A(y),\proj_{\l\{x,z\r\}}(\proj_A(y))]\ \ \ \ && \textrm{Lemma \ref{lem:projections}} \\
+                                                    &=[\proj_A(y),\proj_{\l[x,z\r]}(\proj_A(y))] \\
+                                                    &\subseteq[\proj_A(y),y],\ \ \ \ && \textrm{Lemma \ref{lem:projections}}
+            \end{aligned}
+        \end{equation*}
+        where the second equality follows from $\cvx(\l\{x,z\r\})=[x,z]$, and hence $\proj_{\l\{x,z\r\}}=\proj_{\l[x,z\r]}$.
+    \end{proof}
+
+    \subsection{Convex half-spaces of median graphs}\label{sec:convex_half-spaces_of_median_graphs}
+
+    We now use projections to explore the geometry of convex half-spaces in median graphs. In particular, they are very rigid:
 
     \begin{proposition}\label{prp:half-spaces_are_cones}
         Each edge $(x,y)\in G$ is on a unique hyperplane, namely the inward boundary of $\cone_x(y)$, and conversely, each half-space $H\in\mc{H}^\ast_\mathrm{cvx}(X)$ is $\cone_x(y)$ for every $(x,y)\in\del_\sf{ie}H$.
@@ -283,7 +345,7 @@
     \begin{proof}
         We have $\cone_x(y)\in\mc{H}_\textrm{cvx}^\ast(X)$ by the above lemma, and clearly $(x,y)\in\del_\sf{ie}\cone_x(y)$. Conversely, take $H\in\mc{H}_\textrm{cvx}^\ast(X)$ and any $(x,y)\in\del_\sf{ie}H$. Then $H=\cone_x(y)$, for if $z\in H\cap\lnot\cone_x(y)$, then $z\in\cone_y(x)$, and hence $x\in[y,z]\subseteq H$ by convexity of $H$, a contradiction; if $z\in\cone_x(y)\cap\lnot H$, then $[x,z]\subseteq\lnot H$ by convexity of $\lnot H$, and hence $y\not\in H$, a contradiction.
 
-        Finally, parallel edges of a strip of squares generate the same hyperplane since, for a given square, each vertex is between its neighbors and hence any hyperplane containing an edge contains its opposite edge. On the other hand, let $(a,b),(c,d)\in\del_\sf{ie}H$ for some $H\in\mc{H}_\textrm{cvx}^\ast(X)$. Note that $\del_\sf{ov}H=\proj_{\lnot H}(H)$ is convex since $H$ is, and $\proj_{\lnot H}$ preserves convex sets by Proposition \ref{prp:projections}, so any geodesic between $a,c\in\del_\sf{ov}H$ lies in $\del_\sf{ov}H$. Matching this geodesic via $\del_\sf{ie}H:\del_\sf{ov}H\to\del_\sf{iv}H$ gives us a geodesic between $b,d$ in $\del_\sf{iv}H$, which together with the matching forms the desired strip of squares.
+        Finally, parallel edges of a strip of squares generate the same hyperplane since, for a given square, each vertex is between its neighbors and hence any hyperplane containing an edge contains its opposite edge. On the other hand, let $(a,b),(c,d)\in\del_\sf{ie}H$ for some $H\in\mc{H}_\textrm{cvx}^\ast(X)$. Note that $\del_\sf{ov}H=\proj_{\lnot H}(H)$ is convex since $H$ is, and $\proj_{\lnot H}$ preserves convex sets by Proposition \ref{lem:projection_homomorphism}, so any geodesic between $a,c\in\del_\sf{ov}H$ lies in $\del_\sf{ov}H$. Matching this geodesic via $\del_\sf{ie}H:\del_\sf{ov}H\to\del_\sf{iv}H$ gives us a geodesic between $b,d$ in $\del_\sf{iv}H$, which together with the matching forms the desired strip of squares.
     \end{proof}
 
     \begin{corollary}\label{cor:non-nested_iff_embedding_of_hamming}
@@ -304,6 +366,26 @@
         For pairwise-intersecting convex sets $H_1,H_2,H_3$, pick any $x\in H_1\cap H_2$, $y\in H_1\cap H_3$ and $z\in H_2\cap H_3$; their median $\l\langle x,y,z\r\rangle$ then lies in $H_1\cap H_2\cap H_3$.
 
         Suppose that it holds for some $n\geq 3$ and let $H_1,\dots,H_{n+1}\subseteq X$ pairwise-intersect. Then $\l\{H_i\cap H_{n+1}\r\}_{i\leq n}$ is a family of $n$ pairwise-intersecting convex sets, so $\bigcap_{i\leq n+1}H_i=\bigcap_{i\leq n}(H_i\cap H_{n+1})$ is non-empty.
+    \end{proof}
+
+    Lastly, we have some useful finiteness conditions on convex half-spaces; the former implies that $\mc{H}_\textrm{cvx}(X)$ is finitely-separating, and the latter allows us to replace finite sets with their convex hulls.
+
+    \begin{lemma}\label{lem:half_space_separating_convex}
+        Any two disjoint convex sets $\em\neq A,B\subseteq X$ can be separated by a half-space $A\subseteq H\subseteq\lnot B$, and furthermore we have in this case that $d(A,B)=|\!\l\{H\in\mc{H}_\mathrm{cvx}(X)\st A\subseteq H\subseteq\lnot B\r\}\!|$.
+    \end{lemma}
+    \begin{proof}
+        Pick a geodesic $A\ni x_0Gx_1G\cdots Gx_n\in B$, where $n\coloneqq d(A,B)$. Then $H\coloneqq\cone_{x_1}(x_0)$, which is a half-space by Lemma \ref{lem:cones_are_convex}, separates $A,B$ since $x_0=\proj_A(x_n)$, and thus we have $A\subseteq\cone_{x_n}(x_0)\subseteq\cone_{x_1}(x_0)$ and $B\subseteq\cone_{x_0}(x_n)\subseteq\cone_{x_0}(x_1)$.
+
+        Moreover, each such half-space $A\subseteq H\subseteq\lnot B$ satisfies $x_i\in H\not\ni x_{i+1}$ for a unique $i<n$, and conversely each pair $(x_i,x_{i+1})$ has a unique half-space separating them, so we have the desired bijection.
+    \end{proof}
+
+    \begin{lemma}\label{cor:convex_of_finite_is_finite}
+        Every interval $[x,y]$ is finite. More generally, if $A\subseteq X$ is finite, then so is $\cvx(A)$.
+    \end{lemma}
+    \begin{proof}
+        The singletons $\l\{x\r\}$ and $\l\{y\r\}$ are convex, so there are finitely-many half-spaces $H\subseteq[x,y]$. But each $z\in[x,y]$ is determined uniquely by those half-spaces containing it, so $[x,y]$ is finite.
+
+        Let $A\coloneqq\l\{x_0,\dots,x_n\r\}$. Since $\cvx(A)=\proj_A(X)$, we have by Remark \ref{rem:projections} that points in $\cvx(A)$ are of the form $\l\langle x,x_n,\dots,\l\langle x,x_2,\l\langle x,x_1,x_0\r\rangle\r\rangle\r\rangle$, which is finite by induction using that intervals are finite.
     \end{proof}
 
     \subsection{Canonical spanning trees}
@@ -329,7 +411,7 @@
 
         We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree, since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Proposition \ref{prp:half-spaces_are_cones}).
 
-        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\textrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. For each $G$-adjacent pair $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space $H\in\mc{H}_n$, we may pick an edge from the \textit{finite} hyperplane $\del_\sf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
+        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\textrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. For each $G$-adjacent pair $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space $H\in\mc{H}_n$ by Lemma \ref{lem:half_space_separating_convex}, we may pick an edge from the \textit{finite} hyperplane $\del_\sf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
     \end{proof}
 
     \begin{corollary}
@@ -370,84 +452,6 @@
 
         \begin{corollary}\label{cor:nested_implies_tree}
             If $\mc{H}$ is a nested profinite pocset with non-trivial elements isolated, then $\mc{M}(\mc{H})$ is a tree.
-        \end{corollary}
-
-        \section{Geometry of Projections in Median Graphs}\label{app:projections}
-        \renewcommand{\-}{\textrm{---}}
-
-        Let $(X,G)$ be a median graph. We devote this appendix to study the convexity structure of $X$ by way of projections, which we then apply to derive some properties of the convex half-spaces $\mc{H}_\textrm{cvx}(X)$.
-
-        \begin{notation*}
-            For vertices $x,y,z\in X$, we write $x\-y\-z$ for $y\in[x,z]$. By the triangle inequality, we have for all $w,x,y,z\in X$ that
-            \begin{equation*}
-                (w\-x\-y\textrm{ and }w\-y\-z)\ \ \ \ \Leftrightarrow\ \ \ \ (w\-x\-z\textrm{ and }x\-y\-z),
-            \end{equation*}
-            and both sides occur iff there is a geodesic from $w$ to $x$ to $y$ to $z$, which we write as $w\-x\-y\-z$.
-        \end{notation*}
-
-        \begin{lemma}\label{lem:projections}
-            For any $\em\neq A\subseteq X$ and $x\in X$, there is a unique point in $\cvx(A)$ between $x$ and every point in $A$, called the $\mathrm{projection}$ of $x$ towards $A$, denoted $\proj_A(x)$.
-
-            Moreover, we have $\bigcap_{a\in A}[x,a]=[x,\proj_A(x)]$, and for any $y$ in this set, we have $\proj_A(y)=\proj_A(x)$.
-        \end{lemma}
-        \begin{proof}
-            To show existence, pick any $a_0\in A$. Given $a_n\in\cvx(A)$, if there exists $a\in A$ with $a_n\not\in[x,a]$, set $a_{n+1}\coloneqq\l\langle x,a,a_n\r\rangle\in\cvx(A)$. Then $a_0\-a_1\-\cdots\-a_n\-x$ for all $n$, so this sequence terminates in at most $d(a_0,x)$ steps at a point in $\cvx(A)$ between $x$ and every point in $A$. For uniqueness, if there exist two such points $a,b\in\cvx(A)$, then $x\-a\-b$ and $x\-b\-a$, forcing $a=b$.
-
-            Finally, if $x\-y\-\proj_A(x)$ and $a\in A$, then $x\-\proj_A(x)\-a$ and hence $x\-y\-a$. Conversely, let $x\-y\-a$ for all $a\in A$. Since $[y,a]\subseteq[x,a]$ for all $a$, we see that
-            \begin{equation*}
-                \proj_A(y)\in\cvx(A)\cap\bigcap_{a\in A}[y,a]\subseteq\cvx(A)\cap\bigcap_{a\in A}[x,a]
-            \end{equation*}
-            and hence $\proj_A(y)=\proj_A(x)$ by uniqueness. But since $y\-\proj_A(y)\-a$, we have $x\-y\-\proj_A(y)$, and hence $x\-y\-\proj_A(x)$ as desired.
-        \end{proof}
-
-        \begin{remark}\label{rem:projections}
-            It follows from the proof above that for any median homomorphism $f:(X,G)\to(Y,H)$, we have $f(\proj_A(x))=\proj_{f(A)}(f(x))$ for any $\em\neq A\subseteq X$ and $x\in X$. Indeed, we have
-            \begin{equation*}
-                \proj_A(x)=\l\langle x,a_m,\dots,\l\langle x,a_2,\l\langle x,a_1,a_0\r\rangle\r\rangle\dots\r\rangle
-            \end{equation*}
-            for some $m\leq d(a_0,x)$, and this is preserved by $f$.
-        
-            For $A\coloneqq\l\{a,b\r\}$, we have $\proj_A(x)=\l\langle a,b,x\r\rangle$, and hence $\cvx(A)=\proj_A(X)=\l\langle a,b,X\r\rangle=[a,b]$.
-        \end{remark}
-
-        \begin{lemma}\label{lem:cones_are_convex}
-            For each $x,y\in X$, $\cone_x(y)$ is convex, and if $xGy$, then $\cone_x(y)\sqcup\cone_y(x)=X$.
-        \end{lemma}
-        \begin{proof}
-            Fix $a,b\in\cone_x(y)$ and $a\-c\-b$. It suffices to show that $x\-y\-\l\langle a,c,x\r\rangle$, for then $x\-y\-c$ since we have $x\-\l\langle a,c,x\r\rangle\-c$. Indeed, it follows from the following observations.
-            \begin{itemize}
-                \item $x\-y\-\l\langle a,b,x\r\rangle$, since $\l\langle a,b,x\r\rangle=\proj_{\l\{a,b\r\}}(x)$ and so $[x,\l\langle a,b,x\r\rangle]=[x,a]\cap[x,b]\ni y$ by Lemma \ref{lem:projections}.
-                \item $x\-\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle$, which follows from $\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle\-a$, since $x\-\l\langle a,b,x\r\rangle\-a$ by definition. Indeed, we have $\l\langle a,c,x\r\rangle$ is in both $[a,x]$ and $[a,c]\subseteq[a,b]$, and since $\proj_{\l\{b,x\r\}}(a)=\l\langle a,b,x\r\rangle$, we have again by Lemma \ref{lem:projections} that $[\l\langle a,b,x\r\rangle,a]=[a,x]\cap[a,b]\ni\l\langle a,c,x\r\rangle$.
-            \end{itemize}
-            Finally, take $z\in X$ and consider $w\coloneqq\l\langle x,y,z\r\rangle\subseteq[x,y]$. Either $w=x$ or $w=y$ (but not both), giving us the desired partition.
-        \end{proof}
-
-        In particular, this shows that if $xGy$, then $\cone_x(y)\in\mc{H}^\ast_\textrm{cvx}(X)$. The convexity of cones also shows, in the situation of \ref{lem:projections}, that $\proj_A=\proj_{\cvx(A)}$, i.e., $\proj_A(x)$ is also between $x$ and every point in $\cvx(A)$. Indeed, note that $\cone_x(\proj_A(x))$ is convex and contains $A$, so it contains $\cvx(A)$ too.
-
-        \begin{proof}[Proof of Proposition \ref{prp:projections}]
-            It remains to show that $\proj_A:X\onto\cvx(A)$ is a median homomorphism; that it `commutes' with taking the convex hull follows since, by Remark \ref{rem:projections}, we have
-            \begin{equation*}
-                f(\cvx(B))=f(\proj_B(X))=\proj_{f(B)}(f(X))=\cvx(f(B))
-            \end{equation*}
-            for all median homomorphisms $f:X\onto Y$ and $B\subseteq X$, so it in particular applies to $f\coloneqq\proj_A$.
-
-            To this end, let $x\-y\-z\in X$ and set $w\coloneqq\l\langle\proj_A(x),\proj_A(y),\proj_A(z)\r\rangle\in\cvx(A)$. It suffices to show that $y\-w\-a$ for all $a\in A$, for then $w=\proj_A(y)$ and hence $\proj_A(x)\-\proj_A(y)\-\proj_A(z)$. But we have $y\-\proj_A(y)\-a$ already, so it further suffices to show that $y\-w\-\proj_A(y)$. For this, we note that
-            \begin{equation*}
-                x\-\proj_A(x)\-\proj_A(y)\ \ \ \ \textrm{and}\ \ \ \ \proj_A(x)\-w\-\proj_A(y),
-            \end{equation*}
-            so $x\-w\-\proj_A(y)$, and similarly $z\-w\-\proj_A(y)$. Thus, it follows that
-            \begin{equation*}
-                \begin{aligned}
-                    w\in[\proj_A(y),x]\cap[\proj_A(y),z]&=[\proj_A(y),\proj_{\l\{x,z\r\}}(\proj_A(y))]\ \ \ \ && \textrm{Lemma \ref{lem:projections}} \\
-                                                        &=[\proj_A(y),\proj_{\l[x,z\r]}(\proj_A(y))] \\
-                                                        &\subseteq[\proj_A(y),y],\ \ \ \ && \textrm{Lemma \ref{lem:projections}}
-                \end{aligned}
-            \end{equation*}
-            where the second equality follows from $\cvx(\l\{x,z\r\})=[x,z]$, and hence $\proj_{\l\{x,z\r\}}=\proj_{\l[x,z\r]}$.
-        \end{proof}
-
-        \begin{corollary}\label{cor:convex_of_finite_is_finite}
-            
         \end{corollary}
     \end{appendices}
 
