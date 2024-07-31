@@ -35,7 +35,7 @@
         \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ is separated by finitely-many $H\in\mc{H}(C)$, and
         \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
     \end{enumerate}
-    By Condition (1), these cuts have the structure of a profinite pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} thereof. Condition (2) then ensures that this graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree thereof. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
+    By Condition (1), these cuts have the structure of a profinite pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} thereof. Condition (2) then ensures that this graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
     \begin{equation*}
         \textrm{Quasi-tree}
             \ \ \xrightarrow{\ref{sec:graphs_with_dense_family_of_cuts}}\ \ 
@@ -210,18 +210,21 @@
     Some basic properties of median graphs are given in Section \ref{sec:convex_half-spaces_of_media_graphs}. For more comprehensive references and their general theory, see \cite{Rol98} and \cite{Bow22}.
 
     \begin{proposition}\label{prp:construction_of_dual_median_graph}
-        Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in\mc{H}^\ast$, is a median graph with path metric $d(U,V)=(U\symdiff V)/2$ and medians
+        Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in\mc{H}^\ast$, is a median graph with path metric $d(U,V)=|U\symdiff V|/2$ and medians
         \begin{equation*}
-            \l\langle U,V,W\r\rangle\coloneqq\l\{H\in\mc{H}\st H\textrm{ belongs to at least two of }U,V,W\r\}.
+            \begin{aligned}
+                \l\langle U,V,W\r\rangle&\coloneqq\l\{H\in\mc{H}\st H\textrm{ belongs to at least two of }U,V,W\r\} \\
+                                        &=(U\cap V)\cup(V\cap W)\cup(U\cap W).
+            \end{aligned}
         \end{equation*}
     \end{proposition}
 
     \begin{proof}
-        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ are isolated (whence $\l\{H\r\},\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V$ is clopen, so it is a compact set of isolated points, whence finite.
+        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ are isolated (whence $\l\{H\r\},\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V\not\ni X$ is clopen, so it is a compact set of isolated points, whence finite.
         \begin{center}
             \begin{minipage}{0.95\textwidth}
                 \begin{claim*}
-                    There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case $d(U,V)=(U\symdiff V)/2$.
+                    There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case $d(U,V)=|U\symdiff V|/2$.
                 \end{claim*}
                 \begin{proof}
                     If $(U_i)_{i<n}$ is a path from $U\eqqcolon U_0$ to $V\eqqcolon U_{n-1}$, then, letting $\l\{H_i,\lnot H_i\r\}\coloneqq U_i\symdiff U_{i-1}$ for all $1\leq i<n$ gives us a sequence $(H_i)_{i<n}$ inducing\footnote{In the sense that $U_i=U_{i-1}\symdiff\l\{H_i,\lnot H_i\r\}$ and $H_i\in U_i$ for each $1\leq i<n$; see \cite{Tse20}*{Definition 2.20}.} this path, whence $U\symdiff V$ consists of $\l\{H_i\r\}_{i<n}$ and their complements. Thus $U\symdiff V=2n=2d(U,V)$, as desired.
@@ -232,9 +235,9 @@
         \end{center}
         Finally, we show that $\mc{M}(\mc{H})$ is a median graph. Fix $U,V,W\in\mc{U}^\circ(\mc{H})$, and note that for any $M\in\mc{U}^\circ(\mc{H})$, we have by the triangle inequality that $M\in[U,V]$ iff $(U\comp M)\cup(M\comp V)\subseteq U\comp V$, which clearly occurs iff $U\cap V\subseteq M\subseteq U\cup V$. Thus, a vertex $M$ lies in the triple intersection $[U,V]\cap[V,W]\cap[U,W]$ iff
         \begin{equation*}
-            (U\cap V)\cup(U\cap W)\cup(U\cap W)\subseteq M\subseteq(U\cup V)\cap(V\cup W)\cap(U\cup W),
+            (U\cap V)\cup(V\cap W)\cup(U\cap W)\subseteq M\subseteq(U\cup V)\cap(V\cup W)\cap(U\cup W).
         \end{equation*}
-        so $M=\l\langle U,V,W\r\rangle$ $-$ which is clopen if $U,V,W$ are $-$ is as claimed.
+        Note that the two sides coincide, so $M=\l\langle U,V,W\r\rangle$ $-$ which is clopen if $U,V,W$ are $-$ is as claimed.
     \end{proof}
 
     Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between median graphs with median homomorphisms and profinite pocsets whose non-trivial points are isolated with continuous maps, where from a median graph one can construct a canonical pocset of `convex' half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. It is worth noting that if $\mc{H}$ is \textit{nested}, then $\mc{M}(\mc{H})$ is in fact a tree (see Appendix \ref{app:tree_of_orientations_on_nested}):
@@ -254,18 +257,18 @@
 
     Let $(X,G)$ be a median graph. The presence of the median operation gives rise to a canonical finitely-separating pocset of \textit{convex} (and co-convex) half-spaces $\mc{H}_\textrm{cvx}(X)\subseteq2^X$ with a very rigid structure, which we now explore.
 
-    % To do so, we need to first understand the geometry of \textit{projections} in median graphs, which we summarize in the following
+    To do so, we need to first understand the geometry of \textit{projections} in median graphs, which we summarize in the following
 
-    % \begin{proposition}\label{prp:projections}
-    %     For any $A\in2^X\comp\l\{\em,X\r\}$ and $x\in X$, there is a unique point in $\cvx(A)$ between $x$ and every point in $A$, called the $\mathrm{projection}$ of $x$ towards $A$, denoted $\proj_A(x)$. Furthermore:
-    %     \begin{enumerate}
-    %         \item We have $\proj_A=\proj_{\cvx(A)}$; i.e. $\proj_A(x)$ is also between $x$ an every point in $\cvx(A)$.
-    %         \item We have $\bigcap_{a\in A}[x,a]=[x,\proj_A(x)]$, and for any $y$ in this set, we have $\proj_A(y)=\proj_A(x)$.
-    %         \item The map $\proj_A:X\onto\cvx(A)$ is the unique median homomorphism fixing $\cvx(A)$.
-    %     \end{enumerate}
-    % \end{proposition}
+    \begin{proposition}\label{prp:projections}
+        For any $A\in2^X\comp\l\{\em,X\r\}$ and $x\in X$, there is a unique point in $\cvx(A)$ between $x$ and every point in $A$, called the $\mathrm{projection}$ of $x$ towards $A$, denoted $\proj_A(x)$. Furthermore:
+        \begin{enumerate}
+            \item We have $\proj_A=\proj_{\cvx(A)}$; i.e. $\proj_A(x)$ is also between $x$ an every point in $\cvx(A)$.
+            \item We have $\bigcap_{a\in A}[x,a]=[x,\proj_A(x)]$, and for any $y$ in this set, we have $\proj_A(y)=\proj_A(x)$.
+            \item The map $\proj_A:X\onto\cvx(A)$ is the unique median homomorphism fixing $\cvx(A)$.
+        \end{enumerate}
+    \end{proposition}
 
-    % Since we only regard this as a technical tool, we shall prove it in Appendix \ref{app:projections}.
+    Since we only regard this as a technical tool, we shall prove it in Appendix \ref{app:projections}.
 
     For each $x,y\in X$, the \textit{cone} at $y$ away from $x$ is $\cone_x(y)\coloneqq\l\{z\in X\st y\in[x,z]\r\}$, consisting of all $z\in X$ closer to $y$ than to $x$. The inward edge boundaries $\del_\sf{ie}H$ for $H\in\mc{H}_\textrm{cvx}^\ast(X)$ are called \textit{hyperplanes}.
 
@@ -279,14 +282,14 @@
     \begin{lemma}\label{lem:half-spaces_are_cones}
         Each edge $(x,y)\in G$ is on a unique hyperplane, namely the inward boundary of $\cone_x(y)$, and conversely, each half-space $H\in\mc{H}^\ast_\mathrm{cvx}(X)$ is $\cone_x(y)$ for every $(x,y)\in\del_\sf{ie}H$.
 
-        Thus, hyperplanes are equivalence classes of edges, and is generated by parallel sides of squares.
+        Thus, hyperplanes are equivalence classes of edges. Furthermore, this equivalence relation is generated by parallel sides of squares (i.e., $4$-cycles).
     \end{lemma}
     \begin{proof}
         We have $\cone_x(y)\in\mc{H}_\textrm{cvx}^\ast(X)$ by the above lemma, and clearly $(x,y)\in\del_\sf{ie}\cone_x(y)$.
 
         Conversely, for any $H\in\mc{H}_\textrm{cvx}^\ast(X)$ and $(x,y)\in\del_\sf{ie}H$, we have $H=\cone_x(y)$: if $z\in\cone_x(y)\cap\lnot H$, then $[x,z]\subseteq\lnot H$ by convexity of $\lnot H$, and hence $y\not\in H$, a contradiction; if $z\in H\cap\lnot\cone_x(y)$, then $z\in\cone_y(x)$, and hence $x\in[y,z]\subseteq H$ by convexity of $H$, a contradiction.
 
-        Finally, parallel edges of a strip of squares generate the same hyperplane since, for a given square, each vertex is between its neighbors and hence any hyperplane containing an edge contains its opposite edge. On the other hand, given $(a,b),(c,d)\in\del_\sf{ie}H$ for some $H\in\mc{H}_\textrm{cvx}^\ast(X)$
+        Finally, parallel edges of a strip of squares generate the same hyperplane since, for a given square, each vertex is between its neighbors and hence any hyperplane containing an edge contains its opposite edge. On the other hand, let $(a,b),(c,d)\in\del_\sf{ie}H$ for some $H\in\mc{H}_\textrm{cvx}^\ast(X)$. For any geodesic between $a,c\in\del_\sf{ov}H$, which lies in the {\color{red}{convex}} set $\del_\sf{ov}H$, {\color{red}{???}}
     \end{proof}
 
     \begin{lemma}\label{lem:non-nested_iff_embedding_of_hamming}
