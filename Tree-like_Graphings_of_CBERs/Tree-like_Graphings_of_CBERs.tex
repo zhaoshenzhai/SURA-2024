@@ -98,7 +98,13 @@
         If a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is dense towards ends, then there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$, which is also dense towards ends, such that every $H'\in\mc{H}'$ has $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}$.
     \end{lemma}
     \begin{proof}
-        
+        A first attempt is to let $\mc{H}'$ be the connected components $C_0$ of elements in $\mc{H}$, but this fails since $\lnot C_0$ is not necessarily connected. Instead, we further take a connected component of $\lnot C_0$, whose complement is then {\color{red}{connected}} since the original graph is, and is clearly co-connected. Formally, we let
+        \begin{equation*}
+            \mc{H}'\coloneqq\l\{C\subseteq X\st H\in\mc{H}\textrm{ and }C_0\in H/G\textrm{ and }\lnot C\in\lnot C_0/G\r\},
+        \end{equation*}
+        where $H/G$ denotes the $G$-components of $H$. Clearly $\del_\mathsf{ie}C\subseteq\del_\mathsf{ie}C_0\subseteq\del_\mathsf{ie}H$, so it remains to show that $\mc{H}'$ is dense towards ends.
+
+        Fix an end $U\in\widehat{X}\comp X$ with $U\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. Let $B\supseteq\del_\mathsf{v}A$ be finite connected, which can be obtained by adjoining paths between its components. Then $\lnot B\in U$ since $U$ is non-principal, so there is some $H\in\mc{H}$ with $U\in\widehat{H}\subseteq\lnot\widehat{B}$. Since $H\in\mc{H}_{\del<\infty}(X)$, it has \textit{finitely}-many components, so exactly of them one belongs to $U$, say $U\in\widehat{C}_0\subseteq\widehat{H}$. Let $\lnot C\subseteq C_0$ be the unique connected component containing $B$, so we have $\mc{H}'\ni C\not\in U$ and $C_0\subseteq C$
     \end{proof}
 
     \subsection{Dense cuts induced by quasi-trees}\label{sec:dense_cuts_induced_by_quasi-trees}
