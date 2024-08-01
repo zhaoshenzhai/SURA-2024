@@ -75,10 +75,10 @@
     Let $(X,G)$ be a connected locally-finite graph, which, in the context of Theorem \ref{thm:treeing_quasi-trees}, will stand for a single component of the locally-finite graphing of a CBER.
 
     \begin{definition}
-        For a subset $A\subseteq X$, we let $\del_\sf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\sf{ov}A\coloneqq\del_\sf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\sf{ie}A\coloneqq G\cap(\del_\sf{ov}A\times\del_\sf{iv}A)$ and $\del_\sf{oe}A\coloneqq\del_\sf{ie}(\lnot A)$ respectively be its \textit{inner} and \textit{outer edge boundaries}. Let $\del_\sf{v}A\coloneqq\del_\sf{iv}A\cup\del_\sf{ov}A$ be the \textit{(total) vertex boundary} of $A$.
+        For a subset $A\subseteq X$, we let $\del_\mathsf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\mathsf{ov}A\coloneqq\del_\mathsf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\mathsf{ie}A\coloneqq G\cap(\del_\mathsf{ov}A\times\del_\mathsf{iv}A)$ and $\del_\mathsf{oe}A\coloneqq\del_\mathsf{ie}(\lnot A)$ respectively be its \textit{inner} and \textit{outer edge boundaries}. Let $\del_\mathsf{v}A\coloneqq\del_\mathsf{iv}A\cup\del_\mathsf{ov}A$ be the \textit{(total) vertex boundary} of $A$.
     \end{definition}
 
-    Let $\mc{H}_{\del<\infty}(X)\subseteq2^X$ be the Boolean algebra of all subsets $A\subseteq X$ with finite vertex boundary, called \textit{cuts} in $X$. We will later (see Corollary \ref{cor:shrink_dense_cuts_to_connected}) restrict ourselves to the cuts in $\mc{H}_{\del<\infty}(X)\cap\mc{H}_\textrm{conn}(X)$, which are also connected and co-connected.
+    Let $\mc{H}_{\del<\infty}(X)\subseteq2^X$ be the Boolean algebra of all $A\subseteq X$ with finite vertex boundary, called \textit{cuts} in $X$.
 
     \begin{definition}
         The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are the \textit{ends} of $(X,G)$.
@@ -92,22 +92,31 @@
         In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$.
     \end{definition}
 
-    \subsection{Dense cuts induced by quasi-trees}\label{sec:dense_cuts_induced_by_quasi-trees}
+    The goal of this section is to show that certain cuts $\mc{H}\subseteq\mc{H}_{\del<\infty}$ induced in a (locally-finite) quasi-tree is dense towards ends. It will also be important that these cuts be connected, in that witnesses to density can also be found in $\mc{H}\cap\mc{H}_\textrm{conn}$, consisting of those cuts that are connected and co-connected.
 
-    If $X$ is a quasi-tree $-$ and thus does not have arbitrary long cycles $-$ we expect that there is some finite bound $R<\infty$ such that the ends in $\widehat{X}\comp X$ are `limits' of cuts $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}_{\diam(\del)\leq R}(X)$ is dense towards ends of $(X,G)$.
-
-    \begin{lemma}\label{lem:coarse_equivalence_controls_boundary_diameter}
-        Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\sf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\sf{v}H)$.
+    \begin{lemma}\label{lem:connected_witness_to_density}
+        If a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is dense towards ends, then there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$, which is also dense towards ends, such that every $H'\in\mc{H}'$ has $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}$.
     \end{lemma}
     \begin{proof}
-        Since $f$ is bornologous, let $S<\infty$ be such that $xGx'$ implies $d(f(x),f(x'))\leq S$, so that for any $(x,x')\in\del_\sf{ie}f^{-1}(H)$, there is a path of length $\leq S$ between $f(x)\not\in H$ and $f(x')\in H$. Thus both $d(f(x),\del_\sf{v}H)$ and $d(f(x'),\del_\sf{v}H)$ are bounded by $S$, so $f(\del_\sf{v}f^{-1}(H))\subseteq\Ball_S(\del_\sf{v}H)$ and hence
-        \begin{equation*}
-            \diam(f(\del_\sf{v}f^{-1}(H)))\leq\diam(\del_\sf{v}H)+2S.
-        \end{equation*}
-        That $f$ is a coarse-\textit{equivalence} gives us a uniform bound of $\diam(\del_\sf{v}f^{-1}(H))$ in terms of $\diam(\del_\sf{v}H)$.
+        
     \end{proof}
 
-    In particular, if $\diam(\del_\sf{v}H)$ is itself also uniformly bounded, then so is $\diam(\del_\sf{v}f^{-1}(H))$.
+    \subsection{Dense cuts induced by quasi-trees}\label{sec:dense_cuts_induced_by_quasi-trees}
+
+    If $X$ is a quasi-tree $-$ and thus does not have arbitrary long cycles $-$ we expect that there is some finite bound $R<\infty$ such that the ends in $\widehat{X}\comp X$ are `limits' of cuts $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ is dense towards ends of $(X,G)$.
+
+    \begin{lemma}\label{lem:coarse_equivalence_controls_boundary_diameter}
+        Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\mathsf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\mathsf{v}H)$.
+    \end{lemma}
+    \begin{proof}
+        Since $f$ is bornologous, let $S<\infty$ be such that $xGx'$ implies $d(f(x),f(x'))\leq S$, so that for any $(x,x')\in\del_\mathsf{ie}f^{-1}(H)$, there is a path of length $\leq S$ between $f(x)\not\in H$ and $f(x')\in H$. Thus both $d(f(x),\del_\mathsf{v}H)$ and $d(f(x'),\del_\mathsf{v}H)$ are bounded by $S$, so $f(\del_\mathsf{v}f^{-1}(H))\subseteq\Ball_S(\del_\mathsf{v}H)$ and hence
+        \begin{equation*}
+            \diam(f(\del_\mathsf{v}f^{-1}(H)))\leq\diam(\del_\mathsf{v}H)+2S.
+        \end{equation*}
+        That $f$ is a coarse-\textit{equivalence} gives us a uniform bound of $\diam(\del_\mathsf{v}f^{-1}(H))$ in terms of $\diam(\del_\mathsf{v}H)$.
+    \end{proof}
+
+    In particular, if $\diam(\del_\mathsf{v}H)$ is itself also uniformly bounded, then so is $\diam(\del_\mathsf{v}f^{-1}(H))$.
 
     \begin{proposition}\label{prp:invariant_of_density_coarse_equivalence}
         The class of connected locally-finite graphs in which $\mc{H}_{\diam(\del)\leq R}$ is dense towards ends for some $R<\infty$ is invariant under coarse equivalence.
@@ -134,23 +143,12 @@
         Indeed, if $y\in\Ball_D(A')$, then by the (reverse) triangle-inequality we have $d(y,\lnot A)\geq d(x,\lnot A)-d(x,y)$ for all $x\in A'$. But $d(x,\lnot A)>D$, strictly, so $d(y,\lnot A)>D-D=0$, and hence $y\in A$.
     \end{proof}
 
-    \begin{corollary}
-        If $(X,G)$ is a locally-finite quasi-tree, then $\mc{H}_{\diam(\del)\leq R}(X)$ is dense towards ends for some $R<\infty$.
+    \begin{corollary}\label{cor:density_of_bounded_diameter_bounddary_cuts_quasi_tree}
+        If $(X,G)$ is a locally-finite quasi-tree, then the subpocset $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ is dense towards ends for some $R<\infty$.
     \end{corollary}
     \begin{proof}
-        Observe that $\mc{H}_{\diam(\del)\leq2}(T)$ is dense towards ends for any tree $T$, and invoke Proposition \ref{prp:invariant_of_density_coarse_equivalence}.
+        Observe that $\mc{H}_{\diam(\del)\leq2}(T)$ is dense towards ends for any tree $T$, so Proposition \ref{prp:invariant_of_density_coarse_equivalence} proves the density of $\mc{H}_{\diam(\del)\leq R}(X)$ for some $R<\infty$. By Lemma \ref{lem:connected_witness_to_density}, there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\textrm{conn}(X)$ dense towards ends such that for every $H'\in\mc{H}'$, we have $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}$. But this clearly implies that $\mc{H}'\subseteq\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\textrm{conn}(X)$, so the result follows.
     \end{proof}
-
-    \begin{lemma}
-        
-    \end{lemma}
-    \begin{proof}
-        
-    \end{proof}
-
-    \begin{corollary}\label{cor:shrink_dense_cuts_to_connected}
-        
-    \end{corollary}
 
     \section{Pocsets of Dense Families of Cuts}
 
@@ -367,23 +365,23 @@
     We now use projections to explore the geometry of convex half-spaces in median graphs. In particular, they are very rigid:
 
     \begin{proposition}\label{prp:half-spaces_are_cones}
-        Each edge $(x,y)\in G$ is on a unique hyperplane, namely the inward boundary of $\cone_x(y)$, and conversely, each half-space $H\in\mc{H}^\ast_\mathrm{cvx}(X)$ is $\cone_x(y)$ for every $(x,y)\in\del_\sf{ie}H$.
+        Each edge $(x,y)\in G$ is on a unique hyperplane, namely the inward boundary of $\cone_x(y)$, and conversely, each half-space $H\in\mc{H}^\ast_\mathrm{cvx}(X)$ is $\cone_x(y)$ for every $(x,y)\in\del_\mathsf{ie}H$.
 
         Thus, hyperplanes are equivalence classes of edges. Furthermore, this equivalence relation is generated by parallel sides of squares (i.e., $4$-cycles).
     \end{proposition}
     \begin{proof}
-        We have $\cone_x(y)\in\mc{H}_\textrm{cvx}^\ast(X)$ by the above lemma, and clearly $(x,y)\in\del_\sf{ie}\cone_x(y)$. Conversely, take $H\in\mc{H}_\textrm{cvx}^\ast(X)$ and any $(x,y)\in\del_\sf{ie}H$. Then $H=\cone_x(y)$, for if $z\in H\cap\lnot\cone_x(y)$, then $z\in\cone_y(x)$, and hence $x\in[y,z]\subseteq H$ by convexity of $H$, a contradiction; if $z\in\cone_x(y)\cap\lnot H$, then $[x,z]\subseteq\lnot H$ by convexity of $\lnot H$, and hence $y\not\in H$, a contradiction.
+        We have $\cone_x(y)\in\mc{H}_\textrm{cvx}^\ast(X)$ by the above lemma, and clearly $(x,y)\in\del_\mathsf{ie}\cone_x(y)$. Conversely, take $H\in\mc{H}_\textrm{cvx}^\ast(X)$ and any $(x,y)\in\del_\mathsf{ie}H$. Then $H=\cone_x(y)$, for if $z\in H\cap\lnot\cone_x(y)$, then $z\in\cone_y(x)$, and hence $x\in[y,z]\subseteq H$ by convexity of $H$, a contradiction; if $z\in\cone_x(y)\cap\lnot H$, then $[x,z]\subseteq\lnot H$ by convexity of $\lnot H$, and hence $y\not\in H$, a contradiction.
 
-        Finally, parallel edges of a strip of squares generate the same hyperplane since, for a given square, each vertex is between its neighbors and hence any hyperplane containing an edge contains its opposite edge. On the other hand, let $(a,b),(c,d)\in\del_\sf{ie}H$ for some $H\in\mc{H}_\textrm{cvx}^\ast(X)$. Note that $\del_\sf{ov}H=\proj_{\lnot H}(H)$ is convex since $H$ is, and $\proj_{\lnot H}$ preserves convex sets by Proposition \ref{lem:projection_homomorphism}, so any geodesic between $a,c\in\del_\sf{ov}H$ lies in $\del_\sf{ov}H$. Matching this geodesic via $\del_\sf{ie}H:\del_\sf{ov}H\to\del_\sf{iv}H$ gives us a geodesic between $b,d$ in $\del_\sf{iv}H$, which together with the matching forms the desired strip of squares.
+        Finally, parallel edges of a strip of squares generate the same hyperplane since, for a given square, each vertex is between its neighbors and hence any hyperplane containing an edge contains its opposite edge. On the other hand, let $(a,b),(c,d)\in\del_\mathsf{ie}H$ for some $H\in\mc{H}_\textrm{cvx}^\ast(X)$. Note that $\del_\mathsf{ov}H=\proj_{\lnot H}(H)$ is convex since $H$ is, and $\proj_{\lnot H}$ preserves convex sets by Proposition \ref{lem:projection_homomorphism}, so any geodesic between $a,c\in\del_\mathsf{ov}H$ lies in $\del_\mathsf{ov}H$. Matching this geodesic via $\del_\mathsf{ie}H:\del_\mathsf{ov}H\to\del_\mathsf{iv}H$ gives us a geodesic between $b,d$ in $\del_\mathsf{iv}H$, which together with the matching forms the desired strip of squares.
     \end{proof}
 
     \begin{corollary}\label{cor:non-nested_iff_embedding_of_hamming}
         Two half-spaces $H,K\in\mc{H}_\mathrm{cvx}^\ast(X)$ are non-nested iff there is an embedding $\l\{0,1\r\}^2\into X$ of the Hamming cube into the four corners $\lnot^iH\cap\lnot^jK$.
 
-        In particular, if $H,K\in\mc{H}_\mathrm{cvx}^\ast(X)$ are non-nested, then $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$.
+        In particular, if $H,K\in\mc{H}_\mathrm{cvx}^\ast(X)$ are non-nested, then $\del_\mathsf{v}H\cap\del_\mathsf{v}K\neq\em$.
     \end{corollary}
     \begin{proof}
-        Let $H,K$ be non-nested and take $x_1\in H\cap K$ and $x_2\in H\cap\lnot K$. Since $H$ is connected, any geodesic between $x_1,x_2$ crosses an edge $(x_1',x_2')\in\del_\sf{oe}K$ in $H$. Similarly, there is an edge $(y_1',y_2')\in\del_\sf{oe}K$ in $\lnot H$, so we may slide both edges along $\del_\sf{oe}K$ to obtain the desired square (see Proposition \ref{prp:half-spaces_are_cones}).
+        Let $H,K$ be non-nested and take $x_1\in H\cap K$ and $x_2\in H\cap\lnot K$. Since $H$ is connected, any geodesic between $x_1,x_2$ crosses an edge $(x_1',x_2')\in\del_\mathsf{oe}K$ in $H$. Similarly, there is an edge $(y_1',y_2')\in\del_\mathsf{oe}K$ in $\lnot H$, so we may slide both edges along $\del_\mathsf{oe}K$ to obtain the desired square (see Proposition \ref{prp:half-spaces_are_cones}).
 
         Conversely, the half-spaces cutting the square are clearly non-nested.
     \end{proof}
@@ -436,11 +434,11 @@
         Every countable median graph with finite hyperplanes admits a canonical spanning tree.
     \end{proposition}
     \begin{proof}
-        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, if two half-spaces $H,K\in\mc{H}^\ast_\textrm{cvx}(X)$ are non-nested, then $\del_\sf{v}H\cap\del_\sf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\textrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
+        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, if two half-spaces $H,K\in\mc{H}^\ast_\textrm{cvx}(X)$ are non-nested, then $\del_\mathsf{v}H\cap\del_\mathsf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\textrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
 
         We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree, since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Proposition \ref{prp:half-spaces_are_cones}).
 
-        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\textrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. For each $G$-adjacent pair $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space $H\in\mc{H}_n$ by Lemma \ref{lem:half_space_separating_convex}, we may pick an edge from the \textit{finite} hyperplane $\del_\sf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
+        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\textrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. For each $G$-adjacent pair $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space $H\in\mc{H}_n$ by Lemma \ref{lem:half_space_separating_convex}, we may pick an edge from the \textit{finite} hyperplane $\del_\mathsf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
     \end{proof}
 
     \begin{corollary}
