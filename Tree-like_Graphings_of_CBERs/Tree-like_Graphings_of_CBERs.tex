@@ -78,7 +78,7 @@
         For a subset $A\subseteq X$, we let $\del_\sf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\sf{ov}A\coloneqq\del_\sf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\sf{ie}A\coloneqq G\cap(\del_\sf{ov}A\times\del_\sf{iv}A)$ and $\del_\sf{oe}A\coloneqq\del_\sf{ie}(\lnot A)$ respectively be its \textit{inner} and \textit{outer edge boundaries}. Let $\del_\sf{v}A\coloneqq\del_\sf{iv}A\cup\del_\sf{ov}A$ be the \textit{(total) vertex boundary} of $A$.
     \end{definition}
 
-    Let $\mc{H}_{\del<\infty}(X)\subseteq2^X$ be the Boolean algebra of all $A\subseteq X$ with finite vertex boundary, called \textit{cuts} in $X$.
+    Let $\mc{H}_{\del<\infty}(X)\subseteq2^X$ be the Boolean algebra of all subsets $A\subseteq X$ with finite vertex boundary, called \textit{cuts} in $X$. We will later (see Corollary \ref{cor:shrink_dense_cuts_to_connected}) restrict ourselves to the cuts in $\mc{H}_{\del<\infty}(X)\cap\mc{H}_\textrm{conn}(X)$, which are also connected and co-connected.
 
     \begin{definition}
         The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are the \textit{ends} of $(X,G)$.
@@ -140,6 +140,17 @@
     \begin{proof}
         Observe that $\mc{H}_{\diam(\del)\leq2}(T)$ is dense towards ends for any tree $T$, and invoke Proposition \ref{prp:invariant_of_density_coarse_equivalence}.
     \end{proof}
+
+    \begin{lemma}
+        
+    \end{lemma}
+    \begin{proof}
+        
+    \end{proof}
+
+    \begin{corollary}\label{cor:shrink_dense_cuts_to_connected}
+        
+    \end{corollary}
 
     \section{Pocsets of Dense Families of Cuts}
 
@@ -249,9 +260,11 @@
         Let $\mc{H}\subseteq2^X$ be a pocset. Two half-spaces $H,K\in\mc{H}$ are \textit{nested} if $\lnot^iH\cap\lnot^jK=\em$ for some $i,j\in\l\{0,1\r\}$, where $\lnot^0H\coloneqq H$ and $\lnot^1H\coloneqq\lnot H$. We say that $\mc{H}$ is \textit{nested} if every pair $H,K\in\mc{H}$ is nested.
     \end{definition}
 
-    \begin{proposition}\label{prp:strictly-inc}
-        If $(H_i)_{i<n}$ induces a path in $\mc{M}(\mc{H})$ with no backtracking, then $(H_i)$ is strictly increasing.
-    \end{proposition}
+    % The claim follows from the following lemma, since any cycle in $\mc{M}(\mc{H})$ is induced by a \textit{strictly} increasing chain of subsets $H_i$, which is impossible.
+
+    \begin{lemma}
+        Let $\mc{H}$ be a profinite pocset with non-trivial points isolated. If $\mc{H}$ is nested and $(H_i)_{i<n}\subseteq\mc{H}$ induces a path in $\mc{M}(\mc{H})$ with no backtracking, then $(H_i)$ is strictly increasing.
+    \end{lemma}
     \begin{proof}
         Let $(U_i)_{i<n}$ be the induced path. By definition, we have $U_{i+1}=U_{i-1}\cup\{\lnot H_i,\lnot H_{i-1}\}\comp\l\{H_i,H_{i-1}\r\}$, so $H_i\neq\lnot H_{i-1}$, lest $U_{i+1}=U_{i-1}$. Thus, since $H_i\in U_i=U_{i-1}\cup\{\lnot H_{i-1}\}\comp\l\{H_{i-1}\r\}$, we see that $H_i\in U_{i-1}$. Clearly $H_i\neq H_{i-1}$. It suffices to remove the three cases when $\lnot H_i\subseteq H_{i-1}$, $H_{i-1}\subseteq\lnot H_i$, and $H_i\subseteq H_{i-1}$, since then nestedness of $\mc{H}$ gives us $H_{i-1}\subsetneq H_i$, as desired.
 
@@ -259,8 +272,11 @@
     \end{proof}
 
     \begin{corollary}\label{cor:nested_implies_tree}
-        If $\mc{H}$ is a nested profinite pocset with non-trivial elements isolated, then $\mc{M}(\mc{H})$ is a tree.
+        If $\mc{H}$ is nested, then $\mc{M}(\mc{H})$ is a tree.
     \end{corollary}
+    \begin{proof}
+        A cycle in $\mc{M}(\mc{H})$ is induced by a \textit{strictly} increasing chain $H_0\subset\cdots\subset H_n\subset H_0$, which is absurd.
+    \end{proof}
 
     Nonetheless, in the general non-nested case, there is a sufficient criteria for the existence of a \textit{canonical} spanning tree of $\mc{M}(\mc{H})$, which we now explore.
 
