@@ -98,18 +98,18 @@
         If a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is dense towards ends, then there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$, which is also dense towards ends, such that every $H'\in\mc{H}'$ has $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}$.
     \end{lemma}
     \begin{proof}
-        A first attempt is to let $\mc{H}'$ be the connected components $C_0$ of elements in $\mc{H}$, but this fails since $\lnot C_0$ is not necessarily connected. Instead, we further take a connected component of $\lnot C_0$, whose complement is then {\color{red}{connected}} since the original graph is, and is clearly co-connected. Formally, we let
+        A first attempt is to let $\mc{H}'$ be the connected components $H'_0$ of elements in $\mc{H}$, but this fails since $\lnot H'_0$ is not necessarily connected. Instead, we further take a connected component of $\lnot H'_0$, whose complement is then {\color{red}{connected}} since the original graph is, and is clearly co-connected. Formally, we let
         \begin{equation*}
-            \mc{H}'\coloneqq\l\{C\subseteq X\st H\in\mc{H}\textrm{ and }C_0\in H/G\textrm{ and }\lnot C\in\lnot C_0/G\r\},
+            \mc{H}'\coloneqq\l\{H'\subseteq X\st H\in\mc{H}\textrm{ and }H'_0\in H/G\textrm{ and }\lnot H'\in\lnot H'_0/G\r\},
         \end{equation*}
-        where $H/G$ denotes the $G$-components of $H$. Clearly $\del_\mathsf{ie}C\subseteq\del_\mathsf{ie}C_0\subseteq\del_\mathsf{ie}H$, so it remains to show that $\mc{H}'$ is dense towards ends.
+        where $H/G$ denotes the $G$-components of $H$. Clearly $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H'_0\subseteq\del_\mathsf{ie}H$, so it remains to show that $\mc{H}'$ is dense towards ends.
 
-        Fix an end $U\in\widehat{X}\comp X$ with $U\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. Let $B\supseteq\del_\mathsf{v}A$ be finite connected, which can be obtained by adjoining paths between its components. Then $\lnot B\in U$ since $U$ is non-principal, so there is $H\in\mc{H}$ with $U\in\widehat{H}\subseteq\lnot\widehat{B}$. We now use the recipe above to find the desired $C\in\mc{H}'$:
+        Fix an end $U\in\widehat{X}\comp X$ with $U\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. Let $B\supseteq\del_\mathsf{v}A$ be finite connected, which can be obtained by adjoining paths between its components. Then $\lnot B\in U$ since $U$ is non-principal, so there is $H\in\mc{H}$ with $U\in\widehat{H}\subseteq\lnot\widehat{B}$. We now use the above recipe to find the desired $H'\in\mc{H}'$:
             \begin{enumerate}
-                \item Since $H\in\mc{H}_{\del<\infty}(X)$, it has finitely-many connected components, so exactly one of them belongs to $U$, say $U\in\widehat{C}_0\subseteq\widehat{H}$. Note that $B\subseteq\lnot H\subseteq\lnot C_0$.
-                \item Since $B$ is connected, there is a unique component $\lnot C\subseteq\lnot C_0$ containing $B$.
+                \item Since $H\in\mc{H}_{\del<\infty}(X)$, it has finitely-many connected components, so exactly one of them belongs to $U$, say $U\in\widehat{H}'_0\subseteq\widehat{H}$. Note that $B\subseteq\lnot H\subseteq\lnot H'_0$.
+                \item Since $B$ is connected, there is a unique component $\lnot H'\subseteq\lnot H'_0$ containing $B$.
             \end{enumerate}
-        Observe that $C\in\mc{H}'$ and $U\in\widehat{C}$, so it remains to show that $C\subseteq A$. Indeed, this follows since $C$ is connected and disjoint from $\del_\mathsf{v}A\subseteq B$, and $C\subseteq\lnot A$ would imply $\lnot C\in U$.
+        Observe that $H'\in\mc{H}'$ and $U\in\widehat{H}'$. Lastly, since $H'$ is connected and is disjoint from $\del_\mathsf{v}A\subseteq B$, and since $H'\subseteq\lnot A$ would imply $\lnot H'\in U$, this forces $H'\subseteq A$, and hence $U\in\widehat{H}'\subseteq\widehat{A}$.
     \end{proof}
 
     \subsection{Dense cuts induced by quasi-trees}\label{sec:dense_cuts_induced_by_quasi-trees}
@@ -158,7 +158,7 @@
         If $(X,G)$ is a locally-finite quasi-tree, then the subpocset $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ is dense towards ends for some $R<\infty$.
     \end{corollary}
     \begin{proof}
-        Observe that $\mc{H}_{\diam(\del)\leq2}(T)$ is dense towards ends for any tree $T$, so Proposition \ref{prp:invariant_of_density_coarse_equivalence} proves the density of $\mc{H}_{\diam(\del)\leq R}(X)$ for some $R<\infty$. By Lemma \ref{lem:connected_witness_to_density}, there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\textrm{conn}(X)$ dense towards ends such that for every $H'\in\mc{H}'$, we have $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}$. But this clearly implies that $\mc{H}'\subseteq\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\textrm{conn}(X)$, so the result follows.
+        Observe that $\mc{H}_{\diam(\del)\leq2}(T)$ is dense towards ends for any tree $T$, so Proposition \ref{prp:invariant_of_density_coarse_equivalence} proves the density of $\mc{H}_{\diam(\del)\leq R}(X)$ for some $R<\infty$. By Lemma \ref{lem:connected_witness_to_density}, there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\textrm{conn}(X)$ dense towards ends such that for every $H'\in\mc{H}'$, we have $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}_{\diam(\del)\leq R}(X)$. Hence we have $H'\in\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\textrm{conn}(X)$, so the result follows.
     \end{proof}
 
     \section{Pocsets of Dense Families of Cuts}
