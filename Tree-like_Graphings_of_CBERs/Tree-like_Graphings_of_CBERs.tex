@@ -207,7 +207,7 @@
         In particular, if $(X,G)$ is locally-finite\footnote{In this case, $\mc{H}$ being finitely-separating implies that each $x\in X$ is separated from each of its finitely-many neighbors by finitely-many $H\in\mc{H}$. Thus, the previous condition is necessary.}, then $\mc{H}_{\diam(\del)\leq R}(X)$ for any fixed $R<\infty$ (see Section \ref{sec:dense_cuts_induced_by_quasi-trees}) is finitely-separating. Indeed, since the $R$-ball around any fixed $x\in X$ is finite, any $H\in\mc{H}_{\diam(\del)\leq R}(X)$ with $x\in\del_\mathsf{v}H$ is contained in said $R$-ball, so there are finitely-many such half-spaces.
     \end{example}
 
-    The above example, in tandem with Corollary \ref{cor:density_of_bounded_diameter_boundary_cuts_quasi_tree}, gives us, for each component $C\subseteq X$ of a quasi-treeing $G$ of a CBER, a family of cuts $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\textrm{conn}(C)$ which are finitely-separating and dense towards ends of $G|C$ for some $R_C<\infty$. The former condition allows the construction of a `median graph' $\mc{M}(\mc{H}(C))$, and the latter provide restrictions on the behavior of $\mc{H}(C)$, and hence on $\mc{M}(\mc{H}(C))$ too.
+    The above example, in tandem with Corollary \ref{cor:density_of_bounded_diameter_boundary_cuts_quasi_tree}, gives us, for each component $C\subseteq X$ of a quasi-treeing $G$ of a CBER, a family of cuts $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\textrm{conn}(C)$ which is finitely-separating and dense towards ends of $G|C$ for some $R_C<\infty$. We use the former condition in Section \ref{sec:the_dual_median_graph_of_a_pocset} to construct a `median graph' $\mc{M}(\mc{H}(C))$, and use the latter to provide restrictions on $\mc{H}(C)$, and hence on $\mc{M}(\mc{H}(C))$ too, in Sections \ref{sec:finiteness_conditions_on_pocsets_dense_cuts} and \ref{sec:finiteness_conditions_on_median_graph_dense_cuts} respectively. The conditions on $\mc{M}(\mc{H}(C))$ then allows us to \textit{canonically} construct a spanning tree thereof; we do so in Section \ref{sec:cycle_cutting_algorithm}, and prove in Section {\color{red}{???}} that this is the desired treeing of the CBER.
 
     \subsection{Finiteness conditions on $\mc{H}$ induced by dense cuts}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
 
@@ -438,7 +438,7 @@
         Let $A\coloneqq\l\{x_0,\dots,x_n\r\}$. Since $\cvx(A)=\proj_A(X)$, we have by Remark \ref{rem:projections} that points in $\cvx(A)$ are of the form $\l\langle x,x_n,\dots,\l\langle x,x_2,\l\langle x,x_1,x_0\r\rangle\r\rangle\r\rangle$, which is finite by induction using that intervals are finite.
     \end{proof}
 
-    \subsection{Canonical spanning trees}
+    \subsection{Canonical spanning trees}\label{sec:cycle_cutting_algorithm}
 
     We now present the Borel cycle-cutting algorithm that can be preformed canonically on any countable median graph with finite hyperplanes. We do so by colouring the half-spaces $\mc{H}^\ast_\textrm{cvx}(X)$ into certain nested half-spaces $\mc{H}_n\subseteq\mc{H}_\textrm{cvx}(X)$, from which we inductively build a spanning forest by leveraging a tree structure on the $\mc{H}_n$-blocks $X/\mc{H}_n$. This tree is constructed as follows.
 
