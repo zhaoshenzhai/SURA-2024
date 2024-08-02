@@ -104,7 +104,12 @@
         \end{equation*}
         where $H/G$ denotes the $G$-components of $H$. Clearly $\del_\mathsf{ie}C\subseteq\del_\mathsf{ie}C_0\subseteq\del_\mathsf{ie}H$, so it remains to show that $\mc{H}'$ is dense towards ends.
 
-        Fix an end $U\in\widehat{X}\comp X$ with $U\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. Let $B\supseteq\del_\mathsf{v}A$ be finite connected, which can be obtained by adjoining paths between its components. Then $\lnot B\in U$ since $U$ is non-principal, so there is some $H\in\mc{H}$ with $U\in\widehat{H}\subseteq\lnot\widehat{B}$. Since $H\in\mc{H}_{\del<\infty}(X)$, it has \textit{finitely}-many components, so exactly of them one belongs to $U$, say $U\in\widehat{C}_0\subseteq\widehat{H}$. Then $B\subseteq\lnot H\subseteq\lnot C_0$, so there is a unique component $\lnot C\subseteq\lnot C_0$ containing $B$, and hence we have $\mc{H}'\ni C\in U$. Finally, we have $C\subseteq A$
+        Fix an end $U\in\widehat{X}\comp X$ with $U\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. Let $B\supseteq\del_\mathsf{v}A$ be finite connected, which can be obtained by adjoining paths between its components. Then $\lnot B\in U$ since $U$ is non-principal, so there is $H\in\mc{H}$ with $U\in\widehat{H}\subseteq\lnot\widehat{B}$. We now use the recipe above to find the desired $C\in\mc{H}'$:
+            \begin{enumerate}
+                \item Since $H\in\mc{H}_{\del<\infty}(X)$, it has finitely-many connected components, so exactly one of them belongs to $U$, say $U\in\widehat{C}_0\subseteq\widehat{H}$. Note that $B\subseteq\lnot H\subseteq\lnot C_0$.
+                \item Since $B$ is connected, there is a unique component $\lnot C\subseteq\lnot C_0$ containing $B$.
+            \end{enumerate}
+        Observe that $C\in\mc{H}'$ and $U\in\widehat{C}$, so it remains to show that $C\subseteq A$. Indeed, this follows since $C$ is connected and disjoint from $\del_\mathsf{v}A\subseteq B$, and $C\subseteq\lnot A$ would imply $\lnot C\in U$.
     \end{proof}
 
     \subsection{Dense cuts induced by quasi-trees}\label{sec:dense_cuts_induced_by_quasi-trees}
