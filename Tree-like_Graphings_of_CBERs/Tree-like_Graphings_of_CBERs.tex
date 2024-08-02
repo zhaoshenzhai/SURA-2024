@@ -78,7 +78,7 @@
         For a subset $A\subseteq X$, we let $\del_\mathsf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\mathsf{ov}A\coloneqq\del_\mathsf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\mathsf{ie}A\coloneqq G\cap(\del_\mathsf{ov}A\times\del_\mathsf{iv}A)$ and $\del_\mathsf{oe}A\coloneqq\del_\mathsf{ie}(\lnot A)$ respectively be its \textit{inner} and \textit{outer edge boundaries}. Let $\del_\mathsf{v}A\coloneqq\del_\mathsf{iv}A\cup\del_\mathsf{ov}A$ be the \textit{(total) vertex boundary} of $A$.
     \end{definition}
 
-    Let $\mc{H}_{\del<\infty}(X)\subseteq2^X$ be the Boolean algebra of all $A\subseteq X$ with finite vertex boundary, called \textit{cuts} in $X$.
+    Let $\mc{H}_{\del<\infty}(X)\subseteq2^X$ be the Boolean algebra of all $A\subseteq X$ with finite vertex boundary, which we refer to as \textit{cuts} in $X$. Later, we will restrict to the connected and co-connected cuts $\mc{H}_{\del<\infty}(X)\cap\mc{H}_\textrm{conn}(X)$.
 
     \begin{definition}
         The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are the \textit{ends} of $(X,G)$.
@@ -190,11 +190,11 @@
         This is the desired neighborhood isolating $A\in U$. Indeed, it is (cl)open since it is the \textit{finite} intersection of cylinders prescribed by the $x_H$'s and $y_H$'s, and it is disjoint from $\mc{H}\comp\l\{A\r\}$ by construction.
     \end{proof}
 
-    In the case when $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is a subpocset of cuts in a graph $(X,G)$, we can deduce that $\mc{H}\cap\mc{H}_\textrm{conn}\subseteq2^X$ is closed. Hence, the above proposition refines to the following
+    In the case when $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is a subpocset of cuts in a graph $(X,G)$, we can deduce that $\mc{H}\cap\mc{H}_\textrm{conn}\subseteq2^X$ is closed. Hence, the above lemma refines to the following
 
-    \begin{corollary}\label{cor:finitely-separating_non-trivial_isolated}
+    \begin{lemma}\label{lem:finitely-separating_non-trivial_isolated_connected}
         Let $\mc{H}\subseteq\mc{H}_{\del<\infty}$ be a subpocset of cuts. If $\mc{H}$ is finitely-separating, then $\mc{H}\cap\mc{H}_\mathrm{conn}$ is closed and every non-trivial element is isolated.
-    \end{corollary}
+    \end{lemma}
     \begin{proof}
         It suffices to show that no $H\in\mc{H}^\ast$ is a limit point of $\mc{H}_\textrm{conn}(X)$, for then $\mc{H}\cap\mc{H}_\textrm{conn}(X)$ is closed, so fix $H\in\mc{H}^\ast$. Let $U\subseteq2^X$ be the family of all subsets $B\subseteq X$ containing $\del_\mathsf{iv}H$ and disjoint from $\del_\mathsf{ov}H$, which clearly contains $H$, and is clopen since $\del_\mathsf{v}H$ is finite.
 
@@ -240,7 +240,7 @@
     Some basic properties of median graphs are given in Section \ref{sec:convex_half-spaces_of_median_graphs}. For more comprehensive references and their general theory, see \cite{Rol98} and \cite{Bow22}.
 
     \begin{proposition}\label{prp:construction_of_dual_median_graph}
-        Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in\mc{H}^\ast$, is a median graph with path metric $d(U,V)=|U\symdiff V|/2$ and medians
+        Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in U\comp\l\{\em,X\r\}$, is a median graph with path metric $d(U,V)=|U\symdiff V|/2$ and medians
         \begin{equation*}
             \begin{aligned}
                 \l\langle U,V,W\r\rangle&\coloneqq\l\{H\in\mc{H}\st H\textrm{ belongs to at least two of }U,V,W\r\} \\
