@@ -191,9 +191,9 @@
     \end{proof}
 
     \begin{example}\label{exa:finitely_separating_iff_on_boundary_of_finite}
-        For a connected graph\footnote{If $(X,G)$ is locally-finite, then this condition is necessary, since then each $x\in X$ is separated from each of its finitely-many neighbors by finitely-many $H\in\mc{H}$.} $(X,G)$, a subpocset $\mc{H}\subseteq2^X$ is finitely-separating if each $x\in X$ is on the boundary of finitely-many half-spaces. Indeed, any $H\in\mc{H}$ separating $x,y\in X$ separates some edge on any fixed path between $x$ and $y$, and there are only finitely-many such $H$ for each edge.
+        For a connected graph $(X,G)$, a subpocset $\mc{H}\subseteq2^X$ is finitely-separating if each $x\in X$ is on the boundary of finitely-many half-spaces. Indeed, any $H\in\mc{H}$ separating $x,y\in X$ separates some edge on any fixed path between $x$ and $y$, and there are only finitely-many such $H$ for each edge.
 
-        In particular, the subpocset $\mc{H}_{\diam(\del)\leq R}(X)$ for any fixed $R<\infty$ (see Section \ref{sec:dense_cuts_induced_by_quasi-trees}) is finitely-separating.
+        In particular, if $(X,G)$ is locally-finite\footnote{In this case, $\mc{H}$ being finitely-separating implies that each $x\in X$ is separated from each of its finitely-many neighbors by finitely-many $H\in\mc{H}$. Thus, this condition is necessary.}, then $\mc{H}_{\diam(\del)\leq R}(X)$ for any fixed $R<\infty$ (see Section \ref{sec:dense_cuts_induced_by_quasi-trees}) is finitely-separating. Indeed, since the $R$-ball around any fixed $x\in X$ is finite, any $H\in\mc{H}_{\diam(\del)\leq R}(X)$ with $x\in\del_\mathsf{v}H$ is contained in said $R$-ball, so there are finitely-many such half-spaces.
     \end{example}
 
 
