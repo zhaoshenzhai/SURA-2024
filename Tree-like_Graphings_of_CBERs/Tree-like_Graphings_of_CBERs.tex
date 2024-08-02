@@ -98,7 +98,7 @@
         If a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is dense towards ends, then there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$, which is also dense towards ends, such that every $H'\in\mc{H}'$ has $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}$.
     \end{lemma}
     \begin{proof}
-        A first attempt is to let $\mc{H}'$ be the connected components $H'_0$ of elements in $\mc{H}$, but this fails since $\lnot H'_0$ is not necessarily connected. Instead, we further take a connected component of $\lnot H'_0$, whose complement is then {\color{red}{connected}} since the original graph is, and is clearly co-connected. Formally, we let
+        A first attempt is to let $\mc{H}'$ be the connected components $H'_0$ of elements in $\mc{H}$, but this fails since $\lnot H'_0$ is not necessarily connected. Instead, we further take a component of $\lnot H'_0$, whose complement clearly co-connected, and is connected since it consists of $H'_0$ and the other components of $\lnot H'_0$, each of which is connected to $H'_0$ via $\del_\mathsf{ie}H'_0$. Formally, we let
         \begin{equation*}
             \mc{H}'\coloneqq\l\{H'\subseteq X\st H\in\mc{H}\textrm{ and }H'_0\in H/G\textrm{ and }\lnot H'\in\lnot H'_0/G\r\},
         \end{equation*}
@@ -109,12 +109,12 @@
                 \item Since $H\in\mc{H}_{\del<\infty}(X)$, it has finitely-many connected components, so exactly one of them belongs to $U$, say $U\in\widehat{H}'_0\subseteq\widehat{H}$. Note that $B\subseteq\lnot H\subseteq\lnot H'_0$.
                 \item Since $B$ is connected, there is a unique component $\lnot H'\subseteq\lnot H'_0$ containing $B$.
             \end{enumerate}
-        Observe that $H'\in\mc{H}'$ and $U\in\widehat{H}'$. Lastly, since $H'$ is connected and is disjoint from $\del_\mathsf{v}A\subseteq B$, and since $H'\subseteq\lnot A$ would imply $\lnot H'\in U$, this forces $H'\subseteq A$, and hence $U\in\widehat{H}'\subseteq\widehat{A}$.
+        Observe that $H'\in\mc{H}'$ and $U\in\widehat{H}'$. Lastly, since $H'$ is connected and is disjoint from $\del_\mathsf{v}A\subseteq B$, and since $H'\subseteq\lnot A$ would imply $\lnot H'\in U$, this forces $H'\subseteq A$, and hence $U\in\widehat{H}'\subseteq\widehat{A}$ as desired.
     \end{proof}
 
     \subsection{Dense cuts induced by quasi-trees}\label{sec:dense_cuts_induced_by_quasi-trees}
 
-    If $X$ is a quasi-tree $-$ and thus does not have arbitrary long cycles $-$ we expect that there is some finite bound $R<\infty$ such that the ends in $\widehat{X}\comp X$ are `limits' of cuts $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ is dense towards ends of $(X,G)$.
+    If $X$ is a quasi-tree $-$ and thus does not have arbitrarily long cycles $-$ we expect that there is some finite bound $R<\infty$ such that the ends in $\widehat{X}\comp X$ are `limits' of cuts $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ is dense towards ends of $(X,G)$.
 
     \begin{lemma}\label{lem:coarse_equivalence_controls_boundary_diameter}
         Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\mathsf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\mathsf{v}H)$.
