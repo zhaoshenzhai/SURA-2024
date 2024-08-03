@@ -38,24 +38,24 @@
     By Condition (1), these cuts have the structure of a profinite pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} thereof. Condition (2) then ensures that this graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
     \begin{equation*}
         \textrm{Quasi-tree}
-            \ \ \xrightarrow{\ref{sec:graphs_with_dense_family_of_cuts}}\ \ 
+            \ \ \overset{\ref{sec:graphs_with_dense_family_of_cuts}}{\longrightarrow}\ \ 
         \begin{gathered}
             \textrm{Dense family} \\[-4pt]
             \textrm{of cuts}
         \end{gathered}
-            \ \ \xrightarrow{\ref{sec:pocsets_of_cuts}+\ref{sec:finiteness_conditions_on_pocsets_dense_cuts}}\ \ 
+            \ \ \overset{\ref{sec:pocset_of_dense_family_of_cuts}}{\longrightarrow}\ \ 
         \begin{gathered}
             \textrm{Pocset w/} \\[-4pt]
             \textrm{non-triv. pts.} \\[-4pt]
             \textrm{isolated}
         \end{gathered}
-            \ \ \xrightarrow{\ref{sec:the_dual_median_graph_of_a_pocset}}\ \ 
+            \ \ \overset{\ref{sec:the_dual_median_graph_of_a_pocset}}{\longrightarrow}\ \ 
         \begin{gathered}
             \textrm{Median graph} \\[-4pt]
             \textrm{w/ finite} \\[-4pt]
             \textrm{hyperplanes}
         \end{gathered}
-            \ \ \xrightarrow{\ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}}\ \ 
+            \ \ \overset{\ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}}{\longrightarrow}\ \ 
         \begin{gathered}
             \textrm{Canonical} \\[-4pt]
             \textrm{spanning tree}
@@ -161,7 +161,7 @@
         Observe that $\mc{H}_{\diam(\del)\leq2}(T)$ is dense towards ends for any tree $T$, so Proposition \ref{prp:invariant_of_density_coarse_equivalence} proves the density of $\mc{H}_{\diam(\del)\leq R}(X)$ for some $R<\infty$. By Lemma \ref{lem:connected_witness_to_density}, there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\textrm{conn}(X)$ dense towards ends such that for every $H'\in\mc{H}'$, we have $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}_{\diam(\del)\leq R}(X)$. Hence we have $H'\in\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\textrm{conn}(X)$, so the result follows.
     \end{proof}
 
-    \section{Pocsets of Dense Families of Cuts}
+    \section{Pocsets of Dense Families of Cuts}\label{sec:pocset_of_dense_family_of_cuts}
 
     \subsection{Pocsets of cuts}\label{sec:pocsets_of_cuts}
 
@@ -236,7 +236,7 @@
         
     \end{proof}
 
-    \section{The Dual Median Graph with Finite Hyperplanes}\label{sec:the_dual_median_graph_of_a_pocset}
+    \section{The Dual Median Graph of a Profinite Pocset}\label{sec:the_dual_median_graph_of_a_pocset}
 
     % \subsection{The dual median graph of a pocset}
 
