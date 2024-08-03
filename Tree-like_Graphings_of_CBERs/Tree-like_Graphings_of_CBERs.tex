@@ -104,12 +104,12 @@
         \end{equation*}
         where $H/G$ denotes the $G$-components of $H$. Clearly $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H'_0\subseteq\del_\mathsf{ie}H$, so it remains to show that $\mc{H}'$ is dense towards ends.
 
-        Fix an end $U\in\widehat{X}\comp X$ with $U\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. Let $B\supseteq\del_\mathsf{v}A$ be finite connected, which can be obtained by adjoining paths between its components. Then $\lnot B\in U$ since $U$ is non-principal, so there is $H\in\mc{H}$ with $U\in\widehat{H}\subseteq\lnot\widehat{B}$. We now use the above recipe to find the desired $H'\in\mc{H}'$:
+        Fix an end $p\in\widehat{X}\comp X$ with $p\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. Let $B\supseteq\del_\mathsf{v}A$ be finite connected, which can be obtained by adjoining paths between its components. Then $\lnot B\in p$ since $p$ is non-principal, so there is $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\lnot\widehat{B}$. We now use the above recipe to find the desired $H'\in\mc{H}'$:
             \begin{enumerate}
-                \item Since $H\in\mc{H}_{\del<\infty}(X)$, it has finitely-many connected components, so exactly one of them belongs to $U$, say $U\in\widehat{H}'_0\subseteq\widehat{H}$. Note that $B\subseteq\lnot H\subseteq\lnot H'_0$.
+                \item Since $H\in\mc{H}_{\del<\infty}(X)$, it has finitely-many connected components, so exactly one of them belongs to $p$, say $p\in\widehat{H}'_0\subseteq\widehat{H}$. Note that $B\subseteq\lnot H\subseteq\lnot H'_0$.
                 \item Since $B$ is connected, there is a unique component $\lnot H'\subseteq\lnot H'_0$ containing $B$.
             \end{enumerate}
-        Observe that $H'\in\mc{H}'$ and $U\in\widehat{H}'$. Lastly, since $H'$ is connected and is disjoint from $\del_\mathsf{v}A\subseteq B$, and since $H'\subseteq\lnot A$ would imply $\lnot H'\in U$, this forces $H'\subseteq A$, and hence $U\in\widehat{H}'\subseteq\widehat{A}$ as desired.
+        Observe that $H'\in\mc{H}'$ and $p\in\widehat{H}'$. Lastly, since $H'$ is connected and is disjoint from $\del_\mathsf{v}A\subseteq B$, and since $H'\subseteq\lnot A$ would imply $\lnot H'\in p$, this forces $H'\subseteq A$, and hence $p\in\widehat{H}'\subseteq\widehat{A}$ as desired.
     \end{proof}
 
     \subsection{Dense cuts induced by quasi-trees}\label{sec:dense_cuts_induced_by_quasi-trees}
@@ -135,13 +135,13 @@
     \begin{proof}
         Let $(X,G)$, $(Y,T)$ be connected locally-finite graphs, $f:X\to Y$ be a coarse equivalence with quasi-inverse $g:Y\to X$, and suppose $\mc{H}_{\diam(\del)\leq S}(Y)$ is dense towards ends for some $S<\infty$. By Lemma \ref{lem:coarse_equivalence_controls_boundary_diameter}, pick some $R<\infty$ so that for any $H\in\mc{H}_{\diam(\del)\leq S}(Y)$, we have $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$.
 
-        Fix an end $U\in\widehat{X}\comp X$ with $U\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. We need to find some $B\in\mc{H}_{\del<\infty}(Y)$ such that $\widehat{f}(U)\in\widehat{B}$ and $f^{-1}(B)\subseteq A$, for then $\widehat{f}(U)\in\widehat{H}$ for some $B\supseteq H\in\mc{H}_{\diam(\del)\leq S}(Y)$, and hence we have
+        Fix an end $p\in\widehat{X}\comp X$ with $p\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. We need to find some $B\in\mc{H}_{\del<\infty}(Y)$ such that $\widehat{f}(p)\in\widehat{B}$ and $f^{-1}(B)\subseteq A$, for then $\widehat{f}(p)\in\widehat{H}$ for some $B\supseteq H\in\mc{H}_{\diam(\del)\leq S}(Y)$, and hence we have
         \begin{equation*}
-            U\in\widehat{f^{-1}(H)}\subseteq\widehat{f^{-1}(B)}\subseteq\widehat{A}
+            p\in\widehat{f^{-1}(H)}\subseteq\widehat{f^{-1}(B)}\subseteq\widehat{A}
         \end{equation*}
         with $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$. For convenience, let $D<\infty$ be the uniform distance $d(1_X,g\circ f)$.
 
-        To this end, note that $\widehat{f}(U)\in\widehat{B}$ iff $U\in\widehat{f^{-1}(B)}$. Since $U\in\widehat{A}$, the latter can occur if $|A\symdiff f^{-1}(B)|<\infty$, and so we need to find such a $B\in\mc{H}_{\del<\infty}(Y)$ with the additional property that $f^{-1}(B)\subseteq A$.
+        To this end, note that $\widehat{f}(p)\in\widehat{B}$ iff $p\in\widehat{f^{-1}(B)}$. Since $p\in\widehat{A}$, the latter can occur if $|A\symdiff f^{-1}(B)|<\infty$, and so we need to find such a $B\in\mc{H}_{\del<\infty}(Y)$ with the additional property that $f^{-1}(B)\subseteq A$.
         \begin{leftbar}
             \textit{Attempt 1.} Set $B\coloneqq g^{-1}(A)\in\mc{H}_{\del<\infty}(Y)$. Then $f^{-1}(B)\subseteq\Ball_D(A)$ since if $(g\circ f)(x)\in A$, then
                 \begin{equation*}
