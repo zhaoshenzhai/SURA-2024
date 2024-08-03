@@ -216,6 +216,10 @@
 
     Let $(X,G)$ be a connected locally-finite graph and fix a finitely-separating subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\textrm{conn}(X)$ of cuts.
 
+    \begin{definition}\label{def:nested}
+        Let $\mc{H}\subseteq2^X$ be a pocset. Two half-spaces $H,K\in\mc{H}$ are \textit{nested} if $\lnot^iH\cap\lnot^jK=\em$ for some $i,j\in\l\{0,1\r\}$, where $\lnot^0H\coloneqq H$ and $\lnot^1H\coloneqq\lnot H$. We say that $\mc{H}$ is \textit{nested} if every pair $H,K\in\mc{H}$ is nested.
+    \end{definition}
+
     \begin{lemma}
         Each $H\in\mc{H}$ is non-nested with finitely-many $K\in\mc{H}$.
     \end{lemma}
@@ -226,11 +230,7 @@
     \end{proof}
 
     \begin{proposition}\label{prp:dense_cuts_induces_proper_walling}
-        If $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\mathrm{conn}(X)$ is finitely-separating and dense towards ends, then:
-        \begin{enumerate}
-            \item Each $\mc{H}$-block is finite; i.e., for every $x\in X$, there are only finitely-many $y\in X$ contained in exactly the same half-spaces $H\in\mc{H}$ as $x$.
-            \item Each $H\in\mc{H}^\ast$ has finitely-many successors $K\in\mc{H}^\ast$.
-        \end{enumerate}
+        If $\mc{H}$ is dense towards ends, then each $\mc{H}$-block is finite and each $H\in\mc{H}^\ast$ has finitely-many successors $K\in\mc{H}^\ast$.
     \end{proposition}
     \begin{proof}
         
@@ -298,13 +298,7 @@
         Note that the two sides coincide, so $M=\l\langle U,V,W\r\rangle$ $-$ which is clopen if $U,V,W$ are $-$ is as claimed.
     \end{proof}
 
-    Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between median graphs with median homomorphisms and profinite pocsets whose non-trivial points are isolated with continuous maps, where from a median graph one can construct a canonical pocset of `convex' half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. An important special case of this construction is when $\mc{H}$ is \textit{nested}, in which case $\mc{M}(\mc{H})$ is a tree:
-
-    \begin{definition}\label{def:nested}
-        Let $\mc{H}\subseteq2^X$ be a pocset. Two half-spaces $H,K\in\mc{H}$ are \textit{nested} if $\lnot^iH\cap\lnot^jK=\em$ for some $i,j\in\l\{0,1\r\}$, where $\lnot^0H\coloneqq H$ and $\lnot^1H\coloneqq\lnot H$. We say that $\mc{H}$ is \textit{nested} if every pair $H,K\in\mc{H}$ is nested.
-    \end{definition}
-
-    % The claim follows from the following lemma, since any cycle in $\mc{M}(\mc{H})$ is induced by a \textit{strictly} increasing chain of subsets $H_i$, which is impossible.
+    Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between median graphs with median homomorphisms and profinite pocsets whose non-trivial points are isolated with continuous maps, where from a median graph one can construct a canonical pocset of `convex' half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. An important special case of this construction is when $\mc{H}$ is \textit{nested}, in which case $\mc{M}(\mc{H})$ is a tree.
 
     \begin{lemma}
         Let $\mc{H}$ be a profinite pocset with non-trivial points isolated. If $\mc{H}$ is nested and $(H_i)_{i<n}\subseteq\mc{H}$ induces a path in $\mc{M}(\mc{H})$ with no backtracking, then $(H_i)$ is strictly increasing.
