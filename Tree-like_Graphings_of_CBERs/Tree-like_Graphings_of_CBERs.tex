@@ -220,7 +220,7 @@
         Let $\mc{H}\subseteq2^X$ be a pocset. Two half-spaces $H,K\in\mc{H}$ are \textit{nested} if $\lnot^iH\cap\lnot^jK=\em$ for some $i,j\in\l\{0,1\r\}$, where $\lnot^0H\coloneqq H$ and $\lnot^1H\coloneqq\lnot H$. We say that $\mc{H}$ is \textit{nested} if every pair $H,K\in\mc{H}$ is nested.
     \end{definition}
 
-    \begin{lemma}
+    \begin{lemma}\label{lem:connected_cuts_non_nested_finitely_others}
         Each $H\in\mc{H}$ is non-nested with finitely-many $K\in\mc{H}$.
     \end{lemma}
     \begin{proof}
@@ -472,10 +472,10 @@
         A median graph $(X,G)$ has finite hyperplanes iff each half-space is non-nested with finitely-many others.
     \end{lemma}
     \begin{proof}
-        Fix $H\in\mc{H}_\textrm{cvx}(X)$. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, a half-space $K$ non-nested with $H$ corresponds uniquely to a pair $(x,y)\in\del_\mathsf{ie}H$ with $x,y\in\del_\mathsf{iv}K$ forming one side of a square, so there are finitely-many such half-spaces $K$ iff the hyperplane $\del_\mathsf{ie}H$ is finite.
+        Fix $H\in\mc{H}_\textrm{cvx}(X)$. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, a half-space $K$ non-nested with $H$ corresponds uniquely to a pair $(x,y)\in\del_\mathsf{ie}H$ with $x,y\in\del_\mathsf{iv}K$, so there are finitely-many such half-spaces $K$ iff $\del_\mathsf{ie}H$ is finite.
     \end{proof}
 
-    In particular, by Lemma
+    In particular, by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, 
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
         Every countable median graph with finite hyperplanes admits a canonical spanning tree.
