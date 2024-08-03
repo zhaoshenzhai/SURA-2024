@@ -49,7 +49,7 @@
             \textrm{non-triv. pts.} \\[-4pt]
             \textrm{isolated}
         \end{gathered}
-            \ \ \xrightarrow{\ref{sec:the_dual_median_graph_of_a_pocset}+\ref{sec:finiteness_conditions_on_median_graph_dense_cuts}}\ \ 
+            \ \ \xrightarrow{\ref{sec:the_dual_median_graph_of_a_pocset}}\ \ 
         \begin{gathered}
             \textrm{Median graph} \\[-4pt]
             \textrm{w/ finite} \\[-4pt]
@@ -210,7 +210,7 @@
 
     In particular, if $(X,G)$ is locally-finite, then $\mc{H}_{\diam(\del)\leq R}(X)$ for any fixed $R<\infty$ (see Section \ref{sec:dense_cuts_induced_by_quasi-trees}) is finitely-separating. Indeed, since the $R$-ball around any fixed $x\in X$ is finite, any $H\in\mc{H}_{\diam(\del)\leq R}(X)$ with $x\in\del_\mathsf{v}H$ is contained in said $R$-ball, so there are finitely-many such half-spaces.
 
-    This example, in tandem with Corollary \ref{cor:density_of_bounded_diameter_boundary_cuts_quasi_tree}, gives us, for each component $C\subseteq X$ of a quasi-treeing $G$ of a CBER, a family of cuts $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\textrm{conn}(C)$ which is finitely-separating and dense towards ends of $G|C$ for some $R_C<\infty$. We use the former condition in Section \ref{sec:the_dual_median_graph_of_a_pocset} to construct a `median graph' $\mc{M}(\mc{H}(C))$, and use the latter to provide restrictions on $\mc{H}(C)$, and hence on $\mc{M}(\mc{H}(C))$ too, in Sections \ref{sec:finiteness_conditions_on_pocsets_dense_cuts} and \ref{sec:finiteness_conditions_on_median_graph_dense_cuts} respectively. The conditions on $\mc{M}(\mc{H}(C))$ then allows us to \textit{canonically} construct a spanning tree thereof; we do so in Section \ref{sec:cycle_cutting_algorithm}, and prove in Section {\color{red}{???}} that this is the desired treeing of the CBER.
+    This example, in tandem with Corollary \ref{cor:density_of_bounded_diameter_boundary_cuts_quasi_tree}, gives us, for each component $C\subseteq X$ of a quasi-treeing $G$ of a CBER, a family of cuts $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\textrm{conn}(C)$ which is finitely-separating and dense towards ends of $G|C$ for some $R_C<\infty$. We use the former condition in Section \ref{sec:the_dual_median_graph_of_a_pocset} to construct a `median graph' $\mc{M}(\mc{H}(C))$, and use the latter to provide restrictions on $\mc{H}(C)$, and hence on $\mc{M}(\mc{H}(C))$ too, in Section \ref{sec:finiteness_conditions_on_pocsets_dense_cuts}. The conditions on $\mc{M}(\mc{H}(C))$ then allows us to \textit{canonically} construct a spanning tree thereof; we do so in Section \ref{sec:cycle_cutting_algorithm}, and prove in Section {\color{red}{???}} that this is the desired treeing of the CBER.
 
     \subsection{Finiteness conditions on $\mc{H}$ induced by dense cuts}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
 
@@ -236,11 +236,11 @@
         
     \end{proof}
 
-    \section{The Dual Median Graph with Finite Hyperplanes}
+    \section{The Dual Median Graph with Finite Hyperplanes}\label{sec:the_dual_median_graph_of_a_pocset}
 
-    \subsection{The dual median graph of a pocset}\label{sec:the_dual_median_graph_of_a_pocset}
+    % \subsection{The dual median graph of a pocset}
 
-    Let $\mc{H}$ be a profinite subpocset with every non-trivial element isolated; for instance, if $\mc{H}$ is finitely-separating, and in particular the cuts $\mc{H}_{\diam(\del)\leq R}(X)$ for some locally-finite connected graph $(X,G)$. We present a classical construction in geometric group theory (see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for applications) of a `tree-like' graph associated to such a pocset.
+    Let $\mc{H}$ be a profinite subpocset with every non-trivial element isolated; say, if $\mc{H}$ is finitely-separating, and in particular the cuts $\mc{H}_{\diam(\del)\leq R}(X)$ for some locally-finite connected graph $(X,G)$. We present a classical construction in geometric group theory (see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for other applications) of a `tree-like' graph associated to such a pocset.
     
     \begin{definition}\label{def:orientation}
         An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$ and let $\mc{U}^\circ(\mc{H})$ denote the clopen ones.
@@ -316,9 +316,7 @@
         A cycle in $\mc{M}(\mc{H})$ is induced by a \textit{strictly} increasing chain $H_0\subset\cdots\subset H_n\subset H_0$, which is absurd.
     \end{proof}
 
-    Nonetheless, in the general non-nested case, there is a sufficient criteria for the existence of a \textit{canonical} spanning tree of $\mc{M}(\mc{H})$, which we now explore.
-
-    \subsection{Finiteness conditions on $\mc{M}(\mc{H})$ induced by {\color{red}{???}}}\label{sec:finiteness_conditions_on_median_graph_dense_cuts}
+    Nonetheless, in the general non-nested case, the condition that $\mc{H}$ is dense towards ends gives us a sufficient criteria for the existence of a \textit{canonical} spanning tree of $\mc{M}(\mc{H})$, which we prove in the sequel.
 
     \section{Median Graphs, Convex Half-spaces, and Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
 
@@ -469,6 +467,13 @@
     This lemma is crucial, in that it induces an isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$. Here, $\mc{H}$ is finitely-separating by Lemma \ref{lem:finitely_separating_iff_on_boundary_of_finite} and Proposition \ref{prp:half-spaces_are_cones}, and so $\mc{U}^\circ(\mc{H})$ is the vertices of the median graph $\mc{M}(\mc{H})$ by Lemma \ref{lem:finitely-separating_non-trivial_isolated} and Proposition \ref{prp:construction_of_dual_median_graph}. The fibers of $X\to\mc{U}^\circ(\mc{H})$ are the $\mc{H}$-blocks, so we have the desired bijection.
 
     Explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are said to be \textit{$G$-adjacent} if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$.
+
+    \begin{lemma}
+        A median graph $(X,G)$ has finite hyperplanes iff each $H\in\mc{H}_\mathrm{cvx}(X)$ is non-nested with finitely-many others.
+    \end{lemma}
+    \begin{proof}
+        
+    \end{proof}
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
         Every countable median graph with finite hyperplanes admits a canonical spanning tree.
