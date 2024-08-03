@@ -316,7 +316,7 @@
         A cycle in $\mc{M}(\mc{H})$ is induced by a \textit{strictly} increasing chain $H_0\subset\cdots\subset H_n\subset H_0$, which is absurd.
     \end{proof}
 
-    Nonetheless, in the general non-nested case, the condition that $\mc{H}$ is dense towards ends gives us a sufficient criteria for the existence of a \textit{canonical} spanning tree of $\mc{M}(\mc{H})$, which we prove in the sequel.
+    Nonetheless, in the general non-nested case, the condition that $\mc{H}$ is dense towards ends (and in particular, the finiteness conditions on $\mc{H}$ that follows; see Section \ref{sec:finiteness_conditions_on_pocsets_dense_cuts}) gives us a sufficient criteria for the existence of a \textit{canonical} spanning tree of $\mc{M}(\mc{H})$, which we prove in the following section.
 
     \section{Median Graphs, Convex Half-spaces, and Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
 
@@ -469,10 +469,10 @@
     Explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are said to be \textit{$G$-adjacent} if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$.
 
     \begin{lemma}
-        A median graph $(X,G)$ has finite hyperplanes iff each $H\in\mc{H}_\mathrm{cvx}(X)$ is non-nested with finitely-many others.
+        A median graph $(X,G)$ has finite hyperplanes iff each half-space is non-nested with finitely-many others.
     \end{lemma}
     \begin{proof}
-        
+        Fix $H\in\mc{H}_\textrm{cvx}(X)$. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, a half-space $K$ non-nested with $H$ corresponds uniquely to a pair $(x,y)\in\del_\mathsf{ie}H$ with $x,y\in\del_\mathsf{iv}K$ forming one side of a square, so there are finitely-many such half-spaces $K$ iff the hyperplane $\del_\mathsf{ie}H$ is finite.
     \end{proof}
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
