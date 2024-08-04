@@ -424,6 +424,13 @@
         Conversely, the half-spaces cutting the square are clearly non-nested.
     \end{proof}
 
+    \begin{lemma}\label{lem:finite_hyperplane_iff_non-nested_with_finitely-many}
+        A median graph $(X,G)$ has finite hyperplanes iff each half-space $H\in\mc{H}_\mathrm{cvx}(X)$ is non-nested with finitely-many others.
+    \end{lemma}
+    \begin{proof}
+        By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, a half-space $K$ non-nested with $H$ corresponds uniquely to a pair $(x,y)\in\del_\mathsf{ie}H$ with $x,y\in\del_\mathsf{iv}K$, so there are finitely-many such half-spaces $K$ iff $\del_\mathsf{ie}H$ is finite.
+    \end{proof}
+
     \begin{lemma}[Helly]\label{lem:helly}
         Any finite intersection of pairwise-intersecting non-empty convex sets is non-empty.
     \end{lemma}
@@ -467,13 +474,6 @@
     This lemma is crucial, in that it induces an isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$. Indeed, $\mc{H}$ is finitely-separating by Lemma \ref{lem:finitely_separating_iff_on_boundary_of_finite} and Proposition \ref{prp:half-spaces_are_cones}, and so $\mc{U}^\circ(\mc{H})$ is the vertices of the median graph $\mc{M}(\mc{H})$ by Lemma \ref{lem:finitely-separating_non-trivial_isolated} and Proposition \ref{prp:construction_of_dual_median_graph}. The fibers of $X\to\mc{U}^\circ(\mc{H})$ are the $\mc{H}$-blocks, so we have the desired bijection.
 
     Explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are said to be \textit{$G$-adjacent} if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$.
-
-    \begin{lemma}\label{lem:finite_hyperplane_iff_non-nested_with_finitely-many}
-        A median graph $(X,G)$ has finite hyperplanes iff each half-space $H\in\mc{H}_\mathrm{cvx}(X)$ is non-nested with finitely-many others.
-    \end{lemma}
-    \begin{proof}
-        By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, a half-space $K$ non-nested with $H$ corresponds uniquely to a pair $(x,y)\in\del_\mathsf{ie}H$ with $x,y\in\del_\mathsf{iv}K$, so there are finitely-many such half-spaces $K$ iff $\del_\mathsf{ie}H$ is finite.
-    \end{proof}
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
         Every countable median graph with finite hyperplanes admits a canonical spanning tree.
