@@ -436,7 +436,7 @@
     Lastly, we have some useful finiteness conditions on convex half-spaces; the former implies that $\mc{H}_\textrm{cvx}(X)$ is finitely-separating, and the latter allows us to replace finite sets with their convex hulls.
 
     \begin{lemma}\label{lem:half_space_separating_convex}
-        Any two disjoint convex sets $\em\neq A,B\subseteq X$ can be separated by a half-space $A\subseteq H\subseteq\lnot B$, and furthermore we have in this case that $d(A,B)=|\!\l\{H\in\mc{H}_\mathrm{cvx}(X)\st A\subseteq H\subseteq\lnot B\r\}\!|$.
+        Any two disjoint convex sets $\em\neq A,B\subseteq X$ can be separated by a half-space $A\subseteq H\subseteq\lnot B$, and furthermore we have $d(A,B)=|\!\l\{H\in\mc{H}_\mathrm{cvx}(X)\st A\subseteq H\subseteq\lnot B\r\}\!|$.
     \end{lemma}
     \begin{proof}
         Pick a geodesic $A\ni x_0Gx_1G\cdots Gx_n\in B$, where $n\coloneqq d(A,B)$. Then $H\coloneqq\cone_{x_1}(x_0)$, which is a half-space by Lemma \ref{lem:cones_are_convex}, separates $A,B$ since $x_0=\proj_A(x_n)$, and thus we have $A\subseteq\cone_{x_n}(x_0)\subseteq\cone_{x_1}(x_0)$ and $B\subseteq\cone_{x_0}(x_n)\subseteq\cone_{x_0}(x_1)$.
@@ -464,7 +464,7 @@
         Let $U\in\mc{U}^\circ(\mc{H})$. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ $-$ which we may assume to be convex by Corollary \ref{cor:convex_of_finite_is_finite} $-$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $K\in U$ with $H\cap A=K\cap A$. Note that $K\cap A\neq\em$ for every $K\in U$, since otherwise $\em\in U$. Furthermore, $H\cap K\neq\em$ for every $H,K\in U$, since otherwise we have $H\subseteq\lnot K$, and so $\lnot K\in U$. By Lemma \ref{lem:helly}, we have $(H\cap A)\cap(K\cap A)=H\cap K\cap A\neq\em$, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$; note that the latter intersection is finite. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
     \end{proof}
 
-    This lemma is crucial, in that it induces an isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$. Here, $\mc{H}$ is finitely-separating by Lemma \ref{lem:finitely_separating_iff_on_boundary_of_finite} and Proposition \ref{prp:half-spaces_are_cones}, and so $\mc{U}^\circ(\mc{H})$ is the vertices of the median graph $\mc{M}(\mc{H})$ by Lemma \ref{lem:finitely-separating_non-trivial_isolated} and Proposition \ref{prp:construction_of_dual_median_graph}. The fibers of $X\to\mc{U}^\circ(\mc{H})$ are the $\mc{H}$-blocks, so we have the desired bijection.
+    This lemma is crucial, in that it induces an isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$. Indeed, $\mc{H}$ is finitely-separating by Lemma \ref{lem:finitely_separating_iff_on_boundary_of_finite} and Proposition \ref{prp:half-spaces_are_cones}, and so $\mc{U}^\circ(\mc{H})$ is the vertices of the median graph $\mc{M}(\mc{H})$ by Lemma \ref{lem:finitely-separating_non-trivial_isolated} and Proposition \ref{prp:construction_of_dual_median_graph}. The fibers of $X\to\mc{U}^\circ(\mc{H})$ are the $\mc{H}$-blocks, so we have the desired bijection.
 
     Explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are said to be \textit{$G$-adjacent} if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$.
 
