@@ -143,7 +143,7 @@
 
         To this end, note that $\widehat{f}(p)\in\widehat{B}$ iff $p\in\widehat{f^{-1}(B)}$. Since $p\in\widehat{A}$, the latter can occur if $|A\symdiff f^{-1}(B)|<\infty$, and so we need to find such a $B\in\mc{H}_{\del<\infty}(Y)$ with the additional property that $f^{-1}(B)\subseteq A$.
         \begin{leftbar}
-            \textit{Attempt 1.} Set $B\coloneqq g^{-1}(A)\in\mc{H}_{\del<\infty}(Y)$. Then $f^{-1}(B)\subseteq\Ball_D(A)$ since if $(g\circ f)(x)\in A$, then
+        \textit{Attempt 1.} Set $B\coloneqq g^{-1}(A)\in\mc{H}_{\del<\infty}(Y)$. Then $f^{-1}(B)\subseteq\Ball_D(A)$ since if $(g\circ f)(x)\in A$, then
                 \begin{equation*}
                     d(x,A)\leq d(x,(g\circ f)(x))\leq d(1_X,g\circ f)=D.
                 \end{equation*}
@@ -486,17 +486,23 @@
         Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\textrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. For each $G$-adjacent pair $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space $H\in\mc{H}_n$ by Lemma \ref{lem:half_space_separating_convex}, we may pick an edge from the \textit{finite} hyperplane $\del_\mathsf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
     \end{proof}
 
-    To apply this proposition to the dual median graph $\mc{M}(\mc{H})$ of a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\textrm{conn}$ of finitely-separating cuts, by Lemma \ref{lem:finite_hyperplane_iff_non-nested_with_finitely-many}, it suffices to show that each half-space in $\mc{H}_\mathrm{cvx}(\mc{M}(\mc{H}))$ is non-nested with finitely-many others. However, given that $\mc{H}$ is finitely-separating, each $H\in\mc{H}$ is non-nested with finitely-others by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, so the following suffices.
+    To apply this proposition to the dual median graph $\mc{M}(\mc{H})$ of a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\textrm{conn}$ of finitely-separating cuts, by Lemma \ref{lem:finite_hyperplane_iff_non-nested_with_finitely-many}, it suffices to show that each half-space in $\mc{H}_\mathrm{cvx}(\mc{M}(\mc{H}))$ is non-nested with finitely-many others. However, given that $\mc{H}$ is finitely-separating, so that each $H\in\mc{H}$ is non-nested with finitely-others by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, we need to transfer this result from $\mc{H}$ to $\mc{H}_\textrm{cvx}(\mc{M}(\mc{H}))$.
     
     \begin{lemma}
-        Fix a half-space $K\in\mc{H}_\mathrm{cvx}(\mc{M}(\mc{H}))$. Then there is a unique $H\in\mc{H}$ such that
+        Fix a half-space $K\in\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$. Then there is a unique $H\in\mc{H}^\ast$ such that
         \begin{equation*}
-            K=\widehat{H}\coloneqq\l\{W\in\mc{U}^\circ(\mc{H})\st W\in H\r\},
+            K=\widehat{H}\coloneqq\l\{W\in\mc{U}^\circ(\mc{H})\st H\in W\r\},
         \end{equation*}
-        and if $K'\in\mc{H}_\mathrm{cvx}(\mc{M}(\mc{H}))$ is non-nested with $K$, say with $K'=\widehat{H}'$, then $H'$ is non-nested with $H$.
+        and if $K'\in\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$ is non-nested with $K$, say with $K'=\widehat{H}'$, then $H'$ is non-nested with $H$.
     \end{lemma}
     \begin{proof}
-        
+        We claim that for any $(U,V)\in\del_\mathsf{ie}K$, we have  $V\comp U=\l\{H\r\}$ iff $K=\widehat{H}$.
+        \begin{leftbar}
+            Indeed, we have $H=\cone_U(V)$ by Proposition \ref{prp:half-spaces_are_cones}, so for all $W\in\mc{U}^\circ(\mc{H})$, we have $W\in K$ iff $V\in[W,U]$, which by (the proof of) Proposition \ref{prp:construction_of_dual_median_graph}, occurs iff $(W\comp V)\cup(V\comp U)\subseteq W\comp U$. If $V\comp U=\l\{H\r\}$, then the latter is equivalent to $H\in W$, so we have $K=\widehat{H}$. Conversely, if $K=\widehat{H}$, then we have $V\comp U\in K$ by the above, so $H\in V\comp U$. Since $U,V$ are adjacent, we have $V\comp U=\l\{H\r\}$ as desired.
+        \end{leftbar}
+        This gives existence, since $V\comp U$ is a singleton for any such $(U,V)$ by Proposition \ref{prp:construction_of_dual_median_graph}, and uniqueness follows too since if $\widehat{H}=K=\widehat{H}'$, then any $(U,V)\in\del_\mathsf{ie}K$ has $V\comp U=\l\{H\r\}=\l\{H'\r\}$.
+
+        Finally, 
     \end{proof}
 
     \begin{bibdiv}
