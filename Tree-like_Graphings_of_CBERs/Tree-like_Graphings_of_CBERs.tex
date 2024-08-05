@@ -8,7 +8,7 @@
     \date{\today}
 
     \begin{abstract}
-        We present a streamlined exposition of a construction presented recently by R. Chen, A. Poulin, R. Tao, and A. Tserunyan, where it is proven that every locally-finite Borel graph with each component a quasi-tree induces a canonical treeable equivalence relation. {\color{red}{Write some more details...}}
+        We present a streamlined exposition of a construction presented recently by R. Chen, A. Poulin, R. Tao, and A. Tserunyan, where it is proven that every locally-finite Borel graph with each component a quasi-tree induces a canonical treeable equivalence relation. {\color{red}Write some more details...}
     \end{abstract}
 
     \maketitle
@@ -35,7 +35,7 @@
         \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ is separated by finitely-many $H\in\mc{H}(C)$, and
         \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
     \end{enumerate}
-    By Condition (1), these cuts have the structure of a profinite pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} thereof. Condition (2) then ensures that this graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree. Each step above can be done in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
+    By Condition (1), these cuts have the structure of a profinite pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} thereof. This median graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree. Condition (2) ensures that such a spanning tree can be constructed in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
     \begin{equation*}
         \textrm{Quasi-tree}
             \ \ \overset{\ref{sec:graphs_with_dense_family_of_cuts}}{\longrightarrow}\ \ 
@@ -62,7 +62,7 @@
         \end{gathered}
     \end{equation*}
 
-    {\color{red}{Write some more stuff to tie things together...}}
+    {\color{red}Write some more stuff to tie things together...}
 
     \begin{remark*}
         We follow \cite{CPTT23}*{Convention 2.7}, where for a family $\mc{H}\subseteq2^X$ of subsets of a fixed set $X$, we write $\mc{H}^\ast\coloneqq\mc{H}\comp\l\{\em,X\r\}$ for the \textit{non-trivial} elements of $\mc{H}$.
@@ -210,7 +210,7 @@
 
     In particular, if $(X,G)$ is locally-finite, then $\mc{H}_{\diam(\del)\leq R}(X)$ for any fixed $R<\infty$ (see Section \ref{sec:dense_cuts_induced_by_quasi-trees}) is finitely-separating. Indeed, since the $R$-ball around any fixed $x\in X$ is finite, any $H\in\mc{H}_{\diam(\del)\leq R}(X)$ with $x\in\del_\mathsf{v}H$ is contained in said $R$-ball, so there are finitely-many such half-spaces.
 
-    This example, in tandem with Corollary \ref{cor:density_of_bounded_diameter_boundary_cuts_quasi_tree}, gives us, for each component $C\subseteq X$ of a quasi-treeing $G$ of a CBER, a family of cuts $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\textrm{conn}(C)$ which is finitely-separating and dense towards ends of $G|C$ for some $R_C<\infty$. We use the former condition in Section \ref{sec:the_dual_median_graph_of_a_pocset} to construct a `median graph' $\mc{M}(\mc{H}(C))$, and use the latter to provide restrictions on $\mc{H}(C)$, and hence on $\mc{M}(\mc{H}(C))$ too, in Section \ref{sec:finiteness_conditions_on_pocsets_dense_cuts}. The conditions on $\mc{M}(\mc{H}(C))$ then allows us to \textit{canonically} construct a spanning tree thereof; we do so in Section \ref{sec:cycle_cutting_algorithm}, and prove in Section {\color{red}{???}} that this is the desired treeing of the CBER.
+    This example, in tandem with Corollary \ref{cor:density_of_bounded_diameter_boundary_cuts_quasi_tree}, gives us, for each component $C\subseteq X$ of a quasi-treeing $G$ of a CBER, a family of cuts $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\textrm{conn}(C)$ which is finitely-separating and dense towards ends of $G|C$ for some $R_C<\infty$. We use the former condition in Section \ref{sec:the_dual_median_graph_of_a_pocset} to construct a `median graph' $\mc{M}(\mc{H}(C))$, and use the latter to provide restrictions on $\mc{H}(C)$, and hence on $\mc{M}(\mc{H}(C))$ too, in Section \ref{sec:finiteness_conditions_on_pocsets_dense_cuts}. The conditions on $\mc{M}(\mc{H}(C))$ then allows us to \textit{canonically} construct a spanning tree thereof; we do so in Section \ref{sec:cycle_cutting_algorithm}, and prove in Section {\color{red}???} that this is the desired treeing of the CBER.
 
     \subsection{Finiteness conditions on $\mc{H}$ induced by dense cuts}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
 
@@ -221,7 +221,7 @@
     \end{definition}
 
     \begin{lemma}\label{lem:connected_cuts_non_nested_finitely_others}
-        Each $H\in\mc{H}$ is non-nested with finitely-many $K\in\mc{H}$.
+        Each $H\in\mc{H}$ is non-nested with finitely-many others.
     \end{lemma}
     \begin{proof}
         Fix $H\in\mc{H}$ and let $K\in\mc{H}$ be non-nested with $H$. By connectedness, the non-empty sets $H\cap K$ and $\lnot H\cap K$ are joined by a path in $K$, so $\del_\mathsf{v}H\cap K\neq\em$; similarly, $\del_\mathsf{v}H\cap\lnot K\neq\em$. For each $x\in\del_\mathsf{v}H\cap K$ and $y\in\del_\mathsf{v}H\cap\lnot K$, any fixed path $p_{xy}$ between them contains some $z\in\del_\mathsf{v}K\cap p_{xy}$; thus, any $K\in\mc{H}$ non-nested with $H$ contains some $z\in\del_\mathsf{v}K\cap p_{xy}$.
@@ -230,15 +230,13 @@
     \end{proof}
 
     \begin{proposition}\label{prp:dense_cuts_induces_proper_walling}
-        If $\mc{H}$ is dense towards ends, then each $\mc{H}$-block is finite and each $H\in\mc{H}^\ast$ has finitely-many successors $K\in\mc{H}^\ast$.
+        If $\mc{H}$ is dense towards ends, then each $\mc{H}$-block is finite and each $H\in\mc{H}^\ast$ has finitely-many successors.
     \end{proposition}
     \begin{proof}
-        
+        {\color{red}TODO.}
     \end{proof}
 
     \section{The Dual Median Graph of a Profinite Pocset}\label{sec:the_dual_median_graph_of_a_pocset}
-
-    % \subsection{The dual median graph of a pocset}
 
     Let $\mc{H}$ be a profinite subpocset with every non-trivial element isolated; say, if $\mc{H}$ is finitely-separating, and in particular the cuts $\mc{H}_{\diam(\del)\leq R}(X)$ for some locally-finite connected graph $(X,G)$. We present a classical construction in geometric group theory (see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for other applications) of a `tree-like' graph associated to such a pocset.
     
@@ -428,7 +426,7 @@
         A median graph $(X,G)$ has finite hyperplanes iff each half-space $H\in\mc{H}_\mathrm{cvx}(X)$ is non-nested with finitely-many others.
     \end{lemma}
     \begin{proof}
-        By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, a half-space $K$ non-nested with $H$ corresponds uniquely to a pair $(x,y)\in\del_\mathsf{ie}H$ with $x,y\in\del_\mathsf{iv}K$, so there are finitely-many such half-spaces $K$ iff $\del_\mathsf{ie}H$ is finite.
+        By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, a half-space $K$ non-nested with $H$ corresponds uniquely to an edge $(x,y)\in\del_\mathsf{ie}H$ with $x,y\in\del_\mathsf{iv}K$, so there are finitely-many such half-spaces $K$ iff $\del_\mathsf{ie}H$ is finite.
     \end{proof}
 
     \begin{lemma}[Helly]\label{lem:helly}
