@@ -405,29 +405,17 @@
 
     \subsection{The dual median graph of a profinite pocset}\label{sec:the_dual_median_graph_of_a_pocset}
 
-    Let $\mc{H}$ be a profinite subpocset with every non-trivial element isolated; say, if $\mc{H}$ is finitely-separating, and in particular the cuts $\mc{H}_{\diam(\del)\leq R}(X)$ for some locally-finite connected graph $(X,G)$. We present a classical construction in geometric group theory (see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for other applications) of a `tree-like' graph associated to such a pocset.
+    We now present a classical construction in geometric group theory (see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for other applications) of a `tree-like' graph associated to a profinite pocset $\mc{H}$ with every non-trivial element isolated. In the context of Theorem \ref{thm:treeing_quasi-trees}, this will be applied to the pocset $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\textrm{conn}(X)$ of cuts in a locally-finite graph $(X,G)$, and is also the first step in the construction in Theorem \ref{thm:component-wise_construction}.
     
     \begin{definition}\label{def:orientation}
         An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$ and let $\mc{U}^\circ(\mc{H})$ denote the clopen ones.
-    \end{definition}
 
-    Intuitively, an orientation is a `maximally consistent' choice of half-spaces\footnote{This can be formalized by letting $\sim$ be the equivalence relation on $\mc{H}$ given by $H\sim\lnot H$. Letting $\del:\mc{H}\to\mc{H}/\!\!\sim$ denote the quotient map, orientations $U\subseteq\mc{H}$ then correspond precisely to sections $\phi:\mc{H}/\!\!\sim\,\to\mc{H}$ of $\del$ such that $\phi(\del H)\not\subseteq\lnot\phi(\del K)$ for every $H,K\in\mc{H}$; the latter condition rules out `orientations' of the form $\leftarrow\hspace{-4.15pt}|\,\,|\hspace{-4.15pt}\rightarrow$.}.
+        Intuitively, an orientation is a `maximally consistent' choice of half-spaces\footnote{This can be formalized by letting $\sim$ be the equivalence relation on $\mc{H}$ given by $H\sim\lnot H$. Letting $\del:\mc{H}\to\mc{H}/\!\!\sim$ denote the quotient map, orientations $U\subseteq\mc{H}$ then correspond precisely to sections $\phi:\mc{H}/\!\!\sim\,\to\mc{H}$ of $\del$ such that $\phi(\del H)\not\subseteq\lnot\phi(\del K)$ for every $H,K\in\mc{H}$; the latter condition rules out `orientations' of the form $\leftarrow\hspace{-4.15pt}|\,\,|\hspace{-4.15pt}\rightarrow$.}.
+    \end{definition}
 
     \begin{example}
         Each $x\in X$ induces its \textit{principal orientation} $\widehat{x}\coloneqq\l\{H\in\mc{H}\st x\in H\r\}=\mc{H}\cap\pi^{-1}_x(1)$ $-$ which is clearly clopen in $\mc{H}$ $-$ and gives us a canonical map $X\to\mc{U}^\circ(\mc{H})$. However, this map is \textit{not necessarily} injective, and we call a fiber $[x]_\mc{H}\coloneqq\l\{y\in X\st\widehat{x}=\widehat{y}\r\}$ thereof an \textit{$\mc{H}$-block}.
     \end{example}
-
-    The goal of this section is to canonically construct a graph whose vertices are clopen orientations on $\mc{H}$.
-
-    \begin{definition}
-        A \textit{median graph} is a connected graph $(X,G)$ such that for any $x,y,z\in X$, the intersection
-        \begin{equation*}
-            [x,y]\cap[y,z]\cap[x,z]
-        \end{equation*}
-        is a singleton, whose element $\l\langle x,y,z\r\rangle$ is called the \textit{median} of $x,y,z$. Thus we have a ternary median operation $\l\langle\cdot,\cdot,\cdot\r\rangle:X^3\to X$, and a \textit{median homomorphism} $f:(X,G)\to(Y,H)$ is a map preserving said operation.
-    \end{definition}
-
-    Some basic properties of median graphs are given in Section \ref{sec:convex_half-spaces_of_median_graphs}. For more comprehensive references and their general theory, see \cite{Rol98} and \cite{Bow22}.
 
     \begin{proposition}\label{prp:construction_of_dual_median_graph}
         Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in U\comp\l\{\em,X\r\}$, is a median graph with path metric $d(U,V)=|U\symdiff V|/2$ and medians
