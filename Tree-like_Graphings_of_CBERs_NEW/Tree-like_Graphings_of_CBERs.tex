@@ -399,9 +399,9 @@
     \end{proof}
 
     
-    Since $(X,G)$ is locally-finite, the $R$-ball around any fixed $x\in X$ is finite, so any $H\in\mc{H}_{\diam(\del)\leq R}(X)$ with $x\in\del_\mathsf{v}H$ is contained in said $R$-ball. Thus, by the above lemma, $\mc{H}_{\diam(\del)\leq R}(X)$ is finitely-separating.
+    Since $(X,G)$ is locally-finite, the $R$-ball around any fixed $x\in X$ is finite, so any $H\in\mc{H}_{\diam(\del)\leq R}(X)$ with $x\in\del_\mathsf{v}H$ is contained in said $R$-ball. Thus, by the above lemma, $\mc{H}_{\diam(\del)\leq R}(X)$ is finitely-separating, and hence we have by Lemma \ref{lem:finitely-separating_non-trivial_isolated_connected} that $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\textrm{conn}(X)$ is closed in $2^X$ and every non-trivial element is isolated. The latter condition allows for the construction in Theorem \ref{thm:component-wise_construction} to continue.
 
-    This example, in tandem with Corollary \ref{cor:density_of_bounded_diameter_boundary_cuts_quasi_tree}, gives us, for each component $C\subseteq X$ of a quasi-treeing $G$ of a CBER, a family of cuts $\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\textrm{conn}(C)$ which is finitely-separating and dense towards ends of $G|C$ for some $R_C<\infty$. The former condition allows Theorem \ref{thm:component-wise_construction} to be applied, and the latter ensures that this construction is Borel.
+    % This example, in tandem with Corollary \ref{cor:density_of_bounded_diameter_boundary_cuts_quasi_tree}, gives us, for each component $C\subseteq X$ of a quasi-treeing $G$ of a CBER, a family of cuts $\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\textrm{conn}(C)$ which is finitely-separating and dense towards ends of $G|C$ for some $R_C<\infty$. The former condition allows Theorem \ref{thm:component-wise_construction} to be applied, and the latter ensures that this construction is Borel.
 
     \subsection{The dual median graph of a profinite pocset}\label{sec:the_dual_median_graph_of_a_pocset}
 
@@ -429,21 +429,17 @@
 
     \begin{proof}
         First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ are isolated (whence $\l\{H\r\},\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V\not\ni\em,X$ is clopen, so it is a compact set of isolated points, whence finite.
-        \begin{center}
-            \begin{minipage}{0.95\textwidth}
-                \begin{claim*}[\cite{Sag95}*{Theorem 3.3}]
-                    There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case
-                    \begin{equation*}
-                        d(U,V)=|U\symdiff V|/2=|U\comp V|=|V\comp U|.
-                    \end{equation*}
-                \end{claim*}
-                \begin{proof}
-                    If $(U_i)_{i<n}$ is a path from $U\eqqcolon U_0$ to $V\eqqcolon U_{n-1}$, then, letting $\l\{H_i,\lnot H_i\r\}\coloneqq U_i\symdiff U_{i-1}$ for all $1\leq i<n$ gives us a sequence $(H_i)_{i<n}$ inducing\footnote{In the sense that $U_i=U_{i-1}\symdiff\l\{H_i,\lnot H_i\r\}$ and $H_i\in U_i$ for each $1\leq i<n$; see \cite{Tse20}*{Definition 2.20}.} this path, whence $U\symdiff V$ consists of $\l\{H_i\r\}_{i<n}$ and their complements. Thus $U\symdiff V=2n=2d(U,V)$, as desired.
+        \begin{claim*}[\cite{Sag95}*{Theorem 3.3}]
+            There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case
+            \begin{equation*}
+                d(U,V)=|U\symdiff V|/2=|U\comp V|=|V\comp U|.
+            \end{equation*}
+        \end{claim*}
+        \begin{proof}
+            If $(U_i)_{i<n}$ is a path from $U\eqqcolon U_0$ to $V\eqqcolon U_{n-1}$, then, letting $\l\{H_i,\lnot H_i\r\}\coloneqq U_i\symdiff U_{i-1}$ for all $1\leq i<n$ gives us a sequence $(H_i)_{i<n}$ inducing\footnote{In the sense that $U_i=U_{i-1}\symdiff\l\{H_i,\lnot H_i\r\}$ and $H_i\in U_i$ for each $1\leq i<n$; see \cite{Tse20}*{Definition 2.20}.} this path, whence $U\symdiff V$ consists of $\l\{H_i\r\}_{i<n}$ and their complements. Thus $U\symdiff V=2n=2d(U,V)$, as desired.
 
-                    \hspace{0.2in}Conversely, if $U\symdiff V=\l\{H_1,\dots,H_n\r\}\sqcup\l\{K_1,\dots,K_m\r\}$ with $U\comp V=\l\{H_i\r\}$ and $V\comp U=\l\{K_j\r\}$, then $\lnot H_i\in V\comp U$ and $\lnot K_j\in U\comp V$ for all $i<n$ and $j<m$, so $n=m$ and $V=U\cup\l\{\lnot H_i\r\}\comp\l\{H_i\r\}$. We claim that there is a permutation $\sigma\in S_n$ such that $(H_{\sigma(i)})$ induces a path from $U\eqqcolon U_0$, which is the desired path from $U$ to $V$. Choose a minimal $H\in\l\{H_i\r\}$, which is also minimal in $U$: if $K\subseteq H$ for some $K\in U$, then $\lnot H\subseteq\lnot K$, and hence $\lnot K\in V$, so $K=H_i\subseteq H$ for some $i$, forcing $K=H$. Set $U_1\coloneqq U\symdiff\l\{H,\lnot H\r\}$, which is a clopen orientation. Continuing in this manner by choosing a minimal element in $\l\{H_i\r\}\comp\l\{H\r\}$ $-$ and so on $-$ gives us the desired path with $d(U,V)=n$.\phantom\qedhere\hfill$\square$
-                \end{proof}
-            \end{minipage}
-        \end{center}
+            \hspace{0.2in}Conversely, if $U\symdiff V=\l\{H_1,\dots,H_n\r\}\sqcup\l\{K_1,\dots,K_m\r\}$ with $U\comp V=\l\{H_i\r\}$ and $V\comp U=\l\{K_j\r\}$, then $\lnot H_i\in V\comp U$ and $\lnot K_j\in U\comp V$ for all $i<n$ and $j<m$, so $n=m$ and $V=U\cup\l\{\lnot H_i\r\}\comp\l\{H_i\r\}$. We claim that there is a permutation $\sigma\in S_n$ such that $(H_{\sigma(i)})$ induces a path from $U\eqqcolon U_0$, which is the desired path from $U$ to $V$. Choose a minimal $H\in\l\{H_i\r\}$, which is also minimal in $U$: if $K\subseteq H$ for some $K\in U$, then $\lnot H\subseteq\lnot K$, and hence $\lnot K\in V$, so $K=H_i\subseteq H$ for some $i$, forcing $K=H$. Set $U_1\coloneqq U\symdiff\l\{H,\lnot H\r\}$, which is a clopen orientation. Continuing in this manner by choosing a minimal element in $\l\{H_i\r\}\comp\l\{H\r\}$ $-$ and so on $-$ gives us the desired path with $d(U,V)=n$.\phantom\qedhere\hfill$\square$
+        \end{proof}
         Finally, we show that $\mc{M}(\mc{H})$ is a median graph. Fix $U,V,W\in\mc{U}^\circ(\mc{H})$, and note that for any $M\in\mc{U}^\circ(\mc{H})$, we have by the triangle inequality that $M\in[U,V]$ iff $(U\comp M)\cup(M\comp V)\subseteq U\comp V$, which clearly occurs iff $U\cap V\subseteq M\subseteq U\cup V$. Thus, a vertex $M$ lies in the triple intersection $[U,V]\cap[V,W]\cap[U,W]$ iff
         \begin{equation*}
             (U\cap V)\cup(V\cap W)\cup(U\cap W)\subseteq M\subseteq(U\cup V)\cap(V\cup W)\cap(U\cup W).
