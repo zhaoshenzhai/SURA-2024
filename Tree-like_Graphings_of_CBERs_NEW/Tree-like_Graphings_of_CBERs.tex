@@ -81,7 +81,7 @@
 
     \subsection{Profinite pocsets}\label{sec:pocsets_of_cuts}
 
-    The construction starts by identifying a profinite pocset $\mc{H}$ of `cuts' in the graph, which we first study abstractly.
+    The construction starts by identifying a profinite pocset $\mc{H}$ of `cuts' in the graph, which we first study abstractly. The finitely-separating subpocsets of $2^X$ are well-known in metric geometry as \textit{wallspaces}; see, e.g., \cite{Nic04} and \cite{CN05}.
 
     \begin{definition}\label{def:profinite_pocset}
         A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$. We call the elements in $\mc{H}$ \textit{half-spaces}.
@@ -135,7 +135,7 @@
         In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$.
     \end{definition}
 
-    % The goal of this section is to show that certain cuts $\mc{H}\subseteq\mc{H}_{\del<\infty}$ induced in a (locally-finite) quasi-tree is dense towards ends. It will also be important that these cuts be connected, in that witnesses to density can also be found in $\mc{H}\cap\mc{H}_\textrm{conn}$, consisting of those cuts that are connected and co-connected.
+    We show in Section \ref{sec:dense_cuts_induced_by_quasi-trees} that certain cuts $\mc{H}\subseteq\mc{H}_{\del<\infty}$ induced by a locally-finite quasi-tree is dense towards ends. It will also be important that these cuts be connected, in that witnesses to density can also be found in $\mc{H}\cap\mc{H}_\textrm{conn}$, consisting of those cuts that are connected and co-connected.
 
     \begin{lemma}\label{lem:connected_witness_to_density}
         If a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is dense towards ends, then there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$, which is also dense towards ends, such that every $H'\in\mc{H}'$ has $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}$.
@@ -181,7 +181,9 @@
 
     \subsection{Median graphs and projections}
 
-    If $\mc{H}\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\textrm{conn}$ is a pocset of cuts with every non-trivial element isolated, 
+    Starting from a finitely-separating profinite pocset $\mc{H}$, we construct in Section \ref{sec:the_dual_median_graph_of_a_pocset} its dual median graph $\mc{M}(\mc{H})$; the rigidity of certain half-spaces therein can then be leveraged to construct a canonical spanning tree.
+
+    For more comprehensive references, and their general theory, see \cite{Rol98} and \cite{Bow22}.
 
     \begin{definition}
         A \textit{median graph} is a connected graph $(X,G)$ such that for any $x,y,z\in X$, the intersection
@@ -228,7 +230,9 @@
         Finally, take $z\in X$ and consider $w\coloneqq\l\langle x,y,z\r\rangle\subseteq[x,y]$. Either $w=x$ or $w=y$ (but not both), giving us the desired partition.
     \end{proof}
 
-    In particular, this shows that if $xGy$, then $\cone_x(y)\in\mc{H}^\ast_\textrm{cvx}(X)$. The convexity of cones also shows, in the situation of Lemma \ref{lem:projections}, that $\proj_A=\proj_{\cvx(A)}$, i.e., $\proj_A(x)$ is also between $x$ and every point in $\cvx(A)$. Indeed, note that $\cone_x(\proj_A(x))$ is convex and contains $A$, so it contains $\cvx(A)$ too.
+    \begin{remark}\label{rem:projection_between_point_in_convex}
+        In particular, this shows that if $xGy$, then $\cone_x(y)\in\mc{H}^\ast_\textrm{cvx}(X)$. The convexity of cones also shows, in the situation of Lemma \ref{lem:projections}, that $\proj_A=\proj_{\cvx(A)}$, i.e., $\proj_A(x)$ is also between $x$ and every point in $\cvx(A)$: indeed, note that $\cone_x(\proj_A(x))$ is convex and contains $A$, so it contains $\cvx(A)$ too.
+    \end{remark}
 
     \begin{lemma}\label{lem:projection_homomorphism}
         $\proj_A:X\onto\cvx(A)$ is a median homomorphism with $\proj_A\circ\cvx=\cvx\circ\proj_A$.
@@ -248,7 +252,7 @@
         \begin{equation*}
             \begin{aligned}
                 w\in[\proj_A(y),x]\cap[\proj_A(y),z]&=[\proj_A(y),\proj_{\l\{x,z\r\}}(\proj_A(y))]\ \ \ \ && \textrm{Lemma \ref{lem:projections}} \\
-                                                    &=[\proj_A(y),\proj_{\l[x,z\r]}(\proj_A(y))] \\
+                                                    &=[\proj_A(y),\proj_{\l[x,z\r]}(\proj_A(y))]\ \ \ \ &&\textrm{Remark \ref{rem:projection_between_point_in_convex}} \\
                                                     &\subseteq[\proj_A(y),y],\ \ \ \ && \textrm{Lemma \ref{lem:projections}}
             \end{aligned}
         \end{equation*}
@@ -267,7 +271,7 @@
     \begin{proof}
         We have $\cone_x(y)\in\mc{H}_\textrm{cvx}^\ast(X)$ by the above lemma, and clearly $(x,y)\in\del_\mathsf{ie}\cone_x(y)$. Conversely, take $H\in\mc{H}_\textrm{cvx}^\ast(X)$ and any $(x,y)\in\del_\mathsf{ie}H$. Then $H=\cone_x(y)$, for if $z\in H\cap\lnot\cone_x(y)$, then $z\in\cone_y(x)$, and hence $x\in[y,z]\subseteq H$ by convexity of $H$, a contradiction; if $z\in\cone_x(y)\cap\lnot H$, then $[x,z]\subseteq\lnot H$ by convexity of $\lnot H$, and hence $y\not\in H$, a contradiction.
 
-        Finally, parallel edges of a strip of squares generate the same hyperplane since, for a given square, each vertex is between its neighbors and hence any hyperplane containing an edge contains its opposite edge. On the other hand, let $(a,b),(c,d)\in\del_\mathsf{ie}H$ for some $H\in\mc{H}_\textrm{cvx}^\ast(X)$. Note that $\del_\mathsf{ov}H=\proj_{\lnot H}(H)$ is convex since $H$ is, and $\proj_{\lnot H}$ preserves convexity by Proposition \ref{lem:projection_homomorphism}, so any geodesic between $a,c\in\del_\mathsf{ov}H$ lies in $\del_\mathsf{ov}H$. Matching this geodesic via $\del_\mathsf{ie}H:\del_\mathsf{ov}H\to\del_\mathsf{iv}H$ gives us a geodesic between $b,d$ in $\del_\mathsf{iv}H$, which together with the matching forms the desired strip of squares.
+        Finally, parallel edges of a strip of squares generate the same hyperplane since, for a given square, each vertex is between its neighbors and hence any hyperplane containing an edge contains its opposite edge. On the other hand, let $(a,b),(c,d)\in\del_\mathsf{ie}H$ for some $H\in\mc{H}_\textrm{cvx}^\ast(X)$. Note that $\del_\mathsf{ov}H=\proj_{\lnot H}(H)$ is convex since $H$ is, and since $\proj_{\lnot H}$ preserves convexity by Lemma \ref{lem:projection_homomorphism}, any geodesic between $a,c\in\del_\mathsf{ov}H$ lies in $\del_\mathsf{ov}H$. Matching this geodesic via $\del_\mathsf{ie}H:\del_\mathsf{ov}H\to\del_\mathsf{iv}H$ gives us a geodesic between $b,d$ in $\del_\mathsf{iv}H$, which together with the matching forms the desired strip of squares.
     \end{proof}
 
     \begin{corollary}\label{cor:non-nested_iff_embedding_of_hamming}
