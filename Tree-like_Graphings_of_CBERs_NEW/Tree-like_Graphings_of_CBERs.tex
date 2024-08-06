@@ -72,7 +72,7 @@
 
         For a subset $A\subseteq X$, we let $\del_\mathsf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\mathsf{ov}A\coloneqq\del_\mathsf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\mathsf{ie}A\coloneqq G\cap(\del_\mathsf{ov}A\times\del_\mathsf{iv}A)$ and $\del_\mathsf{oe}A\coloneqq\del_\mathsf{ie}(\lnot A)$ respectively be its \textit{inner} and \textit{outer edge boundaries}. Let $\del_\mathsf{v}A\coloneqq\del_\mathsf{iv}A\cup\del_\mathsf{ov}A$ be the \textit{(total) vertex boundary} of $A$.
 
-        Finally, for $x,y\in X$, the \textit{interval} between $x,y$ is the union of all geodesics between $x,y$, which consists of exactly those $z\in X$ with $d(x,z)+d(z,y)=d(x,y)$, and is denoted by $[x,y]$. For vertices $x,y,z\in X$, we write $x\-y\-z$ for $y\in[x,z]$. By the triangle inequality, we have for all $w,x,y,z\in X$ that
+        Finally, for $x,y\in X$, the \textit{interval} $[x,y]$ between $x,y$ is the union of all geodesics between $x,y$, consisting of exactly those $z\in X$ with $d(x,z)+d(z,y)=d(x,y)$. We say that $A\subseteq X$ is \textit{convex} if $[x,y]\subseteq A$ for all $x,y\in A$. For vertices $x,y,z\in X$, we write $x\-y\-z$ for $y\in[x,z]$. By the triangle inequality, we have for all $w,x,y,z\in X$ that
         \begin{equation*}
             (w\-x\-y\textrm{ and }w\-y\-z)\ \ \ \ \Leftrightarrow\ \ \ \ (w\-x\-z\textrm{ and }x\-y\-z),
         \end{equation*}
@@ -81,9 +81,7 @@
 
     \subsection{Profinite pocsets}\label{sec:pocsets_of_cuts}
 
-    Let $X$ be a set.
-
-    % The family $\mc{H}_{\diam\del\leq R}(X)$ of cuts have the structure of a `profinite pocset', which we first study abstractly. We then deduce some properties of the pocset induced by a \textit{dense} family of cuts.
+    The construction starts by identifying a profinite pocset $\mc{H}$ of `cuts' in the graph, which we first study abstractly.
 
     \begin{definition}\label{def:profinite_pocset}
         A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$. We call the elements in $\mc{H}$ \textit{half-spaces}.
@@ -95,7 +93,7 @@
         Such a topology is automatically Hausdorff and zero-dimensional, making it a Stone space.
     \end{remark}
 
-    We are primarily interested in subpocsets of $(2^X,\subseteq,\lnot,\em)$, which is profinite if equipped with the product topology of the discrete space $2$. Indeed, $2^X$ admits a base of \textit{cylinder sets} $-$ which are finite intersections of sets of the form $\pi^{-1}_x(i)$ where $x\in X$, $i\in\l\{0,1\r\}$, and $\pi_x:2^X\to2$ is the projection $-$ making $\lnot$ continuous since cylinders are clopen. Finally, for $H\not\leq K$,  let $U$ be the upward-closure of a clopen neighborhood $U_0\ni H$ separating it from $K$, which is clopen since $\lnot U_0$ is a finite union of cylinders.
+    We are primarily interested in subpocsets of $(2^X,\subseteq,\lnot,\em)$ for a fixed set $X$, which is profinite if equipped with the product topology of the discrete space $2$. Indeed, $2^X$ admits a base of \textit{cylinder sets} $-$ which are finite intersections of sets of the form $\pi^{-1}_x(i)$ where $x\in X$, $i\in\l\{0,1\r\}$, and $\pi_x:2^X\to2$ is the projection $-$ making $\lnot$ continuous since cylinders are clopen. Finally, for $H\not\leq K$,  let $U$ be the upward-closure of a clopen neighborhood $U_0\ni H$ separating it from $K$, which is clopen since $\lnot U_0$ is a finite union of cylinders.
 
     \begin{remark*}
         We follow \cite{CPTT23}*{Convention 2.7}, where for a family $\mc{H}\subseteq2^X$ of subsets of a fixed set $X$, we write $\mc{H}^\ast\coloneqq\mc{H}\comp\l\{\em,X\r\}$ for the \textit{non-trivial} elements of $\mc{H}$.
@@ -182,6 +180,8 @@
     \end{proof}
 
     \subsection{Median graphs and projections}
+
+    If $\mc{H}\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\textrm{conn}$ is a pocset of cuts with every non-trivial element isolated, 
 
     \begin{definition}
         A \textit{median graph} is a connected graph $(X,G)$ such that for any $x,y,z\in X$, the intersection
@@ -513,10 +513,6 @@
     \end{proof}
 
     \subsection{???}
-
-    ???
-
-    \pagebreak\ \pagebreak
 
     % \section{Graphs with Dense Families of Cuts}\label{sec:graphs_with_dense_family_of_cuts}
 
