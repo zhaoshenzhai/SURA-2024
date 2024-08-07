@@ -120,10 +120,10 @@
         This is the desired neighborhood isolating $A\in U$. Indeed, it is (cl)open since it is the \textit{finite} intersection of cylinders prescribed by the $x_H$'s and $y_H$'s, and it is disjoint from $\mc{H}\comp\l\{A\r\}$ by construction.
     \end{proof}
 
-    In the case when $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is a subpocset of cuts in a graph $(X,G)$, the same holds for the connected and co-connected cuts $\mc{H}\cap\mc{H}_\mathrm{conn}\subseteq2^X$. Hence, the above lemma refines to the following
+    In the case when $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ for some graph $(X,G)$, the same holds for the connected and co-connected half-spaces $\mc{H}\cap\mc{H}_\mathrm{conn}(X)\subseteq2^X$. Hence, the above lemma refines to the following
 
     \begin{lemma}\label{lem:finitely-separating_non-trivial_isolated_connected}
-        Let $\mc{H}\subseteq\mc{H}_{\del<\infty}$ be a pocset of cuts in a connected graph $(X,G)$. If $\mc{H}$ is finitely-separating, then $\mc{H}\cap\mc{H}_\mathrm{conn}$ is closed and every non-trivial element is isolated.
+        Let $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ be a pocset in a connected graph $(X,G)$. If $\mc{H}$ is finitely-separating, then $\mc{H}\cap\mc{H}_\mathrm{conn}(X)$ is closed and every non-trivial element is isolated.
     \end{lemma}
     \begin{proof}
         It suffices to show that no $H\in\mc{H}^\ast$ is a limit point of $\mc{H}_\mathrm{conn}(X)$, for then $\mc{H}\cap\mc{H}_\mathrm{conn}(X)$ is closed. Fix $H\in\mc{H}^\ast$ and let $U\subseteq2^X$ be the family of all subsets $B\subseteq X$ containing $\del_\mathsf{iv}H$ and disjoint from $\del_\mathsf{ov}H$, which clearly contains $H$, and is clopen since $\del_\mathsf{v}H$ is finite.
@@ -138,14 +138,20 @@
         Any $H\in\mc{H}$ separating $x,y\in X$ separates some edge on any fixed path between $x$ and $y$, and there are only finitely-many such $H$ for each edge. If $(X,G)$ is locally-finite, then each $x\in X$ is separated from each of its finitely-many neighbors by finitely-many $H\in\mc{H}$.
     \end{proof}
 
-    This lemma will be our main method for identifying finitely-separating pocsets. In the special case of cuts $\mc{H}\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$, finite-separation also controls the degree of `non-nestedness' of said cuts.
+    % This lemma will be our main method for identifying finitely-separating pocsets.
+
+    \begin{definition}
+        A \textit{cut} in a connected locally-finite graph $(X,G)$ is a half-space $H\in\mc{H}_{\del<\infty}(X)\cap\mc{H}_\mathrm{conn}(X)$.
+    \end{definition}
+
+    In the case that $\mc{H}$ is a pocset of cuts, finite-separation also controls the degree of `non-nestedness' of $\mc{H}$:
 
     \begin{definition}\label{def:nested}
         Let $\mc{H}\subseteq2^X$ be a pocset. Two half-spaces $H,K\in\mc{H}$ are \textit{nested} if $\lnot^iH\cap\lnot^jK=\em$ for some $i,j\in\l\{0,1\r\}$, where $\lnot^0H\coloneqq H$ and $\lnot^1H\coloneqq\lnot H$. We say that $\mc{H}$ is \textit{nested} if every pair $H,K\in\mc{H}$ is nested.
     \end{definition}
 
     \begin{lemma}\label{lem:connected_cuts_non_nested_finitely_others}
-        If a family $\mc{H}\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$ of cuts is finitely-separating, then each $H\in\mc{H}$ is non-nested with finitely-many others.
+        In a pocset $\mc{H}$ of finitely-separating cuts, each $H\in\mc{H}$ is non-nested with finitely-many others.
     \end{lemma}
     \begin{proof}
         Fix $H\in\mc{H}$ and let $K\in\mc{H}$ be non-nested with $H$. By connectedness, the non-empty sets $H\cap K$ and $\lnot H\cap K$ are joined by a path in $K$, so $\del_\mathsf{v}H\cap K\neq\em$; similarly, $\del_\mathsf{v}H\cap\lnot K\neq\em$. For each $x\in\del_\mathsf{v}H\cap K$ and $y\in\del_\mathsf{v}H\cap\lnot K$, any fixed path $p_{xy}$ between them contains some $z\in\del_\mathsf{v}K\cap p_{xy}$; thus, any $K\in\mc{H}$ non-nested with $H$ contains some $z\in\del_\mathsf{v}K\cap p_{xy}$.
