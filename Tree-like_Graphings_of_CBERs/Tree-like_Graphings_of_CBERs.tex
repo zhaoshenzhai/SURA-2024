@@ -24,8 +24,7 @@
     A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$ with each class countable. We are interested in special types of \textit{graphings} on a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit treeings are said to be \textit{treeable}. The main results of \cite{CPTT23} provide new sufficient criteria for treeability of certain classes of CBERs, and in particular, they prove the following
 
     \begin{mainTheorem}[\cite{CPTT23}*{Theorem 1.1}]\label{thm:treeing_quasi-trees}
-        If a CBER admits a locally-finite graphing whose components are quasi-trees, then it is treeable.
-        % \footnote{Recall that metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.}
+        If a CBER admits a locally-finite graphing whose components are quasi-trees\footnote{Recall that metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.}, then it is treeable.
     \end{mainTheorem}
 
     Roughly speaking, the existence of a quasi-isometry $G|C\to T_C$ to a simplicial tree $T_C$ for each component $C\subseteq X$ induces a collection $\mc{H}(C)\subseteq2^C$ of `cuts' (subsets $H\subseteq C$ with finite boundary such that both $H$ and $C\comp H$ are connected), which are `tree-like' in the sense that
@@ -33,13 +32,11 @@
         \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ is separated by finitely-many $H\in\mc{H}(C)$, and
         \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
     \end{enumerate}
-    % These two conditions play somewhat different roles in the proof of Theorem \ref{thm:treeing_quasi-trees}, and part the goal of this note is to clarify... \TODO
     Condition (1) allows for an abstract (i.e., \textit{not necessarily} Borel) but canonical construction of a tree from $\mc{H}(C)$. This construction starts by viewing $\mc{H}(C)$ as a profinite pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' $\mc{M}(\mc{H}(C))$ whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} thereof. This median graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree.
 
     Thus we have the following theorem, which can be viewed as a component-wise version of Theorem \ref{thm:treeing_quasi-trees}. In fact, the above construction can be done to \textit{any} finitely-separating family of cuts on a connected locally-finite graph, not just a quasi-tree, but those cuts will not necessarily be dense towards ends.
 
     \begin{mainTheorem}\label{thm:component-wise_construction}
-        % If $\mc{H}\subseteq2^X$ is a collection of finitely-separating cuts on a connected locally-finite graph $(X,G)$, then the median graph $\mc{M}(\mc{H})$ admits a canonical spanning tree.
         For any finitely-separating family $\mc{H}\subseteq2^X$ of cuts on a connected locally-finite graph, its dual median graph $\mc{M}(\mc{H})$ admits a canonical spanning trees.
     \end{mainTheorem}
 
@@ -77,7 +74,7 @@
 
     The additional condition (2), which equivalently imposes certain finiteness conditions on the median graph $\mc{M}(\mc{H}(C))$, then ensures that such a spanning tree can be constructed in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER. We prove this in Section \TODO
 
-    \section{Preliminaries on Pocsets, Ends, and Median Graphs}\label{sec:preliminaries}
+    \section{Preliminaries on Pocsets, Ends of Graphs, and Median Graphs}\label{sec:preliminaries}
     \renewcommand{\-}{\textrm{---}}
 
     \begin{notation*}
@@ -112,13 +109,13 @@
         We follow \cite{CPTT23}*{Convention 2.7}, where for a family $\mc{H}\subseteq2^X$ of subsets of a fixed set $X$, we write $\mc{H}^\ast\coloneqq\mc{H}\comp\l\{\em,X\r\}$ for the \textit{non-trivial} elements of $\mc{H}$.
     \end{remark*}
 
-    The following proposition gives a sufficient criteria for subpocsets of $2^X$ to be profinite. We also show in this case that every non-trivial element $H\in\mc{H}^\ast$ is isolated, which will important in Section \ref{sec:the_dual_median_graph_of_a_pocset}.
+    The following proposition gives a sufficient criteria for subpocsets of $2^X$ to be profinite. We also show in this case that every non-trivial element $H\in\mc{H}^\ast$ is isolated, which will be important in Section \ref{sec:the_dual_median_graph_of_a_pocset}.
 
     \begin{lemma}\label{lem:finitely-separating_non-trivial_isolated}
         Let $\mc{H}\subseteq2^X$ be a pocset. If $\mc{H}$ is finitely-separating, then $\mc{H}\subseteq2^X$ is closed and every non-trivial element is isolated.
     \end{lemma}
     \begin{proof}
-        It suffices to show that the limit points of $\mc{H}$ are trivial, so let $A\in2^X\comp\l\{\em,X\r\}$. Fix $x\in A\not\ni y$. Since $\mc{H}$ is finitely-separating, there are finitely-many $H\in\mc{H}$ with $x\in H\not\ni y$, and for each such $H\in\mc{H}\comp\l\{A\r\}$, we have either some $x_H\in A\comp H$ or $y_H\in H\comp A$. Let $U\subseteq2^X$ be the family of all subsets $B\subseteq X$ containing $x$ and each $x_H$ but not $y$ or any $y_H$.
+        It suffices to show that the limit points of $\mc{H}$ are trivial, so let $A\in2^X\comp\l\{\em,X\r\}$. Fix $x\in A\not\ni y$. Since $\mc{H}$ is finitely-separating, there are finitely-many $H\in\mc{H}$ with $x\in H\not\ni y$, and for each such $H\in\mc{H}\comp\l\{A\r\}$, we have either some $x_H\in A\comp H$ or $y_H\in H\comp A$. Let $U\subseteq2^X$ be the family of all subsets $B\subseteq X$ containing $x$ and each $x_H$, but not $y$ or any $y_H$.
 
         This is the desired neighborhood isolating $A\in U$. Indeed, it is (cl)open since it is the \textit{finite} intersection of cylinders prescribed by the $x_H$'s and $y_H$'s, and it is disjoint from $\mc{H}\comp\l\{A\r\}$ by construction.
     \end{proof}
@@ -179,14 +176,14 @@
 
     \subsection{Finiteness conditions on pocsets}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
 
-    Let $(X,G)$ be a connected locally-finite graph and fix a finitely-separating subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\mathrm{conn}(X)$ of cuts.
+    Let $(X,G)$ be a connected locally-finite graph and fix a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\mathrm{conn}(X)$ of cuts. This section investigates certain finiteness conditions on $\mc{H}$; specifically, when $\mc{H}$ is finitely-separating, and when $\mc{H}$ is also dense towards ends.
 
     \begin{definition}\label{def:nested}
         Let $\mc{H}\subseteq2^X$ be a pocset. Two half-spaces $H,K\in\mc{H}$ are \textit{nested} if $\lnot^iH\cap\lnot^jK=\em$ for some $i,j\in\l\{0,1\r\}$, where $\lnot^0H\coloneqq H$ and $\lnot^1H\coloneqq\lnot H$. We say that $\mc{H}$ is \textit{nested} if every pair $H,K\in\mc{H}$ is nested.
     \end{definition}
 
     \begin{lemma}\label{lem:connected_cuts_non_nested_finitely_others}
-        Each $H\in\mc{H}$ is non-nested with finitely-many others.
+        If $\mc{H}$ is finitely-separating, then each $H\in\mc{H}$ is non-nested with finitely-many others.
     \end{lemma}
     \begin{proof}
         Fix $H\in\mc{H}$ and let $K\in\mc{H}$ be non-nested with $H$. By connectedness, the non-empty sets $H\cap K$ and $\lnot H\cap K$ are joined by a path in $K$, so $\del_\mathsf{v}H\cap K\neq\em$; similarly, $\del_\mathsf{v}H\cap\lnot K\neq\em$. For each $x\in\del_\mathsf{v}H\cap K$ and $y\in\del_\mathsf{v}H\cap\lnot K$, any fixed path $p_{xy}$ between them contains some $z\in\del_\mathsf{v}K\cap p_{xy}$; thus, any $K\in\mc{H}$ non-nested with $H$ contains some $z\in\del_\mathsf{v}K\cap p_{xy}$.
@@ -273,9 +270,9 @@
         so $x\-w\-\proj_A(y)$, and similarly $z\-w\-\proj_A(y)$. Thus, it follows that
         \begin{equation*}
             \begin{aligned}
-                w\in[\proj_A(y),x]\cap[\proj_A(y),z]&=[\proj_A(y),\proj_{\l\{x,z\r\}}(\proj_A(y))]\ \ \ \ && \mathrm{Lemma \ref{lem:projections}} \\
-                                                    &=[\proj_A(y),\proj_{\l[x,z\r]}(\proj_A(y))]\ \ \ \ &&\mathrm{Remark \ref{rem:projection_between_point_in_convex}} \\
-                                                    &\subseteq[\proj_A(y),y],\ \ \ \ && \mathrm{Lemma \ref{lem:projections}}
+                w\in[\proj_A(y),x]\cap[\proj_A(y),z]&=[\proj_A(y),\proj_{\l\{x,z\r\}}(\proj_A(y))]\ \ \ \ && \textrm{Lemma \ref{lem:projections}} \\
+                                                    &=[\proj_A(y),\proj_{\l[x,z\r]}(\proj_A(y))]\ \ \ \ &&\textrm{Remark \ref{rem:projection_between_point_in_convex}} \\
+                                                    &\subseteq[\proj_A(y),y],\ \ \ \ && \textrm{Lemma \ref{lem:projections}}
             \end{aligned}
         \end{equation*}
         where the second equality follows from $\cvx(\l\{x,z\r\})=[x,z]$, and hence $\proj_{\l\{x,z\r\}}=\proj_{\l[x,z\r]}$.
@@ -327,7 +324,7 @@
         Moreover, each such half-space $A\subseteq H\subseteq\lnot B$ satisfies $x_i\in H\not\ni x_{i+1}$ for a unique $i<n$, and conversely each pair $(x_i,x_{i+1})$ has a unique half-space separating them, so we have the desired bijection.
     \end{proof}
 
-    \begin{lemma}\label{cor:convex_of_finite_is_finite}
+    \begin{lemma}\label{lem:convex_of_finite_is_finite}
         Every interval $[x,y]$ is finite. More generally, if $A\subseteq X$ is finite, then so is $\cvx(A)$.
     \end{lemma}
     \begin{proof}
@@ -413,7 +410,7 @@
         Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in U\comp\l\{\em,X\r\}$, is a median graph with path metric $d(U,V)=|U\symdiff V|/2$ and medians
         \begin{equation*}
             \begin{aligned}
-                \l\langle U,V,W\r\rangle&\coloneqq\l\{H\in\mc{H}\st H\mathrm{ belongs to at least two of }U,V,W\r\} \\
+                \l\langle U,V,W\r\rangle&\coloneqq\l\{H\in\mc{H}\st H\textrm{ belongs to at least two of }U,V,W\r\} \\
                                         &=(U\cap V)\cup(V\cap W)\cup(U\cap W).
             \end{aligned}
         \end{equation*}
@@ -471,7 +468,7 @@
         For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$, the principal orientations map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
     \end{lemma}
     \begin{proof}
-        Let $U\in\mc{U}^\circ(\mc{H})$, we need to find some $x\in X$ with $U=\widehat{x}$. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ $-$ which we may assume to be convex by Corollary \ref{cor:convex_of_finite_is_finite} $-$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $K\in U$ with $H\cap A=K\cap A$. Note that $K\cap A\neq\em$ for every $K\in U$, since otherwise $\em\in U$. Furthermore, $H\cap K\neq\em$ for every $H,K\in U$, since otherwise we have $H\subseteq\lnot K$, and so $\lnot K\in U$.
+        Let $U\in\mc{U}^\circ(\mc{H})$, we need to find some $x\in X$ with $U=\widehat{x}$. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ $-$ which we may assume to be convex by Lemma \ref{lem:convex_of_finite_is_finite} $-$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $K\in U$ with $H\cap A=K\cap A$. Note that $K\cap A\neq\em$ for every $K\in U$, since otherwise $\em\in U$. Furthermore, $H\cap K\neq\em$ for every $H,K\in U$, since otherwise we have $H\subseteq\lnot K$, and so $\lnot K\in U$.
 
         By Lemma \ref{lem:helly}, we have $(H\cap A)\cap(K\cap A)=H\cap K\cap A\neq\em$, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
     \end{proof}
