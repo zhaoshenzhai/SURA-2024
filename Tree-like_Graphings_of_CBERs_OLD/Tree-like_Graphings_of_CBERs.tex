@@ -1,0 +1,511 @@
+\documentclass[reqno]{amsart}
+\input{setup/preamble.sty}
+\input{setup/macros.sty}
+
+\begin{document}
+    \title{Tree-like Graphings of Countable Borel Equivalence Relations}
+    \author{Zhaoshen Zhai}
+    \date{\today}
+
+    \begin{abstract}
+        We present a streamlined exposition of a construction presented recently by R. Chen, A. Poulin, R. Tao, and A. Tserunyan, where it is proven that every locally-finite Borel graph with each component a quasi-tree induces a canonical treeable equivalence relation. {\color{red}Write some more details...}
+    \end{abstract}
+
+    \maketitle
+
+    \setcounter{section}{-1}
+    \section{Introduction}
+
+    The purpose of this note is to provide a streamlined proof of a particular case of a construction presented in \cite{CPTT23}, in order to better understand the general formalism developed therein. We attempt to make this note self-contained, but nevertheless urge the reader to refer to the original paper for more detailed discussions and some generalizations of the results we have selected to include here.
+
+    \subsection{Treeings of equivalence relations}
+
+    A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$ with each class countable. We are interested in special types of \textit{graphings} on a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit treeings are said to be \textit{treeable}. The main results of \cite{CPTT23} provide new sufficient criteria for treeability of certain classes of CBERs, and in particular, they prove the following
+
+    \begin{mainTheorem}[\cite{CPTT23}*{Theorem 1.1}]\label{thm:treeing_quasi-trees}
+        If a CBER admits a locally-finite graphing whose components are quasi-trees, then it is treeable.
+    \end{mainTheorem}
+
+    Recall that metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.
+
+    \subsection{Outline of the proof}
+
+    Roughly speaking, the existence of a quasi-isometry $G|C\to T_C$ to a simplicial tree $T_C$ for each component $C\subseteq X$ induces a collection $\mc{H}(C)$ of `cuts' (subsets $H\subseteq C$ with finite boundary such that both $H$ and $C\comp H$ are connected), which are `tree-like' in the sense that
+    \begin{enumerate}
+        \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ is separated by finitely-many $H\in\mc{H}(C)$, and
+        \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
+    \end{enumerate}
+    By Condition (1), these cuts have the structure of a profinite pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} thereof. This median graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree. Condition (2) ensures that such a spanning tree can be constructed in a uniform way to each component $C\subseteq G$, giving us the desired treeing of the CBER.
+    \begin{equation*}
+        \textrm{Quasi-tree}
+            \ \ \overset{\ref{sec:graphs_with_dense_family_of_cuts}}{\longrightarrow}\ \ 
+        \begin{gathered}
+            \textrm{Dense family} \\[-4pt]
+            \textrm{of cuts}
+        \end{gathered}
+            \ \ \overset{\ref{sec:pocset_of_dense_family_of_cuts}}{\longrightarrow}\ \ 
+        \begin{gathered}
+            \textrm{Pocset w/} \\[-4pt]
+            \textrm{non-triv. pts.} \\[-4pt]
+            \textrm{isolated}
+        \end{gathered}
+            \ \ \overset{\ref{sec:the_dual_median_graph_of_a_pocset}}{\longrightarrow}\ \ 
+        \begin{gathered}
+            \textrm{Median graph} \\[-4pt]
+            \textrm{w/ finite} \\[-4pt]
+            \textrm{hyperplanes}
+        \end{gathered}
+            \ \ \overset{\ref{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}}{\longrightarrow}\ \ 
+        \begin{gathered}
+            \textrm{Canonical} \\[-4pt]
+            \textrm{spanning tree}
+        \end{gathered}
+    \end{equation*}
+
+    {\color{red}Write some more stuff to tie things together...}
+
+    \begin{remark*}
+        We follow \cite{CPTT23}*{Convention 2.7}, where for a family $\mc{H}\subseteq2^X$ of subsets of a fixed set $X$, we write $\mc{H}^\ast\coloneqq\mc{H}\comp\l\{\em,X\r\}$ for the \textit{non-trivial} elements of $\mc{H}$.
+    \end{remark*}
+
+    \section{Graphs with Dense Families of Cuts}\label{sec:graphs_with_dense_family_of_cuts}
+
+    \subsection{Ends of graphs}
+
+    Let $(X,G)$ be a connected locally-finite graph, which, in the context of Theorem \ref{thm:treeing_quasi-trees}, will stand for a single component of the locally-finite graphing of a CBER.
+
+    \begin{definition}
+        For a subset $A\subseteq X$, we let $\del_\mathsf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\mathsf{ov}A\coloneqq\del_\mathsf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\mathsf{ie}A\coloneqq G\cap(\del_\mathsf{ov}A\times\del_\mathsf{iv}A)$ and $\del_\mathsf{oe}A\coloneqq\del_\mathsf{ie}(\lnot A)$ respectively be its \textit{inner} and \textit{outer edge boundaries}. Let $\del_\mathsf{v}A\coloneqq\del_\mathsf{iv}A\cup\del_\mathsf{ov}A$ be the \textit{(total) vertex boundary} of $A$.
+    \end{definition}
+
+    Let $\mc{H}_{\del<\infty}(X)\subseteq2^X$ be the Boolean algebra of all $A\subseteq X$ with finite vertex boundary, which we refer to as \textit{cuts} in $X$. Later, we will restrict to the connected and co-connected cuts $\mc{H}_{\del<\infty}(X)\cap\mc{H}_\textrm{conn}(X)$.
+
+    \begin{definition}
+        The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are the \textit{ends} of $(X,G)$.
+    \end{definition}
+
+    We identify $X\into\widehat{X}$ via principal ultrafilter map $x\mapsto p_x$, so $\widehat{X}\comp X$ is the set of ends of $G$. By definition, $\widehat{X}$ admits a basis of clopen sets of the form $\widehat{A}\coloneqq\{p\in\widehat{X}\st A\in p\}$ for each $A\in\mc{H}_{\del<\infty}(X)$.
+
+    \begin{definition}
+        A family $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ of cuts is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end in $\widehat{X}\comp X$.
+
+        In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$.
+    \end{definition}
+
+    The goal of this section is to show that certain cuts $\mc{H}\subseteq\mc{H}_{\del<\infty}$ induced in a (locally-finite) quasi-tree is dense towards ends. It will also be important that these cuts be connected, in that witnesses to density can also be found in $\mc{H}\cap\mc{H}_\textrm{conn}$, consisting of those cuts that are connected and co-connected.
+
+    \begin{lemma}\label{lem:connected_witness_to_density}
+        If a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is dense towards ends, then there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$, which is also dense towards ends, such that every $H'\in\mc{H}'$ has $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}$.
+    \end{lemma}
+    \begin{proof}
+        A first attempt is to let $\mc{H}'$ be the connected components $H'_0$ of elements in $\mc{H}$, but this fails since $\lnot H'_0$ is not necessarily connected. Instead, we further take a component of $\lnot H'_0$, whose complement clearly co-connected, and is connected since it consists of $H'_0$ and the other components of $\lnot H'_0$, each of which is connected to $H'_0$ via $\del_\mathsf{ie}H'_0$. Formally, we let
+        \begin{equation*}
+            \mc{H}'\coloneqq\l\{H'\subseteq X\st H\in\mc{H}\textrm{ and }H'_0\in H/G\textrm{ and }\lnot H'\in\lnot H'_0/G\r\},
+        \end{equation*}
+        where $H/G$ denotes the $G$-components of $H$. Clearly $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H'_0\subseteq\del_\mathsf{ie}H$, so it remains to show that $\mc{H}'$ is dense towards ends.
+
+        Fix an end $p\in\widehat{X}\comp X$ with $p\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. Let $B\supseteq\del_\mathsf{v}A$ be finite connected, which can be obtained by adjoining paths between its components. Then $\lnot B\in p$ since $p$ is non-principal, so there is $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\lnot\widehat{B}$. We now use the above recipe to find the desired $H'\in\mc{H}'$:
+            \begin{enumerate}
+                \item Since $H\in\mc{H}_{\del<\infty}(X)$, it has finitely-many connected components, so exactly one of them belongs to $p$, say $p\in\widehat{H}'_0\subseteq\widehat{H}$. Note that $B\subseteq\lnot H\subseteq\lnot H'_0$.
+                \item Since $B$ is connected, there is a unique component $\lnot H'\subseteq\lnot H'_0$ containing $B$.
+            \end{enumerate}
+        Observe that $H'\in\mc{H}'$ and $p\in\widehat{H}'$. Lastly, since $H'$ is connected and is disjoint from $\del_\mathsf{v}A\subseteq B$, and since $H'\subseteq\lnot A$ would imply $\lnot H'\in p$, this forces $H'\subseteq A$, and hence $p\in\widehat{H}'\subseteq\widehat{A}$ as desired.
+    \end{proof}
+
+    \subsection{Dense cuts induced by quasi-trees}\label{sec:dense_cuts_induced_by_quasi-trees}
+
+    If $X$ is a quasi-tree $-$ and thus does not have arbitrarily long cycles $-$ we expect that there is some finite bound $R<\infty$ such that the ends in $\widehat{X}\comp X$ are `limits' of cuts $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ is dense towards ends of $(X,G)$.
+
+    \begin{lemma}\label{lem:coarse_equivalence_controls_boundary_diameter}
+        Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\mathsf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\mathsf{v}H)$.
+    \end{lemma}
+    \begin{proof}
+        Since $f$ is bornologous, let $S<\infty$ be such that $xGx'$ implies $d(f(x),f(x'))\leq S$, so that for any $(x,x')\in\del_\mathsf{ie}f^{-1}(H)$, there is a path of length $\leq S$ between $f(x)\not\in H$ and $f(x')\in H$. Thus both $d(f(x),\del_\mathsf{v}H)$ and $d(f(x'),\del_\mathsf{v}H)$ are bounded by $S$, so $f(\del_\mathsf{v}f^{-1}(H))\subseteq\Ball_S(\del_\mathsf{v}H)$ and hence
+        \begin{equation*}
+            \diam(f(\del_\mathsf{v}f^{-1}(H)))\leq\diam(\del_\mathsf{v}H)+2S.
+        \end{equation*}
+        That $f$ is a coarse-\textit{equivalence} gives us a uniform bound of $\diam(\del_\mathsf{v}f^{-1}(H))$ in terms of $\diam(\del_\mathsf{v}H)$.
+    \end{proof}
+
+    In particular, if $\diam(\del_\mathsf{v}H)$ is itself also uniformly bounded, then so is $\diam(\del_\mathsf{v}f^{-1}(H))$.
+
+    \begin{proposition}\label{prp:invariant_of_density_coarse_equivalence}
+        The class of connected locally-finite graphs in which $\mc{H}_{\diam(\del)\leq R}$ is dense towards ends for some $R<\infty$ is invariant under coarse equivalence.
+    \end{proposition}
+    \begin{proof}
+        Let $(X,G)$, $(Y,T)$ be connected locally-finite graphs, $f:X\to Y$ be a coarse equivalence with quasi-inverse $g:Y\to X$, and suppose $\mc{H}_{\diam(\del)\leq S}(Y)$ is dense towards ends for some $S<\infty$. By Lemma \ref{lem:coarse_equivalence_controls_boundary_diameter}, pick some $R<\infty$ so that for any $H\in\mc{H}_{\diam(\del)\leq S}(Y)$, we have $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$.
+
+        Fix an end $p\in\widehat{X}\comp X$ with $p\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. We need to find some $B\in\mc{H}_{\del<\infty}(Y)$ such that $\widehat{f}(p)\in\widehat{B}$ and $f^{-1}(B)\subseteq A$, for then $\widehat{f}(p)\in\widehat{H}$ for some $B\supseteq H\in\mc{H}_{\diam(\del)\leq S}(Y)$, and hence we have
+        \begin{equation*}
+            p\in\widehat{f^{-1}(H)}\subseteq\widehat{f^{-1}(B)}\subseteq\widehat{A}
+        \end{equation*}
+        with $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$. For convenience, let $D<\infty$ be the uniform distance $d(1_X,g\circ f)$.
+
+        To this end, note that $\widehat{f}(p)\in\widehat{B}$ iff $p\in\widehat{f^{-1}(B)}$. Since $p\in\widehat{A}$, the latter can occur if $|A\symdiff f^{-1}(B)|<\infty$, and so we need to find such a $B\in\mc{H}_{\del<\infty}(Y)$ with the additional property that $f^{-1}(B)\subseteq A$.
+        \begin{leftbar}
+        \textit{Attempt 1.} Set $B\coloneqq g^{-1}(A)\in\mc{H}_{\del<\infty}(Y)$. Then $f^{-1}(B)\subseteq\Ball_D(A)$ since if $(g\circ f)(x)\in A$, then
+                \begin{equation*}
+                    d(x,A)\leq d(x,(g\circ f)(x))\leq d(1_X,g\circ f)=D.
+                \end{equation*}
+            By local-finiteness of $G$, we see that $A\symdiff f^{-1}(B)=A\comp f^{-1}(B)$ is finite, as desired.
+        \end{leftbar}
+        However, it is \textit{not} the case that $f^{-1}(B)\subseteq A$. To remedy this, we `shrink' $A$ by $D$ to $A'$ so that $\Ball_D(A')\subseteq A$, and take $B\coloneqq g^{-1}(A')$ instead. Indeed, $A'\coloneqq\lnot\Ball_D(\lnot A)\subseteq A$ works, since $f^{-1}(B)\subseteq\Ball_D(A')$ as before, so $A'\symdiff f^{-1}(B)=A'\comp f^{-1}(B)$ is finite. Also, $A\symdiff A'$ is finite since $x\in A\symdiff A'$ iff $x\in A$ and $d(x,\lnot A)\leq D$, so $A\symdiff f^{-1}(B)$ is finite too. It remains to show that $\Ball_D(A')\subseteq A$, for then $f^{-1}(B)\subseteq A$ as desired.
+
+        Indeed, if $y\in\Ball_D(A')$, then by the (reverse) triangle-inequality we have $d(y,\lnot A)\geq d(x,\lnot A)-d(x,y)$ for all $x\in A'$. But $d(x,\lnot A)>D$, strictly, so $d(y,\lnot A)>D-D=0$, and hence $y\in A$.
+    \end{proof}
+
+    \begin{corollary}\label{cor:density_of_bounded_diameter_boundary_cuts_quasi_tree}
+        If $(X,G)$ is a locally-finite quasi-tree, then the subpocset $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ is dense towards ends for some $R<\infty$.
+    \end{corollary}
+    \begin{proof}
+        Observe that $\mc{H}_{\diam(\del)\leq2}(T)$ is dense towards ends for any tree $T$, so Proposition \ref{prp:invariant_of_density_coarse_equivalence} proves the density of $\mc{H}_{\diam(\del)\leq R}(X)$ for some $R<\infty$. By Lemma \ref{lem:connected_witness_to_density}, there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\textrm{conn}(X)$ dense towards ends such that for every $H'\in\mc{H}'$, we have $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}_{\diam(\del)\leq R}(X)$. Hence we have $H'\in\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\textrm{conn}(X)$, so the result follows.
+    \end{proof}
+
+    \section{Pocsets of Dense Families of Cuts}\label{sec:pocset_of_dense_family_of_cuts}
+
+    \subsection{Pocsets of cuts}\label{sec:pocsets_of_cuts}
+
+    The family $\mc{H}_{\diam\del\leq R}(X)$ of cuts have the structure of a `profinite pocset', which we first study abstractly. We then deduce some properties of the pocset induced by a \textit{dense} family of cuts.
+
+    \begin{definition}\label{def:profinite_pocset}
+        A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$. We call the elements in $\mc{H}$ \textit{half-spaces}.
+
+        A \textit{profinite pocset} is a pocset $\mc{H}$ equipped with a compact topology making $\lnot$ continuous and is \textit{totally order-disconnected}, in the sense that if $H\not\leq K$, then there is a clopen upward-closed $U\subseteq\mc{H}$ with $H\in U\not\ni K$.
+    \end{definition}
+
+    \begin{remark}
+        Such a topology is automatically Hausdorff and zero-dimensional, making it a Stone space.
+    \end{remark}
+
+    We are primarily interested in subpocsets of $(2^X,\subseteq,\lnot,\em)$, which is profinite if equipped with the product topology of the discrete space $2$. Indeed, $2^X$ admits a base of \textit{cylinder sets} $-$ which are finite intersections of sets of the form $\pi^{-1}_x(i)$ where $x\in X$, $i\in\l\{0,1\r\}$, and $\pi_x:2^X\to2$ is the projection $-$ making $\lnot$ continuous since cylinders are clopen. Finally, for $H\not\leq K$,  let $U$ be the upward-closure of a clopen neighborhood $U_0\ni H$ separating it from $K$, which is clopen since $\lnot U_0$ is a finite union of cylinders.
+
+    The following proposition gives a sufficient criteria for subpocsets of $2^X$ to be profinite. We also show in this case that every non-trivial element $H\in\mc{H}^\ast$ is isolated, which will important in Section \ref{sec:the_dual_median_graph_of_a_pocset}.
+
+    \begin{lemma}\label{lem:finitely-separating_non-trivial_isolated}
+        Let $X$ be a set and $\mc{H}\subseteq2^X$ be a subpocset. If $\mc{H}$ is finitely-separating, then $\mc{H}\subseteq2^X$ is closed and every non-trivial element is isolated.
+    \end{lemma}
+    \begin{proof}
+        It suffices to show that the limit points of $\mc{H}$ are trivial, so let $A\in2^X\comp\l\{\em,X\r\}$. Fix $x\in A\not\ni y$. Since $\mc{H}$ is finitely-separating, there are finitely-many $H\in\mc{H}$ with $x\in H\not\ni y$, and for each such $H\in\mc{H}\comp\l\{A\r\}$, we have either some $x_H\in A\comp H$ or $y_H\in H\comp A$. Let $U\subseteq2^X$ be the family of all subsets $B\subseteq X$ containing $x$ and each $x_H$ but not $y$ or any $y_H$.
+
+        This is the desired neighborhood isolating $A\in U$. Indeed, it is (cl)open since it is the \textit{finite} intersection of cylinders prescribed by the $x_H$'s and $y_H$'s, and it is disjoint from $\mc{H}\comp\l\{A\r\}$ by construction.
+    \end{proof}
+
+    In the case when $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is a subpocset of cuts in a graph $(X,G)$, we can deduce that $\mc{H}\cap\mc{H}_\textrm{conn}\subseteq2^X$ is closed. Hence, the above lemma refines to the following
+
+    \begin{lemma}\label{lem:finitely-separating_non-trivial_isolated_connected}
+        Let $\mc{H}\subseteq\mc{H}_{\del<\infty}$ be a subpocset of cuts. If $\mc{H}$ is finitely-separating, then $\mc{H}\cap\mc{H}_\mathrm{conn}$ is closed and every non-trivial element is isolated.
+    \end{lemma}
+    \begin{proof}
+        It suffices to show that no $H\in\mc{H}^\ast$ is a limit point of $\mc{H}_\textrm{conn}(X)$, for then $\mc{H}\cap\mc{H}_\textrm{conn}(X)$ is closed, so fix $H\in\mc{H}^\ast$. Let $U\subseteq2^X$ be the family of all subsets $B\subseteq X$ containing $\del_\mathsf{iv}H$ and disjoint from $\del_\mathsf{ov}H$, which clearly contains $H$, and is clopen since $\del_\mathsf{v}H$ is finite.
+
+        Suppose that there is some $B\in U\cap\mc{H}_\mathrm{conn}(X)$. Then $H\subseteq B$, since if $x\in H\cap\lnot B$, then there is a path in $\lnot B$ to some $x'\in\del_\mathsf{ov}H\subseteq\lnot B$, which passes through $\del_\mathsf{iv}H\subseteq B$, a contradiction. The converse is similar.
+    \end{proof}
+
+    \begin{lemma}\label{lem:finitely_separating_iff_on_boundary_of_finite}
+        Let $\mc{H}\subseteq2^X$ be a subpocset in a connected graph $(X,G)$. If each $x\in X$ is on the boundary of finitely-many half-spaces, then $\mc{H}$ is finitely-separating. The converse holds too if $(X,G)$ is locally-finite.
+    \end{lemma}
+    \begin{proof}
+        Any $H\in\mc{H}$ separating $x,y\in X$ separates some edge on any fixed path between $x$ and $y$, and there are only finitely-many such $H$ for each edge. If $(X,G)$ is locally-finite, then each $x\in X$ is separated from each of its finitely-many neighbors by finitely-many $H\in\mc{H}$.
+    \end{proof}
+
+    In particular, if $(X,G)$ is locally-finite, then $\mc{H}_{\diam(\del)\leq R}(X)$ for any fixed $R<\infty$ (see Section \ref{sec:dense_cuts_induced_by_quasi-trees}) is finitely-separating. Indeed, since the $R$-ball around any fixed $x\in X$ is finite, any $H\in\mc{H}_{\diam(\del)\leq R}(X)$ with $x\in\del_\mathsf{v}H$ is contained in said $R$-ball, so there are finitely-many such half-spaces.
+
+    This example, in tandem with Corollary \ref{cor:density_of_bounded_diameter_boundary_cuts_quasi_tree}, gives us, for each component $C\subseteq X$ of a quasi-treeing $G$ of a CBER, a family of cuts $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\textrm{conn}(C)$ which is finitely-separating and dense towards ends of $G|C$ for some $R_C<\infty$. We use the former condition in Section \ref{sec:the_dual_median_graph_of_a_pocset} to construct a `median graph' $\mc{M}(\mc{H}(C))$, and use the latter to provide restrictions on $\mc{H}(C)$, and hence on $\mc{M}(\mc{H}(C))$ too, in Section \ref{sec:finiteness_conditions_on_pocsets_dense_cuts}. The conditions on $\mc{M}(\mc{H}(C))$ then allows us to \textit{canonically} construct a spanning tree thereof; we do so in Section \ref{sec:cycle_cutting_algorithm}, and prove in Section {\color{red}???} that this is the desired treeing of the CBER.
+
+    \subsection{Finiteness conditions on $\mc{H}$ induced by dense cuts}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
+
+    Let $(X,G)$ be a connected locally-finite graph and fix a finitely-separating subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\textrm{conn}(X)$ of cuts.
+
+    \begin{definition}\label{def:nested}
+        Let $\mc{H}\subseteq2^X$ be a pocset. Two half-spaces $H,K\in\mc{H}$ are \textit{nested} if $\lnot^iH\cap\lnot^jK=\em$ for some $i,j\in\l\{0,1\r\}$, where $\lnot^0H\coloneqq H$ and $\lnot^1H\coloneqq\lnot H$. We say that $\mc{H}$ is \textit{nested} if every pair $H,K\in\mc{H}$ is nested.
+    \end{definition}
+
+    \begin{lemma}\label{lem:connected_cuts_non_nested_finitely_others}
+        Each $H\in\mc{H}$ is non-nested with finitely-many others.
+    \end{lemma}
+    \begin{proof}
+        Fix $H\in\mc{H}$ and let $K\in\mc{H}$ be non-nested with $H$. By connectedness, the non-empty sets $H\cap K$ and $\lnot H\cap K$ are joined by a path in $K$, so $\del_\mathsf{v}H\cap K\neq\em$; similarly, $\del_\mathsf{v}H\cap\lnot K\neq\em$. For each $x\in\del_\mathsf{v}H\cap K$ and $y\in\del_\mathsf{v}H\cap\lnot K$, any fixed path $p_{xy}$ between them contains some $z\in\del_\mathsf{v}K\cap p_{xy}$; thus, any $K\in\mc{H}$ non-nested with $H$ contains some $z\in\del_\mathsf{v}K\cap p_{xy}$.
+
+        Then, since there are finitely-many such $x,y\in\del_\mathsf{v}H$, for each of which there are finitely-many $z\in p_{xy}$, for each of which there are finitely-many $K\in\mc{H}$ with $z\in\del_\mathsf{v}K$ (by Lemma \ref{lem:finitely_separating_iff_on_boundary_of_finite}, since $\mc{H}$ is finitely-separating), there can only be finitely-many $K\in\mc{H}$ non-nested with $H$.
+    \end{proof}
+
+    \begin{proposition}\label{prp:dense_cuts_induces_proper_walling}
+        If $\mc{H}$ is dense towards ends, then each $\mc{H}$-block is finite and each $H\in\mc{H}^\ast$ has finitely-many successors.
+    \end{proposition}
+    \begin{proof}
+        {\color{red}TODO.}
+    \end{proof}
+
+    \section{The Dual Median Graph of a Profinite Pocset}\label{sec:the_dual_median_graph_of_a_pocset}
+
+    Let $\mc{H}$ be a profinite subpocset with every non-trivial element isolated; say, if $\mc{H}$ is finitely-separating, and in particular the cuts $\mc{H}_{\diam(\del)\leq R}(X)$ for some locally-finite connected graph $(X,G)$. We present a classical construction in geometric group theory (see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for other applications) of a `tree-like' graph associated to such a pocset.
+    
+    \begin{definition}\label{def:orientation}
+        An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$ and let $\mc{U}^\circ(\mc{H})$ denote the clopen ones.
+    \end{definition}
+
+    Intuitively, an orientation is a `maximally consistent' choice of half-spaces\footnote{This can be formalized by letting $\sim$ be the equivalence relation on $\mc{H}$ given by $H\sim\lnot H$. Letting $\del:\mc{H}\to\mc{H}/\!\!\sim$ denote the quotient map, orientations $U\subseteq\mc{H}$ then correspond precisely to sections $\phi:\mc{H}/\!\!\sim\,\to\mc{H}$ of $\del$ such that $\phi(\del H)\not\subseteq\lnot\phi(\del K)$ for every $H,K\in\mc{H}$; the latter condition rules out `orientations' of the form $\leftarrow\hspace{-4.15pt}|\,\,|\hspace{-4.15pt}\rightarrow$.}.
+
+    \begin{example}
+        Each $x\in X$ induces its \textit{principal orientation} $\widehat{x}\coloneqq\l\{H\in\mc{H}\st x\in H\r\}=\mc{H}\cap\pi^{-1}_x(1)$ $-$ which is clearly clopen in $\mc{H}$ $-$ and gives us a canonical map $X\to\mc{U}^\circ(\mc{H})$. However, this map is \textit{not necessarily} injective, and we call a fiber $[x]_\mc{H}\coloneqq\l\{y\in X\st\widehat{x}=\widehat{y}\r\}$ thereof an \textit{$\mc{H}$-block}.
+    \end{example}
+
+    The goal of this section is to canonically construct a graph whose vertices are clopen orientations on $\mc{H}$.
+
+    \begin{definition}
+        A \textit{median graph} is a connected graph $(X,G)$ such that for any $x,y,z\in X$, the intersection
+        \begin{equation*}
+            [x,y]\cap[y,z]\cap[x,z]
+        \end{equation*}
+        is a singleton, whose element $\l\langle x,y,z\r\rangle$ is called the \textit{median} of $x,y,z$. Thus we have a ternary median operation $\l\langle\cdot,\cdot,\cdot\r\rangle:X^3\to X$, and a \textit{median homomorphism} $f:(X,G)\to(Y,H)$ is a map preserving said operation.
+    \end{definition}
+
+    Some basic properties of median graphs are given in Section \ref{sec:convex_half-spaces_of_median_graphs}. For more comprehensive references and their general theory, see \cite{Rol98} and \cite{Bow22}.
+
+    \begin{proposition}\label{prp:construction_of_dual_median_graph}
+        Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in U\comp\l\{\em,X\r\}$, is a median graph with path metric $d(U,V)=|U\symdiff V|/2$ and medians
+        \begin{equation*}
+            \begin{aligned}
+                \l\langle U,V,W\r\rangle&\coloneqq\l\{H\in\mc{H}\st H\textrm{ belongs to at least two of }U,V,W\r\} \\
+                                        &=(U\cap V)\cup(V\cap W)\cup(U\cap W).
+            \end{aligned}
+        \end{equation*}
+    \end{proposition}
+
+    \begin{proof}
+        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ are isolated (whence $\l\{H\r\},\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V\not\ni\em,X$ is clopen, so it is a compact set of isolated points, whence finite.
+        \begin{center}
+            \begin{minipage}{0.95\textwidth}
+                \begin{claim*}[\cite{Sag95}*{Theorem 3.3}]
+                    There is a path between $U,V$ iff $U\symdiff V$ is finite, in which case
+                    \begin{equation*}
+                        d(U,V)=|U\symdiff V|/2=|U\comp V|=|V\comp U|.
+                    \end{equation*}
+                \end{claim*}
+                \begin{proof}
+                    If $(U_i)_{i<n}$ is a path from $U\eqqcolon U_0$ to $V\eqqcolon U_{n-1}$, then, letting $\l\{H_i,\lnot H_i\r\}\coloneqq U_i\symdiff U_{i-1}$ for all $1\leq i<n$ gives us a sequence $(H_i)_{i<n}$ inducing\footnote{In the sense that $U_i=U_{i-1}\symdiff\l\{H_i,\lnot H_i\r\}$ and $H_i\in U_i$ for each $1\leq i<n$; see \cite{Tse20}*{Definition 2.20}.} this path, whence $U\symdiff V$ consists of $\l\{H_i\r\}_{i<n}$ and their complements. Thus $U\symdiff V=2n=2d(U,V)$, as desired.
+
+                    \hspace{0.2in}Conversely, if $U\symdiff V=\l\{H_1,\dots,H_n\r\}\sqcup\l\{K_1,\dots,K_m\r\}$ with $U\comp V=\l\{H_i\r\}$ and $V\comp U=\l\{K_j\r\}$, then $\lnot H_i\in V\comp U$ and $\lnot K_j\in U\comp V$ for all $i<n$ and $j<m$, so $n=m$ and $V=U\cup\l\{\lnot H_i\r\}\comp\l\{H_i\r\}$. We claim that there is a permutation $\sigma\in S_n$ such that $(H_{\sigma(i)})$ induces a path from $U\eqqcolon U_0$, which is the desired path from $U$ to $V$. Choose a minimal $H\in\l\{H_i\r\}$, which is also minimal in $U$: if $K\subseteq H$ for some $K\in U$, then $\lnot H\subseteq\lnot K$, and hence $\lnot K\in V$, so $K=H_i\subseteq H$ for some $i$, forcing $K=H$. Set $U_1\coloneqq U\symdiff\l\{H,\lnot H\r\}$, which is a clopen orientation. Continuing in this manner by choosing a minimal element in $\l\{H_i\r\}\comp\l\{H\r\}$ $-$ and so on $-$ gives us the desired path with $d(U,V)=n$.\phantom\qedhere\hfill$\square$
+                \end{proof}
+            \end{minipage}
+        \end{center}
+        Finally, we show that $\mc{M}(\mc{H})$ is a median graph. Fix $U,V,W\in\mc{U}^\circ(\mc{H})$, and note that for any $M\in\mc{U}^\circ(\mc{H})$, we have by the triangle inequality that $M\in[U,V]$ iff $(U\comp M)\cup(M\comp V)\subseteq U\comp V$, which clearly occurs iff $U\cap V\subseteq M\subseteq U\cup V$. Thus, a vertex $M$ lies in the triple intersection $[U,V]\cap[V,W]\cap[U,W]$ iff
+        \begin{equation*}
+            (U\cap V)\cup(V\cap W)\cup(U\cap W)\subseteq M\subseteq(U\cup V)\cap(V\cup W)\cap(U\cup W).
+        \end{equation*}
+        Note that the two sides coincide, so $M=\l\langle U,V,W\r\rangle$ $-$ which is clopen if $U,V,W$ are $-$ is as claimed.
+    \end{proof}
+
+    Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between median graphs with median homomorphisms and profinite pocsets whose non-trivial points are isolated with continuous maps, where from a median graph one can construct a canonical pocset of `convex' half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. An important special case of this construction is when $\mc{H}$ is \textit{nested}, in which case $\mc{M}(\mc{H})$ is a tree.
+
+    \begin{lemma}
+        Let $\mc{H}$ be a profinite pocset with non-trivial points isolated. If $\mc{H}$ is nested and $(H_i)_{i<n}\subseteq\mc{H}$ induces a path in $\mc{M}(\mc{H})$ with no backtracking, then $(H_i)$ is strictly increasing.
+    \end{lemma}
+    \begin{proof}
+        Let $(U_i)_{i<n}$ be the induced path. By definition, we have $U_{i+1}=U_{i-1}\cup\{\lnot H_i,\lnot H_{i-1}\}\comp\l\{H_i,H_{i-1}\r\}$, so $H_i\neq\lnot H_{i-1}$, lest $U_{i+1}=U_{i-1}$. Thus, since $H_i\in U_i=U_{i-1}\cup\{\lnot H_{i-1}\}\comp\l\{H_{i-1}\r\}$, we see that $H_i\in U_{i-1}$. Clearly $H_i\neq H_{i-1}$. It suffices to remove the three cases when $\lnot H_i\subseteq H_{i-1}$, $H_{i-1}\subseteq\lnot H_i$, and $H_i\subseteq H_{i-1}$, since then nestedness of $\mc{H}$ gives us $H_{i-1}\subsetneq H_i$, as desired.
+
+        Indeed, if $\lnot H_i\subseteq H_{i-1}$, then $H_{i-1}\in U_{i+1}$ by upward-closure of $U_{i+1}\ni\lnot H_i$. But since $H_{i-1}\neq\lnot H_i$, we have by definition of $U_{i+1}$ that $H_{i-1}\in U_i$, a contradiction. The other cases are similar.
+    \end{proof}
+
+    \begin{corollary}\label{cor:nested_implies_tree}
+        If $\mc{H}$ is nested, then $\mc{M}(\mc{H})$ is a tree.
+    \end{corollary}
+    \begin{proof}
+        A cycle in $\mc{M}(\mc{H})$ is induced by a \textit{strictly} increasing chain $H_0\subset\cdots\subset H_n\subset H_0$, which is absurd.
+    \end{proof}
+
+    Nonetheless, in the general non-nested case, the condition that $\mc{H}$ is dense towards ends (and in particular, the finiteness conditions on $\mc{H}$ that follows; see Section \ref{sec:finiteness_conditions_on_pocsets_dense_cuts}) gives us a sufficient criteria for the existence of a \textit{canonical} spanning tree of $\mc{M}(\mc{H})$, which we prove in the following section.
+
+    \section{Median Graphs, Convex Half-spaces, and Canonical Spanning Trees}\label{sec:spanning_trees_of_median_graphs_with_finite_hyperplanes}
+
+    Throughout this section, let $(X,G)$ be a median graph, which, in the context of Theorem \ref{thm:treeing_quasi-trees}, is the dual median graph of the pocset $\mc{H}_{\diam(\del)\leq R}$ given by the quasi-isometry.
+
+    The presence of the median operation gives rise to a canonical finitely-separating pocset of \textit{convex} (and co-convex) half-spaces $\mc{H}_\textrm{cvx}(X)\subseteq2^X$ with a very rigid structure. To study them, we need to first understand the geometry of \textit{projections} therein.
+
+    \subsection{Projections in median graphs}\label{sec:projections_in_median_graphs}
+
+    \renewcommand{\-}{\textrm{---}}
+
+    For vertices $x,y,z\in X$, we write $x\-y\-z$ for $y\in[x,z]$. By the triangle inequality, we have for all $w,x,y,z\in X$ that
+    \begin{equation*}
+        (w\-x\-y\textrm{ and }w\-y\-z)\ \ \ \ \Leftrightarrow\ \ \ \ (w\-x\-z\textrm{ and }x\-y\-z),
+    \end{equation*}
+    and both sides occur iff there is a geodesic from $w$ to $x$ to $y$ to $z$, which we write as $w\-x\-y\-z$.
+
+    \begin{lemma}\label{lem:projections}
+        For any $\em\neq A\subseteq X$ and $x\in X$, there is a unique point in $\cvx(A)$ between $x$ and every point in $A$, called the $\mathrm{projection}$ of $x$ towards $A$, denoted $\proj_A(x)$.
+
+        Moreover, we have $\bigcap_{a\in A}[x,a]=[x,\proj_A(x)]$, and for any $y$ in this set, we have $\proj_A(y)=\proj_A(x)$.
+    \end{lemma}
+    \begin{proof}
+        To show existence, pick any $a_0\in A$. Given $a_n\in\cvx(A)$, if there exists $a\in A$ with $a_n\not\in[x,a]$, set $a_{n+1}\coloneqq\l\langle x,a,a_n\r\rangle\in\cvx(A)$. Then $a_0\-a_1\-\cdots\-a_n\-x$ for all $n$, so this sequence terminates in at most $d(a_0,x)$ steps at a point in $\cvx(A)$ between $x$ and every point in $A$. For uniqueness, if there exist two such points $a,b\in\cvx(A)$, then $x\-a\-b$ and $x\-b\-a$, forcing $a=b$.
+
+        Finally, if $x\-y\-\proj_A(x)$ and $a\in A$, then $x\-\proj_A(x)\-a$ and hence $x\-y\-a$. Conversely, let $x\-y\-a$ for all $a\in A$. Since $[y,a]\subseteq[x,a]$ for all $a$, we see that
+        \begin{equation*}
+            \proj_A(y)\in\cvx(A)\cap\bigcap_{a\in A}[y,a]\subseteq\cvx(A)\cap\bigcap_{a\in A}[x,a]
+        \end{equation*}
+        and hence $\proj_A(y)=\proj_A(x)$ by uniqueness. But since $y\-\proj_A(y)\-a$, we have $x\-y\-\proj_A(y)$, and hence $x\-y\-\proj_A(x)$ as desired.
+    \end{proof}
+
+    \begin{remark}\label{rem:projections}
+        It follows from the proof above that for any median homomorphism $f:(X,G)\to(Y,H)$, we have $f(\proj_A(x))=\proj_{f(A)}(f(x))$ for any $\em\neq A\subseteq X$ and $x\in X$. Indeed, we have
+        \begin{equation*}
+            \proj_A(x)=\l\langle x,a_m,\dots,\l\langle x,a_2,\l\langle x,a_1,a_0\r\rangle\r\rangle\dots\r\rangle
+        \end{equation*}
+        for some $m\leq d(a_0,x)$ and $a_0,\dots,a_m\in A$, and this is preserved by $f$.
+    
+        For $A\coloneqq\l\{a,b\r\}$, we have $\proj_A(x)=\l\langle a,b,x\r\rangle$, and hence $\cvx(A)=\proj_A(X)=\l\langle a,b,X\r\rangle=[a,b]$.
+    \end{remark}
+
+    \begin{lemma}\label{lem:cones_are_convex}
+        For each $x,y\in X$, $\cone_x(y)$ is convex, and if $xGy$, then $\cone_x(y)\sqcup\cone_y(x)=X$.
+    \end{lemma}
+    \begin{proof}
+        Fix $a,b\in\cone_x(y)$ and $a\-c\-b$. It suffices to show that $x\-y\-\l\langle a,c,x\r\rangle$, for then $x\-y\-c$ since we have $x\-\l\langle a,c,x\r\rangle\-c$. Indeed, it follows from the following observations.
+        \begin{itemize}
+            \item $x\-y\-\l\langle a,b,x\r\rangle$, since $\l\langle a,b,x\r\rangle=\proj_{\l\{a,b\r\}}(x)$ and so $[x,\l\langle a,b,x\r\rangle]=[x,a]\cap[x,b]\ni y$ by Lemma \ref{lem:projections}.
+            \item $x\-\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle$, which follows from $\l\langle a,b,x\r\rangle\-\l\langle a,c,x\r\rangle\-a$, since $x\-\l\langle a,b,x\r\rangle\-a$ by definition. Indeed, we have $\l\langle a,c,x\r\rangle$ is in both $[a,x]$ and $[a,c]\subseteq[a,b]$, and since $\proj_{\l\{b,x\r\}}(a)=\l\langle a,b,x\r\rangle$, we have again by Lemma \ref{lem:projections} that $[\l\langle a,b,x\r\rangle,a]=[a,x]\cap[a,b]\ni\l\langle a,c,x\r\rangle$.
+        \end{itemize}
+        Finally, take $z\in X$ and consider $w\coloneqq\l\langle x,y,z\r\rangle\subseteq[x,y]$. Either $w=x$ or $w=y$ (but not both), giving us the desired partition.
+    \end{proof}
+
+    In particular, this shows that if $xGy$, then $\cone_x(y)\in\mc{H}^\ast_\textrm{cvx}(X)$. The convexity of cones also shows, in the situation of Lemma \ref{lem:projections}, that $\proj_A=\proj_{\cvx(A)}$, i.e., $\proj_A(x)$ is also between $x$ and every point in $\cvx(A)$. Indeed, note that $\cone_x(\proj_A(x))$ is convex and contains $A$, so it contains $\cvx(A)$ too.
+
+    \begin{lemma}\label{lem:projection_homomorphism}
+        $\proj_A:X\onto\cvx(A)$ is a median homomorphism with $\proj_A\circ\cvx=\cvx\circ\proj_A$.
+    \end{lemma}
+    \begin{proof}
+        The second claim follows from the first since, by Remark \ref{rem:projections}, we have
+        \begin{equation*}
+            f(\cvx(B))=f(\proj_B(X))=\proj_{f(B)}(f(X))=\cvx(f(B))
+        \end{equation*}
+        for all median homomorphisms $f:X\onto Y$ and $B\subseteq X$, so it in particular applies to $f\coloneqq\proj_A$.
+
+        To this end, let $x\-y\-z\in X$ and set $w\coloneqq\l\langle\proj_A(x),\proj_A(y),\proj_A(z)\r\rangle\in\cvx(A)$. It suffices to show that $y\-w\-a$ for all $a\in A$, for then $w=\proj_A(y)$ and hence $\proj_A(x)\-\proj_A(y)\-\proj_A(z)$. But we have $y\-\proj_A(y)\-a$ already, so it further suffices to show that $y\-w\-\proj_A(y)$. For this, we note that
+        \begin{equation*}
+            x\-\proj_A(x)\-\proj_A(y)\ \ \ \ \textrm{and}\ \ \ \ \proj_A(x)\-w\-\proj_A(y),
+        \end{equation*}
+        so $x\-w\-\proj_A(y)$, and similarly $z\-w\-\proj_A(y)$. Thus, it follows that
+        \begin{equation*}
+            \begin{aligned}
+                w\in[\proj_A(y),x]\cap[\proj_A(y),z]&=[\proj_A(y),\proj_{\l\{x,z\r\}}(\proj_A(y))]\ \ \ \ && \textrm{Lemma \ref{lem:projections}} \\
+                                                    &=[\proj_A(y),\proj_{\l[x,z\r]}(\proj_A(y))] \\
+                                                    &\subseteq[\proj_A(y),y],\ \ \ \ && \textrm{Lemma \ref{lem:projections}}
+            \end{aligned}
+        \end{equation*}
+        where the second equality follows from $\cvx(\l\{x,z\r\})=[x,z]$, and hence $\proj_{\l\{x,z\r\}}=\proj_{\l[x,z\r]}$.
+    \end{proof}
+
+    \subsection{Convex half-spaces of median graphs}\label{sec:convex_half-spaces_of_median_graphs}
+
+    We now use projections to explore the geometry of convex half-spaces in median graphs. In particular, they are very rigid:
+
+    \begin{proposition}\label{prp:half-spaces_are_cones}
+        Each edge $(x,y)\in G$ is on a unique hyperplane, namely the inward boundary of $\cone_x(y)$, and conversely, each half-space $H\in\mc{H}^\ast_\mathrm{cvx}(X)$ is $\cone_x(y)$ for every $(x,y)\in\del_\mathsf{ie}H$.
+
+        Thus, hyperplanes are equivalence classes of edges. Furthermore, this equivalence relation is generated by parallel sides of squares (i.e., $4$-cycles).
+    \end{proposition}
+    \begin{proof}
+        We have $\cone_x(y)\in\mc{H}_\textrm{cvx}^\ast(X)$ by the above lemma, and clearly $(x,y)\in\del_\mathsf{ie}\cone_x(y)$. Conversely, take $H\in\mc{H}_\textrm{cvx}^\ast(X)$ and any $(x,y)\in\del_\mathsf{ie}H$. Then $H=\cone_x(y)$, for if $z\in H\cap\lnot\cone_x(y)$, then $z\in\cone_y(x)$, and hence $x\in[y,z]\subseteq H$ by convexity of $H$, a contradiction; if $z\in\cone_x(y)\cap\lnot H$, then $[x,z]\subseteq\lnot H$ by convexity of $\lnot H$, and hence $y\not\in H$, a contradiction.
+
+        Finally, parallel edges of a strip of squares generate the same hyperplane since, for a given square, each vertex is between its neighbors and hence any hyperplane containing an edge contains its opposite edge. On the other hand, let $(a,b),(c,d)\in\del_\mathsf{ie}H$ for some $H\in\mc{H}_\textrm{cvx}^\ast(X)$. Note that $\del_\mathsf{ov}H=\proj_{\lnot H}(H)$ is convex since $H$ is, and $\proj_{\lnot H}$ preserves convexity by Proposition \ref{lem:projection_homomorphism}, so any geodesic between $a,c\in\del_\mathsf{ov}H$ lies in $\del_\mathsf{ov}H$. Matching this geodesic via $\del_\mathsf{ie}H:\del_\mathsf{ov}H\to\del_\mathsf{iv}H$ gives us a geodesic between $b,d$ in $\del_\mathsf{iv}H$, which together with the matching forms the desired strip of squares.
+    \end{proof}
+
+    \begin{corollary}\label{cor:non-nested_iff_embedding_of_hamming}
+        Two half-spaces $H,K\in\mc{H}_\mathrm{cvx}^\ast(X)$ are non-nested iff there is an embedding $\l\{0,1\r\}^2\into X$ of the Hamming cube into the four corners $\lnot^iH\cap\lnot^jK$.
+
+        In particular, if $H,K\in\mc{H}_\mathrm{cvx}^\ast(X)$ are non-nested, then $\del_\mathsf{v}H\cap\del_\mathsf{v}K\neq\em$.
+    \end{corollary}
+    \begin{proof}
+        Let $H,K$ be non-nested and take $x_1\in H\cap K$ and $x_2\in H\cap\lnot K$. Since $H$ is connected, any geodesic between $x_1,x_2$ crosses an edge $(x_1',x_2')\in\del_\mathsf{oe}K$ in $H$. Similarly, there is an edge $(y_1',y_2')\in\del_\mathsf{oe}K$ in $\lnot H$, so we may slide both edges along $\del_\mathsf{oe}K$ to obtain the desired square (see Proposition \ref{prp:half-spaces_are_cones}).
+
+        Conversely, the half-spaces cutting the square are clearly non-nested.
+    \end{proof}
+
+    \begin{lemma}\label{lem:finite_hyperplane_iff_non-nested_with_finitely-many}
+        A median graph $(X,G)$ has finite hyperplanes iff each half-space $H\in\mc{H}_\mathrm{cvx}(X)$ is non-nested with finitely-many others.
+    \end{lemma}
+    \begin{proof}
+        By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, a half-space $K$ non-nested with $H$ corresponds uniquely to an edge $(x,y)\in\del_\mathsf{ie}H$ with $x,y\in\del_\mathsf{iv}K$, so there are finitely-many such half-spaces $K$ iff $\del_\mathsf{ie}H$ is finite.
+    \end{proof}
+
+    \begin{lemma}[Helly]\label{lem:helly}
+        Any finite intersection of pairwise-intersecting non-empty convex sets is non-empty.
+    \end{lemma}
+    \begin{proof}
+        For pairwise-intersecting convex sets $H_1,H_2,H_3$, pick any $x\in H_1\cap H_2$, $y\in H_1\cap H_3$ and $z\in H_2\cap H_3$; their median $\l\langle x,y,z\r\rangle$ then lies in $H_1\cap H_2\cap H_3$.
+
+        Suppose that it holds for some $n\geq 3$ and let $H_1,\dots,H_{n+1}\subseteq X$ pairwise-intersect. Then $\l\{H_i\cap H_{n+1}\r\}_{i\leq n}$ is a family of $n$ pairwise-intersecting convex sets, so $\bigcap_{i\leq n+1}H_i=\bigcap_{i\leq n}(H_i\cap H_{n+1})$ is non-empty.
+    \end{proof}
+
+    Lastly, we have some useful finiteness conditions on convex half-spaces; the former implies that $\mc{H}_\textrm{cvx}(X)$ is finitely-separating, and the latter allows us to replace finite sets with their convex hulls.
+
+    \begin{lemma}\label{lem:half_space_separating_convex}
+        Any two disjoint convex sets $\em\neq A,B\subseteq X$ can be separated by a half-space $A\subseteq H\subseteq\lnot B$, and furthermore we have $d(A,B)=|\!\l\{H\in\mc{H}_\mathrm{cvx}(X)\st A\subseteq H\subseteq\lnot B\r\}\!|$.
+    \end{lemma}
+    \begin{proof}
+        Pick a geodesic $A\ni x_0Gx_1G\cdots Gx_n\in B$, where $n\coloneqq d(A,B)$. Then $H\coloneqq\cone_{x_1}(x_0)$, which is a half-space by Lemma \ref{lem:cones_are_convex}, separates $A,B$ since $x_0=\proj_A(x_n)$, and thus we have $A\subseteq\cone_{x_n}(x_0)\subseteq\cone_{x_1}(x_0)$ and $B\subseteq\cone_{x_0}(x_n)\subseteq\cone_{x_0}(x_1)$.
+
+        Moreover, each such half-space $A\subseteq H\subseteq\lnot B$ satisfies $x_i\in H\not\ni x_{i+1}$ for a unique $i<n$, and conversely each pair $(x_i,x_{i+1})$ has a unique half-space separating them, so we have the desired bijection.
+    \end{proof}
+
+    \begin{lemma}\label{cor:convex_of_finite_is_finite}
+        Every interval $[x,y]$ is finite. More generally, if $A\subseteq X$ is finite, then so is $\cvx(A)$.
+    \end{lemma}
+    \begin{proof}
+        The singletons $\l\{x\r\}$ and $\l\{y\r\}$ are convex, so there are finitely-many half-spaces $H\subseteq[x,y]$. But each $z\in[x,y]$ is determined uniquely by those half-spaces containing it, so $[x,y]$ is finite.
+
+        Let $A\coloneqq\l\{x_0,\dots,x_n\r\}$. Since $\cvx(A)=\proj_A(X)$, we have by Remark \ref{rem:projections} that points in $\cvx(A)$ are of the form $\l\langle x,x_n,\dots,\l\langle x,x_2,\l\langle x,x_1,x_0\r\rangle\r\rangle\r\rangle$, which is finite by induction using that intervals are finite.
+    \end{proof}
+
+    \subsection{Canonical spanning trees}\label{sec:cycle_cutting_algorithm}
+
+    We now present the Borel cycle-cutting algorithm that can be preformed canonically on any countable median graph with finite hyperplanes. We do so by colouring the half-spaces $\mc{H}^\ast_\textrm{cvx}(X)$ into certain nested half-spaces $\mc{H}_n\subseteq\mc{H}_\textrm{cvx}(X)$, from which we inductively build a spanning forest by leveraging a tree structure on the $\mc{H}_n$-blocks $X/\mc{H}_n$. This tree is constructed as follows.
+
+    \begin{lemma}\label{lem:H_blocks_form_a_median_graph}
+        For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$, the principal orientations map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
+    \end{lemma}
+    \begin{proof}
+        Let $U\in\mc{U}^\circ(\mc{H})$. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ $-$ which we may assume to be convex by Corollary \ref{cor:convex_of_finite_is_finite} $-$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $K\in U$ with $H\cap A=K\cap A$. Note that $K\cap A\neq\em$ for every $K\in U$, since otherwise $\em\in U$. Furthermore, $H\cap K\neq\em$ for every $H,K\in U$, since otherwise we have $H\subseteq\lnot K$, and so $\lnot K\in U$. By Lemma \ref{lem:helly}, we have $(H\cap A)\cap(K\cap A)=H\cap K\cap A\neq\em$, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$; note that the latter intersection is finite. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
+    \end{proof}
+
+    This lemma is crucial, in that it induces an isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$. Indeed, $\mc{H}$ is finitely-separating by Lemma \ref{lem:finitely_separating_iff_on_boundary_of_finite} and Proposition \ref{prp:half-spaces_are_cones}, and so $\mc{U}^\circ(\mc{H})$ is the vertices of the median graph $\mc{M}(\mc{H})$ by Lemma \ref{lem:finitely-separating_non-trivial_isolated} and Proposition \ref{prp:construction_of_dual_median_graph}. The fibers of $X\to\mc{U}^\circ(\mc{H})$ are the $\mc{H}$-blocks, so we have the desired bijection.
+
+    Explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are said to be \textit{$G$-adjacent} if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$.
+
+    \begin{proposition}\label{prp:canonical_spanning_trees}
+        Every countable median graph with finite hyperplanes admits a canonical spanning tree.
+    \end{proposition}
+    \begin{proof}
+        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, if two half-spaces $H,K\in\mc{H}^\ast_\textrm{cvx}(X)$ are non-nested, then $\del_\mathsf{v}H\cap\del_\mathsf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\textrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
+
+        We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree, since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Proposition \ref{prp:half-spaces_are_cones}).
+
+        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\textrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. For each $G$-adjacent pair $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space $H\in\mc{H}_n$ by Lemma \ref{lem:half_space_separating_convex}, we may pick an edge from the \textit{finite} hyperplane $\del_\mathsf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
+    \end{proof}
+
+    To apply this proposition to the dual median graph $\mc{M}(\mc{H})$ of a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\textrm{conn}$ of finitely-separating cuts, by Lemma \ref{lem:finite_hyperplane_iff_non-nested_with_finitely-many}, it suffices to show that each half-space in $\mc{H}_\mathrm{cvx}(\mc{M}(\mc{H}))$ is non-nested with finitely-many others. However, given that $\mc{H}$ is finitely-separating, so that each $H\in\mc{H}$ is non-nested with finitely-others by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, we need to transfer this result from $\mc{H}$ to $\mc{H}_\textrm{cvx}(\mc{M}(\mc{H}))$.
+    
+    \begin{lemma}
+        Fix a half-space $K\in\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$. Then there is a unique $H\in\mc{H}^\ast$ such that
+        \begin{equation*}
+            K=\widehat{H}\coloneqq\l\{W\in\mc{U}^\circ(\mc{H})\st H\in W\r\},
+        \end{equation*}
+        and if $K'\in\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$ is non-nested with $K$, say with $K'=\widehat{H}'$, then $H'$ is non-nested with $H$.
+    \end{lemma}
+    \begin{proof}
+        We claim that for any $(U,V)\in\del_\mathsf{ie}K$, we have  $V\comp U=\l\{H\r\}$ iff $K=\widehat{H}$.
+        \begin{leftbar}
+            Indeed, we have $H=\cone_U(V)$ by Proposition \ref{prp:half-spaces_are_cones}, so for all $W\in\mc{U}^\circ(\mc{H})$, we have $W\in K$ iff $V\in[W,U]$, which by (the proof of) Proposition \ref{prp:construction_of_dual_median_graph}, occurs iff $(W\comp V)\cup(V\comp U)\subseteq W\comp U$. If $V\comp U=\l\{H\r\}$, then the latter is equivalent to $H\in W$, so we have $K=\widehat{H}$. Conversely, if $K=\widehat{H}$, then we have $V\comp U\in K$ by the above, so $H\in V\comp U$. Since $U,V$ are adjacent, we have $V\comp U=\l\{H\r\}$ as desired.
+        \end{leftbar}
+        This gives existence, since $V\comp U$ is a singleton for any such $(U,V)$ by Proposition \ref{prp:construction_of_dual_median_graph}, and uniqueness follows too since if $\widehat{H}=K=\widehat{H}'$, then any $(U,V)\in\del_\mathsf{ie}K$ has $V\comp U=\l\{H\r\}=\l\{H'\r\}$.
+
+        Finally, let $K'=\widehat{H}'\in\mc{H}_\textrm{cvx}^\ast(\mc{M}(\mc{H}))$ be non-nested with $K=\widehat{H}$, so there are edges $(U,V),(U',V')\in\del_\mathsf{ie}K$ forming parallel sides of a square, by Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, say with $U,V\in\del_\mathsf{iv}K'$. Since $V\in K\cap K'$ is an orientation containing $H,H'$, which are respectively flipped to $U,V'$, we see that both $H,H'$ are $\subseteq$-minimal in $V$, and that $H\cap H'\neq\em$. Finally, note that $\lnot H,\lnot H'\in U'$ since $U'$ is opposite to $V$ in this square, so $\lnot H\cap\lnot H'$ too, and hence $H'$ is non-nested with $H$.
+    \end{proof}
+
+    \begin{bibdiv}
+        \begin{biblist}*{labels={alphabetic}}
+            \bibselect{setup/bibliography}
+        \end{biblist}
+    \end{bibdiv}
+\end{document}

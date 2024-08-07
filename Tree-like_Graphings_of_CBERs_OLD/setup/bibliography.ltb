@@ -101,25 +101,3 @@
     pages={399-413},
     label={NR03}
 }
-
-\bib{Nic04}{article}{
-    title={Cubulating Spaces with Walls},
-    author={B. Nica},
-    date={2004},
-    journal={Algebraic \& Geometric Topology},
-    volume={4},
-    pages={297-309},
-    label={Nic04}
-}
-
-\bib{CN05}{article}{
-    title={From Wall Spaces to CAT(0) Cube Complexes},
-    author={I. Chatterji},
-    author={G.A. Niblo},
-    date={2005},
-    journal={Internat. J. Algebra Comput.},
-    volume={15},
-    number={5-6},
-    pages={875–885},
-    label={CN05}
-}
