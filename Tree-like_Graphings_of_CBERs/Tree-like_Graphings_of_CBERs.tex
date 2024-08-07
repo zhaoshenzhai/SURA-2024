@@ -472,7 +472,7 @@
             \item[1.] \textit{$H,H'$ are non-nested.} Indeed, $H'\not\subseteq H$ and $H\not\subseteq H'$ by minimality; if $H\subseteq\lnot H'$, then $\lnot H'\in U$; and if $\lnot H\subseteq H'$, then $H'$ is not minimal in $U$.
             \item[2.] \textit{$H\in U'$ is still minimal.} Indeed, since $U'=U\symdiff\l\{H',\lnot H'\r\}$, the only way this can fail is if $\lnot H'\subseteq H$, but this contradicts minimality of $H$.
         \end{enumerate}
-        Thus, $(U',V')\in\del_\mathsf{ie}K$ is obtained by flipping $H\in U'$, which propogates this induction.
+        Thus, we have $V'=U'\symdiff\l\{H,\lnot H\r\}$, so the induction continues with $(U',V')$ in place of $(U,V)$.
     \end{proof}
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
