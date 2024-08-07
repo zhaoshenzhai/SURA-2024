@@ -123,3 +123,14 @@
     pages={875–885},
     label={CN05}
 }
+
+\bib{vdV93}{book}{
+    title={Theory of Convex Structures},
+    author={M. L. J. van de Vel},
+    date={1993},
+    publisher={North-Holland Publishing Co.},
+    series={North-Holland Mathematical Library},
+    address={Amsterdam},
+    volume={50},
+    label={vdV93}
+}
