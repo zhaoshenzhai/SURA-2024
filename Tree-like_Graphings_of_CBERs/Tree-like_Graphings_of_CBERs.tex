@@ -424,7 +424,7 @@
         Note that the two sides coincide, so $M=\l\langle U,V,W\r\rangle$ $-$ which is clopen if $U,V,W$ are $-$ is as claimed.
     \end{proof}
 
-    Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between median graphs with median homomorphisms and profinite pocsets whose non-trivial points are isolated with continuous maps, where from a median graph one can construct a canonical pocset of `convex' half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. An important special case of this construction is when $\mc{H}$ is \textit{nested}, in which case $\mc{M}(\mc{H})$ is a tree.
+    Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between \{median graphs, median homomorphisms\} and \{profinite pocsets with non-trivial points isolated, continuous maps\}, where from a median graph $X$ one can construct a canonical pocset $\mc{H}_\mathrm{cvx}(X)$ of convex half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. An important special case of this construction is when $\mc{H}$ is \textit{nested}, in which case $\mc{M}(\mc{H})$ is a tree.
 
     \begin{lemma}
         Let $\mc{H}$ be a profinite pocset with non-trivial points isolated. If $\mc{H}$ is nested and $(H_i)_{i<n}\subseteq\mc{H}$ induces a path in $\mc{M}(\mc{H})$ with no backtracking, then $(H_i)$ is strictly increasing.
@@ -459,21 +459,8 @@
 
     This lemma is crucial, in that it induces an isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$ in the case when $\mc{H}$ is finitely-separating. Explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are said to be \textit{$G$-adjacent} if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$.
 
-    \begin{proposition}\label{prp:canonical_spanning_trees}
-        Every countable median graph with finite hyperplanes admits a canonical spanning tree.
-    \end{proposition}
-    \begin{proof}
-        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, if two half-spaces $H,K\in\mc{H}^\ast_\mathrm{cvx}(X)$ are non-nested, then $\del_\mathsf{v}H\cap\del_\mathsf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\mathrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
-
-        We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree, since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Proposition \ref{prp:half-spaces_are_cones}).
-
-        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\mathrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. For each $G$-adjacent pair $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space $H\in\mc{H}_n$ by Lemma \ref{lem:half_space_separating_convex}, we may pick an edge from the \textit{finite} hyperplane $\del_\mathsf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
-    \end{proof}
-
-    The following lemma allows one to apply this proposition to the dual median graph $\mc{M}(\mc{H})$ of a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$ of finitely-separating cuts.
-
     \begin{lemma}
-        The dual median graph $\mc{M}(\mc{H})$ of a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$ of finitely-separating cuts has finite hyperplanes.
+        The dual median graph $\mc{M}(\mc{H})$ of a pocset $\mc{H}$ of finitely-separating cuts has finite hyperplanes.
     \end{lemma}
     \begin{proof}
         Fix $K\in\mc{H}^\ast_\mathrm{cvx}(\mc{M}(\mc{H}))$, which by Proposition \ref{prp:half-spaces_are_cones} is of the form $K=\cone_V(U)$ for some (and hence any) $(U,V)\in\del_\mathsf{ie}K$, and we have by Proposition \ref{prp:construction_of_dual_median_graph} that $V=U\symdiff\l\{H,\lnot H\r\}$ for some (non-trivial) minimal $H\in U$. We claim that any other edge $(U',V')\in\del_\mathsf{ie}K$ can be reached from $(U,V)$ by simultaneously flipping only the half-spaces $H'_0,\dots,H'_n\in\mc{H}^\ast$ non-nested with $H$, of which there are finitely-many by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}.
@@ -486,9 +473,20 @@
         Thus, $(U',V')\in\del_\mathsf{ie}K$ is obtained by flipping $H\in U'$, which propogates this induction.
     \end{proof}
 
+    \begin{proposition}\label{prp:canonical_spanning_trees}
+        Every countable median graph with finite hyperplanes admits a canonical spanning tree.
+    \end{proposition}
+    \begin{proof}
+        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, if two half-spaces $H,K\in\mc{H}^\ast_\mathrm{cvx}(X)$ are non-nested, then $\del_\mathsf{v}H\cap\del_\mathsf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\mathrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
+
+        We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree, since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Proposition \ref{prp:half-spaces_are_cones}).
+
+        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\mathrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. For each $G$-adjacent pair $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space $H\in\mc{H}_n$ by Lemma \ref{lem:half_space_separating_convex}, we may pick an edge from the \textit{finite} hyperplane $\del_\mathsf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
+    \end{proof}
+
     \subsection{Finiteness conditions on pocsets}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
 
-    Let $(X,G)$ be a connected locally-finite graph and fix a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\mathrm{conn}(X)$ of cuts. This section investigates certain finiteness conditions on $\mc{H}$; specifically, when $\mc{H}$ is finitely-separating, and when $\mc{H}$ is also dense towards ends.
+    Let $(X,G)$ be a connected locally-finite graph and fix a pocset $\mc{H}$ of cuts. This section investigates certain finiteness conditions on $\mc{H}$ when it is dense towards ends, which ultimately is only needed to set up a Borel bireduction \TODO[what is this...]
 
     \begin{proposition}\label{prp:dense_cuts_induces_proper_walling}
         If $\mc{H}$ is dense towards ends, then each $\mc{H}$-block is finite and each $H\in\mc{H}^\ast$ has finitely-many successors.
@@ -498,6 +496,10 @@
     \end{proof}
 
     \subsection{Borel subtreeing of quasi-trees}\label{sec:borel_subtreeing_of_quasi-trees}
+
+    uh.
+
+    \TODO
 
     \begin{bibdiv}
         \begin{biblist}*{labels={alphabetic}}
