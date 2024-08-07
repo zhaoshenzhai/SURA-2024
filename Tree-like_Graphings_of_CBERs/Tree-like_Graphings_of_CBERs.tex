@@ -40,7 +40,7 @@
 
     \begin{mainTheorem}\label{thm:component-wise_construction}
         % If $\mc{H}\subseteq2^X$ is a collection of finitely-separating cuts on a connected locally-finite graph $(X,G)$, then the median graph $\mc{M}(\mc{H})$ admits a canonical spanning tree.
-        If $(X,G)$ is a connected locally-finite graph, then there is a family $\mc{H}\subseteq2^X$ of finitely-separating cuts whose dual median graph $\mc{M}(\mc{H})$ admits a canonical spanning trees.
+        For any finitely-separating family $\mc{H}\subseteq2^X$ of cuts on a connected locally-finite graph, its dual median graph $\mc{M}(\mc{H})$ admits a canonical spanning trees.
     \end{mainTheorem}
 
     \begin{center}
@@ -50,6 +50,8 @@
         \begin{tikzpicture}
             \draw[dashed, rounded corners, opacity=0.2] (-1.7,0.5) -- (-1.7,-0.4-\vsp) -- (0.75,-0.4-\vsp) -- (3,-0.4) -- (3*\hsp+1.5,-0.4) -- (3*\hsp+1.5,0.5) -- cycle;
             \draw[dashed, rounded corners, opacity=0.2] (2.5,0.5-\vsp) rectangle (3*\hsp+1.5,-0.4-\vsp);
+
+            \tikzset{->-/.style={decoration={ markings, mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
 
             \draw (3*\hsp+2.25,\vsh) circle (0in) node[opacity=0.7]{\tiny{Thm.\!\! \ref{thm:treeing_quasi-trees}}};
             \draw (3*\hsp+2.25,\vsh-\vsp) circle (0in) node[opacity=0.7]{\tiny{Thm.\!\! \ref{thm:component-wise_construction}}};
@@ -61,15 +63,17 @@
             \draw (3*\hsp,\vsh) circle (0in) node{Borel treeing};
 
             \draw (0,\vsh-\vsp) circle (0in) node{Quasi-tree};
-            \draw[->] (1.1,\vsh-\vsp) -- (\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:pocsets_of_cuts}}};
+            \draw[->] (1,\vsh-\vsp) -- (\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:pocsets_of_cuts}+\ref{sec:dense_cuts_induced_by_quasi-trees}}};
             \draw[->] (1,-1) -- (\hsp-1.1,0) node[midway, above=-2pt, sloped]{\tiny{Sec.\!\! \ref{sec:dense_cuts_induced_by_quasi-trees}}};
             \draw (\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Finitely-sep.}\\[-4pt] \textrm{pocset} \end{gathered}$};
             \draw[->] (\hsp+1.1,\vsh-\vsp) -- (2*\hsp-1.5,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:the_dual_median_graph_of_a_pocset}}};
+            \draw[->-=0.5] (\hsp+1.1,-1) to [out=35, in=180] (2*\hsp,\vsh);
+            \node[rotate=32] at (1.43*\hsp,-0.5) {\tiny{Sec.\!\! \ref{sec:finiteness_conditions_on_pocsets_dense_cuts}}};
             \draw (\hsp,-0.6) circle (0in);
             \draw (2*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Median graph w/}\\[-4pt] \textrm{finite hyperplanes} \end{gathered}$};
             \draw[->] (2*\hsp+1.5,\vsh-\vsp) -- (3*\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:cycle_cutting_algorithm}}};
             \draw (3*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Canonical}\\[-4pt] \textrm{spanning tree} \end{gathered}$};
-            \draw[->] (3*\hsp,-\vsp+0.5) -- (3*\hsp,-0.2);
+            \draw[->] (3*\hsp,0.5-\vsp) -- (3*\hsp,-0.2);
         \end{tikzpicture}
     \end{center}
 
