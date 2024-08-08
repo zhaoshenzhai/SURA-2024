@@ -10,7 +10,7 @@
     \date{\today}
 
     \begin{abstract}
-        We present a streamlined exposition of a construction presented recently by R. Chen, A. Poulin, R. Tao, and A. Tserunyan, where it is proven that every locally-finite Borel graph with each component a quasi-tree induces a canonical treeable equivalence relation. {\color{red}Write some more details...}
+        We present a streamlined exposition of a construction presented recently by R. Chen, A. Poulin, R. Tao, and A. Tserunyan, where it is proven that the connectedness relation of every locally-finite Borel graph with each component a quasi-tree is treeable. {\color{red}Write some more details...}
     \end{abstract}
 
     \maketitle
@@ -23,10 +23,10 @@
 
     \subsection*{Treeings of equivalence relations}
 
-    A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$ with each class countable. We are interested in special types of \textit{graphings} on a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit treeings are said to be \textit{treeable}. The main results of \cite{CPTT23} provide new sufficient criteria for treeability of certain classes of CBERs, and in particular, they prove the following
+    A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$ with each class countable. We are interested in special types of \textit{graphings} of a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit treeings are said to be \textit{treeable}. The main results of \cite{CPTT23} provide new sufficient criteria for treeability of certain classes of CBERs, and in particular, they prove the following
 
     \begin{mainTheorem}[\cite{CPTT23}*{Theorem 1.1}]\label{thm:treeing_quasi-trees}
-        If a CBER admits a locally-finite graphing whose components are quasi-trees\footnote{Recall that metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.}, then it is treeable.
+        If a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree\footnote{Recall that metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.}, then $E$ is treeable.
     \end{mainTheorem}
 
     Roughly speaking, the existence of a quasi-isometry $G|C\to T_C$ to a simplicial tree $T_C$ for each component $C\subseteq X$ induces a collection $\mc{H}(C)\subseteq2^C$ of `cuts' (subsets $H\subseteq C$ with finite boundary such that both $H$ and $C\comp H$ are connected), which are `tree-like' in the sense that
@@ -34,7 +34,7 @@
         \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ is separated by finitely-many $H\in\mc{H}(C)$, and
         \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
     \end{enumerate}
-    Condition (1) allows for an abstract (i.e., \textit{not necessarily} Borel) but canonical construction of a tree from $\mc{H}(C)$. This construction starts by viewing $\mc{H}(C)$ as a profinite pocset with non-trivial points isolated, which in turn provide exactly the data to construct a `median graph' $\mc{M}(\mc{H}(C))$ whose vertices are `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} thereof. This median graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree.
+    Condition (1) allows for an abstract (i.e., \textit{not necessarily} Borel) but canonical construction of a tree from $\mc{H}(C)$. This construction starts by viewing $\mc{H}(C)$ as a profinite pocset with non-trivial points isolated (i.e., a `walling'), which in turn provide exactly the data to construct a `median graph' $\mc{M}(\mc{H}(C))$ whose vertices are special `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} on $\mc{H}(C)$. This median graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree.
 
     Thus we have the following theorem, which can be viewed as a component-wise version of Theorem \ref{thm:treeing_quasi-trees}. In fact, the above construction can be done to \textit{any} finitely-separating family of cuts on a connected locally-finite graph, not just a quasi-tree, but those cuts will not necessarily be dense towards ends.
 
@@ -70,7 +70,7 @@
             \draw (2*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Median graph w/}\\[-4pt] \textrm{finite hyperplanes} \end{gathered}$};
             \draw[->] (2*\hsp+1.5,\vsh-\vsp) -- (3*\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:cycle_cutting_algorithm}}};
             \draw (3*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Canonical}\\[-4pt] \textrm{spanning tree} \end{gathered}$};
-            \draw[->] (3*\hsp,0.5-\vsp) -- (3*\hsp,-0.2);
+            \draw[->] (3*\hsp,0.4-\vsp) -- (3*\hsp,-0.2);
         \end{tikzpicture}
     \end{center}
 
@@ -501,9 +501,11 @@
 
     \subsection{Borel subtreeing of quasi-trees}\label{sec:borel_subtreeing_of_quasi-trees}
 
-    uh.
-
     \TODO
+
+    {\tt{For (ii), we show that the block of a point $x$ is finite by covering every end with an $H$ that doesn’t contain $x$; then there is a finite subcover and $x$ belongs to the intersection of the complements of this subcover; this intersection is finite because it contains no ends (local finiteness is used here).
+
+    For (iv), let $H$ be in $\mathcal{H}$. Then by (iii), there are only finitely many non-nested $K$ with $H$, and removing them still keeps denseness towards ends. Thus WLOG assume $H$ is nested with everyone. Then the sets $\lnot K$ such that $K$ is a minimal set containing $H$ are pairwise disjoint and form a cover of the ends in $\lnot H$, hence there is a finite subcover. But this subcover must be the same as the original cover because the latter was pairwise disjoint.}}
 
     \begin{bibdiv}
         \begin{biblist}*{labels={alphabetic}}
