@@ -490,22 +490,31 @@
 
     \subsection{Finiteness conditions on pocsets}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
 
-    Let $(X,G)$ be a connected locally-finite graph and fix a pocset $\mc{H}$ of cuts. This section investigates certain finiteness conditions on $\mc{H}$ when it is dense towards ends, which ultimately is only needed to set up a Borel bireduction \TODO[what is this...]
+    Let $(X,G)$ be a connected locally-finite graph and fix a finitely-separating pocset $\mc{H}$ of cuts. We now investigate certain finiteness conditions on $\mc{H}$ when it is dense towards ends.
 
     \begin{proposition}\label{prp:dense_cuts_induces_proper_walling}
-        If $\mc{H}$ is dense towards ends, then each $\mc{H}$-block is finite and each $H\in\mc{H}^\ast$ has finitely-many successors.
+        If $\mc{H}$ is a finitely-separating pocset of cuts on a connected locally-finite graph, then it is dense towards ends iff the following conditions hold.
+        \begin{enumerate}
+            \item[1.] Each $\mc{H}$-block is finite (i.e., for each vertex, there are only finitely-many other vertices contained in exactly the same half-spaces in $\mc{H}$).
+            \item[2.] Each $H\in\mc{H}^\ast$ has finitely-many successors (i.e., finitely-many minimal $K\in\mc{H}^\ast$ containing $H$).
+        \end{enumerate}
     \end{proposition}
     \begin{proof}
-        \TODO[define $\mc{H}$-blocks and successors beforehand too.]
+        Suppose that $\mc{H}$ is dense towards ends.
+        \begin{center}
+            \begin{minipage}{0.9\textwidth}
+                \begin{leftbar}
+                    {\tt{For (ii), we show that the block of a point $x$ is finite by covering every end with an $H$ that doesn’t contain $x$; then there is a finite subcover and $x$ belongs to the intersection of the complements of this subcover; this intersection is finite because it contains no ends (local finiteness is used here).
+
+                    For (iv), let $H$ be in $\mathcal{H}$. Then by (iii), there are only finitely many non-nested $K$ with $H$, and removing them still keeps denseness towards ends. Thus WLOG assume $H$ is nested with everyone. Then the sets $\lnot K$ such that $K$ is a minimal set containing $H$ are pairwise disjoint and form a cover of the ends in $\lnot H$, hence there is a finite subcover. But this subcover must be the same as the original cover because the latter was pairwise disjoint.}}
+                \end{leftbar}
+            \end{minipage}
+        \end{center}
     \end{proof}
 
     \subsection{Borel subtreeing of quasi-trees}\label{sec:borel_subtreeing_of_quasi-trees}
 
     \TODO
-
-    {\tt{For (ii), we show that the block of a point $x$ is finite by covering every end with an $H$ that doesn’t contain $x$; then there is a finite subcover and $x$ belongs to the intersection of the complements of this subcover; this intersection is finite because it contains no ends (local finiteness is used here).
-
-    For (iv), let $H$ be in $\mathcal{H}$. Then by (iii), there are only finitely many non-nested $K$ with $H$, and removing them still keeps denseness towards ends. Thus WLOG assume $H$ is nested with everyone. Then the sets $\lnot K$ such that $K$ is a minimal set containing $H$ are pairwise disjoint and form a cover of the ends in $\lnot H$, hence there is a finite subcover. But this subcover must be the same as the original cover because the latter was pairwise disjoint.}}
 
     \begin{bibdiv}
         \begin{biblist}*{labels={alphabetic}}
