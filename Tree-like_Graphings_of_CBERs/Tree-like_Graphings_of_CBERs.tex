@@ -34,12 +34,12 @@
         \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ is separated by finitely-many $H\in\mc{H}(C)$, and
         \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
     \end{enumerate}
-    Condition (1) allows for an abstract (i.e., \textit{not necessarily} Borel) but canonical construction of a tree from $\mc{H}(C)$. This construction starts by viewing $\mc{H}(C)$ as a profinite pocset with non-trivial points isolated (i.e., a `walling'), which in turn provide exactly the data to construct a `median graph' $\mc{M}(\mc{H}(C))$ whose vertices are special `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} on $\mc{H}(C)$. This median graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a canonical spanning tree.
+    Condition (1) allows for an abstract (i.e., \textit{not necessarily} Borel) but {\color{red}canonical} construction of a tree from $\mc{H}(C)$. This construction starts by viewing $\mc{H}(C)$ as a profinite pocset with non-trivial points isolated (i.e., a `walling'), which in turn provide exactly the data to construct a `median graph' $\mc{M}(\mc{H}(C))$ whose vertices are special `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} on $\mc{H}(C)$. This median graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a {\color{red}canonical} spanning tree.
 
     Thus we have the following theorem, which can be viewed as a component-wise version of Theorem \ref{thm:treeing_quasi-trees}. In fact, the above construction can be done to \textit{any} finitely-separating family of cuts on a connected locally-finite graph, not just a quasi-tree, but those cuts will not necessarily be dense towards ends.
 
     \begin{mainTheorem}\label{thm:component-wise_construction}
-        For any finitely-separating family of cuts on a connected locally-finite graph, its dual median graph admits a canonical spanning tree.
+        For any finitely-separating family of cuts on a connected locally-finite graph, its dual median graph admits a {\color{red}canonical} spanning tree.
     \end{mainTheorem}
 
     \begin{center}
@@ -69,7 +69,7 @@
             \draw (\hsp,-0.6) circle (0in);
             \draw (2*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Median graph w/}\\[-4pt] \textrm{finite hyperplanes} \end{gathered}$};
             \draw[->] (2*\hsp+1.5,\vsh-\vsp) -- (3*\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:cycle_cutting_algorithm}}};
-            \draw (3*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Canonical}\\[-4pt] \textrm{spanning tree} \end{gathered}$};
+            \draw (3*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{{\color{red}Canonical}}\\[-4pt] \textrm{spanning tree} \end{gathered}$};
             \draw[->] (3*\hsp,0.4-\vsp) -- (3*\hsp,-0.2);
         \end{tikzpicture}
     \end{center}
@@ -188,7 +188,7 @@
 
     \subsection{Median graphs and projections}
 
-    Starting from a finitely-separating profinite pocset $\mc{H}$, we construct in Section \ref{sec:the_dual_median_graph_of_a_pocset} its dual median graph $\mc{M}(\mc{H})$; the rigidity of certain half-spaces therein can then be leveraged to construct a canonical spanning tree.
+    Starting from a finitely-separating profinite pocset $\mc{H}$, we construct in Section \ref{sec:the_dual_median_graph_of_a_pocset} its dual median graph $\mc{M}(\mc{H})$; the rigidity of certain half-spaces therein can then be leveraged to construct a {\color{red}canonical} spanning tree.
 
     For more comprehensive references, and their general theory, see \cite{Rol98} and \cite{Bow22}.
 
@@ -374,7 +374,7 @@
         Observe that $\mc{H}_{\diam(\del)\leq2}(T)$ is dense towards ends for any tree $T$, so Proposition \ref{prp:invariant_of_density_coarse_equivalence} proves the density of $\mc{H}_{\diam(\del)\leq R}(X)$ for some $R<\infty$. By Lemma \ref{lem:connected_witness_to_density}, there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}(X)\cap\mc{H}_\mathrm{conn}(X)$ dense towards ends such that for every $H'\in\mc{H}'$, we have $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}_{\diam(\del)\leq R}(X)$. Hence we have $H'\in\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$, so the result follows.
     \end{proof}
 
-    The cuts $\mc{H}\coloneqq\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ obtained here will be our starting point for Theorem \ref{thm:component-wise_construction}, so we need to show that it is finitely-separating. Indeed, since $(X,G)$ is locally-finite, the $R$-ball around any fixed $x\in X$ is finite, so any $H\in\mc{H}$ with $x\in\del_\mathsf{v}H$ is contained in said $R$-ball. Thus, by Lemma \ref{lem:finitely_separating_iff_on_boundary_of_finite}, $\mc{H}$ is finitely-separating.
+    The cuts $\mc{H}\coloneqq\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ obtained here will be our starting point for Theorem \ref{thm:component-wise_construction}, so we need to show that it is finitely-separating. Indeed, the $R$-ball around any fixed $x\in X$ is finite by local-finiteness of $(X,G)$, so any cut $H\in\mc{H}$ with $x\in\del_\mathsf{v}H$ is contained in said $R$-ball. Thus there are finitely-many such cuts, so by Lemma \ref{lem:finitely_separating_iff_on_boundary_of_finite}, $\mc{H}$ is finitely-separating.
 
     Furthermore, we have by Lemma \ref{lem:finitely-separating_non-trivial_isolated} that $\mc{H}\subseteq2^X$ is closed and every non-trivial element is isolated, and those conditions allow for the construction in Theorem \ref{thm:component-wise_construction} to continue.
 
