@@ -446,11 +446,11 @@
         A cycle in $\mc{M}(\mc{H})$ is induced by a \textit{strictly} increasing chain $H_0\subset\cdots\subset H_n\subset H_0$, which is absurd.
     \end{proof}
 
-    Nonetheless, in the general non-nested case, $\mc{M}(\mc{H})$ still admits a \textit{canonical} spanning tree, which we prove in the following section.
+    Nonetheless, in the general non-nested case, $\mc{M}(\mc{H})$ still admits a {\color{red}canonical} spanning tree, which we prove in the following section.
 
-    \subsection{Canonical spanning trees}\label{sec:cycle_cutting_algorithm}
+    \subsection{{\color{red}Canonical} spanning trees}\label{sec:cycle_cutting_algorithm}
 
-    We now present the Borel cycle-cutting algorithm that can be preformed canonically on any countable median graph with finite hyperplanes. We do so by colouring the half-spaces $\mc{H}^\ast_\mathrm{cvx}(X)$ into certain nested half-spaces $\mc{H}_n\subseteq\mc{H}_\mathrm{cvx}(X)$, from which we inductively build a spanning forest by leveraging a tree structure on the $\mc{H}_n$-blocks $X/\mc{H}_n$. This tree is constructed as follows.
+    We now present the Borel cycle-cutting algorithm that can be preformed {\color{red}canonically} on any countable median graph with finite hyperplanes. We do so by colouring the half-spaces $\mc{H}^\ast_\mathrm{cvx}(X)$ into certain nested half-spaces $\mc{H}_n\subseteq\mc{H}_\mathrm{cvx}(X)$, from which we inductively build a spanning forest by leveraging a tree structure on the $\mc{H}_n$-blocks $X/\mc{H}_n$. This tree is constructed as follows.
 
     \begin{lemma}\label{lem:H_blocks_form_a_median_graph}
         For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$, the principal orientations map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
@@ -478,7 +478,7 @@
     \end{proof}
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
-        Every countable median graph with finite hyperplanes admits a canonical spanning tree.
+        Every countable median graph with finite hyperplanes admits a {\color{red}canonical} spanning tree.
     \end{proposition}
     \begin{proof}
         Let $(X,G)$ be a countable median graph with finite hyperplanes. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, if two half-spaces $H,K\in\mc{H}^\ast_\mathrm{cvx}(X)$ are non-nested, then $\del_\mathsf{v}H\cap\del_\mathsf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\mathrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
