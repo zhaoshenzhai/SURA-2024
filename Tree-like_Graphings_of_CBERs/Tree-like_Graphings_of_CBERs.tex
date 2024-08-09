@@ -158,12 +158,12 @@
         The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are the \textit{ends} of $(X,G)$.
     \end{definition}
 
-    We identify $X\into\widehat{X}$ via principal ultrafilter map $x\mapsto p_x$, so $\widehat{X}\comp X$ is the set of ends of $G$. By definition, $\widehat{X}$ admits a basis of clopen sets of the form $\widehat{A}\coloneqq\{p\in\widehat{X}\st A\in p\}$ for each $A\in\mc{H}_{\del<\infty}(X)$.
+    We identify $X\into\widehat{X}$ via principal ultrafilter map $x\mapsto p_x$, so $\epsilon(X)\coloneqq\widehat{X}\comp X$ is the set of ends of $G$. By definition, $\widehat{X}$ admits a basis of clopen sets of the form $\widehat{A}\coloneqq\{p\in\widehat{X}\st A\in p\}$ for each $A\in\mc{H}_{\del<\infty}(X)$.
 
     \begin{definition}
-        A pocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end in $\widehat{X}\comp X$.
+        A pocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end in $\epsilon(X)$.
 
-        In other words, $\mc{H}$ is dense towards ends if for every $p\in\widehat{X}\comp X$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$.
+        In other words, $\mc{H}$ is dense towards ends if for every $p\in\epsilon(X)$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$, so we will abuse notation and write $p\in H\subseteq A$ for the above condition.
     \end{definition}
 
     We show in Section \ref{sec:dense_cuts_induced_by_quasi-trees} that certain half-spaces $\mc{H}\subseteq\mc{H}_{\del<\infty}$ induced by a locally-finite quasi-tree is dense towards ends. It will also be important that these half-spaces be cuts, in that witnesses to density can also be found in $\mc{H}\cap\mc{H}_\mathrm{conn}$. The following lemma takes care of this.
@@ -178,12 +178,12 @@
         \end{equation*}
         where $H/G$ denotes the $G$-components of $H$. Clearly $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H'_0\subseteq\del_\mathsf{ie}H$, and since $H'\in\mc{H}_\mathrm{conn}(X)$, it remains to show that $\mc{H}'$ is dense towards ends.
 
-        Fix an end $p\in\widehat{X}\comp X$ with $p\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. Let $B\supseteq\del_\mathsf{v}A$ be finite connected, which can be obtained by adjoining paths between its components. Then $\lnot B\in p$ since $p$ is non-principal, so there is $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\lnot\widehat{B}$. We now use the above recipe to find the desired $H'\in\mc{H}'$:
+        Fix an end $p\in\epsilon(X)$ and a neighborhood $p\in A\in\mc{H}_{\del<\infty}(X)$. Let $B\supseteq\del_\mathsf{v}A$ be finite connected, which can be obtained by adjoining paths between its components. Then $\lnot B\in p$ since $p$ is non-principal, so there is $H\in\mc{H}$ with $p\in H\subseteq\lnot B$. We now use the above recipe to find the desired $H'\in\mc{H}'$:
             \begin{enumerate}
-                \item Since $H\in\mc{H}_{\del<\infty}(X)$, it has finitely-many connected components, so exactly one of them belongs to $p$, say $p\in\widehat{H}'_0\subseteq\widehat{H}$. Note that $B\subseteq\lnot H\subseteq\lnot H'_0$.
+                \item Since $H\in\mc{H}_{\del<\infty}(X)$, it has finitely-many connected components, so exactly one of them belongs to $p$, say $p\in H'_0\subseteq H$. Note that $B\subseteq\lnot H\subseteq\lnot H'_0$.
                 \item Since $B$ is connected, there is a unique component $\lnot H'\subseteq\lnot H'_0$ containing $B$.
             \end{enumerate}
-        Observe that $H'\in\mc{H}'$ and $p\in\widehat{H}'$. Lastly, since $H'$ is connected and is disjoint from $\del_\mathsf{v}A\subseteq B$, and since $H'\subseteq\lnot A$ would imply $\lnot H'\in p$, this forces $H'\subseteq A$, and hence $p\in\widehat{H}'\subseteq\widehat{A}$ as desired.
+        Observe that $H'\in\mc{H}'$ and $p\in H'$. Lastly, since $H'$ is connected and is disjoint from $\del_\mathsf{v}A\subseteq B$, and since $H'\subseteq\lnot A$ would imply $\lnot H'\in p$, this forces $H'\subseteq A$, and hence $p\in H'\subseteq A$ as desired.
     \end{proof}
 
     \subsection{Median graphs and projections}
@@ -327,7 +327,7 @@
 
     \subsection{Dense cuts induced by quasi-trees}\label{sec:dense_cuts_induced_by_quasi-trees}
 
-    Since $X$ is a quasi-tree, and thus does not have arbitrarily long cycles, we expect that there is some finite bound $R<\infty$ such that the ends in $\widehat{X}\comp X$ are `limits' of cuts $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ is dense towards ends of $(X,G)$.
+    Since $X$ is a quasi-tree, and thus does not have arbitrarily long cycles, we expect that there is some finite bound $R<\infty$ such that the ends in $\epsilon(X)$ are `limits' of cuts $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ is dense towards ends of $(X,G)$.
 
     \begin{lemma}\label{lem:coarse_equivalence_controls_boundary_diameter}
         Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\mathsf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\mathsf{v}H)$.
@@ -348,13 +348,13 @@
     \begin{proof}
         Let $(X,G)$, $(Y,T)$ be connected locally-finite graphs, $f:X\to Y$ be a coarse equivalence with quasi-inverse $g:Y\to X$, and suppose $\mc{H}_{\diam(\del)\leq S}(Y)$ is dense towards ends for some $S<\infty$. By Lemma \ref{lem:coarse_equivalence_controls_boundary_diameter}, pick some $R<\infty$ so that for any $H\in\mc{H}_{\diam(\del)\leq S}(Y)$, we have $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$.
 
-        Fix an end $p\in\widehat{X}\comp X$ with $p\in\widehat{A}$ for some $A\in\mc{H}_{\del<\infty}(X)$. We need to find some $B\in\mc{H}_{\del<\infty}(Y)$ such that $\widehat{f}(p)\in\widehat{B}$ and $f^{-1}(B)\subseteq A$, for then $\widehat{f}(p)\in\widehat{H}$ for some $B\supseteq H\in\mc{H}_{\diam(\del)\leq S}(Y)$, and hence we have
+        Fix an end $p\in\epsilon(X)$ and a neighborhood $p\in A\in\mc{H}_{\del<\infty}(X)$. We need to find some $B\in\mc{H}_{\del<\infty}(Y)$ such that $f(p)\in B$ and $f^{-1}(B)\subseteq A$, for then $f(p)\in H$ for some $B\supseteq H\in\mc{H}_{\diam(\del)\leq S}(Y)$, and hence we have
         \begin{equation*}
-            p\in\widehat{f^{-1}(H)}\subseteq\widehat{f^{-1}(B)}\subseteq\widehat{A}
+            p\in f^{-1}(H)\subseteq f^{-1}(B)\subseteq A
         \end{equation*}
         with $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$. For convenience, let $D<\infty$ be the uniform distance $d(1_X,g\circ f)$.
 
-        To this end, note that $\widehat{f}(p)\in\widehat{B}$ iff $p\in\widehat{f^{-1}(B)}$. Since $p\in\widehat{A}$, the latter can occur if $|A\symdiff f^{-1}(B)|<\infty$, and so we need to find such a $B\in\mc{H}_{\del<\infty}(Y)$ with the additional property that $f^{-1}(B)\subseteq A$.
+        To this end, note that $f(p)\in B$ iff $p\in f^{-1}(B)$. Since $p\in A$, the latter can occur if $|A\symdiff f^{-1}(B)|<\infty$, and so we need to find such a $B\in\mc{H}_{\del<\infty}(Y)$ with the additional property that $f^{-1}(B)\subseteq A$.
         \begin{leftbar}
         \textit{Attempt 1.} Set $B\coloneqq g^{-1}(A)\in\mc{H}_{\del<\infty}(Y)$. Then $f^{-1}(B)\subseteq\Ball_D(A)$ since if $(g\circ f)(x)\in A$, then
                 \begin{equation*}
@@ -492,25 +492,38 @@
 
     Let $(X,G)$ be a connected locally-finite graph and fix a finitely-separating pocset $\mc{H}$ of cuts. We now investigate certain finiteness conditions on $\mc{H}$ when it is dense towards ends.
 
+    \begin{lemma}\label{lem:infinite_iff_contains_end}
+        A subset $A\in\mc{H}_{\del<\infty}(X)$ is infinite iff it contains an end in $(X,G)$.
+    \end{lemma}
+    \begin{proof}
+        The converse direction follows since ends are non-principal. If $A$ is infinite, then by local-finiteness of $(X,G)$, K\H{o}nig's Lemma furnishes some infinite ray $(x_n)\subseteq A$. Then, $A$ is contained in the filter
+        \begin{equation*}
+            p\coloneqq\l\{H\in\mc{H}_{\del<\infty}(X)\st\fa^\infty n(x_n\in H)\r\},
+        \end{equation*}
+        which is ultra since $H\in p$ are of \textit{finite}-boundary, and is non-principal since it contains cofinite sets.
+    \end{proof}
+
     \begin{proposition}\label{prp:dense_cuts_induces_proper_walling}
         If $\mc{H}$ is a finitely-separating pocset of cuts on a connected locally-finite graph, then it is dense towards ends iff the following conditions hold.
         \begin{enumerate}
-            \item[1.] Each $\mc{H}$-block is finite (i.e., for each vertex, there are only finitely-many other vertices contained in exactly the same half-spaces in $\mc{H}$).
-            \item[2.] Each $H\in\mc{H}^\ast$ has finitely-many successors (i.e., finitely-many minimal $K\in\mc{H}^\ast$ containing $H$).
+            \item[1.] Each $\mc{H}$-block is finite.
+            \item[2.] Each $H\in\mc{H}^\ast$ has finitely-many successors.
         \end{enumerate}
     \end{proposition}
     \begin{proof}
         Suppose that $\mc{H}$ is dense towards ends.
-        \begin{center}
-            \begin{minipage}{0.9\textwidth}
-                \begin{leftbar}
-                    {\tt{For (ii), we show that the block of a point $x$ is finite by covering every end with an $H$ that doesn’t contain $x$; then there is a finite subcover and $x$ belongs to the intersection of the complements of this subcover; this intersection is finite because it contains no ends (local finiteness is used here).
-
-                    For (iv), let $H$ be in $\mathcal{H}$. Then by (iii), there are only finitely many non-nested $K$ with $H$, and removing them still keeps denseness towards ends. Thus WLOG assume $H$ is nested with everyone. Then the sets $\lnot K$ such that $K$ is a minimal set containing $H$ are pairwise disjoint and form a cover of the ends in $\lnot H$, hence there is a finite subcover. But this subcover must be the same as the original cover because the latter was pairwise disjoint.}}
-                \end{leftbar}
-            \end{minipage}
-        \end{center}
+        \begin{enumerate}
+            \item[1.] Consider any $\mc{H}$-block $[x]_\mc{H}$, and let $A\coloneqq\lnot\l\{x\r\}\in\mc{H}_{\del<\infty}(X)$. Since $\mc{H}$ is dense towards ends, for any $p\in\epsilon(X)$, there is some $H_p\in\mc{H}$ with $p\in H_p\subseteq A$. Thus we have an open cover $\bigcup_p H_p$ of $\epsilon(X)$, which cuts down to a finite subcover $\bigcup_{i<n}H_i$. Note that $B\coloneqq\lnot\bigcup_{i<n}H_i\in\mc{H}_{\del<\infty}(X)$ contains $[x]_\mc{H}$, and is finite by Lemma \ref{lem:infinite_iff_contains_end} since it contains no ends in $\epsilon(X)$.
+            \item[2.] Fix $H\in\mc{H}^\ast$ and let $K_\alpha\in\mc{H}^\ast$ be the successors of $H$. If $p\in\epsilon(\lnot H)$ is an end in $\lnot H$, then, since $\mc{H}$ is dense towards ends, there is some $H'\subseteq\lnot H$ containing $p$
+        \end{enumerate}
+        Conversely, fix and end $p\in\epsilon(X)$ and a neighborhood $p\in A\in\mc{H}_{\del<\infty}(X)$.
     \end{proof}
+
+    \begin{leftbar}
+        For (ii), we show that the block of a point $x$ is finite by covering every end with an $H$ that doesn’t contain $x$; then there is a finite subcover and $x$ belongs to the intersection of the complements of this subcover; this intersection is finite because it contains no ends (local finiteness is used here).
+
+        For (iv), let $H$ be in $\mathcal{H}$. Then by (iii), there are only finitely many non-nested $K$ with $H$, and removing them still keeps denseness towards ends. Thus WLOG assume $H$ is nested with everyone. Then the sets $\lnot K$ such that $K$ is a minimal set containing $H$ are pairwise disjoint and form a cover of the ends in $\lnot H$, hence there is a finite subcover. But this subcover must be the same as the original cover because the latter was pairwise disjoint.
+    \end{leftbar}
 
     \subsection{Borel subtreeing of quasi-trees}\label{sec:borel_subtreeing_of_quasi-trees}
 
