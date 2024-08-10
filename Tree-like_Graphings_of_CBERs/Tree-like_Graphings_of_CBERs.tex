@@ -10,7 +10,7 @@
     \date{\today}
 
     \begin{abstract}
-        We present a streamlined exposition of a construction presented recently by R. Chen, A. Poulin, R. Tao, and A. Tserunyan, where it is proven that the connectedness relation of every locally-finite Borel graph with each component a quasi-tree is treeable. {\color{red}Write some more details...}
+        We present a streamlined exposition of a construction presented recently by R. Chen, A. Poulin, R. Tao, and A. Tserunyan, which establishes the treeability of the connectedness relation of every locally-finite Borel graph where each component is a quasi-tree. {\color{red}Write some more details...}
     \end{abstract}
 
     \maketitle
@@ -188,9 +188,9 @@
 
     \subsection{Median graphs and projections}
 
-    Starting from a finitely-separating profinite pocset $\mc{H}$, we construct in Section \ref{sec:the_dual_median_graph_of_a_pocset} its dual median graph $\mc{M}(\mc{H})$; the rigidity of certain half-spaces therein can then be leveraged to construct a {\color{red}canonical} spanning tree.
+    Starting from a finitely-separating profinite pocset $\mc{H}$, we construct in Section \ref{sec:the_dual_median_graph_of_a_pocset} its dual median graph $\mc{M}(\mc{H})$. By Lemma \ref{lem:finitely-separating_non-trivial_isolated}, this applies to finitely-separating pocsets.
 
-    For more comprehensive references, and their general theory, see \cite{Rol98} and \cite{Bow22}.
+    We devote this section and the next to study some basic properties of median graphs and their projections, which will be used in Section \ref{sec:cycle_cutting_algorithm} to construct a spanning tree certain median graphs. For more comprehensive references of median graphs, and their general theory, see \cite{Rol98} and \cite{Bow22}.
 
     \begin{definition}
         A \textit{median graph} is a connected graph $(X,G)$ such that for any $x,y,z\in X$, the intersection
@@ -318,7 +318,7 @@
     \begin{proof}
         The singletons $\l\{x\r\}$ and $\l\{y\r\}$ are convex, so there are finitely-many half-spaces $H\subseteq[x,y]$. But each $z\in[x,y]$ is determined uniquely by those half-spaces containing it, so $[x,y]$ is finite.
 
-        Let $A\coloneqq\l\{x_0,\dots,x_n\r\}$. Since $\cvx(A)=\proj_A(X)$, we have by Remark \ref{rem:projections} that points in $\cvx(A)$ are of the form $\l\langle x,x_n,\dots,\l\langle x,x_2,\l\langle x,x_1,x_0\r\rangle\r\rangle\r\rangle$, which is finite by induction using that intervals are finite.
+        Let $A\coloneqq\l\{x_0,\dots,x_n\r\}$. Since $\cvx(A)=\proj_A(X)$, we have by Remark \ref{rem:projections} that points in $\cvx(A)$ are of the form $\l\langle x,x_n,\dots,\l\langle x,x_2,\l\langle x,x_1,x_0\r\rangle\r\rangle\dots\r\rangle$, which is finite by induction using that intervals are finite.
     \end{proof}
 
     \section{The Main Constructions}
