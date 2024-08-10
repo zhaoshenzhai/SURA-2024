@@ -458,7 +458,7 @@
     \begin{proof}
         Let $U\in\mc{U}^\circ(\mc{H})$, we need to find some $x\in X$ with $U=\widehat{x}$. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ $-$ which we may assume to be convex by Lemma \ref{lem:convex_of_finite_is_finite} $-$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $K\in U$ with $H\cap A=K\cap A$. Note that $K\cap A\neq\em$ for every $K\in U$, since otherwise $\em\in U$. Furthermore, $H\cap K\neq\em$ for every $H,K\in U$, since otherwise we have $H\subseteq\lnot K$, and so $\lnot K\in U$.
 
-        By Lemma \ref{lem:helly}, we have $(H\cap A)\cap(K\cap A)=H\cap K\cap A\neq\em$, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
+        By Lemma \ref{lem:helly}, the intersection $(H\cap A)\cap(K\cap A)=H\cap K\cap A$ is non-empty, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
     \end{proof}
 
     This lemma is crucial, in that it induces an isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$ in the case when $\mc{H}$ is finitely-separating. Explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are said to be \textit{$G$-adjacent} if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$.
