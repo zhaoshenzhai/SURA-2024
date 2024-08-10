@@ -96,7 +96,7 @@
     The construction starts by identifying a profinite pocset $\mc{H}$ of `cuts' in each component of the graphing, which we first study abstractly. The finitely-separating subpocsets of $2^X$ are well-known in metric geometry as \textit{wallspaces}; see, e.g., \cite{Nic04} and \cite{CN05}.
 
     \begin{definition}\label{def:profinite_pocset}
-        A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$. We call the elements in $\mc{H}$ \textit{half-spaces}.
+        A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$. We call the elements in $\mc{H}$ \textit{half-spaces}, and the edge boundaries $\del_\mathsf{ie}H$ for $H\in\mc{H}$ \textit{hyperplanes}.
 
         A \textit{profinite pocset} is a pocset $\mc{H}$ equipped with a compact topology making $\lnot$ continuous and is \textit{totally order-disconnected}, in the sense that if $H\not\leq K$, then there is a clopen upward-closed $U\subseteq\mc{H}$ with $H\in U\not\ni K$.
     \end{definition}
@@ -453,7 +453,7 @@
     We now present the Borel cycle-cutting algorithm that can be preformed {\color{red}canonically} on any countable median graph with finite hyperplanes. We do so by colouring the half-spaces $\mc{H}^\ast_\mathrm{cvx}(X)$ into certain nested half-spaces $\mc{H}_n\subseteq\mc{H}_\mathrm{cvx}(X)$, from which we inductively build a spanning forest by leveraging a tree structure on the $\mc{H}_n$-blocks $X/\mc{H}_n$. This tree is constructed as follows.
 
     \begin{lemma}\label{lem:H_blocks_form_a_median_graph}
-        For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$, the principal orientations map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
+        For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ on a median graph $(X,G)$, the map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
     \end{lemma}
     \begin{proof}
         Let $U\in\mc{U}^\circ(\mc{H})$, we need to find some $x\in X$ with $U=\widehat{x}$. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ $-$ which we may assume to be convex by Lemma \ref{lem:convex_of_finite_is_finite} $-$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $K\in U$ with $H\cap A=K\cap A$. Note that $K\cap A\neq\em$ for every $K\in U$, since otherwise $\em\in U$. Furthermore, $H\cap K\neq\em$ for every $H,K\in U$, since otherwise we have $H\subseteq\lnot K$, and so $\lnot K\in U$.
@@ -492,7 +492,7 @@
 
     \subsection{Finiteness conditions on pocsets}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
 
-    Let $(X,G)$ be a connected locally-finite graph and fix a finitely-separating pocset $\mc{H}$ of cuts. We now investigate certain finiteness conditions on $\mc{H}$ when it is dense towards ends. These conditions will be leveraged in Section \ref{sec:borel_subtreeing_of_quasi-trees}, in which we prove Theorem \ref{thm:treeing_quasi-trees}.
+    Let $(X,G)$ be a connected locally-finite graph and fix a finitely-separating pocset $\mc{H}$ of cuts. We now investigate certain finiteness conditions on $\mc{H}$ when it is dense towards ends. These conditions will be leveraged in Section \ref{sec:borel_subtreeing_of_quasi-trees}, where we prove Theorem \ref{thm:treeing_quasi-trees}.
 
     \begin{lemma}\label{lem:infinite_iff_contains_end}
         A subset $A\in\mc{H}_{\del<\infty}(X)$ is infinite iff it contains an end in $(X,G)$.
