@@ -73,8 +73,6 @@
         For any finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, its dual median graph $\mc{M}(\mc{H})$ has finite hyperplanes; fixing a colouring on the intersection graph of those hyperplanes yields a canonical spanning tree of $\mc{M}(\mc{H})$.
     \end{mainTheorem}
 
-    % Moreover, if $\mc{M}(\mc{H})$ has bounded degree and bounded diameter hyperplanes, then the inclusion $\iota:\mc{T}(\mc{H})\into\mc{M}(\mc{H})$ is a quasi-isometry.
-
     The additional condition (2), which equivalently imposes certain finiteness conditions on the median graph $\mc{M}(\mc{H}(C))$, then ensures that such a spanning tree can be constructed in a uniform way to each component $C\subseteq G$. This gives us the desired treeing of the CBER, which we prove in Section \ref{sec:borel_subtreeing_of_quasi-trees}.
 
     \section{Preliminaries on Pocsets, Ends of Graphs, and Median Graphs}\label{sec:preliminaries}
@@ -447,11 +445,11 @@
         A cycle in $\mc{M}(\mc{H})$ is induced by a \textit{strictly} increasing chain $H_0\subset\cdots\subset H_n\subset H_0$, which is absurd.
     \end{proof}
 
-    Nonetheless, in the general non-nested case, $\mc{M}(\mc{H})$ still admits a {\color{red}canonical} spanning tree, which we prove in the following section.
+    Nonetheless, in the general non-nested case, $\mc{M}(\mc{H})$ still admits a \textit{canonical} spanning tree if we fix a Borel colouring of $\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$ into its nested sub-pocsets.
 
-    \subsection{{\color{red}Canonical} spanning trees}\label{sec:cycle_cutting_algorithm}
+    \subsection{Canonical spanning trees}\label{sec:cycle_cutting_algorithm}
 
-    We now present the Borel cycle-cutting algorithm that can be preformed {\color{red}canonically} on any countable median graph with finite hyperplanes. We do so by colouring the half-spaces $\mc{H}^\ast_\mathrm{cvx}(X)$ into certain nested half-spaces $\mc{H}_n\subseteq\mc{H}_\mathrm{cvx}(X)$, from which we inductively build a spanning forest by leveraging a tree structure on the $\mc{H}_n$-blocks $X/\mc{H}_n$. This tree is constructed as follows.
+    We now present the Borel cycle-cutting algorithm that can be preformed on any countable median graph with finite hyperplanes. We do so by colouring the half-spaces $\mc{H}^\ast_\mathrm{cvx}(X)$ into certain nested sub-pocsets $\mc{H}_n\subseteq\mc{H}_\mathrm{cvx}(X)$, from which we inductively build a spanning forest by leveraging a tree structure on the $\mc{H}_n$-blocks $X/\mc{H}_n$. This tree is constructed as follows.
 
     \begin{lemma}\label{lem:H_blocks_form_a_median_graph}
         For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ on a median graph $(X,G)$, the map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
@@ -465,10 +463,10 @@
     Thus, we have a graph isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$; explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are said to be \textit{$G$-adjacent} if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$. Note that $\mc{M}(\mc{H})$ may be constructed as in Proposition \ref{prp:construction_of_dual_median_graph} since $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ is finitely-separating by Lemma \ref{lem:half_space_separating_convex}, and in particular, if $\mc{H}$ is nested, then $X/\mc{H}$ is a tree by Corollary \ref{cor:nested_implies_tree}.
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
-        Every countable median graph with finite hyperplanes admits a {\color{red}canonical} spanning tree.
+        If $(X,G)$ is a countable median graph with finite hyperplanes, then fixing any colouring of $\mc{H}_\mathrm{cvx}^\ast(X)$ into nested sub-pocsets yields a canonical spanning tree thereof.
     \end{proposition}
     \begin{proof}
-        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, if two half-spaces $H,K\in\mc{H}^\ast_\mathrm{cvx}(X)$ are non-nested, then $\del_\mathsf{v}H\cap\del_\mathsf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\mathrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same colour and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
+        Such a colouring exists, since, by Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, if two half-spaces $H,K\in\mc{H}^\ast_\mathrm{cvx}(X)$ are non-nested, then $\del_\mathsf{v}H\cap\del_\mathsf{v}K\neq\em$. Thus, the intersection graph of the boundaries admits a countable colouring, which descends into a colouring $\mc{H}^\ast_\mathrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same colour and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
 
         We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree, since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Proposition \ref{prp:half-spaces_are_cones}).
 
