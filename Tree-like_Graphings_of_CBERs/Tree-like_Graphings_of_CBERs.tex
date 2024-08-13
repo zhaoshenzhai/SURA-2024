@@ -527,13 +527,17 @@
 
     \section{Borel Treeings of Graphings with Dense Cuts}\label{sec:borel_treeing_of_quasi-trees}
 
-    In this last section, we prove Theorem \ref{thm:treeing_quasi-trees}, stating that if a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree, then $E$ is treeable. In fact, we prove the treeability of any locally-finite graphing of a CBER that is dense towards ends in each component.
+    In this last section, we prove Theorem \ref{thm:treeing_quasi-trees}, stating that if a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree, then $E$ is treeable. In fact, we prove the following more general result.
 
     \begin{theorem}
         If a CBER $E$ admits a locally-finite graphing $(X,G)$ such that each component $G|C$ admits a family $\mc{H}(C)$ of finitely-separating cuts that is dense towards ends of $G|C$, then $E$ is treeable.
     \end{theorem}
 
-    This implies Theorem \ref{thm:treeing_quasi-trees}, since each component $G|C$ admits a family $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\mathrm{conn}(C)$ of finitely-separating cuts, which is dense towards ends of $G|C$ for some $R_C<\infty$; see Section \ref{sec:dense_cuts_induced_by_quasi-trees}.
+    This implies Theorem \ref{thm:treeing_quasi-trees}, since each quasi-tree $G|C$ admits a family $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\mathrm{conn}(C)$ of finitely-separating cuts, which is dense towards ends of $G|C$ for some $R_C<\infty$; see Section \ref{sec:dense_cuts_induced_by_quasi-trees}.
+
+    \begin{proof}
+        By Lemma \ref{lem:dual_median_graph_of_cuts_has_finite_hyperplanes}, the dual median graph of each pocset $\mc{H}(C)$ has finite hyperplanes, so we may represent each cut by its dual hyperplane. This makes the set $\mc{H}_X(G)\coloneqq\bigsqcup_{G|C}\mc{H}(C)$ of all cuts in all $E$-classes into a standard Borel space, and $E$ lifts to a CBER $\mc{E}$ on $\mc{H}_X(G)$ where two half-spaces are $\mc{E}$-related iff they belong to the same $E$-class. It suffices to show that the graph $\mc{M}(\mc{H}_X(G))$, obtained as the disjoint union of all $\mc{M}(\mc{H}(C))$,
+    \end{proof}
 
     We now give a proof of this theorem. By the following extension of Proposition \ref{prp:canonical_spanning_trees}, it suffices to find a graphing of $(X,E)$ such that each component is a median graph with finite hyperplanes.
 
