@@ -395,11 +395,7 @@
     \end{proof}
 
     \begin{proposition}\label{prp:dense_cuts_induces_proper_walling}
-        If $\mc{H}$ is a finitely-separating pocset of cuts on a connected locally-finite graph, then $\mc{H}$ is dense towards ends iff the following two conditions hold.
-        \begin{enumerate}
-            \item[1.] Each $\mc{H}$-block is finite.
-            \item[2.] Each $H\in\mc{H}^\ast$ has finitely-many successors.
-        \end{enumerate}
+        If $\mc{H}$ is a finitely-separating pocset of cuts on a connected locally-finite graph, then $\mc{H}$ is dense towards ends iff (1) each $\mc{H}$-block is finite, and (2) each $H\in\mc{H}^\ast$ has finitely-many successors.
     \end{proposition}
     \begin{proof}
         If $\mc{H}$ is dense towards ends, we will cover (certain closed sets in) $\epsilon(X)$ by cuts in $\mc{H}$, which cuts down to a finite subcover. We will show that a certain Boolean combination thereof, which has finite-boundary, is finite using Lemma \ref{lem:infinite_iff_contains_end}, giving us the desired finiteness claim. Below are the details.
@@ -474,23 +470,32 @@
 
     Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between \{median graphs, median homomorphisms\} and \{profinite pocsets with non-trivial points isolated, continuous maps\}, where from a median graph $X$ one can construct a canonical pocset $\mc{H}_\mathrm{cvx}(X)$ of convex half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. An important special case of this construction is when $\mc{H}$ is \textit{nested}, in which case $\mc{M}(\mc{H})$ is a tree.
 
-    \begin{lemma}
-        Let $\mc{H}$ be a profinite pocset with non-trivial points isolated. If $\mc{H}$ is nested and $(H_i)_{i<n}\subseteq\mc{H}$ induces a path in $\mc{M}(\mc{H})$ with no backtracking, then $(H_i)$ is strictly increasing.
-    \end{lemma}
+    \begin{corollary}\label{cor:nested_implies_tree}
+        Let $\mc{H}$ be a profinite pocset with non-trivial points isolated. If $\mc{H}$ is nested, then the median graph $\mc{M}(\mc{H})$ is acyclic, and hence is a tree.
+    \end{corollary}
     \begin{proof}
-        Let $(U_i)_{i<n}$ be the induced path. By definition, we have $U_{i+1}=U_{i-1}\cup\{\lnot H_i,\lnot H_{i-1}\}\comp\l\{H_i,H_{i-1}\r\}$, so $H_i\neq\lnot H_{i-1}$, lest $U_{i+1}=U_{i-1}$. Thus, since $H_i\in U_i=U_{i-1}\cup\{\lnot H_{i-1}\}\comp\l\{H_{i-1}\r\}$, we see that $H_i\in U_{i-1}$. Clearly $H_i\neq H_{i-1}$. It suffices to remove the three cases when $\lnot H_i\subseteq H_{i-1}$, $H_{i-1}\subseteq\lnot H_i$, and $H_i\subseteq H_{i-1}$, since then nestedness of $\mc{H}$ gives us $H_{i-1}\subsetneq H_i$, as desired.
+        Let $(U_i)_{i<n}$ be a (non-backtracking) cycle in $\mc{M}(\mc{H})$, say induced by some sequence $(H_i)_{i<n}\subseteq\mc{H}$ of half-spaces. We show that $(H_i)$ is \textit{strictly} increasing, so that $H_0\subset\cdots\subset H_n\subset H_0$, which is absurd.
+
+        We have $U_{i+1}=U_{i-1}\cup\{\lnot H_i,\lnot H_{i-1}\}\comp\l\{H_i,H_{i-1}\r\}$, so $H_i\neq\lnot H_{i-1}$ (for otherwise $U_{i+1}=U_{i-1}$). Since $H_i\in U_i=U_{i-1}\cup\{\lnot H_{i-1}\}\comp\l\{H_{i-1}\r\}$, we see that $H_i\in U_{i-1}$, and since $H_i\neq H_{i-1}$, it suffices by nestedness of $\mc{H}$ to remove the three cases when $\lnot H_i\subseteq H_{i-1}$, $H_{i-1}\subseteq\lnot H_i$, and $H_i\subseteq H_{i-1}$.
 
         Indeed, if $\lnot H_i\subseteq H_{i-1}$, then $H_{i-1}\in U_{i+1}$ by upward-closure of $U_{i+1}\ni\lnot H_i$. But since $H_{i-1}\neq\lnot H_i$, we have by definition of $U_{i+1}$ that $H_{i-1}\in U_i$, a contradiction. The other cases are similar.
     \end{proof}
 
-    \begin{corollary}\label{cor:nested_implies_tree}
-        If $\mc{H}$ is nested, then $\mc{M}(\mc{H})$ is a tree.
-    \end{corollary}
-    \begin{proof}
-        A cycle in $\mc{M}(\mc{H})$ is induced by a \textit{strictly} increasing chain $H_0\subset\cdots\subset H_n\subset H_0$, which is absurd.
-    \end{proof}
+    Nonetheless, in the general non-nested case, $\mc{M}(\mc{H})$ still admits a \textit{canonical} spanning tree if we fix a Borel colouring of $\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$ into its nested sub-pocsets, the existence of which follows from the following
 
-    Nonetheless, in the general non-nested case, $\mc{M}(\mc{H})$ still admits a \textit{canonical} spanning tree if we fix a Borel colouring of $\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$ into its nested sub-pocsets.
+    \begin{lemma}\label{lem:dual_median_graph_of_cuts_has_finite_hyperplanes}
+        The dual median graph $\mc{M}(\mc{H})$ of a pocset $\mc{H}$ of finitely-separating cuts has finite hyperplanes.
+    \end{lemma}
+    \begin{proof}
+        Fix $K\in\mc{H}^\ast_\mathrm{cvx}(\mc{M}(\mc{H}))$, which by Proposition \ref{prp:half-spaces_are_cones} is of the form $K=\cone_V(U)$ for some (and hence any) $(U,V)\in\del_\mathsf{ie}K$, and we have by Proposition \ref{prp:construction_of_dual_median_graph} that $V=U\symdiff\l\{H,\lnot H\r\}$ for some (non-trivial) minimal $H\in U$. We claim that any other edge $(U',V')\in\del_\mathsf{ie}K$ can be reached from $(U,V)$ by simultaneously flipping only the half-spaces $H'_0,\dots,H'_n\in\mc{H}^\ast$ non-nested with $H$, of which there are finitely-many by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}.
+
+        Since the edges $(U,V),(U',V')$ induce the same hyperplane $\del_\mathsf{ie}K$, it suffices by Proposition \ref{prp:half-spaces_are_cones} to prove this for when $(U',V')$ is an edge of a square parallel to $(U,V)$, in which case there is some minimal $H'\in\mc{H}^\ast$ flipping both  $U$ to $U'$ and $V$ to $V'$. We have some easy observations.
+        \begin{enumerate}
+            \item[1.] \textit{$H,H'$ are non-nested.} Indeed, $H'\not\subseteq H$ and $H\not\subseteq H'$ by minimality; if $H\subseteq\lnot H'$, then $\lnot H'\in U$; and if $\lnot H\subseteq H'$, then $H'$ is not minimal in $U$.
+            \item[2.] \textit{$H\in U'$ is still minimal.} Indeed, since $U'=U\symdiff\l\{H',\lnot H'\r\}$, the only way this can fail is if $\lnot H'\subseteq H$, but this contradicts minimality of $H$.
+        \end{enumerate}
+        Thus, we have $V'=U'\symdiff\l\{H,\lnot H\r\}$, so the induction continues with $(U',V')$ in place of $(U,V)$.
+    \end{proof}
 
     \subsection{Canonical spanning trees}\label{sec:cycle_cutting_algorithm}
 
@@ -518,29 +523,26 @@
         Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\mathrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. {\color{red}For each $G$-adjacent pair} $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space $H\in\mc{H}_n$ by Lemma \ref{lem:half_space_separating_convex}, we may pick an edge from the \textit{finite} hyperplane $\del_\mathsf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
     \end{proof}
 
-    Finally, for this to apply to the dual median graph $\mc{M}(\mc{H})$ of a finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, and to prove Theorem \ref{thm:component-wise_construction}, we need the following
+    Applying this to the dual median graph $\mc{M}(\mc{H})$ of a finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, which has finite hyperplanes by Lemma \ref{lem:dual_median_graph_of_cuts_has_finite_hyperplanes}, proves Theorem \ref{thm:component-wise_construction}.
 
-    \begin{lemma}
-        The dual median graph $\mc{M}(\mc{H})$ of a pocset $\mc{H}$ of finitely-separating cuts has finite hyperplanes.
-    \end{lemma}
-    \begin{proof}
-        Fix $K\in\mc{H}^\ast_\mathrm{cvx}(\mc{M}(\mc{H}))$, which by Proposition \ref{prp:half-spaces_are_cones} is of the form $K=\cone_V(U)$ for some (and hence any) $(U,V)\in\del_\mathsf{ie}K$, and we have by Proposition \ref{prp:construction_of_dual_median_graph} that $V=U\symdiff\l\{H,\lnot H\r\}$ for some (non-trivial) minimal $H\in U$. We claim that any other edge $(U',V')\in\del_\mathsf{ie}K$ can be reached from $(U,V)$ by simultaneously flipping only the half-spaces $H'_0,\dots,H'_n\in\mc{H}^\ast$ non-nested with $H$, of which there are finitely-many by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}.
+    \section{Borel Treeings of Graphings with Dense Cuts}\label{sec:borel_treeing_of_quasi-trees}
 
-        Since the edges $(U,V),(U',V')$ induce the same hyperplane $\del_\mathsf{ie}K$, it suffices by Proposition \ref{prp:half-spaces_are_cones} to prove this for when $(U',V')$ is an edge of a square parallel to $(U,V)$, in which case there is some minimal $H'\in\mc{H}^\ast$ flipping both  $U$ to $U'$ and $V$ to $V'$. We have some easy observations.
-        \begin{enumerate}
-            \item[1.] \textit{$H,H'$ are non-nested.} Indeed, $H'\not\subseteq H$ and $H\not\subseteq H'$ by minimality; if $H\subseteq\lnot H'$, then $\lnot H'\in U$; and if $\lnot H\subseteq H'$, then $H'$ is not minimal in $U$.
-            \item[2.] \textit{$H\in U'$ is still minimal.} Indeed, since $U'=U\symdiff\l\{H',\lnot H'\r\}$, the only way this can fail is if $\lnot H'\subseteq H$, but this contradicts minimality of $H$.
-        \end{enumerate}
-        Thus, we have $V'=U'\symdiff\l\{H,\lnot H\r\}$, so the induction continues with $(U',V')$ in place of $(U,V)$.
-    \end{proof}
+    In this last section, we prove Theorem \ref{thm:treeing_quasi-trees}, stating that if a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree, then $E$ is treeable. In fact, we prove the treeability of any locally-finite graphing of a CBER that is dense towards ends in each component.
 
-    \begin{corollary}
-        If a CBER $E$ admits a locally-finite graphing such that each component is a median graph (i.e., a median graphing), then $E$ is treeable.
+    \begin{theorem}
+        If a CBER $E$ admits a locally-finite graphing $(X,G)$ such that each component $G|C$ admits a family $\mc{H}(C)$ of cuts that is dense towards ends of $G|C$, then $E$ is treeable.
+    \end{theorem}
+
+    This implies Theorem \ref{thm:treeing_quasi-trees}, since each component $G|C$ admits a family $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\mathrm{conn}(C)$ of cuts, which is dense towards ends of $G|C$ for some $R_C<\infty$; see Section \ref{sec:dense_cuts_induced_by_quasi-trees}.
+
+    We now outline a proof of this theorem, of which the first step
+
+    \begin{corollary}[of Proposition \ref{prp:canonical_spanning_trees}]
+        If a CBER $E$ admits a  graphing $(X,G)$ such that each component is a median graph with finite hyperplanes, then there is a Borel subtreeing $T\subseteq G$ of $E$.
     \end{corollary}
-
-    \subsection{Borel treeing of quasi-trees}\label{sec:borel_treeing_of_quasi-trees}
-
-    \TODO
+    \begin{proof}
+        Implement the proof of Proposition \ref{prp:canonical_spanning_trees} in a Borel manner, using \cite{KM04}*{Lemma 7.3} for a countable colouring of the intersection graph of finite subsets of $E$-classes.
+    \end{proof}
 
     \begin{bibdiv}
         \begin{biblist}*{labels={alphabetic}}
