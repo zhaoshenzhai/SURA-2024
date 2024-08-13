@@ -34,13 +34,7 @@
         \item[1.] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ is separated by finitely-many $H\in\mc{H}(C)$, and
         \item[2.] $\mc{H}(C)$ is \textit{dense towards ends}: each end in $G|C$ has a neighborhood basis in $\mc{H}(C)$.
     \end{enumerate}
-    Condition (1) allows for an abstract (i.e., \textit{not necessarily} Borel) but {\color{red}canonical} construction of a tree from $\mc{H}(C)$. This construction starts by viewing $\mc{H}(C)$ as a profinite pocset with non-trivial points isolated (i.e., a `walling'), which in turn provide exactly the data to construct a `median graph' $\mc{M}(\mc{H}(C))$ whose vertices are special `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} on $\mc{H}(C)$. This median graph has finite `hyperplanes', which allows us to apply a Borel `cycle-cutting' algorithm and obtain a {\color{red}canonical} spanning tree.
-
-    Thus we have the following theorem, which can be viewed as a component-wise version of Theorem \ref{thm:treeing_quasi-trees}. In fact, the above construction can be done to \textit{any} finitely-separating family of cuts on a connected locally-finite graph, not just a quasi-tree, but those cuts will not necessarily be dense towards ends.
-
-    \begin{mainTheorem}\label{thm:component-wise_construction}
-        For any finitely-separating family of cuts on a connected locally-finite graph, its dual median graph admits a {\color{red}canonical} spanning tree.
-    \end{mainTheorem}
+    Condition (1) allows for an abstract construction of a tree whose vertices are special `ultrafilters'\footnote{As in \cite{CPTT23}, we call them \textit{orientations} instead, to avoid confusion with the more standard notion; see Definition \ref{def:orientation}.} on $\mc{H}(C)$, as outlined in the following diagram: starting from a finitely-separating family of cuts, one constructs a `dual median graph' $\mc{M}(\mc{H}(C))$ with said ultrafilters; this median graph has finite `hyperplanes', which allows one to apply a Borel `cycle-cutting' algorithm to obtain a `canonical' spanning tree thereof.
 
     \begin{center}
         \def\hsp{3.75}
@@ -62,17 +56,24 @@
             \draw (0,\vsh-\vsp) circle (0in) node{Quasi-tree};
             \draw[->] (1,\vsh-\vsp) -- (\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:pocsets_of_cuts}+\ref{sec:dense_cuts_induced_by_quasi-trees}}};
             \draw[->] (1,-1) -- (\hsp-1.1,0) node[midway, above=-2pt, sloped]{\tiny{Sec.\!\! \ref{sec:dense_cuts_induced_by_quasi-trees}}};
-            \draw (\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Finitely-sep.}\\[-4pt] \textrm{pocset of cuts} \end{gathered}$};
+            \draw (\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Finitely-sep.}\\[-4pt] \textrm{family of cuts} \end{gathered}$};
             \draw[->] (\hsp+1.1,\vsh-\vsp) -- (2*\hsp-1.5,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:the_dual_median_graph_of_a_pocset}}};
             \draw[->-=0.5] (\hsp+1.1,-1) to [out=35, in=180] (2*\hsp,\vsh);
             \node[rotate=32] at (1.43*\hsp,-0.5) {\tiny{Sec.\!\! \ref{sec:finiteness_conditions_on_pocsets_dense_cuts}}};
             \draw (\hsp,-0.6) circle (0in);
             \draw (2*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Median graph w/}\\[-4pt] \textrm{finite hyperplanes} \end{gathered}$};
             \draw[->] (2*\hsp+1.5,\vsh-\vsp) -- (3*\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:cycle_cutting_algorithm}}};
-            \draw (3*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{{\color{red}Canonical}}\\[-4pt] \textrm{spanning tree} \end{gathered}$};
+            \draw (3*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{`Canonical'}\\[-4pt] \textrm{spanning tree} \end{gathered}$};
             \draw[->] (3*\hsp,0.4-\vsp) -- (3*\hsp,-0.2);
         \end{tikzpicture}
     \end{center}
+    Thus we have the following theorem, which can be viewed as a component-wise version of Theorem \ref{thm:treeing_quasi-trees}.
+
+    \begin{mainTheorem}\label{thm:component-wise_construction}
+        For any finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, its dual median graph $\mc{M}(\mc{H})$ has finite hyperplanes; fixing a colouring on the intersection graph of those hyperplanes yields a canonical spanning tree of $\mc{M}(\mc{H})$.
+    \end{mainTheorem}
+
+    % Moreover, if $\mc{M}(\mc{H})$ has bounded degree and bounded diameter hyperplanes, then the inclusion $\iota:\mc{T}(\mc{H})\into\mc{M}(\mc{H})$ is a quasi-isometry.
 
     The additional condition (2), which equivalently imposes certain finiteness conditions on the median graph $\mc{M}(\mc{H}(C))$, then ensures that such a spanning tree can be constructed in a uniform way to each component $C\subseteq G$. This gives us the desired treeing of the CBER, which we prove in Section \ref{sec:borel_subtreeing_of_quasi-trees}.
 
@@ -467,7 +468,7 @@
         Every countable median graph with finite hyperplanes admits a {\color{red}canonical} spanning tree.
     \end{proposition}
     \begin{proof}
-        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, if two half-spaces $H,K\in\mc{H}^\ast_\mathrm{cvx}(X)$ are non-nested, then $\del_\mathsf{v}H\cap\del_\mathsf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\mathrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same color and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
+        Let $(X,G)$ be a countable median graph with finite hyperplanes. By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, if two half-spaces $H,K\in\mc{H}^\ast_\mathrm{cvx}(X)$ are non-nested, then $\del_\mathsf{v}H\cap\del_\mathsf{v}K\neq\em$, so looking at the intersection graph of the boundaries furnishes a countable colouring $\mc{H}^\ast_\mathrm{cvx}(X)=\bigsqcup_{n\in\N}\mc{H}^\ast_n$ such that each $H,\lnot H$ receive the same colour and that each $\mc{H}_n\coloneqq\mc{H}_n^\ast\cup\l\{\em,X\r\}$ is a \textit{nested} subpocset. For each $n\in\N$, let $\mc{K}_n\coloneqq\bigcup_{m\geq n}\mc{H}_m$.
 
         We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree, since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Proposition \ref{prp:half-spaces_are_cones}).
 
