@@ -51,16 +51,16 @@
             \draw (0,\vsh) circle (0in) node{Borel quasi-treeing};
             \draw[->] (0,-0.2) -- (0,-\vsp+0.3);
             \draw (\hsp,0) circle (0in) node{$\begin{gathered} \textrm{Dense family}\\[-4pt] \textrm{of cuts} \end{gathered}$};
-            \draw[->] (\hsp+1.1,\vsh) -- (3*\hsp-1.1,\vsh) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:finiteness_conditions_on_pocsets_dense_cuts}+\ref{sec:borel_treeing_of_quasi-trees}}};
+            \draw[->] (\hsp+1.1,\vsh) -- (3*\hsp-1.1,\vsh) node[xshift=-4.5cm, above=-2pt]{\tiny{Sec.\!\! \ref{sec:finiteness_conditions_on_dual_median_graph_dense_cuts}}} node[xshift=-1.5cm, above=-2pt]{\tiny{Theorem \ref{thm:treeing_graphings_with_dense_cuts}}};
             \draw (3*\hsp,\vsh) circle (0in) node{Borel treeing};
 
             \draw (0,\vsh-\vsp) circle (0in) node{Quasi-tree};
-            \draw[->] (1,\vsh-\vsp) -- (\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:pocsets_of_cuts}+\ref{sec:dense_cuts_induced_by_quasi-trees}}};
-            \draw[->] (1,-1) -- (\hsp-1.1,0) node[midway, above=-2pt, sloped]{\tiny{Sec.\!\! \ref{sec:dense_cuts_induced_by_quasi-trees}}};
+            \draw[->] (1,\vsh-\vsp) -- (\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:pocsets_of_cuts}+\ref{sec:graphs_with_dense_families_of_cuts}}};
+            \draw[->] (1,-1) -- (\hsp-1.1,0) node[midway, above=-2pt, sloped]{\tiny{Sec.\!\! \ref{sec:ends_of_graphs}+\ref{sec:graphs_with_dense_families_of_cuts}}};
             \draw (\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Finitely-sep.}\\[-4pt] \textrm{family of cuts} \end{gathered}$};
             \draw[->] (\hsp+1.1,\vsh-\vsp) -- (2*\hsp-1.5,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:the_dual_median_graph_of_a_pocset}}};
             \draw[->-=0.5] (\hsp+1.1,-1) to [out=35, in=180] (2*\hsp,\vsh);
-            \node[rotate=32] at (1.43*\hsp,-0.5) {\tiny{Sec.\!\! \ref{sec:finiteness_conditions_on_pocsets_dense_cuts}}};
+            \node[rotate=32] at (1.43*\hsp,-0.5) {\tiny{Sec.\!\! \ref{sec:finiteness_conditions_on_dual_median_graph_dense_cuts}}};
             \draw (\hsp,-0.6) circle (0in);
             \draw (2*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Median graph w/}\\[-4pt] \textrm{finite hyperplanes} \end{gathered}$};
             \draw[->] (2*\hsp+1.5,\vsh-\vsp) -- (3*\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:cycle_cutting_algorithm}}};
@@ -160,7 +160,7 @@
     %     Suppose that there is some $B\in U\cap\mc{H}_\mathrm{conn}(X)$. Then $H\subseteq B$, since if $x\in H\cap\lnot B$, then there is a path in $\lnot B$ to some $x'\in\del_\mathsf{ov}H\subseteq\lnot B$, which passes through $\del_\mathsf{iv}H\subseteq B$, a contradiction. The converse is similar.
     % \end{proof}
 
-    \subsection{Ends of graphs}
+    \subsection{Ends of graphs}\label{sec:ends_of_graphs}
 
     Let $(X,G)$ be a connected locally-finite graph, and consider the Boolean algebra of finite vertex boundary half-spaces $\mc{H}_{\del<\infty}(X)\subseteq2^X$.
 
@@ -176,7 +176,18 @@
         In other words, $\mc{H}$ is dense towards ends if for every $p\in\epsilon(X)$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$, so we will abuse notation and write $p\in H\subseteq A$ for the above condition.
     \end{definition}
 
-    We show in Section \ref{sec:dense_cuts_induced_by_quasi-trees} that certain half-spaces $\mc{H}\subseteq\mc{H}_{\del<\infty}$ induced by a locally-finite quasi-tree is dense towards ends. It will also be important that these half-spaces be cuts, in that witnesses to density can also be found in $\mc{H}\cap\mc{H}_\mathrm{conn}$. The following lemma takes care of this.
+    \begin{lemma}\label{lem:infinite_iff_contains_end}
+        A subset $A\in\mc{H}_{\del<\infty}(X)$ is infinite iff it contains an end in $(X,G)$.
+    \end{lemma}
+    \begin{proof}
+        The converse direction follows since ends are non-principal. If $A$ is infinite, then by local-finiteness of $(X,G)$, K\H{o}nig's Lemma furnishes some infinite ray $(x_n)\subseteq A$. Then, $A$ is contained in the filter
+        \begin{equation*}
+            p\coloneqq\l\{H\in\mc{H}_{\del<\infty}(X)\st\fa^\infty n(x_n\in H)\r\},
+        \end{equation*}
+        which is ultra since $H\in p$ are of \textit{finite}-boundary, and is non-principal since it contains cofinite sets.
+    \end{proof}
+
+    We show in Section \ref{sec:graphs_with_dense_families_of_cuts} that certain half-spaces $\mc{H}\subseteq\mc{H}_{\del<\infty}$ induced by a locally-finite quasi-tree is dense towards ends. It will also be important that these half-spaces be cuts, in that witnesses to density can also be found in $\mc{H}\cap\mc{H}_\mathrm{conn}$. The following lemma takes care of this.
 
     \begin{lemma}\label{lem:connected_witness_to_density}
         If a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is dense towards ends, then there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$, which is also dense towards ends, such that every $H'\in\mc{H}'$ has $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}$.
@@ -338,13 +349,11 @@
         Let $A\coloneqq\l\{x_0,\dots,x_n\r\}$. Since $\cvx(A)=\proj_A(X)$, we have by Remark \ref{rem:projections} that points in $\cvx(A)$ are of the form $\l\langle x,x_n,\dots,\l\langle x,x_2,\l\langle x,x_1,x_0\r\rangle\r\rangle\dots\r\rangle$, which is finite by induction using that intervals are finite.
     \end{proof}
 
-    \section{Graphs with Dense Families of Cuts}
+    \section{Graphs with Dense Families of Cuts}\label{sec:graphs_with_dense_families_of_cuts}
 
     Let $(X,G)$ be a connected locally-finite quasi-tree, which, in the context of Theorem \ref{thm:treeing_quasi-trees}, stands for a single component of the locally-finite graphing of the CBER. For Theorem \ref{thm:component-wise_construction} to apply, we need to first identify a family of finitely-separating cuts therein, and we do so in such a way that the cuts are dense towards ends.
 
-    \subsection{Dense cuts induced by quasi-trees}\label{sec:dense_cuts_induced_by_quasi-trees}
-
-    Since $X$ is a quasi-tree, and thus does not have arbitrarily long cycles, we expect that there is some finite bound $R<\infty$ such that the ends in $\epsilon(X)$ are `limits' of cuts $\mc{H}_{\diam(\del)\leq R}(X)\subseteq\mc{H}_{\del<\infty}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ is dense towards ends of $(X,G)$.
+    Since $X$ is a quasi-tree, and thus does not have arbitrarily long cycles, we expect that there is some finite bound $R<\infty$ such that the ends in $\epsilon(X)$ are `limits' of cuts $\mc{H}\coloneqq\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}$ is dense towards ends.
 
     \begin{lemma}\label{lem:coarse_equivalence_controls_boundary_diameter}
         Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\mathsf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\mathsf{v}H)$.
@@ -395,42 +404,31 @@
 
     Furthermore, we have by Lemma \ref{lem:finitely-separating_non-trivial_isolated} that $\mc{H}\subseteq2^X$ is closed and every non-trivial element is isolated, and those conditions allow for the construction in Theorem \ref{thm:component-wise_construction} to continue.
 
-    \subsection{Finiteness conditions on pocsets with dense cuts}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
+    % \subsection{Finiteness conditions on pocsets with dense cuts}\label{sec:finiteness_conditions_on_pocsets_dense_cuts}
 
-    Let $(X,G)$ be a connected locally-finite graph and fix a finitely-separating pocset $\mc{H}$ of cuts. We now investigate certain finiteness conditions on $\mc{H}$ when it is dense towards ends. These conditions will be leveraged in Section \ref{sec:borel_treeing_of_quasi-trees}, where we prove Theorem \ref{thm:treeing_quasi-trees}.
+    % Let $(X,G)$ be a connected locally-finite graph and fix a finitely-separating pocset $\mc{H}$ of cuts. We now investigate certain finiteness conditions on $\mc{H}$ when it is dense towards ends. These conditions will be leveraged in Section \ref{sec:borel-treeings_of_graphings_with_dense_cuts}, where we prove Theorem \ref{thm:treeing_quasi-trees}.
 
-    \begin{lemma}\label{lem:infinite_iff_contains_end}
-        A subset $A\in\mc{H}_{\del<\infty}(X)$ is infinite iff it contains an end in $(X,G)$.
-    \end{lemma}
-    \begin{proof}
-        The converse direction follows since ends are non-principal. If $A$ is infinite, then by local-finiteness of $(X,G)$, K\H{o}nig's Lemma furnishes some infinite ray $(x_n)\subseteq A$. Then, $A$ is contained in the filter
-        \begin{equation*}
-            p\coloneqq\l\{H\in\mc{H}_{\del<\infty}(X)\st\fa^\infty n(x_n\in H)\r\},
-        \end{equation*}
-        which is ultra since $H\in p$ are of \textit{finite}-boundary, and is non-principal since it contains cofinite sets.
-    \end{proof}
+    % \begin{proposition}\label{prp:dense_cuts_induces_proper_walling}
+    %     If $\mc{H}$ is a finitely-separating pocset of cuts on a connected locally-finite graph, then $\mc{H}$ is dense towards ends iff (1) each $\mc{H}$-block is finite, and (2) each $H\in\mc{H}^\ast$ has finitely-many successors.
+    % \end{proposition}
+    % \begin{proof}
+    %     If $\mc{H}$ is dense towards ends, we will cover (certain closed sets in) $\epsilon(X)$ by cuts in $\mc{H}$, which cuts down to a finite subcover. We will show that a certain Boolean combination thereof, which has finite-boundary, is finite using Lemma \ref{lem:infinite_iff_contains_end}, giving us the desired finiteness claim. Below are the details.
+    %     \begin{enumerate}
+    %         \item[1.] Fix an $\mc{H}$-block $[x]_\mc{H}$ and let $A\coloneqq\lnot\l\{x\r\}$. By density, we can cover each end $p\in\epsilon(X)$ with some $H_p\subseteq A$, which gives us a finite subcover $\bigcup_{i<n}H_i$ of $\epsilon(X)$. Note that $\bigcap_{i<n}\lnot H_i\in\mc{H}_{\del<\infty}(X)$ contains $[x]_\mc{H}$, and is finite since it contains no ends in $\epsilon(X)$.
+    %         \item[2.] Fix $H\in\mc{H}^\ast$ and let $K_\alpha\in\mc{H}^\ast$ be the successors of $H$. By density, each end $p\in\epsilon(\lnot H)$ is contained in some $H_p\subseteq\lnot H$, which in turn is contained in some $\lnot K_\alpha$; this gives us a finite subcover $\bigcup_{i<n}\lnot K_i$ of $\epsilon(\lnot H)$. Any other successor $H\subset K\in\mc{H}^\ast$ not in this subcover may be assumed to be nested with each $K_i$, since there are finitely-many non-nested ones by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}. But then $K\not\subseteq K_i\not\subseteq K$ and $K\cap K_i\neq\em$ for all $i<n$, which forces $\lnot K\subseteq\lnot H\cap\bigcap_{i<n}K_i\in\mc{H}_{\del<\infty}(X)$; the latter contains no ends in $\epsilon(X)$, so it is finite, and hence there are finitely-many possibilities for such $K$.
+    %     \end{enumerate}
+    %     Conversely, fix an end $p\in\epsilon(X)$ and a neighborhood $p\in A\in\mc{H}_{\del<\infty}(X)$. Since $\mc{H}$ consists of connected sets, it suffices to find some $H\in\mc{H}$ containing $\del_\mathsf{v}A$ but not $p$, for then $p\in\lnot H\subseteq A$ as desired.
+    %     \begin{center}
+    %         \begin{minipage}{0.95\textwidth}
+    %             \begin{observation*}
+    %                 Finitely-many $H,\lnot H\in\mc{H}$ may be removed and still satisfy conditions (1) and (2) above. That (2) still holds is obvious; for (1), we may remove a single pair, since with $\mc{H}'\coloneqq\mc{H}\comp\l\{H,\lnot H\r\}$, the map $X/\mc{H}\to X/\mc{H}'$ sending $[x]_\mc{H}\to[x]_{\mc{H}'}$ is surjective and at-most 2-to-1.
+    %         \end{observation*}
+    %         \end{minipage}
+    %     \end{center}
+    %     Thus, for each of the finitely-many $x,y\in\del_\mathsf{v}A$, we may remove the finitely-many half-spaces separating them, so we may assume that $\mc{H}=\mc{H}_A\sqcup\lnot\mc{H}_A$ is partitioned into the half-spaces in $\mc{H}_A$ containing $\del_\mathsf{v}A$, and its complements which are disjoint from $\del_\mathsf{v}A$. By contradiction, if each $H\in\mc{H}_A$ contains $p$, we will construct a strictly decreasing chain $(H_n)\subseteq\mc{H}_A^\ast$, which gives an infinite family separating $\del_\mathsf{v}A$ from $\lnot H_0$.
 
-    \begin{proposition}\label{prp:dense_cuts_induces_proper_walling}
-        If $\mc{H}$ is a finitely-separating pocset of cuts on a connected locally-finite graph, then $\mc{H}$ is dense towards ends iff (1) each $\mc{H}$-block is finite, and (2) each $H\in\mc{H}^\ast$ has finitely-many successors.
-    \end{proposition}
-    \begin{proof}
-        If $\mc{H}$ is dense towards ends, we will cover (certain closed sets in) $\epsilon(X)$ by cuts in $\mc{H}$, which cuts down to a finite subcover. We will show that a certain Boolean combination thereof, which has finite-boundary, is finite using Lemma \ref{lem:infinite_iff_contains_end}, giving us the desired finiteness claim. Below are the details.
-        \begin{enumerate}
-            \item[1.] Fix an $\mc{H}$-block $[x]_\mc{H}$ and let $A\coloneqq\lnot\l\{x\r\}$. By density, we can cover each end $p\in\epsilon(X)$ with some $H_p\subseteq A$, which gives us a finite subcover $\bigcup_{i<n}H_i$ of $\epsilon(X)$. Note that $\bigcap_{i<n}\lnot H_i\in\mc{H}_{\del<\infty}(X)$ contains $[x]_\mc{H}$, and is finite since it contains no ends in $\epsilon(X)$.
-            \item[2.] Fix $H\in\mc{H}^\ast$ and let $K_\alpha\in\mc{H}^\ast$ be the successors of $H$. By density, each end $p\in\epsilon(\lnot H)$ is contained in some $H_p\subseteq\lnot H$, which in turn is contained in some $\lnot K_\alpha$; this gives us a finite subcover $\bigcup_{i<n}\lnot K_i$ of $\epsilon(\lnot H)$. Any other successor $H\subset K\in\mc{H}^\ast$ not in this subcover may be assumed to be nested with each $K_i$, since there are finitely-many non-nested ones by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}. But then $K\not\subseteq K_i\not\subseteq K$ and $K\cap K_i\neq\em$ for all $i<n$, which forces $\lnot K\subseteq\lnot H\cap\bigcap_{i<n}K_i\in\mc{H}_{\del<\infty}(X)$; the latter contains no ends in $\epsilon(X)$, so it is finite, and hence there are finitely-many possibilities for such $K$.
-        \end{enumerate}
-        Conversely, fix an end $p\in\epsilon(X)$ and a neighborhood $p\in A\in\mc{H}_{\del<\infty}(X)$. Since $\mc{H}$ consists of connected sets, it suffices to find some $H\in\mc{H}$ containing $\del_\mathsf{v}A$ but not $p$, for then $p\in\lnot H\subseteq A$ as desired.
-        \begin{center}
-            \begin{minipage}{0.95\textwidth}
-                \begin{observation*}
-                    Finitely-many $H,\lnot H\in\mc{H}$ may be removed and still satisfy conditions (1) and (2) above. That (2) still holds is obvious; for (1), we may remove a single pair, since with $\mc{H}'\coloneqq\mc{H}\comp\l\{H,\lnot H\r\}$, the map $X/\mc{H}\to X/\mc{H}'$ sending $[x]_\mc{H}\to[x]_{\mc{H}'}$ is surjective and at-most 2-to-1.
-            \end{observation*}
-            \end{minipage}
-        \end{center}
-        Thus, for each of the finitely-many $x,y\in\del_\mathsf{v}A$, we may remove the finitely-many half-spaces separating them, so we may assume that $\mc{H}=\mc{H}_A\sqcup\lnot\mc{H}_A$ is partitioned into the half-spaces in $\mc{H}_A$ containing $\del_\mathsf{v}A$, and its complements which are disjoint from $\del_\mathsf{v}A$. By contradiction, if each $H\in\mc{H}_A$ contains $p$, we will construct a strictly decreasing chain $(H_n)\subseteq\mc{H}_A^\ast$, which gives an infinite family separating $\del_\mathsf{v}A$ from $\lnot H_0$.
-
-        Let $H_0\in\mc{H}_A^\ast$ be arbitrary, which exists since $X$ is infinite, so $\mc{H}$-blocks being finite forces $\mc{H}^\ast=\mc{H}_A^\ast\sqcup\lnot\mc{H}_A^\ast$ to be infinite. There are finitely-many half-spaces non-nested with $H_0$ by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, so we may assume that there is none. We may further assume that all successors $H$ of $\lnot H_0$ lie in $\mc{H}_A^\ast$, for otherwise $\mc{H}_A^\ast\ni\lnot H\subset H_0$ and we may take $H_1\coloneqq\lnot H$. Thus, $B\coloneqq H_0\cap\bigcap_{H\supset\lnot H_0}H$ is a \textit{finite} intersection of the minimal ones in $\mc{H}_A^\ast$, and since $p\in H$ for each such $H$ by assumption, $B$ contains $p$ and is infinite. Since $\mc{H}$-blocks are finite and $B$ is $\mc{H}$-invariant, it contains infinitely-many $\mc{H}$-blocks; any two such $\mc{H}$-blocks is separated by some $H\in\mc{H}_A^\ast$ nested with $H_0$, and since $H\not\subseteq H_0^c$ and $H$ contains neither $H_0$ nor $\lnot H_0$, we can set $H_1\coloneqq H\subset H_0$.
-    \end{proof}
+    %     Let $H_0\in\mc{H}_A^\ast$ be arbitrary, which exists since $X$ is infinite, so $\mc{H}$-blocks being finite forces $\mc{H}^\ast=\mc{H}_A^\ast\sqcup\lnot\mc{H}_A^\ast$ to be infinite. There are finitely-many half-spaces non-nested with $H_0$ by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, so we may assume that there is none. We may further assume that all successors $H$ of $\lnot H_0$ lie in $\mc{H}_A^\ast$, for otherwise $\mc{H}_A^\ast\ni\lnot H\subset H_0$ and we may take $H_1\coloneqq\lnot H$. Thus, $B\coloneqq H_0\cap\bigcap_{H\supset\lnot H_0}H$ is a \textit{finite} intersection of the minimal ones in $\mc{H}_A^\ast$, and since $p\in H$ for each such $H$ by assumption, $B$ contains $p$ and is infinite. Since $\mc{H}$-blocks are finite and $B$ is $\mc{H}$-invariant, it contains infinitely-many $\mc{H}$-blocks; any two such $\mc{H}$-blocks is separated by some $H\in\mc{H}_A^\ast$ nested with $H_0$, and since $H\not\subseteq H_0^c$ and $H$ contains neither $H_0$ nor $\lnot H_0$, we can set $H_1\coloneqq H\subset H_0$.
+    % \end{proof}
 
     \section{The Dual Median Graph of a Profinite Pocset and its Spanning Trees}
 
@@ -541,15 +539,26 @@
 
     Applying this to the dual median graph $\mc{M}(\mc{H})$ of a finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, which has finite hyperplanes by Lemma \ref{prp:dual_median_graph_of_cuts_has_finite_hyperplanes}, proves Theorem \ref{thm:component-wise_construction}.
 
-    \section{Borel Treeings of Graphings with Dense Cuts}\label{sec:borel_treeing_of_quasi-trees}
+    \section{Borel Treeings of Graphings with Dense Cuts}
 
-    In this last section, we prove Theorem \ref{thm:treeing_quasi-trees}, stating that if a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree, then $E$ is treeable. In fact, we prove the following more general result.
+    \subsection{Finiteness conditions on the dual median graph of dense cuts}\label{sec:finiteness_conditions_on_dual_median_graph_dense_cuts}
+
+    \begin{lemma}
+        Let $\mc{H}$ be a finitely-separating pocset of cuts on a connected locally-finite graph. If $\mc{H}$ is dense towards ends, then the dual median graph $\mc{M}(\mc{H})$ is locally-finite.
+    \end{lemma}
+    \begin{proof}
+        Fix a vertex $U\in\mc{U}^\circ(\mc{H})$ and let. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $K\in U$ with $H\cap A=K\cap A$.
+    \end{proof}
+
+    \subsection{Proof of main theorem}
+
+    We finally prove Theorem \ref{thm:treeing_quasi-trees}: if a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree, then $E$ is treeable. In fact, we prove the following generalization.
 
     \begin{theorem}\label{thm:treeing_graphings_with_dense_cuts}
         If a CBER $E$ admits a locally-finite graphing $(X,G)$ such that each component $G|C$ admits a family $\mc{H}(C)$ of finitely-separating cuts that is dense towards ends of $G|C$, then $E$ is treeable.
     \end{theorem}
 
-    This implies Theorem \ref{thm:treeing_quasi-trees}, since each quasi-tree $G|C$ admits a family $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\mathrm{conn}(C)$ of finitely-separating cuts, which is dense towards ends of $G|C$ for some $R_C<\infty$; see Section \ref{sec:dense_cuts_induced_by_quasi-trees}.
+    This implies Theorem \ref{thm:treeing_quasi-trees}, since each quasi-tree $G|C$ admits a family $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\mathrm{conn}(C)$ of finitely-separating cuts, which is dense towards ends of $G|C$ for some $R_C<\infty$; see Section \ref{sec:graphs_with_dense_families_of_cuts}.
 
     \begin{proof}
         Since cuts have finite boundary, we may represent each cut by its finite hyperplane, which makes the set $\mc{K}^\ast\coloneqq\bigsqcup_{G|C}\mc{H}^\ast(C)$ of all non-trivial cuts in all $E$-classes into a standard Borel space.
@@ -559,8 +568,7 @@
                     The set of clopen orientations $\mc{U}^\circ(\mc{K})\coloneqq\bigsqcup_{G|C}\mc{U}^\circ(\mc{H}(C))$ is also a standard Borel space.
                 \end{claim*}
                 \begin{proof}
-                    Since $\mc{K}^\ast$ is a standard Borel space, it suffices to show that every $U\in\mc{U}^\circ(\mc{H}(C))$ admits a finite \textit{basis}, in the sense that $U$ contains finitely-many minimal elements $H\in\mc{H}(C)$. By Proposition \ref{prp:construction_of_dual_median_graph}, this is equivalent to $\mc{U}^\circ(\mc{H}(C))$ being locally-finite. Indeed, 
-                    \phantom\qedhere\hfill$\square$
+                    Since $\mc{K}^\ast$ is a standard Borel space, it suffices to show that every $U\in\mc{U}^\circ(\mc{H}(C))$ admits a finite \textit{basis}, in the sense that $U$ contains finitely-many minimal elements $H\in\mc{H}(C)$. By Proposition \ref{prp:construction_of_dual_median_graph}, this is equivalent to $\mc{U}^\circ(\mc{H}(C))$ being locally-finite, and this is indeed the case by the above lemma.\phantom\qedhere\hfill$\square$
                 \end{proof}
             \end{minipage}
         \end{center}
