@@ -151,6 +151,15 @@
         Then, since there are finitely-many such $x,y\in\del_\mathsf{v}H$, for each of which there are finitely-many $z\in p_{xy}$, for each of which there are finitely-many $K\in\mc{H}$ with $z\in\del_\mathsf{v}K$ (by Lemma \ref{lem:finitely_separating_iff_on_boundary_of_finite}, since $\mc{H}$ is finitely-separating), there can only be finitely-many $K\in\mc{H}$ non-nested with $H$.
     \end{proof}
 
+    % \begin{lemma}\label{lem:finitely-separating_non-trivial_isolated_connected}
+    %     Let $\mc{H}\subseteq\mc{H}_{\del<\infty}$ be a subpocset of cuts. If $\mc{H}$ is finitely-separating, then $\mc{H}\cap\mc{H}_\mathrm{conn}$ is closed and every non-trivial element is isolated.
+    % \end{lemma}
+    % \begin{proof}
+    %     It suffices to show that no $H\in\mc{H}^\ast$ is a limit point of $\mc{H}_\textrm{conn}(X)$, for then $\mc{H}\cap\mc{H}_\textrm{conn}(X)$ is closed, so fix $H\in\mc{H}^\ast$. Let $U\subseteq2^X$ be the family of all subsets $B\subseteq X$ containing $\del_\mathsf{iv}H$ and disjoint from $\del_\mathsf{ov}H$, which clearly contains $H$, and is clopen since $\del_\mathsf{v}H$ is finite.
+
+    %     Suppose that there is some $B\in U\cap\mc{H}_\mathrm{conn}(X)$. Then $H\subseteq B$, since if $x\in H\cap\lnot B$, then there is a path in $\lnot B$ to some $x'\in\del_\mathsf{ov}H\subseteq\lnot B$, which passes through $\del_\mathsf{iv}H\subseteq B$, a contradiction. The converse is similar.
+    % \end{proof}
+
     \subsection{Ends of graphs}
 
     Let $(X,G)$ be a connected locally-finite graph, and consider the Boolean algebra of finite vertex boundary half-spaces $\mc{H}_{\del<\infty}(X)\subseteq2^X$.
@@ -292,6 +301,13 @@
 
         Conversely, the half-spaces cutting the square are clearly non-nested.
     \end{proof}
+
+    % \begin{lemma}\label{lem:finite_hyperplane_iff_non-nested_with_finitely-many}
+    %     A median graph $(X,G)$ has finite hyperplanes iff each half-space $H\in\mc{H}_\mathrm{cvx}(X)$ is non-nested with finitely-many others.
+    % \end{lemma}
+    % \begin{proof}
+    %     By Corollary \ref{cor:non-nested_iff_embedding_of_hamming}, a half-space $K$ non-nested with $H$ corresponds uniquely to an edge $(x,y)\in\del_\mathsf{ie}H$ with $x,y\in\del_\mathsf{iv}K$, so there are finitely-many such half-spaces $K$ iff $\del_\mathsf{ie}H$ is finite.
+    % \end{proof}
 
     \begin{lemma}[Helly]\label{lem:helly}
         Any finite intersection of pairwise-intersecting non-empty convex sets is non-empty.
@@ -545,7 +561,7 @@
                     The clopen orientations $\mc{U}^\circ(\mc{H}_X(G))\coloneqq\bigsqcup_{G|C}\mc{U}^\circ(\mc{H}(C))$ is also a standard Borel space.
                 \end{claim*}
                 \begin{proof}
-                    Since $\mc{H}^\ast_X(G)$ is a standard Borel space, it suffices to show that every $U\in\mc{U}^\circ(\mc{H}(C))$ admits a finite \textit{basis}, in the sense that $U$ contains finitely-many minimal elements $H\in\mc{H}(C)$, for then $U$ can be represented by those minimal elements. Indeed, \phantom\qedhere\hfill$\square$
+                    Since $\mc{H}^\ast_X(G)$ is a standard Borel space, it suffices to show that every $U\in\mc{U}^\circ(\mc{H}(C))$ admits a finite \textit{basis}, in the sense that $U$ contains finitely-many minimal elements $H\in\mc{H}(C)$. Indeed,... \phantom\qedhere\hfill$\square$
                 \end{proof}
             \end{minipage}
         \end{center}
