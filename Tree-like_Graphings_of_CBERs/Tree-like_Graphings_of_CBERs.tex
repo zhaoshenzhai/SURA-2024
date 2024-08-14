@@ -451,7 +451,7 @@
     \end{example}
 
     \begin{proposition}\label{prp:construction_of_dual_median_graph}
-        Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some $\subseteq$-minimal $H\in U\comp\l\{\em,X\r\}$, is a median graph with path metric $d(U,V)=|U\symdiff V|/2$ and medians
+        Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some minimal $H\in U\comp\l\{\em,X\r\}$, is a median graph with path metric $d(U,V)=|U\symdiff V|/2$ and medians
         \begin{equation*}
             \begin{aligned}
                 \l\langle U,V,W\r\rangle&\coloneqq\l\{H\in\mc{H}\st H\textrm{ belongs to at least two of }U,V,W\r\} \\
@@ -461,7 +461,7 @@
     \end{proposition}
 
     \begin{proof}
-        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ are isolated (whence $\l\{H\r\},\l\{\lnot H\r\}$ are clopen), and it is an orientation by $\subseteq$-minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V\not\ni\em,X$ is clopen, so it is a compact set of isolated points, whence finite.
+        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ are isolated (whence $\l\{H\r\},\l\{\lnot H\r\}$ are clopen), and it is an orientation by minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V\not\ni\em,X$ is clopen, so it is a compact set of isolated points, whence finite.
         \begin{center}
             \begin{minipage}{0.95\textwidth}
                 \begin{claim*}[\cite{Sag95}*{Theorem 3.3}]
@@ -526,7 +526,7 @@
         By Lemma \ref{lem:helly}, the intersection $(H\cap A)\cap(K\cap A)=H\cap K\cap A$ is non-empty, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
     \end{proof}
 
-    Thus, we have a graph isomorphism $X/\mc{H}\iso\mc{M}(\mc{H})$; explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are said to be \textit{$G$-adjacent} if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$. Note that $\mc{M}(\mc{H})$ may be constructed as in Proposition \ref{prp:construction_of_dual_median_graph} since $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ is finitely-separating by Lemma \ref{lem:half_space_separating_convex}, and in particular, if $\mc{H}$ is nested, then $X/\mc{H}$ is a tree by Corollary \ref{cor:nested_implies_tree}.
+    This induces a \textit{$G$-adjacency} graph $X/\mc{H}\iso\mc{M}(\mc{H})$; explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are $G$-adjacent if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$. Note that $\mc{M}(\mc{H})$ may be constructed as in Proposition \ref{prp:construction_of_dual_median_graph} since $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ is finitely-separating by Lemma \ref{lem:half_space_separating_convex}, and in particular, if $\mc{H}$ is nested, then $X/\mc{H}$ is a tree by Corollary \ref{cor:nested_implies_tree}.
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
         If $(X,G)$ is a countable median graph with finite hyperplanes, then fixing any colouring of $\mc{H}_\mathrm{cvx}^\ast(X)$ into nested sub-pocsets yields a canonical spanning tree thereof.
@@ -559,7 +559,8 @@
                     The set of clopen orientations $\mc{U}^\circ(\mc{K})\coloneqq\bigsqcup_{G|C}\mc{U}^\circ(\mc{H}(C))$ is also a standard Borel space.
                 \end{claim*}
                 \begin{proof}
-                    Since $\mc{K}^\ast$ is a standard Borel space, it suffices to show that every $U\in\mc{U}^\circ(\mc{H}(C))$ admits a finite \textit{basis}, in the sense that $U$ contains finitely-many minimal elements $H\in\mc{H}(C)$. Indeed,... \phantom\qedhere\hfill$\square$
+                    Since $\mc{K}^\ast$ is a standard Borel space, it suffices to show that every $U\in\mc{U}^\circ(\mc{H}(C))$ admits a finite \textit{basis}, in the sense that $U$ contains finitely-many minimal elements $H\in\mc{H}(C)$. By Proposition \ref{prp:construction_of_dual_median_graph}, this is equivalent to $\mc{U}^\circ(\mc{H}(C))$ being locally-finite. Indeed, 
+                    \phantom\qedhere\hfill$\square$
                 \end{proof}
             \end{minipage}
         \end{center}
