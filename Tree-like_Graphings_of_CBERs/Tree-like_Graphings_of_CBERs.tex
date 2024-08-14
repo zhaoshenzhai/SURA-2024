@@ -25,7 +25,7 @@
 
     A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$ with each class countable. We are interested in special types of \textit{graphings} of a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit treeings are said to be \textit{treeable}. The main results of \cite{CPTT23} provide new sufficient criteria for treeability of certain classes of CBERs, and in particular, they prove the following
 
-    \begin{mainTheorem}[\cite{CPTT23}*{Theorem 1.1}]\label{thm:treeing_quasi-trees}
+    \begin{mainTheorem}[Theorem \ref{thm:treeing_graphings_with_dense_cuts}, \cite{CPTT23}*{Theorem 1.1}]\label{thm:treeing_quasi-trees}
         If a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree\footnote{Recall that metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.}, then $E$ is treeable.
     \end{mainTheorem}
 
@@ -71,7 +71,7 @@
     \vspace{-0.05in}
     Thus we have the following theorem, which can be viewed as a component-wise version of Theorem \ref{thm:treeing_quasi-trees}.
 
-    \begin{mainTheorem}\label{thm:component-wise_construction}
+    \begin{mainTheorem}[Propositions \ref{prp:construction_of_dual_median_graph}, \ref{prp:dual_median_graph_of_cuts_has_finite_hyperplanes}, \ref{prp:canonical_spanning_trees}]\label{thm:component-wise_construction}
         For any finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, its dual median graph $\mc{M}(\mc{H})$ has finite hyperplanes, and fixing a Borel colouring on the intersection graph of those hyperplanes yields a canonical spanning tree of $\mc{M}(\mc{H})$.
     \end{mainTheorem}
 
@@ -487,7 +487,7 @@
     Given such a pocset $\mc{H}$, the graph $\mc{M}(\mc{H})$ constructed above is called the \textit{dual}\footnote{The name is justified by a Stone-type duality between \{median graphs, median homomorphisms\} and \{profinite pocsets with non-trivial points isolated, continuous maps\}, where from a median graph $X$ one can construct a canonical pocset $\mc{H}_\mathrm{cvx}(X)$ of convex half-spaces (see \cite{CPTT23}*{Section 2.D} for details).} median graph of $\mc{H}$. An important special case of this construction is when $\mc{H}$ is \textit{nested}, in which case $\mc{M}(\mc{H})$ is a tree.
 
     \begin{corollary}\label{cor:nested_implies_tree}
-        Let $\mc{H}$ be a profinite pocset with non-trivial points isolated. If $\mc{H}$ is nested, then the median graph $\mc{M}(\mc{H})$ is acyclic, and hence is a tree.
+        Let $\mc{H}$ be a profinite pocset with non-trivial points isolated. If $\mc{H}$ is nested, then the median graph $\mc{M}(\mc{H})$ is acyclic, and hence $\mc{M}(\mc{H})$ is a tree.
     \end{corollary}
     \begin{proof}
         Let $(U_i)_{i<n}$ be a (non-backtracking) cycle in $\mc{M}(\mc{H})$, say induced by some sequence $(H_i)_{i<n}\subseteq\mc{H}$ of half-spaces. We show that $(H_i)$ is \textit{strictly} increasing, so that $H_0\subset\cdots\subset H_n\subset H_0$, which is absurd.
@@ -499,9 +499,9 @@
 
     Nonetheless, in the general non-nested case, $\mc{M}(\mc{H})$ still admits a \textit{canonical} spanning tree if we fix a Borel colouring of $\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$ into its nested sub-pocsets, the existence of which follows from the following
 
-    \begin{lemma}\label{lem:dual_median_graph_of_cuts_has_finite_hyperplanes}
-        The dual median graph $\mc{M}(\mc{H})$ of a pocset $\mc{H}$ of finitely-separating cuts has finite hyperplanes.
-    \end{lemma}
+    \begin{proposition}\label{prp:dual_median_graph_of_cuts_has_finite_hyperplanes}
+        The dual median graph $\mc{M}(\mc{H})$ of a pocset of finitely-separating cuts has finite hyperplanes.
+    \end{proposition}
     \begin{proof}
         Fix $K\in\mc{H}^\ast_\mathrm{cvx}(\mc{M}(\mc{H}))$, which by Proposition \ref{prp:half-spaces_are_cones} is of the form $K=\cone_V(U)$ for some (and hence any) $(U,V)\in\del_\mathsf{ie}K$, and we have by Proposition \ref{prp:construction_of_dual_median_graph} that $V=U\symdiff\l\{H,\lnot H\r\}$ for some (non-trivial) minimal $H\in U$. We claim that any other edge $(U',V')\in\del_\mathsf{ie}K$ can be reached from $(U,V)$ by simultaneously flipping only the half-spaces $H'_0,\dots,H'_n\in\mc{H}^\ast$ non-nested with $H$, of which there are finitely-many by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}.
 
@@ -539,7 +539,7 @@
         Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\mathrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. {\color{red}For each $G$-adjacent pair} $A,B\in Y/\mc{H}_n$, which is separated by a unique half-space $H\in\mc{H}_n$ by Lemma \ref{lem:half_space_separating_convex}, we may pick an edge from the \textit{finite} hyperplane $\del_\mathsf{ie}H$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and a single edge is picked between every pair of $G$-adjacent blocks therein, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
     \end{proof}
 
-    Applying this to the dual median graph $\mc{M}(\mc{H})$ of a finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, which has finite hyperplanes by Lemma \ref{lem:dual_median_graph_of_cuts_has_finite_hyperplanes}, proves Theorem \ref{thm:component-wise_construction}.
+    Applying this to the dual median graph $\mc{M}(\mc{H})$ of a finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, which has finite hyperplanes by Lemma \ref{prp:dual_median_graph_of_cuts_has_finite_hyperplanes}, proves Theorem \ref{thm:component-wise_construction}.
 
     \section{Borel Treeings of Graphings with Dense Cuts}\label{sec:borel_treeing_of_quasi-trees}
 
@@ -552,16 +552,14 @@
     This implies Theorem \ref{thm:treeing_quasi-trees}, since each quasi-tree $G|C$ admits a family $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\mathrm{conn}(C)$ of finitely-separating cuts, which is dense towards ends of $G|C$ for some $R_C<\infty$; see Section \ref{sec:dense_cuts_induced_by_quasi-trees}.
 
     \begin{proof}
-        Since cuts have finite boundary, we may represent each cut by its finite hyperplane, which makes the set $\mc{K}\coloneqq\bigsqcup_{G|C}\mc{H}(C)$ of all cuts in all $E$-classes into a standard Borel space.
-        %and $E$ lifts to a CBER $\mc{E}$ on $\mc{H}_X^\ast(G)$ where two half-spaces are $\mc{E}$-related iff they belong to the same $E$-class.
-
+        Since cuts have finite boundary, we may represent each cut by its finite hyperplane, which makes the set $\mc{K}^\ast\coloneqq\bigsqcup_{G|C}\mc{H}^\ast(C)$ of all non-trivial cuts in all $E$-classes into a standard Borel space.
         \begin{center}
             \begin{minipage}{0.95\textwidth}
                 \begin{claim*}
-                    The clopen orientations $\mc{U}^\circ(\mc{K})\coloneqq\bigsqcup_{G|C}\mc{U}^\circ(\mc{H}(C))$ is also a standard Borel space.
+                    The set of clopen orientations $\mc{U}^\circ(\mc{K})\coloneqq\bigsqcup_{G|C}\mc{U}^\circ(\mc{H}(C))$ is also a standard Borel space.
                 \end{claim*}
                 \begin{proof}
-                    Since $\mc{K}$ is a standard Borel space, it suffices to show that every $U\in\mc{U}^\circ(\mc{H}(C))$ admits a finite \textit{basis}, in the sense that $U$ contains finitely-many minimal elements $H\in\mc{H}(C)$. Indeed,... \phantom\qedhere\hfill$\square$
+                    Since $\mc{K}^\ast$ is a standard Borel space, it suffices to show that every $U\in\mc{U}^\circ(\mc{H}(C))$ admits a finite \textit{basis}, in the sense that $U$ contains finitely-many minimal elements $H\in\mc{H}(C)$. Indeed,... \phantom\qedhere\hfill$\square$
                 \end{proof}
             \end{minipage}
         \end{center}
