@@ -145,3 +145,16 @@
     volume={1852},
     label={KM04}
 }
+
+\bib{JKL02}{article}{
+    title={Countable Borel Equivalence Relations},
+    author={S. Jackson},
+    author={Alexander S. Kechris},
+    author={A. Louveau},
+    date={2002},
+    journal={Journal of Mathematical Logic},
+    volume={2},
+    number={1},
+    pages={1-80},
+    label={JKL02}
+}
