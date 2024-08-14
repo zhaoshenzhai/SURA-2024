@@ -51,16 +51,18 @@
             \draw (0,\vsh) circle (0in) node{Borel quasi-treeing};
             \draw[->] (0,-0.2) -- (0,-\vsp+0.3);
             \draw (\hsp,0) circle (0in) node{$\begin{gathered} \textrm{Dense family}\\[-4pt] \textrm{of cuts} \end{gathered}$};
-            \draw[->] (\hsp+1.1,\vsh) -- (3*\hsp-1.1,\vsh) node[xshift=-4.5cm, above=-2pt]{\tiny{Sec.\!\! \ref{sec:borel_treeings_of_graphings_with_dense_cuts}}} node[xshift=-1.5cm, above=-2pt]{\tiny{Theorem \ref{thm:treeing_graphings_with_dense_cuts}}};
+            % \draw[->] (\hsp+1.1,\vsh) -- (3*\hsp-1.1,\vsh) node[xshift=-4cm, above=-2pt]{\tiny{Lemma \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}}} node[xshift=-1.5cm, above=-2pt]{\tiny{Theorem \ref{thm:treeing_graphings_with_dense_cuts}}};
+            % \draw[->] (\hsp+1.1,\vsh) -- (3*\hsp-1.1,\vsh) node[midway, above=-2pt]{\tiny{Lem.\!\! \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}\,+\,Thm.\!\! \ref{thm:treeing_graphings_with_dense_cuts}}};
+            \draw[->] (\hsp+1.1,\vsh) -- (3*\hsp-1.1,\vsh) node[xshift=-4.5cm, above=-2pt]{\tiny{Lem. \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}}} node[xshift=-1.5cm, above=-2pt]{\tiny{Theorem \ref{thm:treeing_graphings_with_dense_cuts}}};
             \draw (3*\hsp,\vsh) circle (0in) node{Borel treeing};
 
             \draw (0,\vsh-\vsp) circle (0in) node{Quasi-tree};
-            \draw[->] (1,\vsh-\vsp) -- (\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:pocsets_of_cuts}+\ref{sec:graphs_with_dense_families_of_cuts}}};
-            \draw[->] (1,-1) -- (\hsp-1.1,0) node[midway, above=-2pt, sloped]{\tiny{Sec.\!\! \ref{sec:ends_of_graphs}+\ref{sec:graphs_with_dense_families_of_cuts}}};
+            \draw[->] (1,\vsh-\vsp) -- (\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:pocsets_of_cuts}\,+\,\ref{sec:graphs_with_dense_families_of_cuts}}};
+            \draw[->] (1,-1) -- (\hsp-1.1,0) node[midway, above=-2pt, sloped]{\tiny{Sec.\!\! \ref{sec:ends_of_graphs}\,+\,\ref{sec:graphs_with_dense_families_of_cuts}}};
             \draw (\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Finitely-sep.}\\[-4pt] \textrm{family of cuts} \end{gathered}$};
             \draw[->] (\hsp+1.1,\vsh-\vsp) -- (2*\hsp-1.5,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:the_dual_median_graph_of_a_pocset}}};
             \draw[->-=0.5] (\hsp+1.1,-1) to [out=35, in=180] (2*\hsp,\vsh);
-            \node[rotate=32] at (1.43*\hsp,-0.5) {\tiny{Sec.\!\! \ref{sec:borel_treeings_of_graphings_with_dense_cuts}}};
+            \node[rotate=32] at (1.43*\hsp,-0.5) {\tiny{Lem.\!\! \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}}};
             \draw (\hsp,-0.6) circle (0in);
             \draw (2*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Median graph w/}\\[-4pt] \textrm{finite hyperplanes} \end{gathered}$};
             \draw[->] (2*\hsp+1.5,\vsh-\vsp) -- (3*\hsp-1.1,\vsh-\vsp) node[midway, above=-2pt]{\tiny{Sec.\!\! \ref{sec:cycle_cutting_algorithm}}};
@@ -562,19 +564,19 @@
         Any other minimal $H\in U$ not in this subcover may be assumed to be nested with each $H_i$, since there are finitely-many non-nested ones by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}. But then $H\not\subseteq H_i\not\subseteq H$ and $H\cap H_i\neq\em$ for all $i<n$, which forces $\lnot H\subseteq\bigcap_{i<n}H_i\in\mc{H}_{\del<\infty}(X)$; the latter contains no ends in $\epsilon(X)$, so it is finite by Lemma \ref{lem:infinite_iff_contains_end}, and hence there are at-most finitely-many more minimal $H\in U$.
     \end{proof}
 
-    Another consequence of the density of $\mc{H}$ is that the map $X\to\mc{U}^\circ(\mc{H})$ is finite-to-1, or equivalently, that $\mc{H}$-blocks are finite. {\color{red}Does this imply that $X\ni x\mapsto\widehat{x}\in\mc{U}^\circ(\mc{H}([x]_E))$ is a Borel bireduction?}
+    % Another consequence of the density of $\mc{H}$ is that the map $X\to\mc{U}^\circ(\mc{H})$ is finite-to-1, or equivalently, that $\mc{H}$-blocks are finite. {\color{red}Does this imply that $X\ni x\mapsto\widehat{x}\in\mc{U}^\circ(\mc{H}([x]_E))$ is a Borel bireduction?}
 
-    \begin{lemma}\label{lem:finite_H_block_density}
-        Let $\mc{H}$ be a finitely-separating pocset of cuts on a connected locally-finite graph $(X,G)$. If $\mc{H}$ is dense towards ends, then each $\mc{H}$-block is finite.
-    \end{lemma}
-    \begin{proof}
-        Fix an $\mc{H}$-block $[x]_\mc{H}$ and let $A\coloneqq\lnot\l\{x\r\}$. By density of $\mc{H}$, we can cover each end $p\in\epsilon(X)$ with some $H_p\subseteq A$, which gives us a finite subcover $\bigcup_{i<n}H_i$ of $\epsilon(X)$. Note that $\bigcap_{i<n}\lnot H_i\in\mc{H}_{\del<\infty}(X)$ contains $[x]_\mc{H}$, and is finite by Lemma \ref{lem:infinite_iff_contains_end} since it contains no ends in $\epsilon(X)$.
-    \end{proof}
+    % \begin{lemma}\label{lem:finite_H_block_density}
+    %     Let $\mc{H}$ be a finitely-separating pocset of cuts on a connected locally-finite graph $(X,G)$. If $\mc{H}$ is dense towards ends, then each $\mc{H}$-block is finite.
+    % \end{lemma}
+    % \begin{proof}
+    %     Fix an $\mc{H}$-block $[x]_\mc{H}$ and let $A\coloneqq\lnot\l\{x\r\}$. By density of $\mc{H}$, we can cover each end $p\in\epsilon(X)$ with some $H_p\subseteq A$, which gives us a finite subcover $\bigcup_{i<n}H_i$ of $\epsilon(X)$. Note that $\bigcap_{i<n}\lnot H_i\in\mc{H}_{\del<\infty}(X)$ contains $[x]_\mc{H}$, and is finite by Lemma \ref{lem:infinite_iff_contains_end} since it contains no ends in $\epsilon(X)$.
+    % \end{proof}
 
     \begin{proof}[Proof of Theorem \ref{thm:treeing_graphings_with_dense_cuts}]
         We may represent each cut by its finite hyperplane, which makes the collection $\mc{K}^\ast\coloneqq\bigsqcup_{G|C}\mc{H}^\ast(C)$ of all non-trivial cuts into a standard Borel space. Thus, the set $\mc{U}^\circ(\mc{K})$ of clopen all orientations on $\mc{K}$ is also a standard Borel space, since we may encode each $U\in\mc{U}^\circ(\mc{H}(C))$ by its set of minimal elements, which is finite by Proposition \ref{prp:construction_of_dual_median_graph} and Lemma \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}.
 
-        This allows us to collect the dual median graphs into a median \textit{graphing} $\mc{M}(\mc{K})$ of $\mc{U}^\circ(\mc{K})$, and we can implement the proof of Proposition \ref{prp:canonical_spanning_trees} in a Borel manner (using \cite{KM04}*{Lemma 7.3} for a countable colouring of the intersection graph of finite hyperplanes therein) to obtain a treeing of the relation generated by $\mc{M}(\mc{K})$. But this relation is Borel bireducible with $(X,E)$ via $X\ni x\mapsto\widehat{x}\in\mc{U}^\circ(\mc{H}([x]_E))$ by Lemma \ref{lem:finite_H_block_density}, so $(X,E)$ is also treeable by \cite{JKL02}*{Proposition 3.3 (ii)}.
+        This allows us to collect the dual median graphs into a median \textit{graphing} $\mc{M}(\mc{K})$ of $\mc{U}^\circ(\mc{K})$, and we can implement the proof of Proposition \ref{prp:canonical_spanning_trees} in a Borel manner (using \cite{KM04}*{Lemma 7.3} for a countable colouring of the intersection graph of finite hyperplanes therein) to obtain a treeing of the relation generated by $\mc{M}(\mc{K})$. But this relation is Borel bireducible with $(X,E)$ via $X\ni x\mapsto\widehat{x}\in\mc{U}^\circ(\mc{H}([x]_E))$, so $(X,E)$ is also treeable by \cite{JKL02}*{Proposition 3.3 (ii)}, as desired.
     \end{proof}
 
     \begin{bibdiv}
