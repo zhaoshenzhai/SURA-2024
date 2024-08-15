@@ -177,14 +177,8 @@
 
     We identify $X\into\widehat{X}$ via principal ultrafilter map $x\mapsto p_x$, so $\epsilon(X)\coloneqq\widehat{X}\comp X$ is the set of ends of $G$. By definition, $\widehat{X}$ admits a basis of clopen sets of the form $\widehat{A}\coloneqq\{p\in\widehat{X}\st A\in p\}$ for each $A\in\mc{H}_{\del<\infty}(X)$.
 
-    \begin{definition}
-        A pocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end in $\epsilon(X)$.
-
-        In other words, $\mc{H}$ is dense towards ends if for every $p\in\epsilon(X)$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$, so we will abuse notation and write $p\in H\subseteq A$ for the above condition.
-    \end{definition}
-
     \begin{lemma}\label{lem:infinite_iff_contains_end}
-        A subset $A\in\mc{H}_{\del<\infty}(X)$ is infinite iff it contains an end in $(X,G)$.
+        A finite-boundary subset $A\in\mc{H}_{\del<\infty}(X)$ is infinite iff it contains an end in $(X,G)$.
     \end{lemma}
     \begin{proof}
         The converse direction follows since ends are non-principal. If $A$ is infinite, then by local-finiteness of $(X,G)$, K\H{o}nig's Lemma furnishes some infinite ray $(x_n)\subseteq A$. Then, $A$ is contained in the filter
@@ -193,6 +187,12 @@
         \end{equation*}
         which is ultra since $H\in p$ are of \textit{finite}-boundary, and is non-principal since it contains cofinite sets.
     \end{proof}
+
+    \begin{definition}
+        A pocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end in $\epsilon(X)$.
+
+        In other words, $\mc{H}$ is dense towards ends if for every $p\in\epsilon(X)$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$, so we will abuse notation and write $p\in H\subseteq A$ for the above condition.
+    \end{definition}
 
     We show in Section \ref{sec:graphs_with_dense_families_of_cuts} that certain half-spaces $\mc{H}\subseteq\mc{H}_{\del<\infty}$ induced by a locally-finite quasi-tree is dense towards ends. It will also be important that these half-spaces be cuts, in that witnesses to density can also be found in $\mc{H}\cap\mc{H}_\mathrm{conn}$. The following lemma takes care of this.
 
