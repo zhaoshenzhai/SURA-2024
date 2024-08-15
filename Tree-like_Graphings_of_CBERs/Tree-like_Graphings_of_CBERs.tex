@@ -546,19 +546,11 @@
 
     Applying this to the dual median graph $\mc{M}(\mc{H})$ of a finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, which has finite hyperplanes by Lemma \ref{prp:dual_median_graph_of_cuts_has_finite_hyperplanes}, proves Theorem \ref{thm:component-wise_construction}.
 
-    Moreover, we can implement the proof of Proposition \ref{prp:canonical_spanning_trees} in a Borel manner (using \cite{KM04}*{Lemma 7.3} for a countable colouring of the intersection graph of finite hyperplanes) to obtain the following
-
-    \begin{corollary}\label{cor:borel_treeing_of_median_graphing}
-        If a CBER $E$ admits a graphing $G$ such that each component is a median graph with finite hyperplanes, then there is a (Borel) subtreeing $T\subseteq G$.
-    \end{corollary}
-
-
-
     \section{Borel Treeings of Graphings with Dense Cuts}\label{sec:borel_treeings_of_graphings_with_dense_cuts}
 
     We finally prove Theorem \ref{thm:treeing_quasi-trees}, stating that if a CBER $E$ admits a locally-finite graphing $G$ such that each component is a quasi-tree, then $E$ is treeable. The first step is to identify, for each component $G|C$, a family $\mc{H}(C)$ of finitely-separating cuts that is dense towards ends of $G|C$; since each $G|C$ is a quasi-tree, the cuts $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\mathrm{conn}(C)$ for some $R_C<\infty$ from Section \ref{sec:graphs_with_dense_families_of_cuts} will do. Applying Theorem \ref{thm:component-wise_construction} then gives us, for each component $G|C$, a median graph $\mc{M}(\mc{H}(C))$ on $\mc{U}^\circ(\mc{H}(C))$ with finite hyperplanes.
 
-    The issue lies in making the family $\mc{U}^\circ(\mc{K})\coloneqq\bigsqcup_C\mc{U}^\circ(\mc{H}(C))$ of \textit{all} clopen orientations on $\mc{K}\coloneqq\bigsqcup_C\mc{H}(C)$ into a standard Borel space. If $\mc{U}^\circ(\mc{K})$ is standard Borel, the above partition induces a CBER $\mc{E}$ admitting a median graphing $\mc{M}(\mc{K})\coloneqq\bigsqcup_C\mc{M}(\mc{H}(C))$ with finite hyperplanes, from which one can implement the proof of Proposition \ref{prp:canonical_spanning_trees} in a Borel manner (using \cite{KM04}*{Lemma 7.3} for a countable colouring of the intersection graph of finite hyperplanes therein) to obtain a treeing of $\mc{E}$. But $\mc{E}$ is Borel bireducible with $E$ via the principal orientations map $X\ni x\mapsto\widehat{x}\in\mc{U}^\circ(\mc{H}([x]_E))$, so $E$ is also treeable by \cite{JKL02}*{Proposition 3.3 (ii)}.
+    The issue lies in making the family $\mc{U}^\circ(\mc{K})\coloneqq\bigsqcup_C\mc{U}^\circ(\mc{H}(C))$ of \textit{all} clopen orientations on $\mc{K}\coloneqq\bigsqcup_C\mc{H}(C)$ into a standard Borel space. If $\mc{U}^\circ(\mc{K})$ is standard Borel, the above partition induces a CBER $\mc{E}$ admitting a median graphing $\mc{M}(\mc{K})\coloneqq\bigsqcup_C\mc{M}(\mc{H}(C))$ with finite hyperplanes, from which one can implement the proof of Proposition \ref{prp:canonical_spanning_trees} in a Borel manner (using \cite{KM04}*{Lemma 7.3} for a countable colouring of the intersection graph of finite hyperplanes therein) to obtain a treeing of $\mc{E}$. Note that $E$ is Borel bireducible with $\mc{E}$ via the principal orientations map $X\ni x\mapsto\widehat{x}\in\mc{U}^\circ(\mc{K})$, so $E$ is also treeable by \cite{JKL02}*{Proposition 3.3 (ii)}.
 
     We will remedy this issue by using the density of the cuts $\mc{H}(C)$. In particular, we have the following
 
@@ -573,7 +565,9 @@
         Let $K\neq K_i$ be any other minimal element in $U$. By Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, each $K_i$ is non-nested with finitely-many other half-spaces, so we may assume that $K$ is nested with every $K_i$. But then $K\not\subseteq K_i\not\subseteq K$ and $K\cap K_i\neq\em$ for all $i<n$, which forces $\lnot K\subseteq\bigcap_{i<n}K_i\in\mc{H}_{\del<\infty}(X)$; the latter contains no ends in $\epsilon(X)$, so it is finite by Lemma \ref{lem:infinite_iff_contains_end}, and hence there are at-most finitely-many more minimal $K\in U$.
     \end{proof}
 
-    Now
+    We now describe the encoding of $\mc{U}^\circ(\mc{K})$ into a standard Borel space. First, 
+
+    The above discussion actually proves the following generalization of Theorem \ref{thm:treeing_quasi-trees}, which is no longer about quasi-trees; rather, we only need the (locally-finite) graphing to admit a Borel family of `tree-like' cuts.
 
     \begin{theorem}\label{thm:treeing_graphings_with_dense_cuts}
         If a CBER $E$ admits a locally-finite graphing $(X,G)$ such that each component $G|C$ admits a family $\mc{H}(C)$ of finitely-separating cuts that is dense towards ends of $G|C$, then $E$ is treeable.
