@@ -27,8 +27,7 @@
     A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$ with each class countable. We are interested in special types of \textit{graphings} of a CBER $E\subseteq X^2$, i.e. a Borel graph $G\subseteq X^2$ whose connectedness relation is precisely $E$. For instance, a graphing of $E$ such that each component is a tree is called a \textit{treeing} of $E$, and the CBERs that admit treeings are said to be \textit{treeable}. The main results of \cite{CPTT23} provide new sufficient criteria for treeability of certain classes of CBERs, and in particular, they prove the following
 
     \begin{mainTheorem}[Theorem \ref{thm:treeing_graphings_with_dense_cuts}, \cite{CPTT23}*{Theorem 1.1}]\label{thm:treeing_quasi-trees}
-        If a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree, then $E$ is treeable.
-        % \footnote{Recall that metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.}
+        If a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree,\footnote{Recall that metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.} then $E$ is treeable.
     \end{mainTheorem}
 
     Roughly speaking, the existence of a quasi-isometry $G|C\to T_C$ to a simplicial tree $T_C$ for each component $C\subseteq X$ induces a collection $\mc{H}(C)\subseteq2^C$ of `cuts' (subsets $H\subseteq C$ with finite boundary such that both $H$ and $C\comp H$ are connected), which are `tree-like' in the sense that
@@ -79,7 +78,7 @@
         For any finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, its dual median graph $\mc{M}(\mc{H})$ has finite hyperplanes, and fixing a Borel colouring on the intersection graph of those hyperplanes yields a canonical spanning tree of $\mc{M}(\mc{H})$.
     \end{mainTheorem}
 
-    The additional condition (2), which equivalently imposes certain finiteness conditions on $\mc{H}(C)$, ensures that such a spanning tree can be constructed uniformly to each component $C\subseteq G$ (see Theorem \ref{thm:treeing_graphings_with_dense_cuts}), which gives us the desired treeing of the CBER.
+    The additional condition (2) then shows that $\mc{M}(\mc{H})$ is locally-finite (Lemma \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}), which ensures that such a spanning tree can be constructed uniformly to each component $C\subseteq G$; see Section \ref{sec:borel_treeings_of_graphings_with_dense_cuts}.
 
     \subsection*{Acknowledgements}
 
