@@ -546,17 +546,21 @@
 
     Applying this to the dual median graph $\mc{M}(\mc{H})$ of a finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, which has finite hyperplanes by Lemma \ref{prp:dual_median_graph_of_cuts_has_finite_hyperplanes}, proves Theorem \ref{thm:component-wise_construction}.
 
+    Moreover, we can implement the proof of Proposition \ref{prp:canonical_spanning_trees} in a Borel manner (using \cite{KM04}*{Lemma 7.3} for a countable colouring of the intersection graph of finite hyperplanes) to obtain the following
+
+    \begin{corollary}\label{cor:borel_treeing_of_median_graphing}
+        If a CBER $E$ admits a graphing $G$ such that each component is a median graph with finite hyperplanes, then there is a (Borel) subtreeing $T\subseteq G$.
+    \end{corollary}
+
+
+
     \section{Borel Treeings of Graphings with Dense Cuts}\label{sec:borel_treeings_of_graphings_with_dense_cuts}
 
-    In this last section, we prove Theorem \ref{thm:treeing_quasi-trees}, stating that if a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree, then $E$ is treeable. In fact, we prove the following more general result.
+    We finally prove Theorem \ref{thm:treeing_quasi-trees}, stating that if a CBER $E$ admits a locally-finite graphing $G$ such that each component is a quasi-tree, then $E$ is treeable. The first step is to identify, for each component $G|C$, a family $\mc{H}(C)$ of finitely-separating cuts that is dense towards ends of $G|C$; since each $G|C$ is a quasi-tree, the cuts $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\mathrm{conn}(C)$ for some $R_C<\infty$ from Section \ref{sec:graphs_with_dense_families_of_cuts} will do. Applying Theorem \ref{thm:component-wise_construction} then gives us, for each component $G|C$, a median graph $\mc{M}(\mc{H}(C))$ on $\mc{U}^\circ(\mc{H}(C))$ with finite hyperplanes.
 
-    \begin{theorem}\label{thm:treeing_graphings_with_dense_cuts}
-        If a CBER $E$ admits a locally-finite graphing $(X,G)$ such that each component $G|C$ admits a family $\mc{H}(C)$ of finitely-separating cuts that is dense towards ends of $G|C$, then $E$ is treeable.
-    \end{theorem}
+    The issue lies in making the family $\mc{U}^\circ(\mc{K})\coloneqq\bigsqcup_C\mc{U}^\circ(\mc{H}(C))$ of \textit{all} clopen orientations on $\mc{K}\coloneqq\bigsqcup_C\mc{H}(C)$ into a standard Borel space. If $\mc{U}^\circ(\mc{K})$ is standard Borel, the above partition induces a CBER $\mc{E}$ admitting a median graphing $\mc{M}(\mc{K})\coloneqq\bigsqcup_C\mc{M}(\mc{H}(C))$ with finite hyperplanes, from which one can implement the proof of Proposition \ref{prp:canonical_spanning_trees} in a Borel manner (using \cite{KM04}*{Lemma 7.3} for a countable colouring of the intersection graph of finite hyperplanes therein) to obtain a treeing of $\mc{E}$. But $\mc{E}$ is Borel bireducible with $E$ via the principal orientations map $X\ni x\mapsto\widehat{x}\in\mc{U}^\circ(\mc{H}([x]_E))$, so $E$ is also treeable by \cite{JKL02}*{Proposition 3.3 (ii)}.
 
-    This implies Theorem \ref{thm:treeing_quasi-trees}, since for each quasi-tree $G|C$, the family $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\mathrm{conn}(C)$ of cuts is finitely-separating and dense towards ends of $G|C$ for some $R_C<\infty$; see Section \ref{sec:graphs_with_dense_families_of_cuts}.
-
-    The proof of this theorem relies on representing the family $\mc{U}^\circ(\mc{K})\coloneqq\bigsqcup_{G|C}\mc{U}^\circ(\mc{H}(C))$ of \textit{all} clopen orientations as a standard Borel space, which is possible due to the following
+    The issue lies in Corollary \ref{cor:borel_treeing_of_median_graphing}, where one needs a CBER on a \textit{standard Borel space} and a median graphing thereof with finite hyperplanes, but the set $\mc{U}^\circ(\mc{K})\coloneqq\bigsqcup_{G|C}\mc{U}^\circ(\mc{H}(C))$ of \textit{all} clopen orientations on \textit{all} cuts $\mc{K}\coloneqq\bigsqcup_{G|C}\mc{H}(C)$ \textit{need not} be standard Borel in general. We will remedy this issue by the following
 
     \begin{lemma}\label{lem:dual_median_graph_of_dense_cuts_locally_finite}
         Let $\mc{H}$ be a finitely-separating pocset of cuts on a connected locally-finite graph $(X,G)$. If $\mc{H}$ is dense towards ends, then the dual median graph $\mc{M}(\mc{H})$ is locally-finite.
@@ -569,14 +573,13 @@
         Let $K\neq K_i$ be any other minimal element in $U$. By Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, each $K_i$ is non-nested with finitely-many other half-spaces, so we may assume that $K$ is nested with every $K_i$. But then $K\not\subseteq K_i\not\subseteq K$ and $K\cap K_i\neq\em$ for all $i<n$, which forces $\lnot K\subseteq\bigcap_{i<n}K_i\in\mc{H}_{\del<\infty}(X)$; the latter contains no ends in $\epsilon(X)$, so it is finite by Lemma \ref{lem:infinite_iff_contains_end}, and hence there are at-most finitely-many more minimal $K\in U$.
     \end{proof}
 
-    % Another consequence of the density of $\mc{H}$ is that the map $X\to\mc{U}^\circ(\mc{H})$ is finite-to-1, or equivalently, that $\mc{H}$-blocks are finite. {\color{red}Does this imply that $X\ni x\mapsto\widehat{x}\in\mc{U}^\circ(\mc{H}([x]_E))$ is a Borel bireduction?}
+    \begin{theorem}\label{thm:treeing_graphings_with_dense_cuts}
+        If a CBER $E$ admits a locally-finite graphing $(X,G)$ such that each component $G|C$ admits a family $\mc{H}(C)$ of finitely-separating cuts that is dense towards ends of $G|C$, then $E$ is treeable.
+    \end{theorem}
 
-    % \begin{lemma}\label{lem:finite_H_block_density}
-    %     Let $\mc{H}$ be a finitely-separating pocset of cuts on a connected locally-finite graph $(X,G)$. If $\mc{H}$ is dense towards ends, then each $\mc{H}$-block is finite.
-    % \end{lemma}
-    % \begin{proof}
-    %     Fix an $\mc{H}$-block $[x]_\mc{H}$ and let $A\coloneqq\lnot\l\{x\r\}$. By density of $\mc{H}$, we can cover each end $p\in\epsilon(X)$ with some $H_p\subseteq A$, which gives us a finite subcover $\bigcup_{i<n}H_i$ of $\epsilon(X)$. Note that $\bigcap_{i<n}\lnot H_i\in\mc{H}_{\del<\infty}(X)$ contains $[x]_\mc{H}$, and is finite by Lemma \ref{lem:infinite_iff_contains_end} since it contains no ends in $\epsilon(X)$.
-    % \end{proof}
+    This implies Theorem \ref{thm:treeing_quasi-trees}, since for each quasi-tree $G|C$, the family $\mc{H}(C)\coloneqq\mc{H}_{\diam(\del)\leq R_C}(C)\cap\mc{H}_\mathrm{conn}(C)$ of cuts is finitely-separating and dense towards ends of $G|C$ for some $R_C<\infty$; see Section \ref{sec:graphs_with_dense_families_of_cuts}.
+
+    The proof of this theorem relies on representing the family $\mc{U}^\circ(\mc{K})\coloneqq\bigsqcup_{G|C}\mc{U}^\circ(\mc{H}(C))$ of \textit{all} clopen orientations as a standard Borel space, which is possible due to the following
 
     \begin{proof}[Proof of Theorem \ref{thm:treeing_graphings_with_dense_cuts}]
         We may represent each cut by its finite hyperplane, which makes the collection $\mc{K}^\ast\coloneqq\bigsqcup_{G|C}\mc{H}^\ast(C)$ of all non-trivial cuts into a standard Borel space. Thus, the set $\mc{U}^\circ(\mc{K})$ of all clopen orientations on $\mc{K}$ is also a standard Borel space, since we may encode each $U\in\mc{U}^\circ(\mc{H}(C))$ by its set of minimal elements, which is finite by Proposition \ref{prp:construction_of_dual_median_graph} and Lemma \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}.
