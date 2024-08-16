@@ -515,7 +515,7 @@
 
     \subsection{Canonical spanning trees}\label{sec:cycle_cutting_algorithm}
 
-    We now present the Borel cycle-cutting algorithm that can be preformed on any countable median graph $(X,G)$ with finite hyperplanes.
+    We now present the Borel cycle-cutting algorithm that can be preformed on any countable median graph with finite hyperplanes. Applying this algorithm to the dual median graph of a finitely-separating family of cuts, which has finite hyperplanes by Proposition \ref{prp:dual_median_graph_of_cuts_has_finite_hyperplanes}, proves Theorem \ref{thm:component-wise_construction}.
 
     \begin{lemma}\label{lem:H_blocks_form_a_median_graph}
         For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ on a median graph $(X,G)$, the map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
@@ -536,10 +536,8 @@
 
         We shall inductively construct an increasing chain of subforests $T_n\subseteq G$ such that the components of $T_n$ are exactly the $\mc{K}_n$-blocks. Then, the increasing union $T\coloneqq\bigcup_nT_n$ is a spanning tree, since each $(x,y)\in G$ lies in a $\mc{K}_n$-block for sufficiently large $n$ (namely, the $n$ such that $\cone_x(y)\in\mc{H}^\ast_{n-1}$, since $\cone_x(y)$ and its complement are the only half-spaces separating $x$ and $y$ by Proposition \ref{prp:half-spaces_are_cones}).
 
-        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0=\mc{H}_\mathrm{cvx}(X)$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated (by Proposition \ref{prp:half-spaces_are_cones}) by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, and those correspond precisely to the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. Pick an edge from the \textit{finite} hyperplane $\del_\mathsf{ie}H$ for each $H\in\mc{H}_n$, which connects a unique pair of $G$-adjacent blocks in $Y/\mc{H}_n$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and each pair of $G$-adjacent blocks in $Y/\mc{H}_n$ is connected by a single picked edge, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
-    \end{proof}
-
-    Applying this to the dual median graph $\mc{M}(\mc{H})$ of a finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, which has finite hyperplanes by Lemma \ref{prp:dual_median_graph_of_cuts_has_finite_hyperplanes}, proves Theorem \ref{thm:component-wise_construction}.
+        Since each pair of distinct points is separated by a half-space, the $\mc{K}_0$-blocks are singletons, so put $T_0\coloneqq\em$. Suppose that a forest $T_n$ is constructed as required. Note that each $\mc{K}_{n+1}$-block $Y\in X/\mc{K}_{n+1}$ is not separated by any half-spaces in $\mc{H}_m$ for $m>n$, but is separated by $\mc{H}_n$ into the $\mc{K}_n$-blocks contained in $Y$, which are precisely the $\mc{H}_n$-blocks in $Y/\mc{H}_n$. Pick an edge from the \textit{finite} hyperplane $\del_\mathsf{ie}H$ for each $H\in\mc{H}_n$, which connects a unique pair of $G$-adjacent blocks in $Y/\mc{H}_n$. Since each $Y/\mc{H}_n$ is a tree by Corollary \ref{cor:nested_implies_tree}, and each pair of $G$-adjacent blocks in $Y/\mc{H}_n$ is connected by a single picked edge, the graph $T_{n+1}$ obtained from $T_n$ by adding all such edges is a forest whose components are exactly the $\mc{K}_{n+1}$-blocks.
+    \end{proof} 
 
     \section{Borel Treeings of Graphings with Dense Cuts}\label{sec:borel_treeings_of_graphings_with_dense_cuts}
 
