@@ -360,7 +360,7 @@
 
     Let $(X,G)$ be a connected locally-finite quasi-tree, which, in the context of Theorem \ref{thm:treeing_quasi-trees}, stands for a single component of the locally-finite graphing of the CBER. For Theorem \ref{thm:component-wise_construction} to apply, we need to first identify a family of finitely-separating cuts therein, and we do so in such a way that the cuts are dense towards ends.
 
-    \subsection{Dense cuts induced by quasi-trees}
+    % \subsection{Dense cuts induced by quasi-trees}
 
     Since $X$ is a quasi-tree, and thus does not have arbitrarily long cycles, we expect that there is some finite bound $R<\infty$ such that the ends in $\epsilon(X)$ are `limits' of cuts $\mc{H}\coloneqq\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}$ is dense towards ends.
 
@@ -510,17 +510,12 @@
     \begin{proof}
         Fix $K\in\mc{H}^\ast_\mathrm{cvx}(\mc{M}(\mc{H}))$, which by Proposition \ref{prp:half-spaces_are_cones} is of the form $K=\cone_V(U)$ for some (and hence any) $(U,V)\in\del_\mathsf{ie}K$, and we have by Proposition \ref{prp:construction_of_dual_median_graph} that $V=U\symdiff\l\{H,\lnot H\r\}$ for some (non-trivial) minimal $H\in U$. We claim that any other edge $(U',V')\in\del_\mathsf{ie}K$ can be reached from $(U,V)$ by simultaneously flipping only the half-spaces $H'_0,\dots,H'_n\in\mc{H}^\ast$ non-nested with $H$, of which there are finitely-many by Lemma \ref{lem:connected_cuts_non_nested_finitely_others}.
 
-        Since the edges $(U,V),(U',V')$ induce the same hyperplane $\del_\mathsf{ie}K$, it suffices by Proposition \ref{prp:half-spaces_are_cones} to prove this for when $(U',V')$ is an edge of a square parallel to $(U,V)$, in which case there is some minimal $H'\in\mc{H}^\ast$ flipping both  $U$ to $U'$ and $V$ to $V'$. We have some easy observations.
-        \begin{enumerate}
-            \item[1.] \textit{$H,H'$ are non-nested.} Indeed, $H'\not\subseteq H$ and $H\not\subseteq H'$ by minimality; if $H\subseteq\lnot H'$, then $\lnot H'\in U$; and if $\lnot H\subseteq H'$, then $H'$ is not minimal in $U$.
-            \item[2.] \textit{$H\in U'$ is still minimal.} Indeed, since $U'=U\symdiff\l\{H',\lnot H'\r\}$, the only way this can fail is if $\lnot H'\subseteq H$, but this contradicts minimality of $H$.
-        \end{enumerate}
-        Thus, we have $V'=U'\symdiff\l\{H,\lnot H\r\}$, so the induction continues with $(U',V')$ in place of $(U,V)$.
+        Since the edges $(U,V),(U',V')$ induce the same hyperplane $\del_\mathsf{ie}K$, it suffices by Proposition \ref{prp:half-spaces_are_cones} to prove this for when $(U',V')$ is an edge of a square parallel to $(U,V)$, in which case there is some minimal $H'\in\mc{H}^\ast$ flipping both  $U$ to $U'$ and $V$ to $V'$. Note that $H,H'$ are non-nested since $H'\not\subseteq H$ and $H\not\subseteq H'$ by minimality; if $H\subseteq\lnot H'$, then $\lnot H'\in U$; and if $\lnot H\subseteq H'$, then $H'$ is not minimal in $U$. Moreover, $H\in U'$ is still minimal since $U'=U\symdiff\l\{H',\lnot H'\r\}$, and the only way this can fail is if $\lnot H'\subseteq H$, contradicting minimality of $H$. Thus we have $V'=U'\symdiff\l\{H,\lnot H\r\}$, so the induction continues with $(U',V')$ in place of $(U,V)$.
     \end{proof}
 
     \subsection{Canonical spanning trees}\label{sec:cycle_cutting_algorithm}
 
-    We now present the Borel cycle-cutting algorithm that can be preformed on any countable median graph with finite hyperplanes. We do so by colouring the half-spaces $\mc{H}^\ast_\mathrm{cvx}(X)$ into certain nested sub-pocsets $\mc{H}_n\subseteq\mc{H}_\mathrm{cvx}(X)$, from which we inductively build a spanning forest by leveraging a tree structure on the $\mc{H}_n$-blocks $X/\mc{H}_n$. This tree is constructed as follows.
+    We now present the Borel cycle-cutting algorithm that can be preformed on any countable median graph $(X,G)$ with finite hyperplanes.
 
     \begin{lemma}\label{lem:H_blocks_form_a_median_graph}
         For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ on a median graph $(X,G)$, the map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
@@ -531,7 +526,7 @@
         By Lemma \ref{lem:helly}, the intersection $(H\cap A)\cap(H'\cap A)=H\cap H'\cap A$ is non-empty, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
     \end{proof}
 
-    This induces a \textit{$G$-adjacency} graph $X/\mc{H}\iso\mc{M}(\mc{H})$; explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are $G$-adjacent if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$. Note that $\mc{M}(\mc{H})$ may be constructed as in Proposition \ref{prp:construction_of_dual_median_graph} since $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ is finitely-separating by Lemma \ref{lem:half_space_separating_convex}, and in particular, if $\mc{H}$ is nested, then $X/\mc{H}$ is a tree by Corollary \ref{cor:nested_implies_tree}.
+    This induces a \textit{$G$-adjacency} graph $X/\mc{H}\iso\mc{M}(\mc{H})$; explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are $G$-adjacent if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$. Note that $\mc{M}(\mc{H})$ may be constructed as in Proposition \ref{prp:construction_of_dual_median_graph} since $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ is finitely-separating by Lemma \ref{lem:half_space_separating_convex}. In particular, if $\mc{H}$ is nested, then $X/\mc{H}$ is a tree by Corollary \ref{cor:nested_implies_tree}.
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
         If $(X,G)$ is a countable median graph with finite hyperplanes, then fixing any colouring of $\mc{H}_\mathrm{cvx}^\ast(X)$ into nested sub-pocsets yields a canonical spanning tree thereof.
@@ -552,7 +547,7 @@
 
     The issue lies in making the family $\mc{U}^\circ(\mc{H})\coloneqq\bigsqcup_C\mc{U}^\circ(\mc{H}(C))$ of \textit{all} clopen orientations on $\mc{H}\coloneqq\bigsqcup_C\mc{H}(C)$ into a standard Borel space. \textit{If $\mc{U}^\circ(\mc{H})$ is standard Borel}, the above partition induces a CBER $\mc{E}$ admitting a median graphing $\mc{M}(\mc{H})\coloneqq\bigsqcup_C\mc{M}(\mc{H}(C))$ with finite hyperplanes, from which one can implement the proof of Proposition \ref{prp:canonical_spanning_trees} in a Borel manner (using \cite{KM04}*{Lemma 7.3} for a countable colouring of the intersection graph of finite hyperplanes therein) to obtain a treeing of $\mc{E}$. Finally, $E$ is Borel bireducible with $\mc{E}$ via the principal orientations map $X\ni x\mapsto\widehat{x}\in\mc{U}^\circ(\mc{H})$, so $E$ is also treeable by \cite{JKL02}*{Proposition 3.3 (ii)}.
 
-    We will remedy this issue using the fact that the cuts $\mc{H}(C)$ are dense towards ends of $G|C$. In particular, we have the following crucial lemma, which by Proposition \ref{prp:construction_of_dual_median_graph} shows that the dual median graph $\mc{M}(\mc{H})$ is locally-finite (recall that the neighbors of a vertex therein are given by flipping minimal elements).
+    We will remedy this issue using the fact that the cuts $\mc{H}(C)$ are dense towards ends of $G|C$. In particular, we have the following crucial lemma, which, by Proposition \ref{prp:construction_of_dual_median_graph}, shows that $\mc{M}(\mc{H})$ is locally-finite.
 
     \begin{lemma}\label{lem:dual_median_graph_of_dense_cuts_locally_finite}
         Let $\mc{H}$ be a finitely-separating pocset of cuts on a connected locally-finite graph $(X,G)$. If $\mc{H}$ is dense towards ends, then each clopen orientation $U\in\mc{U}^\circ(\mc{H})$ contains finitely-many minimal cuts $H\in\mc{H}$.
@@ -565,12 +560,12 @@
         Let $K\neq K_i$ be any other minimal element in $U$. By Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, each $K_i$ is non-nested with finitely-many other half-spaces, so we may assume that $K$ is nested with every $K_i$. But then $K\not\subseteq K_i\not\subseteq K$ and $K\cap K_i\neq\em$ for all $i<n$, which forces $\lnot K\subseteq\bigcap_{i<n}K_i\in\mc{H}_{\del<\infty}(X)$; the latter contains no ends in $\epsilon(X)$, so it is finite by Lemma \ref{lem:infinite_iff_contains_end}, and hence there are at-most finitely-many more minimal $K\in U$.
     \end{proof}
 
-    Using our previous notation, we now describe the encoding of $\mc{U}^\circ(\mc{H})$ into a standard Borel space. Since cuts have finite edge boundary, we may first represent the space $\mc{K}$ of \textit{all} non-trivial cuts of $G$ as a Borel subset of $[G]^{<\infty}$. The subcollection $\mc{H}\subseteq\mc{K}$ consisting of those cuts with component-wise bounded boundary diameter is also Borel, since each $R_C<\infty$ can be witnessed as the minimal number making $\mc{H}_{\diam(\del)\leq R_C}(C)$ dense towards ends of $G|C$, and the latter is a Borel condition as characterized in Proposition \ref{prp:dense_cuts_iff_proper_walling}. Finally, $\mc{U}^\circ(\mc{H})$ is a Borel subset of $[\mc{H}]^{<\infty}$, since we may encode each clopen orientation $U\in\mc{U}^\circ(\mc{H}(C))$ by its set of minimal elements in $\mc{H}(C)$, which is finite by Lemma \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}. This makes $\mc{U}^\circ(\mc{H})$ a standard Borel space, which finishes the proof of Theorem \ref{thm:treeing_quasi-trees}.
+    We now describe the encoding of $\mc{U}^\circ(\mc{H})$ into a standard Borel space. Since cuts have finite edge boundary, we may first represent the space $\mc{K}$ of \textit{all} non-trivial cuts of $G$ as a Borel subset of $[G]^{<\infty}$. The subcollection $\mc{H}\subseteq\mc{K}$ consisting of those cuts with component-wise bounded boundary diameter is also Borel, since each $R_C<\infty$ can be witnessed as the minimal number making $\mc{H}_{\diam(\del)\leq R_C}(C)$ dense towards ends of $G|C$, and the latter is a Borel condition as characterized in Proposition \ref{prp:dense_cuts_iff_proper_walling}. Finally, $\mc{U}^\circ(\mc{H})$ is a Borel subset of $[\mc{H}]^{<\infty}$, since we may encode each clopen orientation $U\in\mc{U}^\circ(\mc{H}(C))$ by its set of minimal elements in $\mc{H}(C)$, which is finite by Lemma \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}. This makes $\mc{U}^\circ(\mc{H})$ a standard Borel space, and finishes the proof of Theorem \ref{thm:treeing_quasi-trees}.
 
     The above discussion actually proves the following generalization of Theorem \ref{thm:treeing_quasi-trees}, which is no longer about quasi-trees; rather, we only require the (locally-finite) graphing to admit a Borel family of `tree-like' cuts.
 
     \begin{theorem}\label{thm:treeing_graphings_with_dense_cuts}
-        If a CBER $(X,E)$ admits a locally-finite graphing $G$ such that each component $G|C$ admits a family $\mc{H}(C)$ of finitely-separating cuts that is dense towards ends of $G|C$, {\color{red}and if $\mc{H}\coloneqq\bigsqcup_C\mc{H}(C)$ is a Borel subset of the standard Borel space of all cuts on $X$}, then $E$ is treeable.
+        If a CBER $(X,E)$ admits a locally-finite graphing $G$ such that each component $G|C$ admits a family $\mc{H}(C)$ of finitely-separating cuts that is dense towards ends of $G|C$, and if $\mc{H}\coloneqq\bigsqcup_C\mc{H}(C)$ is a Borel subset of the standard Borel space of all cuts on $X$, then $E$ is treeable.
     \end{theorem}
 
     % \begin{remark}
