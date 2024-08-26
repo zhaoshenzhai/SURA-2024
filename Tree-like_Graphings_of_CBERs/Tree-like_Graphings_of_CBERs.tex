@@ -74,7 +74,7 @@
         For any finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, its dual median graph $\mc{M}(\mc{H})$ has finite hyperplanes, and fixing a Borel colouring on the intersection graph of those hyperplanes yields a canonical spanning tree of $\mc{M}(\mc{H})$.
     \end{mainTheorem}
 
-    The additional condition (2) then shows that $\mc{M}(\mc{H})$ is locally-finite (Lemma \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}), which ensures that such a spanning tree can be constructed uniformly for each component $C\subseteq G$; see Section \ref{sec:borel_treeings_of_graphings_with_dense_cuts} for details.
+    The additional condition (2) then shows that $\mc{M}(\mc{H}(C))$ is locally-finite (Lemma \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}), which ensures that such a spanning tree can be constructed uniformly for each component $C\subseteq G$; see Section \ref{sec:borel_treeings_of_graphings_with_dense_cuts} for details.
 
     \subsection*{Acknowledgements}
 
@@ -146,7 +146,7 @@
     \end{definition}
 
     \begin{lemma}\label{lem:connected_cuts_non_nested_finitely_others}
-        In a pocset $\mc{H}$ of finitely-separating cuts, each $H\in\mc{H}$ is non-nested with finitely-many others.
+        For a pocset $\mc{H}$ of finitely-separating cuts, each $H\in\mc{H}$ is non-nested with finitely-many others.
     \end{lemma}
     \begin{proof}
         Fix $H\in\mc{H}$ and let $K\in\mc{H}$ be non-nested with $H$. By connectedness, the non-empty sets $H\cap K$ and $\lnot H\cap K$ are joined by a path in $K$, so $\del_\mathsf{v}H\cap K\neq\em$; similarly, $\del_\mathsf{v}H\cap\lnot K\neq\em$. For each $x\in\del_\mathsf{v}H\cap K$ and $y\in\del_\mathsf{v}H\cap\lnot K$, any fixed path $p_{xy}$ between them contains some $z\in\del_\mathsf{v}K\cap p_{xy}$; thus, any $K\in\mc{H}$ non-nested with $H$ contains some $z\in\del_\mathsf{v}K\cap p_{xy}$.
@@ -452,7 +452,7 @@
     \end{example}
 
     \begin{proposition}\label{prp:construction_of_dual_median_graph}
-        Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some minimal $H\in U\comp\l\{\em,X\r\}$, is a median graph with path metric $d(U,V)=|U\symdiff V|/2$ and medians
+        Let $\mc{H}$ be a profinite pocset with every non-trivial element isolated. Then the graph $\mc{M}(\mc{H})$, whose vertices are clopen orientations $\mc{U}^\circ(\mc{H})$ and whose edges are pairs $\l\{U,V\r\}$ with $V=U\symdiff\l\{H,\lnot H\r\}$ for some minimal $H\in U\comp\l\{\lnot0\r\}$, is a median graph with path metric $d(U,V)=|U\symdiff V|/2$ and medians
         \begin{equation*}
             \begin{aligned}
                 \l\langle U,V,W\r\rangle&\coloneqq\l\{H\in\mc{H}\st H\textrm{ belongs to at least two of }U,V,W\r\} \\
@@ -462,7 +462,7 @@
     \end{proposition}
 
     \begin{proof}
-        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ are isolated (whence $\l\{H\r\},\l\{\lnot H\r\}$ are clopen), and it is an orientation by minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V\not\ni\em,X$ is clopen, so it is a compact set of isolated points, whence finite.
+        First, $V\coloneqq U\symdiff\l\{H,\lnot H\r\}$ as above is clopen since $H,\lnot H\in\mc{H}^\ast$ are isolated (whence $\l\{H\r\},\l\{\lnot H\r\}$ are clopen), and it is an orientation by minimality of $H$. That $\mc{M}(\mc{H})$ is connected follows from the following claim by noting that $U\symdiff V\not\ni0,\lnot0$ is clopen, so it is a compact set of isolated points, whence finite.
         \begin{center}
             \begin{minipage}{0.95\textwidth}
                 \begin{claim*}[\cite{Sag95}*{Theorem 3.3}]
