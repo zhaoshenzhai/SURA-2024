@@ -88,7 +88,7 @@
     \begin{notation*}
         A \textit{graph} on a set $X$ is a symmetric irreflexive binary relation $G\subseteq X^2$. For $A\subseteq X$, we say that $A$ is \textit{connected} if the induced subgraph $G[A]$ is. We always equip connected graphs with their \textit{path metric} $d$, and let $\Ball_r(x)$ be the closed ball of radius $r$ around $x$; more generally, we let $\Ball_r(A)\coloneqq\bigcup_{x\in A}\Ball_r(x)$.
 
-        For a subset $A\subseteq X$, we let $\del_\mathsf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\mathsf{ov}A\coloneqq\del_\mathsf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\mathsf{ie}A\coloneqq G\cap(\del_\mathsf{ov}A\times\del_\mathsf{iv}A)$ and $\del_\mathsf{oe}A\coloneqq\del_\mathsf{ie}(\lnot A)$ respectively be its \textit{inner} and \textit{outer edge boundaries}. Let $\del_\mathsf{v}A\coloneqq\del_\mathsf{iv}A\sqcup\del_\mathsf{ov}A$ be the \textit{(total) vertex boundary} of $A$.
+        For a subset $A\subseteq X$, we let $\del_\mathsf{iv}A\coloneqq A\cap\Ball_1(\lnot A)$ be its \textit{inner vertex boundary}, $\del_\mathsf{ov}A\coloneqq\del_\mathsf{iv}(\lnot A)$ be its \textit{outer vertex boundary}, and let $\del_\mathsf{ie}A\coloneqq G\cap(\del_\mathsf{ov}A\times\del_\mathsf{iv}A)$ and $\del_\mathsf{oe}A\coloneqq\del_\mathsf{ie}(\lnot A)$ respectively be its \textit{inward} and \textit{outward edge boundaries}. Let $\del_\mathsf{v}A\coloneqq\del_\mathsf{iv}A\sqcup\del_\mathsf{ov}A$ be the \textit{(total) vertex boundary} of $A$.
 
         Finally, for $x,y\in X$, the \textit{interval} $[x,y]$ between $x,y$ is the union of all geodesics between $x,y$, consisting of exactly those $z\in X$ with $d(x,z)+d(z,y)=d(x,y)$. We say that $A\subseteq X$ is \textit{convex} if $[x,y]\subseteq A$ for all $x,y\in A$. For vertices $x,y,z\in X$, we write $x\-y\-z$ for $y\in[x,z]$. By the triangle inequality, we have for all $w,x,y,z\in X$ that
         \begin{equation*}
@@ -102,7 +102,7 @@
     The construction starts by identifying a profinite pocset $\mc{H}$ of `cuts' in each component of the graphing, which we first study abstractly. The finitely-separating subpocsets of $2^X$ are well-known in metric geometry as \textit{wallspaces}; see, e.g., \cite{Nic04} and \cite{CN05}.
 
     \begin{definition}\label{def:profinite_pocset}
-        A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$. We call the elements in $\mc{H}$ \textit{half-spaces}, and the edge boundaries $\del_\mathsf{ie}H$ for $H\in\mc{H}$ \textit{hyperplanes}.
+        A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$. We call the elements in $\mc{H}$ \textit{half-spaces}.
 
         A \textit{profinite pocset} is a pocset $\mc{H}$ equipped with a compact topology making $\lnot$ continuous and is \textit{totally order-disconnected}, in the sense that if $H\not\leq K$, then there is a clopen upward-closed $U\subseteq\mc{H}$ with $H\in U\not\ni K$.
     \end{definition}
@@ -292,6 +292,8 @@
     \subsection{Convex half-spaces of median graphs}\label{sec:convex_half-spaces_of_median_graphs}
 
     We now use projections to explore the geometry of convex half-spaces in a median graph $(X,G)$. For the axiomatics of convex structures, see \cite{vdV93}.
+
+    For a convex co-convex half-space $H\in\mc{H}^\ast_\textrm{cvx}(X)$, we call the inward edge boundary $\del_\mathsf{ie}H$ a \textit{hyperplane}.
 
     \begin{proposition}\label{prp:half-spaces_are_cones}
         Each edge $(x,y)\in G$ is on a unique hyperplane, namely the inward boundary of $\cone_x(y)$, and conversely, each half-space $H\in\mc{H}^\ast_\mathrm{cvx}(X)$ is $\cone_x(y)$ for every $(x,y)\in\del_\mathsf{ie}H$.
