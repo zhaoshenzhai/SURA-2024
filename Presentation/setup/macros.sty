@@ -20,6 +20,7 @@
     \newcommand{\sgn}{\operatorname{sgn}}
     \newcommand{\lcm}{\operatorname{lcm}}
     \newcommand{\ord}{\operatorname{ord}}
+    \newcommand{\cvx}{\operatorname{cvx}}
     \newcommand{\Aut}{\operatorname{Aut}}
     \newcommand{\Inn}{\operatorname{Inn}}
     \newcommand{\Out}{\operatorname{Out}}
@@ -45,6 +46,7 @@
     \newcommand{\cont}{\operatorname{cont}}
     \newcommand{\diam}{\operatorname{diam}}
     \newcommand{\mult}{\operatorname{mult}}
+    \newcommand{\cone}{\operatorname{cone}}
     \newcommand{\Core}{\operatorname{Core}}
     \newcommand{\Term}{\operatorname{Term}}
     \newcommand{\Taut}{\operatorname{Taut}}
@@ -56,6 +58,7 @@
     \newcommand{\Meas}{\operatorname{Meas}}
     \newcommand{\Diag}{\operatorname{Diag}}
     \newcommand{\Sing}{\operatorname{Sing}}
+    \newcommand{\Ball}{\operatorname{Ball}}
     \newcommand{\coker}{\operatorname{coker}}
     \newcommand{\preim}{\operatorname{preim}}
     \newcommand{\Graph}{\operatorname{Graph}}
@@ -196,7 +199,6 @@
         \newcommand{\A}{\mathbb{A}}
         \renewcommand{\S}{\mathbb{S}}
         \renewcommand{\P}{\mathbb{P}}
-        \renewcommand{\H}{\mathbb{H}}
 
 % LaTeX/MathJax
     % Fonts
@@ -213,10 +215,8 @@
     % Meta
         \newcommand{\blob}{\bullet}
         \newcommand{\slot}{-}
-        \newcommand{\cref}[1]{\tag{$\,#1\,$}}
+        \newcommand{\TODO}[1][]{{\color{red}\textbf{TODO}\ifthenelse{\isempty{#1}}{}{\textbf{:} #1}}}
         \newcommand{\qedin}{\tag*{$\blacksquare$}}
-        \newcommand{\exqedin}{\tag*{$\blacklozenge$}}
         \renewcommand{\l}{\left}
         \renewcommand{\r}{\right}
         \renewcommand{\qed}{\phantom\qedhere\hfill$\blacksquare$}
-        \renewcommand{\ref}[1]{\l(\,#1\,\r)}

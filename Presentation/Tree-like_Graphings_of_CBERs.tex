@@ -1,0 +1,154 @@
+\documentclass{beamer}
+
+\input{setup/preamble.sty}
+\input{setup/macros.sty}
+
+\title{\normalsize{Tree-like graphings of countable Borel equivalence relations}}
+\subtitle{\scriptsize{An exposition to\\\textit{Tree-like graphings, wallings, and median graphings of equivalence relations}\\by Ruiyuan Chen, Antoine Poulin, Ran Tao, and Anush Tserunyan}}
+\author{\small Zhaoshen Zhai}
+\date{\footnotesize October 1, 2024}
+
+\usecolortheme{seahorse}
+\usefonttheme{serif}
+\useinnertheme{rounded}
+
+\begin{document}\frame{\titlepage}
+    \begin{frame}{Countable Borel Equivalence Relations}
+        \begin{definition}
+            A \textit{countable Borel equivalence relation (CBER)} on a standard Borel space $X$ is a Borel equivalence relation $E\subseteq X^2$ such that each $E$-class is countable.
+        \end{definition}
+
+        \pause
+        \vspace{-0.1in}
+
+        \begin{example}
+            Any Borel action $\Gamma\act X$ of a countable (discrete) group on a standard Borel space induces its \textit{orbit equivalence relation} $E^X_\Gamma$, which is a CBER.
+        \end{example}
+
+        \pause
+        \vspace{-0.15in}
+
+        \begin{figure}[h]
+            \center
+            \includegraphics[width=0.9\textwidth]{img/group_action.png}
+        \end{figure}
+    \end{frame}
+    \begin{frame}{Smooth and Hyperfinite CBERs}
+        \vspace{-0.1in}
+        \begin{example}[Smooth]
+            \begin{itemize}
+                \item[\scriptsize$\blob$] Identity relation $=$ on a standard Borel space, say $\R$ or $2^\N$.
+                    \pause
+                \item[\scriptsize$\blob$] $\Z$-coset equivalence on $\R$: $xE^\R_\Z y$ iff $x-y\in\Z$.
+            \end{itemize}
+        \end{example}
+
+        \pause
+        \vspace{-0.1in}
+
+        \begin{example}[Hyperfinite]
+            $E_0$ on $2^\N$, where $xE_0y$ iff $\ex n\in\N,\fa m\geq n:x_m=y_m$.
+        \end{example}
+
+        \pause
+
+        This CBER is \textit{hyperfinite}: $E_0=\bigcup_nF_n$ for an increasing sequence $F_0\subseteq F_1\cdots$ of finite Borel equivalence relations:
+        \pause
+        \vspace{-0.1in}
+        \begin{equation*}
+            xF_ny\ \ \ \ \leftrightarrow\ \ \ \ \fa m\geq n:x_m=y_m.
+        \end{equation*}
+
+        \pause
+        \vspace{-0.15in}
+
+        \begin{theorem}[Slaman-Steel, Weiss]
+            Let $E$ be a CBER on a standard Borel space $X$. TFAE:
+            \begin{itemize}
+                \item[$1.$] $E$ is hyperfinite. {\color{gray}\footnotesize $E=\bigcup_nF_n$ where $F_0\subseteq F_1\subseteq\cdots$ are FBERs.}
+                \item[$2.$] $E$ is induced by a Borel $\Z$-action. {\color{gray}\footnotesize $E=E_\Z^X$ for some $\Z\act X$.}
+            \end{itemize}
+        \end{theorem}
+    \end{frame}
+    \begin{frame}{Smooth and Hyperfinite CBERs}
+        \footnotesize{
+            \vspace{-0.4in}
+            \begin{example}[Smooth]
+                \begin{itemize}
+                    \item[\scriptsize$\blob$] Identity relation $=$ on a standard Borel space, say $\R$ or $2^\N$.
+                    \item[\scriptsize$\blob$] $\Z$-coset equivalence on $\R$: $xE^\R_\Z y$ iff $x-y\in\Z$.
+                \end{itemize}
+            \end{example}
+
+            \vspace{-0.1in}
+
+            \begin{example}[Hyperfinite]
+                $E_0$ on $2^\N$, where $xE_0y$ iff $\ex n\in\N,\fa m\geq n:x_m=y_m$.
+            \end{example}
+
+            \vspace{-0.15in}
+
+            \begin{figure}[h]
+                \center
+                \includegraphics[width=0.9\textwidth]{img/smooth_hyperfinite.png}
+            \end{figure}
+        }
+    \end{frame}
+    \begin{frame}{Graphing of a CBER}
+        \begin{definition}
+            A \textit{graphing} of a CBER $E$ on $X$ is a Borel graph $G\subseteq X^2$ whose connected relation is $E$, i.e., $xEy\leftrightarrow xG\cdots Gy$ for all $x,y\in X$.
+        \end{definition}
+
+        \pause
+        \vspace{-0.15in}
+
+        \begin{figure}[h]
+            \center
+            \includegraphics[width=0.7\textwidth]{img/group_action.png}
+        \end{figure}
+        \vspace{-0.2in}
+        \begin{figure}[h]
+            \center
+            \includegraphics[width=0.7\textwidth]{img/smooth_hyperfinite.png}
+        \end{figure}
+    \end{frame}
+    \begin{frame}{Treeings and Treeability}
+        \begin{definition}
+            A \textit{treeing} of a CBER $E$ is an acyclic graphing, and a CBER $E$ is said to be \textit{treeable} if it admits a treeing.
+        \end{definition}
+
+        \vspace{-0.14in}
+
+        \begin{figure}[h]
+            \center
+            \includegraphics[width=0.7\textwidth]{img/not_treeable.png}
+        \end{figure}
+        \vspace{-0.2in}
+        \begin{figure}[h]
+            \center
+            \includegraphics[width=0.7\textwidth]{img/smooth_hyperfinite.png}
+        \end{figure}
+    \end{frame}
+    \begin{frame}{Examples of Treeable CBERs}
+        \begin{example}[Free Actions]
+            Any free Borel action of a free group $F_r\act X$.
+        \end{example}
+
+        \pause
+
+        \begin{theorem}[JKL02]
+            Free actions of virtually-free groups are treeable.
+        \end{theorem}
+
+        \pause
+
+        \begin{theorem}[GdlH90]
+            Every finitely-generated group whose Cayley graph is a quasi-tree is virtually-free, and hence treeable.
+        \end{theorem}
+    \end{frame}
+    \begin{frame}{The End}
+        \begin{center}
+            Thank you!
+        \end{center}
+    \end{frame}
+\end{document}
