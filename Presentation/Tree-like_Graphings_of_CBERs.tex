@@ -71,28 +71,26 @@
         \end{theorem}
     \end{frame}
     \begin{frame}{Smooth and Hyperfinite CBERs}
-        \footnotesize{
-            \vspace{-0.4in}
-            \begin{example}[Smooth]
-                \begin{itemize}
-                    \item[\scriptsize$\blob$] Identity relation $=$ on a standard Borel space, say $\R$ or $2^\N$.
-                    \item[\scriptsize$\blob$] $\Z$-coset equivalence on $\R$: $xE^\R_\Z y$ iff $x-y\in\Z$.
-                \end{itemize}
-            \end{example}
+        \vspace{-0.34in}
+        \begin{example}[Smooth]
+            \begin{itemize}
+                \item[\scriptsize$\blob$] Identity relation $=$ on a standard Borel space, say $\R$ or $2^\N$.
+                \item[\scriptsize$\blob$] $\Z$-coset equivalence on $\R$: $xE^\R_\Z y$ iff $x-y\in\Z$.
+            \end{itemize}
+        \end{example}
 
-            \vspace{-0.1in}
+        \vspace{-0.1in}
 
-            \begin{example}[Hyperfinite]
-                $E_0$ on $2^\N$, where $xE_0y$ iff $\ex n\in\N,\fa m\geq n:x_m=y_m$.
-            \end{example}
+        \begin{example}[Hyperfinite]
+            $E_0$ on $2^\N$, where $xE_0y$ iff $\ex n\in\N,\fa m\geq n:x_m=y_m$.
+        \end{example}
 
-            \vspace{-0.15in}
+        \vspace{-0.15in}
 
-            \begin{figure}[h]
-                \center
-                \includegraphics[width=0.9\textwidth]{img/smooth_hyperfinite.png}
-            \end{figure}
-        }
+        \begin{figure}[h]
+            \center
+            \includegraphics[width=0.9\textwidth]{img/smooth_hyperfinite.png}
+        \end{figure}
     \end{frame}
     \begin{frame}{Graphing of a CBER}
         \begin{definition}
@@ -129,12 +127,21 @@
             \includegraphics[width=0.7\textwidth]{img/smooth_hyperfinite.png}
         \end{figure}
     \end{frame}
-    \begin{frame}{Examples of Treeable CBERs}
+    \begin{frame}{Treeable CBERs}
+        \vspace{-0.2in}
+
         \begin{example}[Free Actions]
-            Any free Borel action of a free group $F_r\act X$.
+            Any free action of a free group $F_r\act X$.
         \end{example}
 
+        \begin{figure}[h!]
+            \vspace{-0.8in}
+            \hfill
+            \includegraphics[width=0.25\textwidth]{img/free_group_action.png}
+        \end{figure}
+
         \pause
+        \vspace{-0.28in}
 
         \begin{theorem}[JKL02]
             Free actions of virtually-free groups are treeable.
@@ -144,6 +151,15 @@
 
         \begin{theorem}[GdlH90]
             Every finitely-generated group whose Cayley graph is a quasi-tree is virtually-free, and hence treeable.
+        \end{theorem}
+
+        \begin{question}[Robin Tucker-Drob; 2015]
+            Is the class of treeable CBERs robust under quasi-isometries?
+        \end{question}
+    \end{frame}
+    \begin{frame}{Main Result}
+        \begin{theorem}[Chen, Poulin, Tao, Tserunyan; 2023+]
+            If a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree, then $E$ is treeable.
         \end{theorem}
     \end{frame}
     \begin{frame}{The End}
