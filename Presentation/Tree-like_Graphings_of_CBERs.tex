@@ -131,13 +131,13 @@
         \vspace{-0.2in}
 
         \begin{example}[Free Actions]
-            Any free action of a free group $F_r\act X$.
+            Free actions of a free group $F_r\act X$.
         \end{example}
 
         \begin{figure}[h!]
             \vspace{-0.8in}
             \hfill
-            \includegraphics[width=0.25\textwidth]{img/free_group_action.png}
+            \includegraphics[width=0.3\textwidth]{img/free_group_action.png}
         \end{figure}
 
         \pause
@@ -153,6 +153,8 @@
             Every finitely-generated group whose Cayley graph is a quasi-tree is virtually-free, and hence treeable.
         \end{theorem}
 
+        \pause
+
         \begin{question}[Robin Tucker-Drob; 2015]
             Is the class of treeable CBERs robust under quasi-isometries?
         \end{question}
@@ -161,6 +163,86 @@
         \begin{theorem}[Chen, Poulin, Tao, Tserunyan; 2023+]
             If a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree, then $E$ is treeable.
         \end{theorem}
+
+        \pause
+        \vspace{0.1in}
+
+        \scriptsize{
+            Two metric spaces $X,Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error; $X$ is a \textit{quasi-tree} if it is quasi-isometric to a tree.
+            \vspace{-0.3in}
+            \begin{figure}[h]
+                \center
+                \includegraphics[width=0.9\textwidth]{img/quasi_tree.png}
+            \end{figure}
+        }
+    \end{frame}
+    \begin{frame}{Game Plan}
+        \begin{center}
+            \scalebox{0.85}{
+                \hspace*{-0.62in}
+                \def\hsp{3.75}
+                \def\vsp{1.3}
+                \def\vsh{0.05}
+                \begin{tikzpicture}
+                    \draw[dashed, rounded corners, opacity=0.2] (-1.7,0.5) -- (-1.7,-0.4-\vsp) -- (0.75,-0.4-\vsp) -- (3,-0.4) -- (3*\hsp+1.5,-0.4) -- (3*\hsp+1.5,0.5) -- cycle;
+                    \draw[dashed, rounded corners, opacity=0.2] (2.5,0.55-\vsp) rectangle (3*\hsp+1.5,-0.45-\vsp);
+
+                    \draw (0,\vsh) circle (0in) node{Quasi-treeing};
+                    \draw (3*\hsp,\vsh) circle (0in) node{Treeing};
+
+                    \pause
+
+                    \only<2>{\node[inner sep=0pt] at (5,-5) {\includegraphics[width=0.9\textwidth]{img/plan/0_base.png}};}
+                    \only<3>{{\transparent{0.5}\node[inner sep=0pt] at (5,-5) {\includegraphics[width=0.9\textwidth]{img/plan/0_base.png}};}}
+                    \onslide<4-8>{{\transparent{0.1}\node[inner sep=0pt] at (5,-5) {\includegraphics[width=0.9\textwidth]{img/plan/0_base.png}};}}
+
+                    \draw[->] (0,-0.2) -- (0,-\vsp+0.3);
+                    \draw (0,\vsh-\vsp) circle (0in) node{Quasi-tree};
+
+                    \pause
+
+                    \draw (\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Finitely-sep.}\\[-4pt] \textrm{family of cuts} \end{gathered}$};
+                    \draw[->] (1,\vsh-\vsp) -- (\hsp-1.1,\vsh-\vsp);
+
+                    \only<3>{\node[inner sep=0pt] at (4.657,-5.34) {\includegraphics[width=0.9\textwidth]{img/plan/1_cut.png}};}
+
+                    \pause
+
+                    \onslide<4,7>{\node[inner sep=0pt] at (5.8,-5.35) {\includegraphics[width=0.9\textwidth]{img/plan/2_cuts.png}};}
+                    \only<5>{{\transparent{0.6}\node[inner sep=0pt] at (5.8,-5.35) {\includegraphics[width=0.9\textwidth]{img/plan/2_cuts.png}};}}
+                    \onslide<6,8>{{\transparent{0.3}\node[inner sep=0pt] at (5.8,-5.35) {\includegraphics[width=0.9\textwidth]{img/plan/2_cuts.png}};}}
+
+                    \pause
+
+                    \draw (2*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{Median graph w/}\\[-4pt] \textrm{finite hyperplanes} \end{gathered}$};
+                    \draw[->] (\hsp+1.1,\vsh-\vsp) -- (2*\hsp-1.5,\vsh-\vsp);
+
+                    \only<5>{\node[inner sep=0pt] at (5.5,-5) {\includegraphics[width=0.83\textwidth]{img/plan/3_median.png}};}
+                    \onslide<6-8>{{\transparent{0.4}\node[inner sep=0pt] at (5.5,-5) {\includegraphics[width=0.83\textwidth]{img/plan/3_median.png}};}}
+
+                    \pause
+
+                    \draw (3*\hsp,-\vsp) circle (0in) node{$\begin{gathered} \textrm{`Canonical'}\\[-4pt] \textrm{spanning tree} \end{gathered}$};
+                    \draw[->] (2*\hsp+1.5,\vsh-\vsp) -- (3*\hsp-1.1,\vsh-\vsp);
+
+                    \onslide<6,8>{\node[inner sep=0pt] at (5.76,-4.65) {\includegraphics[width=0.83\textwidth]{img/plan/4_tree.png}};}
+                    \only<7>{{\transparent{0.2}{\node[inner sep=0pt] at (5.76,-4.65) {\includegraphics[width=0.83\textwidth]{img/plan/4_tree.png}};}}}
+
+                    \pause
+
+                    \draw (\hsp,0) circle (0in) node{$\begin{gathered} \textrm{Dense family}\\[-4pt] \textrm{of cuts} \end{gathered}$};
+                    \draw[->] (1,-1) -- (\hsp-1.1,0);
+
+                    \node[inner sep=0pt] at (5.1,-5.2) {\includegraphics[width=0.9\textwidth]{img/plan/5_ends.png}};
+
+                    \pause
+
+                    \draw[->] (\hsp+1.1,\vsh) -- (3*\hsp-1.1,\vsh);
+                    \draw[->] (3*\hsp,0.4-\vsp) -- (3*\hsp,-0.2);
+                    \draw (\hsp+1.1,-1) to [out=35, in=180] (2*\hsp,\vsh);
+                \end{tikzpicture}
+            }
+        \end{center}
     \end{frame}
     \begin{frame}{The End}
         \begin{center}
