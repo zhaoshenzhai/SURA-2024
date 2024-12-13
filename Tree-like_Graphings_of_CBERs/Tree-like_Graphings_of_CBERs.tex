@@ -155,10 +155,10 @@
     Let $(X,G)$ be a connected locally-finite graph, and consider the Boolean algebra of finite vertex boundary half-spaces $\mc{H}_{\del<\infty}(X)\subseteq2^X$.
 
     \begin{definition}
-        The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are the \textit{ends} of $(X,G)$.
+        The \textit{end compactification} of $(X,G)$ is the Stone space $\widehat{X}$ of $\mc{H}_{\del<\infty}(X)$, whose non-principal ultrafilters are the \textit{ends} of $(X,G)$. We let $\epsilon(X)$ denote the set of ends of $(X,G)$.
     \end{definition}
 
-    We identify $X\into\widehat{X}$ via principal ultrafilter map $x\mapsto p_x$, so $\epsilon(X)\coloneqq\widehat{X}\comp X$ is the set of ends of $G$. By definition, $\widehat{X}$ admits a basis of clopen sets of the form $\widehat{A}\coloneqq\{p\in\widehat{X}\st A\in p\}$ for each $A\in\mc{H}_{\del<\infty}(X)$.
+    Identifying $X\into\widehat{X}$ via principal ultrafilter map $x\mapsto p_x$, we have $\epsilon(X)=\widehat{X}\comp X$. By definition, $\widehat{X}$ admits a basis of clopen sets containing $\widehat{A}\coloneqq\{p\in\widehat{X}\st A\in p\}$ for each $A\in\mc{H}_{\del<\infty}(X)$; abusing notation, we write $p\in A$, and say $A$ \textit{contains} $p$, when $p\in\widehat{A}$. Since $A\subseteq B$ iff $\widehat{A}\subseteq\widehat{B}$, we also write $p\in A\subseteq B$ for $p\in\widehat{A}\subseteq\widehat{B}$.
 
     \begin{lemma}\label{lem:infinite_iff_contains_end}
         A finite-boundary subset $A\in\mc{H}_{\del<\infty}(X)$ is infinite iff it contains an end in $(X,G)$.
@@ -174,10 +174,10 @@
     \begin{definition}
         A pocset $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ is \textit{dense towards ends} of $(X,G)$ if $\mc{H}$ contains a neighborhood basis for every end in $\epsilon(X)$.
 
-        In other words, $\mc{H}$ is dense towards ends if for every $p\in\epsilon(X)$ and every (clopen) neighborhood $\widehat{A}\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in\widehat{H}\subseteq\widehat{A}$; it is useful to note that $\widehat{H}\subseteq\widehat{A}$ iff $H\subseteq A$, so we will abuse notation and write $p\in H\subseteq A$ for the above condition.
+        In other words, $\mc{H}$ is dense towards ends if for every $p\in\epsilon(X)$ and every (clopen) neighborhood $A\ni p$, where $A\in\mc{H}_{\del<\infty}(X)$, there is some $H\in\mc{H}$ with $p\in H\subseteq A$.
     \end{definition}
 
-    We show in Section \ref{sec:graphs_with_dense_families_of_cuts} that certain half-spaces $\mc{H}\subseteq\mc{H}_{\del<\infty}$ induced by a locally-finite quasi-tree is dense towards ends. It will also be important that these half-spaces be cuts, in that witnesses to density can also be found in $\mc{H}\cap\mc{H}_\mathrm{conn}$. The following lemma takes care of this.
+    We will show in Section \ref{sec:graphs_with_dense_families_of_cuts} that certain half-spaces $\mc{H}\subseteq\mc{H}_{\del<\infty}(X)$ induced by a locally-finite quasi-tree $(X,G)$ is dense towards ends. It will also be important that these half-spaces be cuts, in that witnesses to density can also be found in $\mc{H}\cap\mc{H}_\mathrm{conn}(X)$. The following lemma takes care of this.
 
     \begin{lemma}\label{lem:connected_witness_to_density}
         If a subpocset $\mc{H}\subseteq\mc{H}_{\del<\infty}$ is dense towards ends, then there is a subpocset $\mc{H}'\subseteq\mc{H}_{\del<\infty}\cap\mc{H}_\mathrm{conn}$, which is also dense towards ends, such that every $H'\in\mc{H}'$ has $\del_\mathsf{ie}H'\subseteq\del_\mathsf{ie}H$ for some $H\in\mc{H}$.
