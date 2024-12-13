@@ -97,7 +97,7 @@
 
     \subsection{Profinite pocsets of cuts}\label{sec:pocsets_of_cuts}
 
-    The construction starts by identifying a profinite pocset $\mc{H}$ of `cuts' in each component of the graphing, which we first study abstractly. The finitely-separating subpocsets of $2^X$ are well-known in metric geometry as \textit{wallspaces}; see, e.g., \cite{Nic04} and \cite{CN05}.
+    In the context of Theorem \ref{thm:treeing_quasi-trees}, the construction starts by identifying a profinite pocset $\mc{H}$ of `cuts' in each component of the graphing, which we first study abstractly. The finitely-separating subpocsets of $2^X$ are well-known in metric geometry as \textit{wallspaces}; see, e.g., \cite{Nic04} and \cite{CN05}.
 
     \begin{definition}\label{def:profinite_pocset}
         A \textit{pocset} $(\mc{H},\leq,\lnot,0)$ is a poset $(\mc{H},\leq)$ equipped with an order-reversing involution $\lnot:\mc{H}\to\mc{H}$ and a least element $0\neq\lnot0$ such that $0$ is the only lower-bound of $H,\lnot H$ for every $H\in\mc{H}$. We call the elements in $\mc{H}$ \textit{half-spaces}.
@@ -105,7 +105,9 @@
         A \textit{profinite pocset} is a pocset $\mc{H}$ equipped with a compact topology making $\lnot$ continuous and is \textit{totally order-disconnected}, in the sense that if $H\not\leq K$, then there is a clopen upward-closed $U\subseteq\mc{H}$ with $H\in U\not\ni K$.
     \end{definition}
 
-    We are primarily interested in subpocsets of $(2^X,\subseteq,\lnot,\em)$ for a fixed set $X$, which is profinite if equipped with the product topology of the discrete space $2$.% Indeed, $2^X$ admits a base of \textit{cylinder sets} $-$ which are finite intersections of sets of the form $\pi^{-1}_x(i)$ where $x\in X$, $i\in\l\{0,1\r\}$, and $\pi_x:2^X\to2$ is the projection $-$ making $\lnot$ continuous since cylinders are clopen. Finally, for $H\not\leq K$,  let $U$ be the upward-closure of a clopen neighborhood $U_0\ni H$ separating it from $K$, which is clopen since $\lnot U_0$ is a finite union of cylinders.
+    We are primarily interested in subpocsets of $(2^X,\subseteq,\lnot,\em)$ for a fixed set $X$, which is profinite if equipped with the product topology of the discrete space $2$.
+
+    % Indeed, $2^X$ admits a base of \textit{cylinder sets} $-$ which are finite intersections of sets of the form $\pi^{-1}_x(i)$ where $x\in X$, $i\in\l\{0,1\r\}$, and $\pi_x:2^X\to2$ is the projection $-$ making $\lnot$ continuous since cylinders are clopen. Finally, for $H\not\leq K$,  let $U$ be the upward-closure of a clopen neighborhood $U_0\ni H$ separating it from $K$, which is clopen since $\lnot U_0$ is a finite union of cylinders.
 
     \begin{remark*}
         We follow \cite{CPTT23}*{Convention 2.7}, where for a family $\mc{H}\subseteq2^X$ of subsets of a fixed set $X$, we write $\mc{H}^\ast\coloneqq\mc{H}\comp\l\{\em,X\r\}$ for the \textit{non-trivial} elements of $\mc{H}$.
@@ -117,15 +119,13 @@
         If $\mc{H}\subseteq2^X$ is a finitely-separating pocset, then $\mc{H}$ is closed and non-trivial elements are isolated.
     \end{lemma}
     \begin{proof}
-        It suffices to show that the limit points of $\mc{H}$ are trivial, so let $A\in2^X\comp\l\{\em,X\r\}$. Fix $x\in A\not\ni y$. Since $\mc{H}$ is finitely-separating, there are finitely-many $H\in\mc{H}$ with $x\in H\not\ni y$, and for each such $H\in\mc{H}\comp\l\{A\r\}$, we have either some $x_H\in A\comp H$ or $y_H\in H\comp A$. Let $U\subseteq2^X$ be the family of all subsets $B\subseteq X$ containing $x$ and each $x_H$, but not $y$ or any $y_H$.
-
-        This is the desired neighborhood isolating $A\in U$. Indeed, it is (cl)open since it is the \textit{finite} intersection of cylinders prescribed by the $x_H$'s and $y_H$'s, and it is disjoint from $\mc{H}\comp\l\{A\r\}$ by construction.
+        It suffices to show that the limit points of $\mc{H}$ are trivial, so let $A\in2^X\comp\l\{\em,X\r\}$. Fix $x\in A\not\ni y$. Since $\mc{H}$ is finitely-separating, there are finitely-many $H\in\mc{H}$ with $x\in H\not\ni y$, and for each such $H\in\mc{H}\comp\l\{A\r\}$, there is either some $x_H\in A\comp H$ or $y_H\in H\comp A$. The family of all subsets $B\subseteq X$ containing $x$ and each $x_H$, but not $y$ or any $y_H$, is then a clopen neighborhood of $A$ disjoint from $\mc{H}\comp\l\{A\r\}$, as desired.
     \end{proof}
 
-    Our main method of identifying the finitely-separating pocsets is as follows.
+    Our main method of identifying the finitely-separating pocsets in graphs is as follows.
 
     \begin{lemma}\label{lem:finitely_separating_iff_on_boundary_of_finite}
-        Let $\mc{H}\subseteq2^X$ be a pocset in a connected graph $(X,G)$. If each $x\in X$ is on the vertex boundary of finitely-many half-spaces, then $\mc{H}$ is finitely-separating. The converse holds too if $(X,G)$ is locally-finite.
+        Let $\mc{H}\subseteq2^X$ be a pocset in a connected graph $(X,G)$. If each $x\in X$ is on the vertex boundary of finitely-many half-spaces in $\mc{H}$, then $\mc{H}$ is finitely-separating. The converse holds too if $(X,G)$ is locally-finite.
     \end{lemma}
     \begin{proof}
         Any $H\in\mc{H}$ separating $x,y\in X$ separates some edge on any fixed path between $x$ and $y$, and there are only finitely-many such $H$ for each edge. If $(X,G)$ is locally-finite, then each $x\in X$ is separated from each of its finitely-many neighbors by finitely-many $H\in\mc{H}$.
@@ -134,7 +134,7 @@
     In the case that $\mc{H}$ is a pocset consisting of connected co-connected half-spaces with finite vertex boundary, finite-separation also controls the degree of `non-nestedness' of $\mc{H}$.
 
     \begin{definition}
-        A \textit{cut} in a connected locally-finite graph $(X,G)$ is a half-space $H\in\mc{H}_{\del<\infty}(X)\cap\mc{H}_\mathrm{conn}(X)$.
+        For a connected locally-finite graph $(X,G)$, we let $\mc{H}_\mathrm{conn}(X)$ and $\mc{H}_{\del<\infty}(X)$ respectively denote the subpocset of connected co-connected half-spaces in $2^X$ and the half-spaces in $2^X$ with finite-vertex boundary. A \textit{cut} in $(X,G)$ is a half-space $H\in\mc{H}_{\del<\infty}(X)\cap\mc{H}_\mathrm{conn}(X)$.
     \end{definition}
 
     \begin{definition}\label{def:nested}
