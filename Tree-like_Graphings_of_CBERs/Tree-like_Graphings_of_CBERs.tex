@@ -205,7 +205,7 @@
         \begin{equation*}
             [x,y]\cap[y,z]\cap[x,z]
         \end{equation*}
-        is a singleton, whose element $\l\langle x,y,z\r\rangle$ is called the \textit{median} of $x,y,z$. Thus we have a ternary median operation $\l\langle\cdot,\cdot,\cdot\r\rangle:X^3\to X$, and a \textit{median homomorphism} $f:(X,G)\to(Y,H)$ is a map preserving said operation.
+        is a singleton, whose element $\l\langle x,y,z\r\rangle$ is called the \textit{median} of $x,y,z$. Thus we have a ternary \textit{median} operation $\l\langle\cdot,\cdot,\cdot\r\rangle:X^3\to X$, and a \textit{median homomorphism} $f:(X,G)\to(Y,H)$ is a map preserving said operation.
     \end{definition}
 
     \begin{lemma}\label{lem:projections}
@@ -338,10 +338,10 @@
     Since $X$ is a quasi-tree, and thus does not have arbitrarily long cycles, we expect that there is some finite bound $R<\infty$ such that the ends in $\epsilon(X)$ are `limits' of cuts $\mc{H}\coloneqq\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ with boundary diameter bounded by $R$. We show that this is indeed the case, in the sense that $\mc{H}$ is dense towards ends.
 
     \begin{lemma}\label{lem:coarse_equivalence_controls_boundary_diameter}
-        Let $f:(X,G)\to(Y,T)$ be a coarse-equivalence between connected graphs. For a fixed $H\in\mc{H}_{\del<\infty}(Y)$, $\diam(\del_\mathsf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\mathsf{v}H)$.
+        If $f:(X,G)\to(Y,T)$ is a coarse-equivalence between connected graphs, then $\diam(\del_\mathsf{v}f^{-1}(H))$ is uniformly bounded in terms of $\diam(\del_\mathsf{v}H)$ for any $H\in\mc{H}_{\del<\infty}(Y)$.
     \end{lemma}
     \begin{proof}
-        Since $f$ is bornologous, let $S<\infty$ be such that $xGx'$ implies $d(f(x),f(x'))\leq S$, so that for any $(x,x')\in\del_\mathsf{ie}f^{-1}(H)$, there is a path of length $\leq S$ between $f(x)\not\in H$ and $f(x')\in H$. Thus both $d(f(x),\del_\mathsf{v}H)$ and $d(f(x'),\del_\mathsf{v}H)$ are bounded by $S$, so $f(\del_\mathsf{v}f^{-1}(H))\subseteq\Ball_S(\del_\mathsf{v}H)$ and hence
+        Since $f$ is coarse, there exists $S<\infty$ be such that $xGx'$ implies $d(f(x),f(x'))\leq S$, so that for any $(x,x')\in\del_\mathsf{ie}f^{-1}(H)$, there is a path of length $\leq S$ between $f(x)\not\in H$ and $f(x')\in H$. Thus both $d(f(x),\del_\mathsf{v}H)$ and $d(f(x'),\del_\mathsf{v}H)$ are bounded by $S$, so $f(\del_\mathsf{v}f^{-1}(H))\subseteq\Ball_S(\del_\mathsf{v}H)$ and hence
         \begin{equation*}
             \diam(f(\del_\mathsf{v}f^{-1}(H)))\leq\diam(\del_\mathsf{v}H)+2S.
         \end{equation*}
@@ -351,10 +351,10 @@
     In particular, if $\diam(\del_\mathsf{v}H)$ is itself also uniformly bounded, then so is $\diam(\del_\mathsf{v}f^{-1}(H))$.
 
     \begin{proposition}\label{prp:invariant_of_density_coarse_equivalence}
-        The class of connected locally-finite graphs in which $\mc{H}_{\diam(\del)\leq R}$ is dense towards ends for some $R<\infty$ is invariant under coarse equivalence.
+        The class of connected locally-finite graphs in which $\mc{H}_{\diam(\del)\leq R}$ is dense towards ends for some $R<\infty$ is invariant under coarse-equivalence.
     \end{proposition}
     \begin{proof}
-        Let $(X,G)$, $(Y,T)$ be connected locally-finite graphs, $f:X\to Y$ be a coarse equivalence with quasi-inverse $g:Y\to X$, and suppose $\mc{H}_{\diam(\del)\leq S}(Y)$ is dense towards ends for some $S<\infty$. By Lemma \ref{lem:coarse_equivalence_controls_boundary_diameter}, pick some $R<\infty$ so that for any $H\in\mc{H}_{\diam(\del)\leq S}(Y)$, we have $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$.
+        Let $(X,G)$, $(Y,T)$ be connected locally-finite graphs, $f:X\to Y$ be a coarse-equivalence with quasi-inverse $g:Y\to X$, and suppose $\mc{H}_{\diam(\del)\leq S}(Y)$ is dense towards ends for some $S<\infty$. By Lemma \ref{lem:coarse_equivalence_controls_boundary_diameter}, pick some $R<\infty$ so that for any $H\in\mc{H}_{\diam(\del)\leq S}(Y)$, we have $f^{-1}(H)\in\mc{H}_{\diam(\del)\leq R}(X)$.
 
         Fix an end $p\in\epsilon(X)$ and a neighborhood $p\in A\in\mc{H}_{\del<\infty}(X)$. We need to find some $B\in\mc{H}_{\del<\infty}(Y)$ such that $f(p)\in B$ and $f^{-1}(B)\subseteq A$, for then $f(p)\in H$ for some $B\supseteq H\in\mc{H}_{\diam(\del)\leq S}(Y)$, and hence we have
         \begin{equation*}
@@ -386,7 +386,11 @@
 
     Furthermore, we have by Lemma \ref{lem:finitely-separating_non-trivial_isolated} that $\mc{H}\subseteq2^X$ is closed and every non-trivial element is isolated, and those conditions allow for the construction in Theorem \ref{thm:component-wise_construction} to continue in Section \ref{sec:the_dual_median_graph_of_a_pocset}.
 
-    Finally, we will need to represent `density towards ends' in a Borel manner, which ultimately is to ensure that the bounds $R<\infty$ can be obtained uniformly across all components; see Section \ref{sec:borel_treeings_of_graphings_with_dense_cuts} for details.
+    Finally, we will need to represent `density towards ends' in a Borel manner, which ultimately is to ensure that the bounds $R<\infty$ can be obtained uniformly across all components; see Section \ref{sec:borel_treeings_of_graphings_with_dense_cuts} for details. For this, we will need the following
+
+    \begin{definition}
+        Let $\mc{H}\subseteq2^X$ be a pocset. For $x,y\in X$, write $x\sim_\mc{H}y$ if $x$ and $y$ are contained in exactly the same half-spaces in $\mc{H}$, which induces an equivalence relation on $X$ whose classes $[x]_\mc{H}$ are called \textit{$\mc{H}$-blocks}.
+    \end{definition}
 
     \begin{proposition}\label{prp:dense_cuts_iff_proper_walling}
         If $\mc{H}$ is a finitely-separating pocset of cuts on a connected locally-finite graph, then $\mc{H}$ is dense towards ends iff (i) each $\mc{H}$-block is finite, and (ii) each $H\in\mc{H}^\ast$ has only finitely-many successors.
@@ -415,9 +419,9 @@
 
     \subsection{Construction of the dual median graph}\label{sec:the_dual_median_graph_of_a_pocset}
 
-    We present a classical construction in geometric group theory of a median graph associated to a profinite pocset with every non-trivial element isolated; see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for other applications of this construction.
+    We present a classical construction in geometric group theory of a median graph $\mc{M}(\mc{H})$ associated to a profinite pocset $\mc{H}$ with every non-trivial element isolated; see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for other applications of this construction.
 
-    In the context of Theorem \ref{thm:treeing_quasi-trees}, this will be applied to the pocset $\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ of cuts in a locally-finite graph $(X,G)$, and is also the first step in the construction in Theorem \ref{thm:component-wise_construction}.
+    In the context of Theorem \ref{thm:treeing_quasi-trees}, this will be applied to the pocset $\mc{H}\coloneqq\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ of cuts in a locally-finite graph $(X,G)$, and is also the first step in the construction in Theorem \ref{thm:component-wise_construction}.
     
     \begin{definition}\label{def:orientation}
         An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$ and let $\mc{U}^\circ(\mc{H})$ denote the clopen ones.
@@ -426,7 +430,7 @@
     \end{definition}
 
     \begin{example}
-        Each $x\in X$ induces its \textit{principal orientation} $\widehat{x}\coloneqq\l\{H\in\mc{H}\st x\in H\r\}=\mc{H}\cap\pi^{-1}_x(1)$ $-$ which is clearly clopen in $\mc{H}$ $-$ and gives us a canonical map $X\to\mc{U}^\circ(\mc{H})$. However, this map is \textit{not necessarily} injective, and we call a fiber $[x]_\mc{H}\coloneqq\l\{y\in X\st\widehat{x}=\widehat{y}\r\}$ thereof an \textit{$\mc{H}$-block}. This induces an equivalence relation on $X$ by declaring $x\sim_\mc{H}y$ iff $x$ and $y$ are contained in exactly the same half-spaces in $\mc{H}$.
+        Each $x\in X$ induces its \textit{principal orientation} $\widehat{x}\coloneqq\l\{H\in\mc{H}\st x\in H\r\}$, which is clopen in $\mc{H}$, and gives us a \textit{principal orientations} map $X\to\mc{U}^\circ(\mc{H})$. However, this map is \textit{not necessarily} injective, and its fibers $[x]_\mc{H}\coloneqq\l\{y\in X\st\widehat{x}=\widehat{y}\r\}$ are precisely the $\mc{H}$-blocks.
     \end{example}
 
     \begin{proposition}\label{prp:construction_of_dual_median_graph}
