@@ -419,14 +419,14 @@
 
     \subsection{Construction of the dual median graph}\label{sec:the_dual_median_graph_of_a_pocset}
 
-    We present a classical construction in geometric group theory of a median graph $\mc{M}(\mc{H})$ associated to a profinite pocset $\mc{H}$ with every non-trivial element isolated; see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for other various applications of this construction.
+    We present a classical construction in geometric group theory of a median graph $\mc{M}(\mc{H})$ associated to a profinite pocset $\mc{H}$ with every non-trivial element isolated; see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for various other applications of this construction.
 
     In the context of Theorem \ref{thm:treeing_quasi-trees}, this will be applied to the pocset $\mc{H}\coloneqq\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ of cuts in a locally-finite graph $(X,G)$, and will also be the first step in the construction in Theorem \ref{thm:component-wise_construction}.
     
     \begin{definition}\label{def:orientation}
         An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$ and let $\mc{U}^\circ(\mc{H})$ denote the clopen ones.
 
-        Intuitively, an orientation is a `maximally consistent' choice of half-spaces\footnote{This can be formalized by letting $\sim$ be the equivalence relation on $\mc{H}$ given by $H\sim\lnot H$. Letting $\del:\mc{H}\to\mc{H}/\!\!\sim$ denote the quotient map, orientations $U\subseteq\mc{H}$ then correspond precisely to sections $\phi:\mc{H}/\!\!\sim\,\to\mc{H}$ of $\del$ such that $\phi(\del H)\not\subseteq\lnot\phi(\del K)$ for every $H,K\in\mc{H}$; the latter condition rules out `orientations' of the form $\leftarrow\hspace{-4.15pt}|\,\,|\hspace{-4.15pt}\rightarrow$.}.
+        Intuitively, an orientation is a `maximally consistent' choice of half-spaces\footnote{This can be formalized by letting $\sim$ be the equivalence relation on $\mc{H}$ given by $H\sim\lnot H$. Letting $\del:\mc{H}\to\mc{H}/\!\!\sim$ denote the quotient map, orientations $U\subseteq\mc{H}$ then correspond precisely to sections $\phi:\mc{H}/\!\!\sim\,\to\mc{H}$ of $\del$ such that $\phi(\del H)\not\subseteq\lnot\phi(\del K)$ for every $H,K\in\mc{H}$; the latter condition rules out `orientations' of the form $\leftarrow\hspace{-4.15pt}|\,\,|\hspace{-4.15pt}\rightarrow$.} in $\mc{H}$.
     \end{definition}
 
     \begin{example}
@@ -480,7 +480,7 @@
         Indeed, if $\lnot H_i\subseteq H_{i-1}$, then $H_{i-1}\in U_{i+1}$ by upward-closure of $U_{i+1}\ni\lnot H_i$. But since $H_{i-1}\neq\lnot H_i$, we have by definition of $U_{i+1}$ that $H_{i-1}\in U_i$, a contradiction. The other cases are similar.
     \end{proof}
 
-    Nonetheless, in the general non-nested case, $\mc{M}(\mc{H})$ still admits a \textit{canonical} spanning tree if we fix a Borel colouring of $\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$ into its nested sub-pocsets, the existence of which follows from the following
+    Nonetheless, in the general non-nested case, $\mc{M}(\mc{H})$ still admits a \textit{canonical} spanning tree if we fix a proper colouring of $\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$ into its nested sub-pocsets, the existence of which follows from the following
 
     \begin{proposition}\label{prp:dual_median_graph_of_cuts_has_finite_hyperplanes}
         The dual median graph $\mc{M}(\mc{H})$ of a pocset of finitely-separating cuts has finite hyperplanes.
@@ -529,9 +529,9 @@
         Let $\mc{H}$ be a finitely-separating pocset of cuts on a connected locally-finite graph $(X,G)$. If $\mc{H}$ is dense towards ends, then each clopen orientation $U\in\mc{U}^\circ(\mc{H})$ contains finitely-many minimal cuts $H\in\mc{H}$.
     \end{lemma}
     \begin{proof}
-        Fix a vertex $U\in\mc{U}^\circ(\mc{H})$ and let $K_\alpha\in U$ be its minimal elements. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $H'\in U$ with $H\cap A=H'\cap A$. Note that $H\cap A\neq\em$ for every $H\in U$, for otherwise $\em\in U$; in particular, we have $\lnot H\in U$ for every $H\subseteq\lnot A$.
+        Fix a vertex $U\in\mc{U}^\circ(\mc{H})$ and let $\mc{K}\subseteq U$ be the minimal elements in $U$. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $H'\in U$ with $H\cap A=H'\cap A$. Note that $H\cap A\neq\em$ for every $H\in U$, for otherwise $\em\in U$; in particular, we have $\lnot H\in U$ for every $H\subseteq\lnot A$.
 
-        Each end $p\in\epsilon(X)$ lies in $\lnot A$, so density of $\mc{H}$ furnishes $H_p\in\mc{H}$ with $p\in H_p\subseteq\lnot A$, and thus $\lnot H_p\in U$. Since $U$ is clopen, we have $K_\alpha\subseteq\lnot H_p$ for some $\alpha$. Thus $\epsilon(X)\subseteq\bigcup_\alpha\lnot K_\alpha$, which by compactness cuts down to a finite subcover $\epsilon(X)\subseteq\bigcup_{i<n}\lnot K_i$. We show that there are at-most finitely-many more minimal $K\in U$.
+        Each end $p\in\epsilon(X)$ lies in $\lnot A$, so density of $\mc{H}$ furnishes $H_p\in\mc{H}$ with $p\in H_p\subseteq\lnot A$, and thus $\lnot H_p\in U$. Since $U$ is clopen, we have $K_\alpha\subseteq\lnot H_p$ for some $K_\alpha\in\mc{K}$. Thus $\l\{\lnot K_\alpha\r\}$ covers $\epsilon(X)$, which by compactness contains a finite subcover $\l\{\lnot K_i\r\}_{i<n}$. We show that there are at-most finitely-many more minimal $K\in U$.
 
         Let $K\neq K_i$ be any other minimal element in $U$. By Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, each $K_i$ is non-nested with finitely-many other half-spaces, so we may assume that $K$ is nested with every $K_i$. But then $K\not\subseteq K_i\not\subseteq K$ and $K\cap K_i\neq\em$ for all $i<n$, which forces $\lnot K\subseteq\bigcap_{i<n}K_i\in\mc{H}_{\del<\infty}(X)$; the latter contains no ends in $\epsilon(X)$, so it is finite by Lemma \ref{lem:infinite_iff_contains_end}, and hence there are at-most finitely-many more minimal $K\in U$.
     \end{proof}
