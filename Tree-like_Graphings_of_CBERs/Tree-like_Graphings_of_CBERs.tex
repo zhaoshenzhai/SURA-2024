@@ -472,14 +472,14 @@
         Let $\mc{H}$ be a profinite pocset with non-trivial points isolated. If $\mc{H}$ is nested, then the median graph $\mc{M}(\mc{H})$ is acyclic, and hence $\mc{M}(\mc{H})$ is a tree.
     \end{corollary}
     \begin{proof}
-        Let $(U_i)_{i<n}$ be a (non-backtracking) cycle in $\mc{M}(\mc{H})$, say induced by some sequence $(H_i)_{i<n}\subseteq\mc{H}$ of half-spaces. We show that $(H_i)$ is \textit{strictly} increasing, so that $H_0\subset\cdots\subset H_n\subset H_0$, which is absurd.
+        Let $(U_i)_{i<n}$ be a cycle in $\mc{M}(\mc{H})$, say induced by some sequence $(H_i)_{i<n}\subseteq\mc{H}$ of half-spaces. We show that $(H_i)$ is \textit{strictly} increasing, so that $H_0\subset\cdots\subset H_n\subset H_0$, which is absurd.
 
         We have $U_{i+1}=U_{i-1}\cup\{\lnot H_i,\lnot H_{i-1}\}\comp\l\{H_i,H_{i-1}\r\}$, so $H_i\neq\lnot H_{i-1}$ (for otherwise $U_{i+1}=U_{i-1}$). Since $H_i\in U_i=U_{i-1}\cup\{\lnot H_{i-1}\}\comp\l\{H_{i-1}\r\}$, we see that $H_i\in U_{i-1}$, and since $H_i\neq H_{i-1}$, it suffices by nestedness of $\mc{H}$ to remove the three cases when $\lnot H_i\subseteq H_{i-1}$, $H_{i-1}\subseteq\lnot H_i$, and $H_i\subseteq H_{i-1}$.
 
         Indeed, if $\lnot H_i\subseteq H_{i-1}$, then $H_{i-1}\in U_{i+1}$ by upward-closure of $U_{i+1}\ni\lnot H_i$. But since $H_{i-1}\neq\lnot H_i$, we have by definition of $U_{i+1}$ that $H_{i-1}\in U_i$, a contradiction. The other cases are similar.
     \end{proof}
 
-    Nonetheless, in the general non-nested case, $\mc{M}(\mc{H})$ still admits a \textit{canonical} spanning tree if we fix a proper colouring of $\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$ into its nested sub-pocsets, the existence of which follows from the following
+    Nonetheless, in the general non-nested case, $\mc{M}(\mc{H})$ still admits a \textit{canonical} spanning tree if we fix a proper colouring of $\mc{H}_\mathrm{cvx}^\ast(\mc{M}(\mc{H}))$ into its nested sub-pocsets (Proposition \ref{prp:canonical_spanning_trees}). For this, we will need the following
 
     \begin{proposition}\label{prp:dual_median_graph_of_cuts_has_finite_hyperplanes}
         The dual median graph $\mc{M}(\mc{H})$ of a pocset of finitely-separating cuts has finite hyperplanes.
