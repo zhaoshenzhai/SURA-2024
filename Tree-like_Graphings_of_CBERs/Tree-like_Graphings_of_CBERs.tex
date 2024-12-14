@@ -388,7 +388,7 @@
 
     Finally, we will need to represent `density towards ends' in a Borel manner, which ultimately is to ensure that the bounds $R<\infty$ can be obtained uniformly across all components; see Section \ref{sec:borel_treeings_of_graphings_with_dense_cuts} for details. For this, we will need the following
 
-    \begin{definition}
+    \begin{definition}\label{def:H_blocks}
         Let $\mc{H}\subseteq2^X$ be a pocset. For $x,y\in X$, write $x\sim_\mc{H}y$ if $x$ and $y$ are contained in exactly the same half-spaces in $\mc{H}$, which induces an equivalence relation on $X$ whose classes $[x]_\mc{H}$ are called \textit{$\mc{H}$-blocks}.
     \end{definition}
 
@@ -419,9 +419,9 @@
 
     \subsection{Construction of the dual median graph}\label{sec:the_dual_median_graph_of_a_pocset}
 
-    We present a classical construction in geometric group theory of a median graph $\mc{M}(\mc{H})$ associated to a profinite pocset $\mc{H}$ with every non-trivial element isolated; see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for other applications of this construction.
+    We present a classical construction in geometric group theory of a median graph $\mc{M}(\mc{H})$ associated to a profinite pocset $\mc{H}$ with every non-trivial element isolated; see \cite{Dun79}, \cite{Rol98}, \cite{Sag95}, and \cite{NR03} for other various applications of this construction.
 
-    In the context of Theorem \ref{thm:treeing_quasi-trees}, this will be applied to the pocset $\mc{H}\coloneqq\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ of cuts in a locally-finite graph $(X,G)$, and is also the first step in the construction in Theorem \ref{thm:component-wise_construction}.
+    In the context of Theorem \ref{thm:treeing_quasi-trees}, this will be applied to the pocset $\mc{H}\coloneqq\mc{H}_{\diam(\del)\leq R}(X)\cap\mc{H}_\mathrm{conn}(X)$ of cuts in a locally-finite graph $(X,G)$, and will also be the first step in the construction in Theorem \ref{thm:component-wise_construction}.
     
     \begin{definition}\label{def:orientation}
         An \textit{orientation} on $\mc{H}$ is an upward-closed subset $U\subseteq\mc{H}$ containing exactly one of $H,\lnot H$ for each $H\in\mc{H}$. We let $\mc{U}(\mc{H})$ denote the set of all orientations on $\mc{H}$ and let $\mc{U}^\circ(\mc{H})$ denote the clopen ones.
@@ -430,7 +430,7 @@
     \end{definition}
 
     \begin{example}
-        Each $x\in X$ induces its \textit{principal orientation} $\widehat{x}\coloneqq\l\{H\in\mc{H}\st x\in H\r\}$, which is clopen in $\mc{H}$, and gives us a \textit{principal orientations} map $X\to\mc{U}^\circ(\mc{H})$. However, this map is \textit{not necessarily} injective, and its fibers $[x]_\mc{H}\coloneqq\l\{y\in X\st\widehat{x}=\widehat{y}\r\}$ are precisely the $\mc{H}$-blocks.
+        Each $x\in X$ induces its \textit{principal orientation} $\widehat{x}\coloneqq\l\{H\in\mc{H}\st x\in H\r\}$, which is clopen in $\mc{H}$, and gives us a \textit{principal orientations} map $X\to\mc{U}^\circ(\mc{H})$. However, this map is \textit{not necessarily} injective, and its fibers $[x]_\mc{H}\coloneqq\l\{y\in X\st\widehat{x}=\widehat{y}\r\}$ are precisely the $\mc{H}$-blocks as in Definition \ref{def:H_blocks}.
     \end{example}
 
     \begin{proposition}\label{prp:construction_of_dual_median_graph}
