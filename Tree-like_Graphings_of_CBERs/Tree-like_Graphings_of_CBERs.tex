@@ -1,5 +1,4 @@
-\documentclass[reqno]{amsart}
-\input{setup/preamble.sty}
+\documentclass[reqno]{amsart} \input{setup/preamble.sty}
 \input{setup/macros.sty}
 
 \begin{document}
@@ -122,7 +121,7 @@
         It suffices to show that the limit points of $\mc{H}$ are trivial, so let $A\in2^X\comp\l\{\em,X\r\}$. Fix $x\in A\not\ni y$. Since $\mc{H}$ is finitely-separating, there are finitely-many $H\in\mc{H}$ with $x\in H\not\ni y$, and for each such $H\in\mc{H}\comp\l\{A\r\}$, there is either some $x_H\in A\comp H$ or $y_H\in H\comp A$. The family of all subsets $B\subseteq X$ containing $x$ and each $x_H$, but not $y$ or any $y_H$, is then a clopen neighborhood of $A$ disjoint from $\mc{H}\comp\l\{A\r\}$, as desired.
     \end{proof}
 
-    Our main method of identifying the finitely-separating pocsets in graphs is as follows.
+    Our main method of identifying the finitely-separating pocsets in graphs is the following
 
     \begin{lemma}\label{lem:finitely_separating_iff_on_boundary_of_finite}
         Let $\mc{H}\subseteq2^X$ be a pocset in a connected graph $(X,G)$. If each $x\in X$ is on the vertex boundary of finitely-many half-spaces in $\mc{H}$, then $\mc{H}$ is finitely-separating. The converse holds too if $(X,G)$ is locally-finite.
@@ -531,9 +530,9 @@
     \begin{proof}
         Fix a vertex $U\in\mc{U}^\circ(\mc{H})$ and let $\mc{K}\subseteq U$ be the minimal elements in $U$. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $H'\in U$ with $H\cap A=H'\cap A$. Note that $H\cap A\neq\em$ for every $H\in U$, for otherwise $\em\in U$; in particular, we have $\lnot H\in U$ for every $H\subseteq\lnot A$.
 
-        Each end $p\in\epsilon(X)$ lies in $\lnot A$, so density of $\mc{H}$ furnishes $H_p\in\mc{H}$ with $p\in H_p\subseteq\lnot A$, and thus $\lnot H_p\in U$. Since $U$ is clopen, we have $K_\alpha\subseteq\lnot H_p$ for some $K_\alpha\in\mc{K}$. Thus $\l\{\lnot K_\alpha\r\}$ covers $\epsilon(X)$, which by compactness contains a finite subcover $\l\{\lnot K_i\r\}_{i<n}$. We show that there are at-most finitely-many more minimal $K\in U$.
+        Each end $p\in\epsilon(X)$ lies in $\lnot A$, so density of $\mc{H}$ furnishes $H_p\in\mc{H}$ with $p\in H_p\subseteq\lnot A$, and thus $\lnot H_p\in U$. Since $U$ is clopen, we have $K_p\subseteq\lnot H_p$ for some $K_p\in\mc{K}$. Thus $\l\{\lnot K_p\r\}$ covers $\epsilon(X)$, which by compactness contains a finite subcover $\l\{\lnot K_i\r\}_{i<n}$. We show that there are at-most finitely-many more minimal $K\in U$.
 
-        Let $K\neq K_i$ be any other minimal element in $U$. By Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, each $K_i$ is non-nested with finitely-many other half-spaces, so we may assume that $K$ is nested with every $K_i$. But then $K\not\subseteq K_i\not\subseteq K$ and $K\cap K_i\neq\em$ for all $i<n$, which forces $\lnot K\subseteq\bigcap_{i<n}K_i\in\mc{H}_{\del<\infty}(X)$; the latter contains no ends in $\epsilon(X)$, so it is finite by Lemma \ref{lem:infinite_iff_contains_end}, and hence there are at-most finitely-many more minimal $K\in U$.
+        Let $K\in\mc{K}\comp\l\{K_i\r\}_{i<n}$ be any other minimal element in $U$. By Lemma \ref{lem:connected_cuts_non_nested_finitely_others}, each $K_i$ is non-nested with finitely-many other half-spaces, so we may assume without loss of generality that $K$ is nested with every $K_i$. But $K\not\subseteq K_i\not\subseteq K$ and $K\cap K_i\neq\em$ for all $i<n$, so $\lnot K\subseteq\bigcap_{i<n}K_i\in\mc{H}_{\del<\infty}(X)$; the latter contains no ends in $\epsilon(X)$, so it is finite by Lemma \ref{lem:infinite_iff_contains_end}, and hence $\mc{K}$ is finite too.
     \end{proof}
 
     We now describe the encoding of $\mc{U}^\circ(\mc{H})$ into a standard Borel space. Since cuts have finite edge boundary, we may first represent the space $\mc{K}$ of \textit{all} non-trivial cuts of $G$ as a Borel subset of $[G]^{<\infty}$. The subcollection $\mc{H}\subseteq\mc{K}$ consisting of those cuts with component-wise bounded boundary diameter is also Borel, since each $R_C<\infty$ can be witnessed as the minimal number making $\mc{H}_{\diam(\del)\leq R_C}(C)$ dense towards ends of $G|C$, and the latter is a Borel condition as characterized in Proposition \ref{prp:dense_cuts_iff_proper_walling}. Finally, $\mc{U}^\circ(\mc{H})$ is a Borel subset of $[\mc{H}]^{<\infty}$, since we may encode each clopen orientation $U\in\mc{U}^\circ(\mc{H}(C))$ by its set of minimal elements in $\mc{H}(C)$, which is finite by Lemma \ref{lem:dual_median_graph_of_dense_cuts_locally_finite}. This makes $\mc{U}^\circ(\mc{H})$ a standard Borel space, and finishes the proof of Theorem \ref{thm:treeing_quasi-trees}.
