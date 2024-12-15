@@ -495,7 +495,7 @@
     We now present the Borel cycle-cutting algorithm that can be preformed on any countable median graph with finite hyperplanes. Applying this algorithm to the dual median graph of a finitely-separating family of cuts, which has finite hyperplanes by Proposition \ref{prp:dual_median_graph_of_cuts_has_finite_hyperplanes}, proves Theorem \ref{thm:component-wise_construction}.
 
     \begin{lemma}\label{lem:H_blocks_form_a_median_graph}
-        For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ on a median graph $(X,G)$, the map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
+        For any subpocset $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ of convex co-convex half-spaces in a median graph $(X,G)$, the principal orientations map $X\to\mc{U}^\circ(\mc{H})$ is surjective.
     \end{lemma}
     \begin{proof}
         Let $U\in\mc{U}^\circ(\mc{H})$, we need to find some $x\in X$ with $U=\widehat{x}$. Since $U\subseteq\mc{H}$ is clopen, there is a finite set $A\subseteq X$ $-$ which we may assume to be convex by Lemma \ref{lem:convex_of_finite_is_finite} $-$ such that for all $H\in\mc{H}$, we have $H\in U$ iff there is $H'\in U$ with $H\cap A=H'\cap A$. Note that $H\cap A\neq\em$ for every $H\in U$, since otherwise $\em\in U$. Furthermore, $H\cap H'\neq\em$ for every $H,H'\in U$, since otherwise we have $H\subseteq\lnot H'$, and so $\lnot H'\in U$.
@@ -503,7 +503,7 @@
         By Lemma \ref{lem:helly}, the intersection $(H\cap A)\cap(H'\cap A)=H\cap H'\cap A$ is non-empty, and applying it again furnishes some $x\in\bigcap_{H\in U}H\cap A$ in $X$. Thus $U\subseteq\widehat{x}$, so $U=\widehat{x}$ since both are orientations.
     \end{proof}
 
-    This induces a \textit{$G$-adjacency} graph $X/\mc{H}\iso\mc{M}(\mc{H})$; explicitly, two $\mc{H}$-blocks $([x]_\mc{H},[y]_\mc{H})$ are $G$-adjacent if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$. Note that $\mc{M}(\mc{H})$ may be constructed as in Proposition \ref{prp:construction_of_dual_median_graph} since $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ is finitely-separating by Lemma \ref{lem:half_space_separating_convex}. In particular, if $\mc{H}$ is nested, then $X/\mc{H}$ is a tree by Corollary \ref{cor:nested_implies_tree}.
+    This induces a \textit{$G$-adjacency} graph $X/\mc{H}\iso\mc{M}(\mc{H})$; explicitly, two $\mc{H}$-blocks $[x]_\mc{H},[y]_\mc{H}$ are $G$-adjacent if $(\widehat{x},\widehat{y})\in\mc{M}(\mc{H})$. Note that $\mc{M}(\mc{H})$ may be constructed as in Proposition \ref{prp:construction_of_dual_median_graph} since $\mc{H}\subseteq\mc{H}_\mathrm{cvx}(X)$ is finitely-separating by Lemma \ref{lem:half_space_separating_convex}. In particular, if $\mc{H}$ is nested, then $X/\mc{H}$ is a tree by Corollary \ref{cor:nested_implies_tree}.
 
     \begin{proposition}\label{prp:canonical_spanning_trees}
         If $(X,G)$ is a countable median graph with finite hyperplanes, then fixing any colouring of $\mc{H}_\mathrm{cvx}^\ast(X)$ into nested sub-pocsets yields a canonical spanning tree thereof.
