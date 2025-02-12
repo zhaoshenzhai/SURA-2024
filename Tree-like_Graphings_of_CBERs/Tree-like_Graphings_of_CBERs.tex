@@ -27,7 +27,7 @@
         If a CBER $E$ admits a locally-finite graphing such that each component is a quasi-tree,\footnote{Recall that metric spaces $X$ and $Y$ are \textit{quasi-isometric} if they are isometric up to a bounded multiplicative and additive error, and $X$ is a \textit{quasi-tree} if it is quasi-isometric to a simplicial tree; see \cite{Gro93} and \cite{DK18}.} then $E$ is treeable.
     \end{mainTheorem}
 
-    Roughly speaking, the existence of a quasi-isometry $G|C\to T_C$ to a simplicial tree $T_C$ for each component $C\subseteq X$ induces a collection $\mc{H}(C)\subseteq2^C$ of `cuts' (subsets $H\subseteq C$ with finite boundary such that both $H$ and $C\comp H$ are connected), which are `tree-like' in the sense that
+    Roughly speaking, the existence of a quasi-isometry $G|C\to T_C$ to a simplicial tree $T_C$ for each component $C\subseteq X$ implies the existence of a collection $\mc{H}(C)\subseteq2^C$ of `cuts' (subsets $H\subseteq C$ with finite boundary such that both $H$ and $C\comp H$ are connected), which are `tree-like' in the sense that
     \begin{enumerate}
         \item[(i)] $\mc{H}(C)$ is \textit{finitely-separating}: each pair $x,y\in C$ is separated by finitely-many $H\in\mc{H}(C)$, and
         \item[(ii)] $\mc{H}(C)$ is \textit{dense towards ends}: $\mc{H}(C)$ contains a neighborhood basis for each end in $G|C$.
@@ -73,7 +73,7 @@
         For any finitely-separating family of cuts $\mc{H}$ on a connected locally-finite graph, its dual median graph $\mc{M}(\mc{H})$ has finite hyperplanes, and fixing a proper colouring of the intersection graph of those hyperplanes yields a canonical spanning tree $\mc{U}^\circ(\mc{H})$ of $\mc{M}(\mc{H})$.
     \end{mainTheorem}
 
-    In the context of Theorem \ref{thm:treeing_quasi-trees}, the additional condition (ii) then shows that $\mc{M}(\mc{H}(C))$ is locally-finite for each component $C\subseteq G$ of a locally-finite graphing $G$ of $E$, which ensures that $\mc{U}^\circ(\mc{H})\coloneqq\bigsqcup_C\mc{U}^\circ(\mc{H}(C))$ is a standard Borel space. This, in turn, proves Theorem \ref{thm:treeing_quasi-trees}; see Section \ref{sec:borel_treeings_of_graphings_with_dense_cuts} for details.
+    In the context of Theorem \ref{thm:treeing_quasi-trees}, each $\mc{H}(C)$ is a collection of cuts with boundary diameter bounded by some $R_C<\infty$, and choosing such a bound so that $\mc{H}(C)$ satisfies (i) and (ii) is a Borel operation since the \textit{a priori} coanalytic condition (ii) is shown to be equivalent to a Borel one in Proposition \ref{prp:dense_cuts_iff_proper_walling}. These conditions show that $\mc{M}(\mc{H}(C))$ is locally-finite for each component $C\subseteq G$ of a locally-finite graphing $G$ of $E$, which ensures that $\bigsqcup_C\mc{U}^\circ(\mc{H}(C))$ is a standard Borel space. This, in turn, proves Theorem \ref{thm:treeing_quasi-trees}; see Section \ref{sec:borel_treeings_of_graphings_with_dense_cuts} for details.
 
     \subsection*{Acknowledgements}
 
